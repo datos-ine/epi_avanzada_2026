@@ -1,98 +1,20 @@
 {
   "index.qmd": {
-    "index.html": "1561db2e"
-  },
-  "intro.qmd": {
-    "intro.html": "8a750aef"
-  },
-  "summary.qmd": {
-    "summary.html": "ef042efd"
-  },
-  "references.qmd": {
-    "references.html": "a3bcb2cf"
+    "index.html": "549d16ef"
   },
   "unidad_1/01_intro_R.qmd": {
-    "01_intro_R.html": "b57b52dc"
+    "01_intro_R.html": "b991329d"
   },
   "unidad_1/02_intro_RStudio.qmd": {
-    "02_intro_RStudio.html": "7816f3bd"
+    "02_intro_RStudio.html": "f3f4327d"
   },
   "unidad_1/03_intro_tidyverse.qmd": {
-    "03_intro_tidyverse.html": "4cacdacd"
+    "03_intro_tidyverse.html": "9b7493f8"
   },
   "unidad_1/04_analisis_exploratorio.qmd": {
-    "04_analisis_exploratorio.html": "90c98b27"
+    "04_analisis_exploratorio.html": "71b5b05a"
   },
   "unidad_1/05_hoja_estilo.qmd": {
-    "05_hoja_estilo.html": "bf12d5ce"
-  },
-  "downloads.qmd": {
-    "downloads.html": "d320d1be"
-  },
-  "unidad_3/01_est_ecologicos.qmd": {
-    "01_est_ecologicos.html": "91aa6b57"
-  },
-  "unidad_3/02_mod_estadistico.qmd": {
-    "02_mod_estadistico.html": "0a9e4774"
-  },
-  "unidad_3/03_covarianza_correlacion.qmd": {
-    "03_covarianza_correlacion.html": "69c3ccc6"
-  },
-  "unidad_3/04_reg_lineal.qmd": {
-    "04_reg_lineal.html": "2a6a48af"
-  },
-  "unidad_3/05_anova.qmd": {
-    "05_anova.html": "0e373aa0"
-  },
-  "unidad_3/06_rol_variables.qmd": {
-    "06_rol_variables.html": "ccc139c4"
-  },
-  "unidad_3/07_reg_lineal_multiple.qmd": {
-    "07_reg_lineal_multiple.html": "df4d62e3"
-  },
-  "unidad_2/01_est_epidemiologicos.qmd": {
-    "01_est_epidemiologicos.html": "6495540c"
-  },
-  "unidad_2/02_est_transversales.qmd": {
-    "02_est_transversales.html": "7d52cb40"
-  },
-  "unidad_2/03_inferencia.qmd": {
-    "03_inferencia.html": "870bb8de"
-  },
-  "unidad_2/04_normalidad_heterocedasticidad.qmd": {
-    "04_normalidad_heterocedasticidad.html": "8f60e1f7"
-  },
-  "unidad_2/05_muestreo.qmd": {
-    "05_muestreo.html": "100903f0"
-  },
-  "unidad_2/06_fun_condicionales.qmd": {
-    "06_fun_condicionales.html": "aec7b7fe"
-  },
-  "unidad_2/07_IC_complejos.qmd": {
-    "07_IC_complejos.html": "38f0f90c"
-  },
-  "unidad_4/01_est_caso_control.qmd": {
-    "01_est_caso_control.html": "9a3223cf"
-  },
-  "unidad_4/02_reg_logistica.qmd": {
-    "02_reg_logistica.html": "e7125618"
-  },
-  "unidad_4/03_sep_datos.qmd": {
-    "03_sep_datos.html": "2b9897df"
-  },
-  "unidad_4/04_reg_logistica_cond.qmd": {
-    "04_reg_logistica_cond.html": "85003975"
-  },
-  "unidad_4/05_mod_predict.qmd": {
-    "05_mod_predict.html": "89f2cf25"
-  },
-  "unidad_5/01_est_cohortes.qmd": {
-    "01_est_cohortes.html": "cb766219"
-  },
-  "unidad_5/02_reg_poisson.qmd": {
-    "02_reg_poisson.html": "5fa38c52"
-  },
-  "unidad_5/03_dispersion.qmd": {
-    "03_dispersion.html": "19e97f6e"
+    "05_hoja_estilo.html": "8970531d"
   }
 }

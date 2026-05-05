@@ -1,5 +1,6 @@
 project:
   type: book
+  
 
 book:
   ## Metadatos
@@ -9,6 +10,8 @@ book:
     center: Este material es parte del curso de Epidemiología - Nivel Avanzado © 2025 Instituto Nacional de Epidemiología "Dr. Juan H. Jara" (ANLIS)
 
   cover-image: logos/logos_ine.svg
+  output-file: "epi_avanzada"
+
   ## Barra Navegación  
   navbar: 
     background: "#2F2E4E"
@@ -41,8 +44,15 @@ book:
           - text: "Paquetes y datos para el curso"
             icon: file-zip
             href: files/datos_y_paquetes.zip
+          - text: "Libro en PDF"
+            icon: file-earmark-pdf
+            href: epi_avanzada.pdf
+          - text: "Libro en EPUB"
+            icon: book
+            href: epi_avanzada.epub
+          
   sidebar: 
-    logo: logos/logo_curso.png
+    logo: logos/logo_curso.png 
             
   ## Capítulos
   chapters:
@@ -138,6 +148,11 @@ format:
     # Colocar enlaces a la ayuda de funciones
     code-link: true
 
+  epub:
+    cover-image: logos/logo_curso.png
+
+  pdf: default
+
 # Tipografía
 mainfont: "Calibri"
 
@@ -152,6 +167,7 @@ lang: es
 execute: 
   echo: true
   warning: false
+  freeze: auto
   
 # Metadatos
 license: CC BY-NC
@@ -164,9 +180,3 @@ author:
     orcid: 0000-0002-4791-9706
   - name: Tamara Ricardo
     orcid: 0000-0002-0921-2611  
-    
-    pdf:
-    documentclass: scrreprt
-
-
-
