@@ -92,18 +92,20 @@ tidyverse_packages()
 Además, existen muchos otros paquetes que siguen la misma filosofía pero no están incluidos por defecto. En esos casos, deben instalarse y activarse individualmente.
 
 ::: {.callout-warning appearance="simple"}
-Para profundizar el uso de `tidyverse`, se recomienda consultar las siguientes fuentes:
+Para profundizar el uso de `tidyverse`, se recomienda consultar:
 
-- Sitio oficial: [**https://www.tidyverse.org/**](https://www.tidyverse.org/){.uri}
+Sitio oficial: https://www.tidyverse.org/
 
-- Libro *R para Ciencia de Datos:* [**r4ds**](https://es.r4ds.hadley.nz/index.html) o la nueva versión [***r4ds 2e***](https://r4ds.hadley.nz/) (por ahora solo disponible en inglés).
+Libro *R para Ciencia de Datos*: https://es.r4ds.hadley.nz/
 
-- [**EpiRhandbook en español**](https://www.epirhandbook.com/es/index.es.html)
+Nueva versión (*r4ds 2e*): https://r4ds.hadley.nz/
+
+EpiRhandbook en español: https://www.epirhandbook.com/es/index.es.html
 :::
 
 ## *Dataframes* con `tibble`
 
-[![](images/tibble.png){fig-align="center" width="20%"}](https://tibble.tidyverse.org/)
+[![](images/tibble.png){fig-align="center" width="20%"}]
 
 Uno de los paquetes que forman parte del núcleo básico de *tidyverse* es `tibble` [@tibble], que introduce una versión moderna del objeto `data.frame`. Todas las funciones que generan tablas de datos en *tidyverse* devuelven objetos *tibble* (`tbl_df`), los cuales son más eficientes y amigables para el flujo de trabajo.
 
@@ -127,7 +129,7 @@ datos <- tibble(
 
 ## Tuberías con `magrittr`
 
-[![](images/magrittr.png){fig-align="center" width="20%"}](https://magrittr.tidyverse.org/)
+[![](images/magrittr.png){fig-align="center" width="20%"}]
 
 Una de las incorporaciones más útiles y transversales del ecosistema *tidyverse* es el uso de "*tuberías"* o *pipe operators*. Una tubería conecta un bloque de código con otro, permitiendo encadenar operaciones de manera legible. El operador `%>%`, proveniente del paquete `magrittr` [@magrittr], transforma llamadas de funciones anidadas (con múltiples paréntesis) en una secuencia de pasos más simple de leer y escribir.
 
@@ -172,7 +174,7 @@ Las tuberías le dan mucha mas claridad al código separándolo en partes, como 
 
 ### Archivos de texto plano con `readr`
 
-[![](images/readr.png){fig-align="center" width="20%"}](https://readr.tidyverse.org/)
+[![](images/readr.png){fig-align="center" width="20%"}]
 
 El paquete `readr` [@readr] contiene funciones similares a las de la familia `read.table()` de R base, pero desarrollados bajo el ecosistema `tidyverse`.
 
@@ -320,7 +322,7 @@ write_csv2(datos, "ejemplo.csv") # define cabecera y separador ;
 
 ### Lectura de hojas de cálculo con `readxl`
 
-[![](images/readxl.png){fig-align="center" width="20%"}](https://readxl.tidyverse.org/)
+[![](images/readxl.png){fig-align="center" width="20%"}]
 
 Uno de los formatos más comunes para almacenar datos son las hojas de cálculo, en particular las creadas con Microsoft Excel. El paquete `readxl` [@readxl], parte del ecosistema `tidyverse`, permite leer este tipo de archivos.
 
@@ -412,7 +414,7 @@ Además de los argumentos generales de `read_xl()`, podemos mencionar estos otro
 
 ## Gestión de datos con `dplyr`
 
-[![](images/dplyr.png){fig-align="center" width="20%"}](https://dplyr.tidyverse.org/)
+[![](images/dplyr.png){fig-align="center" width="20%"}]
 
 El paquete `dplyr` [@dplyr] fue desarrollado por *Hadley Wickham* como una versión optimizada del paquete `plyr` [@plyr].
 
@@ -826,7 +828,7 @@ Tiene un par de argumentos opcionales:
 
 ## Gráficos estadísticos con `ggplot2`
 
-[![](images/ggplot.png){fig-align="center" width="20%"}](https://ggplot2.tidyverse.org/)
+[![](images/ggplot.png){fig-align="center" width="20%"}]
 
 El paquete `ggplot2` [@ggplot2] se autodefine como una librería para “*crear elegantes visualizaciones de datos utilizando una gramática de gráficos*”. Proporciona una forma intuitiva de construir gráficos basada en [**The Grammar of Graphics**](https://www.springer.com/gp/book/9780387245447) a través de un sistema basado en tres componentes básicos:
 
