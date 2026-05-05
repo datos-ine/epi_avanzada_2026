@@ -19,25 +19,25 @@ source("../setup.R")
 
 ## Introducción
 
-*Tidyverse* [@tidyverse] es el nombre que recibe el conjunto de paquetes desarrollados y/o promovidos por [**Hadley Wickham**](https://en.wikipedia.org/wiki/Hadley_Wickham) (jefe científico en Posit/RStudio) y su equipo, orientado al trabajo de ciencia de datos con R. Estos paquetes están diseñados para integrarse de manera coherente, compartiendo una misma filosofía de diseño conocida como [***The tidy tools manifesto***](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html).
+*Tidyverse*[@tidyverse] es el nombre que recibe el conjunto de paquetes desarrollados y/o promovidos por [**Hadley Wickham**](https://en.wikipedia.org/wiki/Hadley_Wickham) (jefe científico en Posit/RStudio) y su equipo, orientado al trabajo de ciencia de datos con R. Estos paquetes están diseñados para integrarse de manera coherente, compartiendo una misma filosofía de diseño conocida como [***The tidy tools manifesto***](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html).
 
 Los cuatro principios básicos sobre los que se construye *tidyverse* son:
 
--   Reutilización de estructuras de datos
+- Reutilización de estructuras de datos
 
--   Resolución de problemas complejos combinando varias piezas sencillas
+- Resolución de problemas complejos combinando varias piezas sencillas
 
--   Uso de programación funcional
+- Uso de programación funcional
 
--   Diseño orientado a las personas
+- Diseño orientado a las personas
 
 Los paquetes incluidos cubren todas las etapas del análisis de datos dentro de R: importación y ordenamiento de los datos (*tidy data*), transformación, visualización, modelado y la posterior comunicación de resultados.
 
 La palabra *tidy* se traduce como “ordenado”, y hace referencia a una estructura específica que deben cumplir los datos:
 
--   Cada ***variable*** es una *columna* de la tabla de datos.
--   Cada ***observación*** es una *fila* de la tabla de datos.
--   Cada ***tabla*** responde a una *unidad de observación o* análisis.
+- Cada ***variable*** es una *columna* de la tabla de datos.
+- Cada ***observación*** es una *fila* de la tabla de datos.
+- Cada ***tabla*** responde a una *unidad de observación o* análisis.
 
 ![](images/tidy.PNG){fig-align="center"}
 
@@ -94,11 +94,11 @@ Además, existen muchos otros paquetes que siguen la misma filosofía pero no es
 ::: {.callout-warning appearance="simple"}
 Para profundizar el uso de `tidyverse`, se recomienda consultar las siguientes fuentes:
 
--   Sitio oficial: [**https://www.tidyverse.org/**](https://www.tidyverse.org/){.uri}
+- Sitio oficial: [**https://www.tidyverse.org/**](https://www.tidyverse.org/){.uri}
 
--   Libro *R para Ciencia de Datos:* [**r4ds**](https://es.r4ds.hadley.nz/index.html) o la nueva versión [***r4ds 2e***](https://r4ds.hadley.nz/) (por ahora solo disponible en inglés).
+- Libro *R para Ciencia de Datos:* [**r4ds**](https://es.r4ds.hadley.nz/index.html) o la nueva versión [***r4ds 2e***](https://r4ds.hadley.nz/) (por ahora solo disponible en inglés).
 
--   [**EpiRhandbook en español**](https://www.epirhandbook.com/es/index.es.html)
+- [**EpiRhandbook en español**](https://www.epirhandbook.com/es/index.es.html)
 :::
 
 ## *Dataframes* con `tibble`
@@ -109,11 +109,11 @@ Uno de los paquetes que forman parte del núcleo básico de *tidyverse* es `tibb
 
 Las principales ventajas de trabajar con `tibble` son:
 
--   Impresión en consola más legible y controlada (muestran un número limitado de filas y columnas).
+- Impresión en consola más legible y controlada (muestran un número limitado de filas y columnas).
 
--   No cambian automáticamente el tipo de datos.
+- No cambian automáticamente el tipo de datos.
 
--   Permiten nombres de columnas con espacios o caracteres especiales si se encierran entre comillas invertidas `` ` `` (aunque **no se recomienda**).
+- Permiten nombres de columnas con espacios o caracteres especiales si se encierran entre comillas invertidas `` ` `` (aunque **no se recomienda**).
 
 Para crear un objeto *tibble* manualmente usamos el siguiente código:
 
@@ -180,28 +180,28 @@ Los archivos de texto plano (ASCII u otras codificaciones) son universalmente ut
 
 Estos datos planos tienen dos características principales:
 
--   La cabecera (en inglés *header*).
--   El carácter o símbolo separador que indica la separación de columnas: pueden estar separadas por comas, punto y coma, tabulación, etc.
+- La cabecera (en inglés *header*).
+- El carácter o símbolo separador que indica la separación de columnas: pueden estar separadas por comas, punto y coma, tabulación, etc.
 
 La presencia o no de una cabecera se maneja con los argumentos `col_names` y `skip`:
 
--   `col_names = TRUE` indica que la primera fila contiene los nombres de las columnas (cabecera).
+- `col_names = TRUE` indica que la primera fila contiene los nombres de las columnas (cabecera).
 
--   `col_names = FALSE` indica que no hay cabecera y las columnas se nombran automáticamente (`X1`, `X2`, etc).
+- `col_names = FALSE` indica que no hay cabecera y las columnas se nombran automáticamente (`X1`, `X2`, etc).
 
--   `skip = 0` (valor por defecto) lee los datos desde la primera fila, pero si hay encabezados complejos (por ejemplo, títulos y subtítulos ), se puede indicar cuántas filas deben omitirse. Ejemplo: `skip = 5` omite las primeras 5 filas del archivo.
+- `skip = 0` (valor por defecto) lee los datos desde la primera fila, pero si hay encabezados complejos (por ejemplo, títulos y subtítulos ), se puede indicar cuántas filas deben omitirse. Ejemplo: `skip = 5` omite las primeras 5 filas del archivo.
 
 Otro aspecto a considerar es el carácter **separador** utilizado para indicar la separación entre columnas. Los separadores más comunes son:
 
--   coma (`,`)
+- coma (`,`)
 
--   punto y coma (`;`)
+- punto y coma (`;`)
 
--   tabulación (`TAB`)
+- tabulación (`TAB`)
 
--   espacio (`" "`)
+- espacio (`" "`)
 
--   barra vertical o *pipe* (`|`)
+- barra vertical o *pipe* (`|`)
 
 #### Funciones de lectura
 
@@ -209,24 +209,24 @@ Algunas de las funciones del paquete asumen un separador particular. Por caso `r
 
 En forma detallada el paquete `readr` soporta siete formatos de archivo a partir de siete funciones:
 
--   `read_csv()`: archivos separados por comas (CSV).
--   `read_tsv()`: archivos separados por tabulaciones.
--   `read_delim()`: archivos separados con delimitadores generales.
--   `read_fwf()`: archivos con columnas de ancho fijo.
--   `read_table()`: archivos formato tabla con columnas separadas por espacios.
--   `read_log()`: archivos log web.
+- `read_csv()`: archivos separados por comas (CSV).
+- `read_tsv()`: archivos separados por tabulaciones.
+- `read_delim()`: archivos separados con delimitadores generales.
+- `read_fwf()`: archivos con columnas de ancho fijo.
+- `read_table()`: archivos formato tabla con columnas separadas por espacios.
+- `read_log()`: archivos log web.
 
 En comparación con las funciones R `base`, las funciones de `readr`:
 
--   Usan un esquema de nombres consistente de parámetros.
+- Usan un esquema de nombres consistente de parámetros.
 
--   Son más rápidas.
+- Son más rápidas.
 
--   Analizan eficientemente los formatos de datos comunes (especialmente fechas y horas).
+- Analizan eficientemente los formatos de datos comunes (especialmente fechas y horas).
 
--   Muestra una barra de progreso para archivos grandes.
+- Muestra una barra de progreso para archivos grandes.
 
--   Vienen incluidas dentro de `tidyverse` pero también pueden usarse de forma independiente:
+- Vienen incluidas dentro de `tidyverse` pero también pueden usarse de forma independiente:
 
 ```{r}
 #| eval: false
@@ -251,9 +251,9 @@ info
 
 En estos ejemplos:
 
--   `read_csv()` espera comas como separador
+- `read_csv()` espera comas como separador
 
--   `read_csv2()` espera punto y coma como separador
+- `read_csv2()` espera punto y coma como separador
 
 Al leer un archivo, `readr` intenta adivinar automáticamente el tipo de dato de cada columna (*parse*). Si no hay cabecera, los nombres de columna serán `X1`, `X2`, etc.
 
@@ -265,13 +265,13 @@ glimpse(info)
 
 Los tipos de datos posibles son:
 
--   `character` (`<chr>`)
+- `character` (`<chr>`)
 
--   `integer`, `double` o `numeric` (`<int>`, `<dbl>`)
+- `integer`, `double` o `numeric` (`<int>`, `<dbl>`)
 
--   `logical` (`<lgl>`)
+- `logical` (`<lgl>`)
 
--   `date`, `datetime`, etc.
+- `date`, `datetime`, etc.
 
 Por ejemplo, columnas con enteros pueden aparecer como `<dbl>` si se interpretan como `double`, y las fechas como `<date>`.
 
@@ -293,10 +293,10 @@ read_delim(
 
 El paquete también incluye funciones para escribir archivos de texto plano, con formatos espejo de las funciones de lectura más comunes:
 
--   `write_csv()`: escribe archivos separados por comas
--   `write_csv2()`: escribe archivos separados por punto y comas
--   `write_tsv()`: escribe archivos separados por tabulaciones
--   `write_delim()`: escribe archivos separados con delimitadores definidos por el usuario
+- `write_csv()`: escribe archivos separados por comas
+- `write_csv2()`: escribe archivos separados por punto y comas
+- `write_tsv()`: escribe archivos separados por tabulaciones
+- `write_delim()`: escribe archivos separados con delimitadores definidos por el usuario
 
 Los argumentos son generales y para el caso del último más extensos, dado que hay que definir cual es el separador que deseamos en el archivo. Podemos consultarlos con el siguiente código:
 
@@ -346,13 +346,13 @@ args(read_excel)
 
 Entre los más relevantes encontramos:
 
--   `path`: nombre del archivo y su ubicación (entre comillas)
+- `path`: nombre del archivo y su ubicación (entre comillas)
 
--   `sheet`: nombre de la hoja o su número de orden
+- `sheet`: nombre de la hoja o su número de orden
 
--   `col_names`: si es `TRUE`, toma la primera fila como nombres de las columnas
+- `col_names`: si es `TRUE`, toma la primera fila como nombres de las columnas
 
--   `skip`: permite saltear un número determinado de filas antes de comenzar la lectura
+- `skip`: permite saltear un número determinado de filas antes de comenzar la lectura
 
 Al ejecutar `read_excel()`, internamente se utiliza la función `excel_format()` para detectar si el archivo es `.xls` o `.xlsx`, y luego se aplica la función específica para cada caso: `read_xls()` o `read_xlsx()`. Estas funciones también pueden usarse directamente si se desea.
 
@@ -402,13 +402,13 @@ Lo novedoso de esta lectura es el argumento `skip = 1` que debimos incorporar da
 
 Además de los argumentos generales de `read_xl()`, podemos mencionar estos otros:
 
--   `n_max`: número máximo de filas a leer.
+- `n_max`: número máximo de filas a leer.
 
--   `range`: rango de celdas a importar (como en Excel, por ejemplo `"B3:D87"`).
+- `range`: rango de celdas a importar (como en Excel, por ejemplo `"B3:D87"`).
 
--   `col_types`: define el tipo de datos de cada columna. Valores posibles: `"numeric"`, `"logical"`, `"text"`, `"date"`, `"skip"` (no leer la columna), `"guess"` (modo predeterminado: la función decide automáticamente el tipo).
+- `col_types`: define el tipo de datos de cada columna. Valores posibles: `"numeric"`, `"logical"`, `"text"`, `"date"`, `"skip"` (no leer la columna), `"guess"` (modo predeterminado: la función decide automáticamente el tipo).
 
--   `na`: carácter o vector de caracteres que se deben interpretar como valores perdidos (`NA`). Por defecto, las celdas vacías se interpretan así.
+- `na`: carácter o vector de caracteres que se deben interpretar como valores perdidos (`NA`). Por defecto, las celdas vacías se interpretan así.
 
 ## Gestión de datos con `dplyr`
 
@@ -420,14 +420,14 @@ Su principal contribución es ofrecer una *gramática* para la manipulación de 
 
 Las funciones clave del paquete permiten realizar las siguientes acciones (verbos):
 
--   `select()`: selecciona un conjunto de columnas (variables)
--   `rename()`: renombra variables en un conjunto de datos
--   `filter()`: selecciona un conjunto de filas (observaciones) según una o varias condiciones lógicas
--   `arrange()`: reordena las filas de un conjunto de datos
--   `mutate()`: añade nuevas variables/columnas o transforma variables existentes
--   `summarise()`/`summarize()`: genera resúmenes estadísticos de diferentes variables en el conjunto de datos
--   `group_by()`: agrupa las observaciones en función de una o más variables, lo que permite realizar operaciones por grupo
--   `count()`: contabiliza valores que se repiten, generando una tabla de frecuencias
+- `select()`: selecciona un conjunto de columnas (variables)
+- `rename()`: renombra variables en un conjunto de datos
+- `filter()`: selecciona un conjunto de filas (observaciones) según una o varias condiciones lógicas
+- `arrange()`: reordena las filas de un conjunto de datos
+- `mutate()`: añade nuevas variables/columnas o transforma variables existentes
+- `summarise()`/`summarize()`: genera resúmenes estadísticos de diferentes variables en el conjunto de datos
+- `group_by()`: agrupa las observaciones en función de una o más variables, lo que permite realizar operaciones por grupo
+- `count()`: contabiliza valores que se repiten, generando una tabla de frecuencias
 
 Además, al ser parte del ecosistema *tidyverse*, `dplyr` integra al operador `%>%` (*pipe*) formando una única secuencia de procesamiento o *pipeline*.
 
@@ -513,21 +513,21 @@ datos |>
 
 Otros posibles argumentos son:
 
--   `starts_with()`: selecciona todas las columnas que comiencen con el patrón indicado.
+- `starts_with()`: selecciona todas las columnas que comiencen con el patrón indicado.
 
--   `ends_with()`: selecciona todas las columnas que terminen con el patrón indicado.
+- `ends_with()`: selecciona todas las columnas que terminen con el patrón indicado.
 
--   `contains()`: selecciona las columnas que posean el patrón indicado.
+- `contains()`: selecciona las columnas que posean el patrón indicado.
 
--   `matches()`: similar a `contains()`, pero permite poner una expresión regular.
+- `matches()`: similar a `contains()`, pero permite poner una expresión regular.
 
--   `all_of()`: selecciona las variables pasadas en un vector (todos los nombres deben estar presentes o devuelve un error).
+- `all_of()`: selecciona las variables pasadas en un vector (todos los nombres deben estar presentes o devuelve un error).
 
--   `any_of()`: idem anterior excepto que no se genera ningún error para los nombres que no existen.
+- `any_of()`: idem anterior excepto que no se genera ningún error para los nombres que no existen.
 
--   `num_range()`: selecciona variables con nombre combinados con caracteres y números (ejemplo: `num_range("x", 1:3)` selecciona las variables `x1`, `x2` y `x3`.
+- `num_range()`: selecciona variables con nombre combinados con caracteres y números (ejemplo: `num_range("x", 1:3)` selecciona las variables `x1`, `x2` y `x3`.
 
--   `where()`: aplica una función a todas las variables y selecciona aquellas para las cuales la función regresa TRUE (por ejemplo: `is.numeric()` para seleccionar todas las variables numéricas).
+- `where()`: aplica una función a todas las variables y selecciona aquellas para las cuales la función regresa TRUE (por ejemplo: `is.numeric()` para seleccionar todas las variables numéricas).
 
 ### Función `rename()`
 
@@ -700,15 +700,15 @@ Un aspecto fundamental es que las funciones utilizadas dentro de `mutate()` debe
 
 Existen muchas funciones que se pueden utilizar dentro de `mutate()`. A continuación se presentan algunas útiles:
 
--   **Operadores aritméticos**: `+`, `-`, `*`, `/`, `^`.
+- **Operadores aritméticos**: `+`, `-`, `*`, `/`, `^`.
 
--   **Aritmética modular**: `%/%` (división entera) y `%%` (resto), donde `x == y * (x %/% y) + (x %% y)`. Esta herramienta resulta útil para dividir números enteros en porciones.
+- **Aritmética modular**: `%/%` (división entera) y `%%` (resto), donde `x == y * (x %/% y) + (x %% y)`. Esta herramienta resulta útil para dividir números enteros en porciones.
 
--   **Funciones matemáticas**: `log()`, `log2()`, `log10()`, `exp()`, `sqrt()`, `abs()`, entre otras.
+- **Funciones matemáticas**: `log()`, `log2()`, `log10()`, `exp()`, `sqrt()`, `abs()`, entre otras.
 
--   **Valores acumulados**: R ofrece funciones como `cumsum()`, `cumprod()`, `cummin()`, `cummax()` y `dplyr` incluye `cummean()` para promedios acumulados.
+- **Valores acumulados**: R ofrece funciones como `cumsum()`, `cumprod()`, `cummin()`, `cummax()` y `dplyr` incluye `cummean()` para promedios acumulados.
 
--   **Clasificación o *ranking***: funciones como `min_rank()` permiten asignar rangos (1º, 2º, etc.). Por defecto, los valores más pequeños reciben rangos más bajos. Si se desea invertir el orden, puede utilizarse `desc(x)`.
+- **Clasificación o *ranking***: funciones como `min_rank()` permiten asignar rangos (1º, 2º, etc.). Por defecto, los valores más pequeños reciben rangos más bajos. Si se desea invertir el orden, puede utilizarse `desc(x)`.
 
 Finalmente, si se utiliza en `mutate()` el mismo nombre de una variable que ya existe en la tabla, dicha variable será sobrescrita (por ejemplo, al cambiarle el tipo de `character` a `factor`). Si se desea crear una variable nueva, se debe utilizar un nombre que no esté previamente en el conjunto de datos.
 
@@ -743,20 +743,20 @@ El resultado es una tabla con dos filas, una para cada grupo (año 2015 y año 2
 
 Algunas de las funciones del R `base` que se pueden utilizar dentro de los argumentos de esta función son:
 
--   `min()`: mínimo
--   `max()`: máximo
--   `mean()`: media
--   `median()`: mediana
--   `var()`: varianza
--   `sd()`: desvío
--   `sum()`: sumatoria
+- `min()`: mínimo
+- `max()`: máximo
+- `mean()`: media
+- `median()`: mediana
+- `var()`: varianza
+- `sd()`: desvío
+- `sum()`: sumatoria
 
 Otras funciones que se pueden incorporar las provee el mismo paquete `dplyr`, por ejemplo:
 
--   `first()`: primer valor en el vector.
--   `last()`: último valor en el vector.
--   `n()`: número de valores en el vector.
--   `n_distinct()`: números de valores distintos en el vector.
+- `first()`: primer valor en el vector.
+- `last()`: último valor en el vector.
+- `n()`: número de valores en el vector.
+- `n_distinct()`: números de valores distintos en el vector.
 
 ### Función `group_by()`
 
@@ -818,11 +818,11 @@ datos |>
 
 Tiene un par de argumentos opcionales:
 
--   `name`: Define el nombre de la columna que contendrá el conteo. Por defecto, esta columna se llama `n`.
+- `name`: Define el nombre de la columna que contendrá el conteo. Por defecto, esta columna se llama `n`.
 
--   `sort`: Ordena la tabla de frecuencias de mayor a menor (por defecto, no realiza ninguna ordenación).
+- `sort`: Ordena la tabla de frecuencias de mayor a menor (por defecto, no realiza ninguna ordenación).
 
--   `wt`: Permite incorporar una variable que funcione como ponderación (o factor de expansión) para el cálculo de la frecuencia.
+- `wt`: Permite incorporar una variable que funcione como ponderación (o factor de expansión) para el cálculo de la frecuencia.
 
 ## Gráficos estadísticos con `ggplot2`
 
@@ -830,9 +830,9 @@ Tiene un par de argumentos opcionales:
 
 El paquete `ggplot2` [@ggplot2] se autodefine como una librería para “*crear elegantes visualizaciones de datos utilizando una gramática de gráficos*”. Proporciona una forma intuitiva de construir gráficos basada en [**The Grammar of Graphics**](https://www.springer.com/gp/book/9780387245447) a través de un sistema basado en tres componentes básicos:
 
--   datos
--   coordenadas
--   objetos geométricos
+- datos
+- coordenadas
+- objetos geométricos
 
 La estructura para construir un gráfico es la siguiente:
 
@@ -844,14 +844,14 @@ La estructura básica para construir un gráfico con `ggplot2` se organiza a par
 
 ![](images/ggplot_comp.png){fig-align="center" width="55%"}
 
--   `data`: el conjunto de datos que vamos a graficar, que debe contener toda la información necesaria para crear el gráfico.
--   `aes()`: el mapeo estético (*aesthetic mapping*) es donde se declaran las variables que se van a mapear en el gráfico (por ejemplo, qué variable va en el eje X, en el eje Y, o cómo se asignan los colores).
--   `geoms`: representaciones gráficas de los datos, como puntos, líneas, barras, cajas, entre otros. Son los "objetos geométricos" que realmente dibujan el gráfico.
--   `stats`: Transformaciones estadísticas que se realizan sobre los datos, como el cálculo de medias, medias móviles o regresiones, que ayudan a hacer un resumen de los datos para visualizarlos mejor.
--   `scales`: se utilizan para colorear o escalar los datos según distintas variables. Controlan los ejes y las leyendas.
--   `coordinate systems`: es el sistema de coordenadas para el mapeo del gráfico en un plano bidimensional.
--   `facets`: permiten dividir el conjunto de datos según factores y crear gráficos en paneles separados (viñetas), creando matrices gráficas.
--   `theme`: son conjuntos de características gráficas que permiten controlar la apariencia general de todos los elementos que no son datos, como el color del fondo, el tipo de fuente o los bordes.
+- `data`: el conjunto de datos que vamos a graficar, que debe contener toda la información necesaria para crear el gráfico.
+- `aes()`: el mapeo estético (*aesthetic mapping*) es donde se declaran las variables que se van a mapear en el gráfico (por ejemplo, qué variable va en el eje X, en el eje Y, o cómo se asignan los colores).
+- `geoms`: representaciones gráficas de los datos, como puntos, líneas, barras, cajas, entre otros. Son los "objetos geométricos" que realmente dibujan el gráfico.
+- `stats`: Transformaciones estadísticas que se realizan sobre los datos, como el cálculo de medias, medias móviles o regresiones, que ayudan a hacer un resumen de los datos para visualizarlos mejor.
+- `scales`: se utilizan para colorear o escalar los datos según distintas variables. Controlan los ejes y las leyendas.
+- `coordinate systems`: es el sistema de coordenadas para el mapeo del gráfico en un plano bidimensional.
+- `facets`: permiten dividir el conjunto de datos según factores y crear gráficos en paneles separados (viñetas), creando matrices gráficas.
+- `theme`: son conjuntos de características gráficas que permiten controlar la apariencia general de todos los elementos que no son datos, como el color del fondo, el tipo de fuente o los bordes.
 
 Antes de comenzar a mostrar cómo se usan estos componentes en un gráfico, leemos la base de datos de ejemplo "`facultad.csv`", que contiene datos ficticios sobre ingresantes a una facultad (por ejemplo, sexo, edad, talla y peso). Usaremos este conjunto de datos para ilustrar los ejemplos gráficos:
 
@@ -935,15 +935,15 @@ Este comportamiento brinda gran flexibilidad en la construcción de gráficos, p
 
 Algunas otras funciones de `geom_` son:
 
--   `geom_line()`: gráfico de líneas.
+- `geom_line()`: gráfico de líneas.
 
--   `geom_boxplot()`: gráfico de caja y bigotes (*boxplot*).
+- `geom_boxplot()`: gráfico de caja y bigotes (*boxplot*).
 
--   `geom_histogram()`: histograma.
+- `geom_histogram()`: histograma.
 
--   `geom_density()`: curva de densidad.
+- `geom_density()`: curva de densidad.
 
--   `geom_bar()`: gráfico de barras.
+- `geom_bar()`: gráfico de barras.
 
 Todas estas funciones pueden aplicarse sobre los mismos datos, y su uso depende del objetivo del análisis.
 
@@ -1095,9 +1095,9 @@ El facetado permite dividir un gráfico en múltiples paneles o viñetas según 
 
 `ggplot2` ofrece dos funciones principales para realizar esta tarea:
 
--   `facet_wrap()`: separa los datos según **una única variable categórica**, generando una serie de paneles dispuestos de forma automática en filas y columnas.
+- `facet_wrap()`: separa los datos según **una única variable categórica**, generando una serie de paneles dispuestos de forma automática en filas y columnas.
 
--   `facet_grid()`: permite crear una **matriz de paneles** cruzando **dos variables categóricas**, una para las filas y otra para las columnas.
+- `facet_grid()`: permite crear una **matriz de paneles** cruzando **dos variables categóricas**, una para las filas y otra para las columnas.
 
 Retomemos el gráfico de dispersión entre `talla` y `peso`, y generemos paneles separados para cada nivel de la variable `sexo` con `facet_wrap()`:
 
@@ -1237,13 +1237,13 @@ El paquete`esquisse` [@esquisse] es una extensión de `ggplot2` que permite crea
 
 Con `esquisse` es posible:
 
--   Explorar visualmente los datos según su tipo.
+- Explorar visualmente los datos según su tipo.
 
--   Asignar variables a diferentes estéticas del gráfico (ejes, color, tamaño, etc.).
+- Asignar variables a diferentes estéticas del gráfico (ejes, color, tamaño, etc.).
 
--   Exportar los resultados en distintos formatos.
+- Exportar los resultados en distintos formatos.
 
--   Recuperar el código R que genera el gráfico, facilitando su reproducción y modificación.
+- Recuperar el código R que genera el gráfico, facilitando su reproducción y modificación.
 
 El paquete se instala mediante el menú **Packages** de RStudio o ejecutando:
 
@@ -1278,16 +1278,16 @@ Una de las grandes fortalezas de `ggplot2` es su ecosistema de extensiones. Hast
 
 Algunas de las extensiones que utilizaremos durante el curso son:
 
--   `patchwork`[@patchwork]: permite combinar múltiples gráficos de `ggplot2` en una misma figura de forma sencilla y controlada.
+- `patchwork`[@patchwork]: permite combinar múltiples gráficos de `ggplot2` en una misma figura de forma sencilla y controlada.
 
--   `GGally`[@GGally]: extiende `ggplot2` con funciones para crear matrices de gráficos (como `ggpairs()`), útiles para análisis exploratorio multivariado.
+- `GGally`[@GGally]: extiende `ggplot2` con funciones para crear matrices de gráficos (como `ggpairs()`), útiles para análisis exploratorio multivariado.
 
--   `ggpubr`[@ggpubr]: facilita la creación de gráficos listos para publicar, con funciones simplificadas para agregar títulos, etiquetas, comparaciones estadísticas y anotaciones.
+- `ggpubr`[@ggpubr]: facilita la creación de gráficos listos para publicar, con funciones simplificadas para agregar títulos, etiquetas, comparaciones estadísticas y anotaciones.
 
--   `see`[@see]: ofrece temas, paletas de colores y escalas compatibles con personas con daltonismo, además de geometrías personalizadas.
+- `see`[@see]: ofrece temas, paletas de colores y escalas compatibles con personas con daltonismo, además de geometrías personalizadas.
 
--   `survminer`[@survminer]: diseñado para la visualización de análisis de supervivencia (como curvas de Kaplan-Meier) utilizando `ggplot2`.
+- `survminer`[@survminer]: diseñado para la visualización de análisis de supervivencia (como curvas de Kaplan-Meier) utilizando `ggplot2`.
 
--   `ggfortify`[@ggfortify]: permite graficar objetos estadísticos como modelos lineales, PCA o series temporales sin necesidad de escribir código `ggplot2` desde cero.
+- `ggfortify`[@ggfortify]: permite graficar objetos estadísticos como modelos lineales, PCA o series temporales sin necesidad de escribir código `ggplot2` desde cero.
 
 Estas extensiones permiten ampliar la flexibilidad y expresividad gráfica de `ggplot2` sin perder la estructura gramatical que lo caracteriza.

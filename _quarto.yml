@@ -44,10 +44,10 @@ book:
           - text: "Paquetes y datos para el curso"
             icon: file-zip
             href: files/datos_y_paquetes.zip
-          - text: "Libro en PDF"
+          - text: "Material en PDF"
             icon: file-earmark-pdf
             href: epi_avanzada.pdf
-          - text: "Libro en EPUB"
+          - text: "Material en EPUB"
             icon: book
             href: epi_avanzada.epub
           
@@ -65,8 +65,8 @@ book:
         - "unidad_1/01_intro_R.qmd"
         - "unidad_1/02_intro_RStudio.qmd"
         - "unidad_1/03_intro_tidyverse.qmd"
-        - "unidad_1/04_analisis_exploratorio.qmd"
-        - "unidad_1/05_hoja_estilo.qmd"
+        # - "unidad_1/04_analisis_exploratorio.qmd"
+        # - "unidad_1/05_hoja_estilo.qmd"
     # - part: "Unidad 2"
     #   icon: file-earmark-bar-graph
     #   chapters: 
@@ -143,15 +143,13 @@ format:
     
     # Tabla de contenidos
     toc: true
-    toc-title: "Contenidos"       
-    
-    # Colocar enlaces a la ayuda de funciones
-    code-link: true
+    toc-title: "Contenidos"    
 
   epub:
     cover-image: logos/logo_curso.png
 
-  pdf: default
+  pdf: 
+    documentclass: book
 
 # Tipografía
 mainfont: "Calibri"
