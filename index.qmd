@@ -2,7 +2,6 @@
 toc: false
 ---
 # ¡Les damos la bienvenida al curso de Epidemiología Nivel Avanzado! {.unnumbered}
-![](logos/logos_ine.svg){fig-align="center" width="50%"}
 
 
 Es un gusto recibirles en esta nueva edición del curso, diseñado para profundizar en el análisis de datos provenientes de distintos diseños de estudio mediante el uso de modelos estadísticos.

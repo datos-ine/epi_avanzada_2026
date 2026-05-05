@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="651"
+   height="511"
+   viewBox="0 0 494.25 383.25"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="dag_int.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata30">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.91754346"
+     inkscape:cx="325.5"
+     inkscape:cy="255.48876"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="1352"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6"
+     inkscape:document-rotation="0"
+     showgrid="false" />
+  <g
+     id="clust1"
+     class="cluster"
+     transform="matrix(2.5756048,0,0,2.5756048,43.652222,403.85484)">
+    <title
+       id="title1">cluster1</title>
+    <polygon
+       fill="none"
+       stroke="#ffffff"
+       points="150,-156.8 150,-8 8,-8 8,-156.8 "
+       id="polygon1"
+       style="fill:#ffffff" />
+    <text
+       text-anchor="middle"
+       x="79"
+       y="-140.2"
+       font-family="'Calibri:bold'"
+       font-size="14px"
+       id="text1">DAG de interacción</text>
+  </g>
+  <g
+     id="node1"
+     class="node"
+     transform="matrix(2.5756048,0,0,2.5756048,43.652222,403.85484)">
+    <title
+       id="title2">n1</title>
+    <ellipse
+       fill="#b2d680"
+       stroke="#b2d680"
+       cx="43"
+       cy="-106"
+       rx="27"
+       ry="18"
+       id="ellipse2" />
+    <text
+       text-anchor="middle"
+       x="43"
+       y="-101.8"
+       font-family="'Calibri:bold'"
+       font-size="14px"
+       id="text2">X</text>
+  </g>
+  <g
+     id="node2"
+     class="node"
+     transform="matrix(2.5756048,0,0,2.5756048,43.652222,403.85484)">
+    <title
+       id="title3">n2</title>
+    <ellipse
+       fill="#2c768c"
+       stroke="#2c768c"
+       cx="79"
+       cy="-34"
+       rx="27"
+       ry="18"
+       id="ellipse3" />
+    <text
+       text-anchor="middle"
+       x="79"
+       y="-29.799999"
+       font-family="'Calibri:bold'"
+       font-size="14px"
+       id="text3">Y</text>
+  </g>
+  <g
+     id="edge1"
+     class="edge"
+     transform="matrix(2.5756048,0,0,2.5756048,43.652222,403.85484)">
+    <title
+       id="title4">n1-&gt;n2</title>
+    <path
+       fill="none"
+       stroke="#000000"
+       d="m 51.35,-88.76 c 4.23,8.21 9.46,18.39 14.23,27.67"
+       id="path4" />
+    <polygon
+       fill="#000000"
+       stroke="#000000"
+       points="62.32,-59.79 68.54,-62.99 70,-52.49 "
+       id="polygon4" />
+  </g>
+  <ellipse
+     fill="#dfe7b1"
+     stroke="#dfe7b1"
+     cx="339.84677"
+     cy="130.84073"
+     rx="69.541328"
+     ry="46.360886"
+     id="ellipse5"
+     style="stroke-width:2.5756" />
+  <text
+     text-anchor="middle"
+     x="339.84677"
+     y="141.65826"
+     font-family="'Calibri:bold'"
+     font-size="36.0585px"
+     id="text5"
+     style="stroke-width:2.5756">I</text>
+  <g
+     id="edge2"
+     class="edge"
+     transform="matrix(2.5756048,0,0,2.5756048,43.652222,403.85484)">
+    <title
+       id="title6">n3-&gt;n2</title>
+    <path
+       fill="none"
+       stroke="#000000"
+       d="m 106.65,-88.76 c -4.23,8.21 -9.46,18.39 -14.23,27.67"
+       id="path6" />
+    <polygon
+       fill="#000000"
+       stroke="#000000"
+       points="89.46,-62.99 95.68,-59.79 88,-52.49 "
+       id="polygon6" />
+  </g>
+</svg>
