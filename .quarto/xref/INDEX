@@ -1,0 +1,32 @@
+{
+  "index.qmd": {
+    "index.html": "1561db2e"
+  },
+  "intro.qmd": {
+    "intro.html": "8a750aef"
+  },
+  "summary.qmd": {
+    "summary.html": "ef042efd"
+  },
+  "references.qmd": {
+    "references.html": "a3bcb2cf"
+  },
+  "unidad_1/01_intro_R.qmd": {
+    "01_intro_R.html": "b57b52dc"
+  },
+  "unidad_1/02_intro_RStudio.qmd": {
+    "02_intro_RStudio.html": "7816f3bd"
+  },
+  "unidad_1/03_intro_tidyverse.qmd": {
+    "03_intro_tidyverse.html": "4cacdacd"
+  },
+  "unidad_1/04_analisis_exploratorio.qmd": {
+    "04_analisis_exploratorio.html": "90c98b27"
+  },
+  "unidad_1/05_hoja_estilo.qmd": {
+    "05_hoja_estilo.html": "bf12d5ce"
+  },
+  "downloads.qmd": {
+    "downloads.html": "d320d1be"
+  }
+}
