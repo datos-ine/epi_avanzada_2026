@@ -150,6 +150,10 @@ format:
 
   pdf: 
     documentclass: book
+    papersize: a4
+    geometry:
+      - top=25mm
+      - heightrounded
 
 # Tipografía
 mainfont: "Calibri"
