@@ -1,5 +1,5 @@
 ---
-title: "Introducción a R"
+title: Introducción a R
 author: 
   - name: Christian Ballejo
     orcid: 0000-0002-7346-5701

@@ -64,7 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -323,6 +322,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-descargas">    
         <li>
+    <a class="dropdown-item" href="../epi_avanzada.pdf"><i class="bi bi-file-earmark-pdf" role="img">
+</i> 
+ <span class="dropdown-text">Material en PDF</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../epi_avanzada.epub"><i class="bi bi-book" role="img">
+</i> 
+ <span class="dropdown-text">Material en EPUB</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://cran.rstudio.com/bin/windows/" target="_blank"><i class="bi bi-windows" role="img">
 </i> 
  <span class="dropdown-text">R para Windows</span></a>
@@ -350,17 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../files/datos_y_paquetes.zip"><i class="bi bi-file-zip" role="img">
 </i> 
- <span class="dropdown-text">Paquetes y datos para el curso</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../epi_avanzada.pdf"><i class="bi bi-file-earmark-pdf" role="img">
-</i> 
- <span class="dropdown-text">Material en PDF</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../epi_avanzada.epub"><i class="bi bi-book" role="img">
-</i> 
- <span class="dropdown-text">Material en EPUB</span></a>
+ <span class="dropdown-text">Paquetes para el curso y datos de ejemplo</span></a>
   </li>  
     </ul>
   </li>
@@ -376,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_1/01_intro_R.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../unidad_1/02_intro_RStudio.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeros pasos y generalidades</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_1/01_intro_R.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../unidad_1/02_intro_RStudio.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a RStudio</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -420,25 +419,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../unidad_1/02_intro_RStudio.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeros pasos y generalidades</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../unidad_1/03_intro_tidyverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción a tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción a <code>tidyverse</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_1/04_analisis_exploratorio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Análisis exploratorio de datos</span></span></a>
+  <a href="../unidad_1/04_intro_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gestión de datos con <code>dplyr</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_1/05_hoja_estilo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span></a>
+  <a href="../unidad_1/05_intro_ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Gráficos estadísticos con <code>ggplot2</code></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/06_analisis_exploratorio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Análisis exploratorio de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/07_hoja_estilo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span></a>
   </div>
 </li>
       </ul>
@@ -456,23 +467,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introducción-a-rstudio" id="toc-introducción-a-rstudio" class="nav-link active" data-scroll-target="#introducción-a-rstudio"><span class="header-section-number">2.1</span> Introducción a RStudio</a></li>
   <li><a href="#proyectos-de-rstudio" id="toc-proyectos-de-rstudio" class="nav-link" data-scroll-target="#proyectos-de-rstudio"><span class="header-section-number">2.2</span> Proyectos de RStudio</a>
   <ul class="collapse">
-  <li><a href="#crear-un-proyecto" id="toc-crear-un-proyecto" class="nav-link" data-scroll-target="#crear-un-proyecto"><span class="header-section-number">2.2.1</span> Crear un proyecto</a></li>
-  <li><a href="#abrir-un-proyecto-existente" id="toc-abrir-un-proyecto-existente" class="nav-link" data-scroll-target="#abrir-un-proyecto-existente"><span class="header-section-number">2.2.2</span> Abrir un proyecto existente</a></li>
+  <li><a href="#crear-un-proyecto" id="toc-crear-un-proyecto" class="nav-link" data-scroll-target="#crear-un-proyecto">Crear un proyecto</a></li>
+  <li><a href="#abrir-un-proyecto-existente" id="toc-abrir-un-proyecto-existente" class="nav-link" data-scroll-target="#abrir-un-proyecto-existente">Abrir un proyecto existente</a></li>
   </ul></li>
   <li><a href="#scripts-en-rstudio" id="toc-scripts-en-rstudio" class="nav-link" data-scroll-target="#scripts-en-rstudio"><span class="header-section-number">2.3</span> Scripts en RStudio</a>
   <ul class="collapse">
-  <li><a href="#crear-un-nuevo-script" id="toc-crear-un-nuevo-script" class="nav-link" data-scroll-target="#crear-un-nuevo-script"><span class="header-section-number">2.3.1</span> Crear un nuevo script</a></li>
-  <li><a href="#ejecutar-scripts" id="toc-ejecutar-scripts" class="nav-link" data-scroll-target="#ejecutar-scripts"><span class="header-section-number">2.3.2</span> Ejecutar scripts</a></li>
-  <li><a href="#edición-de-scripts" id="toc-edición-de-scripts" class="nav-link" data-scroll-target="#edición-de-scripts"><span class="header-section-number">2.3.3</span> Edición de scripts</a></li>
-  <li><a href="#guardado-de-scripts" id="toc-guardado-de-scripts" class="nav-link" data-scroll-target="#guardado-de-scripts"><span class="header-section-number">2.3.4</span> Guardado de scripts</a></li>
-  <li><a href="#abrir-scripts-existentes" id="toc-abrir-scripts-existentes" class="nav-link" data-scroll-target="#abrir-scripts-existentes"><span class="header-section-number">2.3.5</span> Abrir scripts existentes</a></li>
-  <li><a href="#cómo-trabajaremos-en-este-curso" id="toc-cómo-trabajaremos-en-este-curso" class="nav-link" data-scroll-target="#cómo-trabajaremos-en-este-curso"><span class="header-section-number">2.3.6</span> ¿Cómo trabajaremos en este curso?</a></li>
+  <li><a href="#crear-un-nuevo-script" id="toc-crear-un-nuevo-script" class="nav-link" data-scroll-target="#crear-un-nuevo-script">Crear un nuevo script</a></li>
+  <li><a href="#ejecutar-scripts" id="toc-ejecutar-scripts" class="nav-link" data-scroll-target="#ejecutar-scripts">Ejecutar scripts</a></li>
+  <li><a href="#edición-de-scripts" id="toc-edición-de-scripts" class="nav-link" data-scroll-target="#edición-de-scripts">Edición de scripts</a></li>
+  <li><a href="#guardado-de-scripts" id="toc-guardado-de-scripts" class="nav-link" data-scroll-target="#guardado-de-scripts">Guardado de scripts</a></li>
+  <li><a href="#abrir-scripts-existentes" id="toc-abrir-scripts-existentes" class="nav-link" data-scroll-target="#abrir-scripts-existentes">Abrir scripts existentes</a></li>
+  <li><a href="#cómo-trabajaremos-en-este-curso" id="toc-cómo-trabajaremos-en-este-curso" class="nav-link" data-scroll-target="#cómo-trabajaremos-en-este-curso">¿Cómo trabajaremos en este curso?</a></li>
   </ul></li>
   <li><a href="#herramientas-de-rstudio" id="toc-herramientas-de-rstudio" class="nav-link" data-scroll-target="#herramientas-de-rstudio"><span class="header-section-number">2.4</span> Herramientas de RStudio</a>
   <ul class="collapse">
-  <li><a href="#asistente-de-código" id="toc-asistente-de-código" class="nav-link" data-scroll-target="#asistente-de-código"><span class="header-section-number">2.4.1</span> Asistente de código</a></li>
-  <li><a href="#ayuda-en-línea" id="toc-ayuda-en-línea" class="nav-link" data-scroll-target="#ayuda-en-línea"><span class="header-section-number">2.4.2</span> Ayuda en línea</a></li>
-  <li><a href="#historial-de-comandos" id="toc-historial-de-comandos" class="nav-link" data-scroll-target="#historial-de-comandos"><span class="header-section-number">2.4.3</span> Historial de comandos</a></li>
+  <li><a href="#asistente-de-código" id="toc-asistente-de-código" class="nav-link" data-scroll-target="#asistente-de-código">Asistente de código</a></li>
+  <li><a href="#ayuda-en-línea" id="toc-ayuda-en-línea" class="nav-link" data-scroll-target="#ayuda-en-línea">Ayuda en línea</a></li>
+  <li><a href="#historial-de-comandos" id="toc-historial-de-comandos" class="nav-link" data-scroll-target="#historial-de-comandos">Historial de comandos</a></li>
   </ul></li>
   <li><a href="#atajos-de-teclado-windows" id="toc-atajos-de-teclado-windows" class="nav-link" data-scroll-target="#atajos-de-teclado-windows"><span class="header-section-number">2.5</span> Atajos de teclado (Windows)</a></li>
   <li><a href="#paquetes" id="toc-paquetes" class="nav-link" data-scroll-target="#paquetes"><span class="header-section-number">2.6</span> Paquetes</a></li>
@@ -485,7 +496,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_1/01_intro_R.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../unidad_1/02_intro_RStudio.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeros pasos y generalidades</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_1/01_intro_R.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../unidad_1/02_intro_RStudio.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a RStudio</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeros pasos y generalidades</span></h1>
 </div>
@@ -548,8 +559,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="2.2" class="anchored" data-anchor-id="proyectos-de-rstudio"><span class="header-section-number">2.2</span> Proyectos de RStudio</h2>
 <p>Los proyectos de RStudio permiten organizar de forma estructurada todo el material asociado a un análisis: scripts, informes, bases de datos, imágenes, etc. Cada proyecto se vincula a una carpeta específica del sistema de archivos, y RStudio la utiliza como directorio de trabajo por defecto. Esta carpeta puede estar ubicada en cualquier parte del sistema de almacenamiento que deseemos (disco rígido, pendrive, disco externo, etc).</p>
 <p>Trabajar con proyectos facilita la importación de datos y evita errores relacionados con rutas relativas o absolutas.</p>
-<section id="crear-un-proyecto" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="crear-un-proyecto"><span class="header-section-number">2.2.1</span> Crear un proyecto</h3>
+<section id="crear-un-proyecto" class="level3">
+<h3 class="anchored" data-anchor-id="crear-un-proyecto">Crear un proyecto</h3>
 <p>Para crear un nuevo proyecto, se puede utilizar el menú <code>File &gt; New Project...</code>. También accedemos a generar un proyecto nuevo a partir de pulsar el acceso directo <code>New Project...</code> ubicado en la esquina superior derecha de la interfaz:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -598,8 +609,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="abrir-un-proyecto-existente" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="abrir-un-proyecto-existente"><span class="header-section-number">2.2.2</span> Abrir un proyecto existente</h3>
+<section id="abrir-un-proyecto-existente" class="level3">
+<h3 class="anchored" data-anchor-id="abrir-un-proyecto-existente">Abrir un proyecto existente</h3>
 <p>Cuando el proyecto ya existe, sea porque lo creamos nosotros o porque alguien nos pasó una carpeta con un proyecto de RStudio creado vamos a visualizar dentro de esa carpeta un archivo con extensión <code>.Rproj</code>.</p>
 <p>La forma más veloz para abrir el proyecto es ejecutar este archivo (debería abrir una sesión de RStudio con el proyecto activo). La otra forma es desde el menú superior derecho de RStudio en la opción <strong>Open project…</strong> y luego buscando en nuestro directorio el mismo archivo <code>.Rproj</code>.</p>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
@@ -620,8 +631,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="scripts-en-rstudio" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="scripts-en-rstudio"><span class="header-section-number">2.3</span> Scripts en RStudio</h2>
 <p>Como vimos <a href="../unidad_1/01_intro_R.html#scripts-de-r"><strong>anteriormente</strong></a>, un script es un archivo de código que contiene una secuencia de instrucciones escritas en R. Estos scripts pueden ser reutilizados, modificados y compartidos, lo que los convierte en una herramienta fundamental para garantizar la reproducibilidad del trabajo.</p>
-<section id="crear-un-nuevo-script" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="crear-un-nuevo-script"><span class="header-section-number">2.3.1</span> Crear un nuevo script</h3>
+<section id="crear-un-nuevo-script" class="level3">
+<h3 class="anchored" data-anchor-id="crear-un-nuevo-script">Crear un nuevo script</h3>
 <p>Tenemos varias formas de crear un script nuevo:</p>
 <ul>
 <li><p>Desde el menú superior: <code>File &gt; New File &gt; R Script</code></p></li>
@@ -629,8 +640,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Desde la barra de herramientas: presionando el ícono <img src="images/script_new.png" class="img-fluid"></p></li>
 </ul>
 </section>
-<section id="ejecutar-scripts" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="ejecutar-scripts"><span class="header-section-number">2.3.2</span> Ejecutar scripts</h3>
+<section id="ejecutar-scripts" class="level3">
+<h3 class="anchored" data-anchor-id="ejecutar-scripts">Ejecutar scripts</h3>
 <p>La forma habitual de ejecutar el contenido de un script es línea por línea, usando alguna de las siguientes opciones:</p>
 <ul>
 <li><p>Presionando el botón <img src="images/script_run.png" class="img-fluid"> del editor de código de RStudio</p></li>
@@ -639,15 +650,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Para ejecutar una línea, simplemente ubicamos el cursor en cualquier parte de ella y presionamos el comando correspondiente. Luego de ejecutarse, el cursor avanzará automáticamente a la siguiente línea de código.</p>
 <p>Mientras ejecutamos cada línea debemos ir observando la salida en la consola (panel inferior izquierdo) y también los cambios que se dan en el panel <em>Environment</em> (panel superior derecho) donde aparecerán los objetos que vayamos creando y manipulando.</p>
 </section>
-<section id="edición-de-scripts" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="edición-de-scripts"><span class="header-section-number">2.3.3</span> Edición de scripts</h3>
+<section id="edición-de-scripts" class="level3">
+<h3 class="anchored" data-anchor-id="edición-de-scripts">Edición de scripts</h3>
 <p>Modificar o agregar líneas al script puede hacerse directamente en el editor. Cada vez que realizamos un cambio, es necesario <strong>volver a ejecutar la línea</strong> o bloque modificado para que los cambios se reflejen en el entorno de trabajo.</p>
 <p>Podemos probar y modificar tantas veces como sea necesario. Sin embargo, debemos tener presente que cada manipulación en los objetos se mantiene hasta que se vuelvan a cambiar y a veces, cuando los objetos están vinculados con otras líneas de código posteriores tenemos que tener cuidado que se mantenga la consistencia del script.</p>
 <p>Por ejemplo: si definimos un vector numérico para realizar cálculos matemáticos, pero luego lo sobrescribimos con un valor de tipo caracter, los cálculos posteriores producirán un error y RStudio nos informará de esto en la consola.</p>
 <p>Por eso, es clave observar el contenido de los objetos en el panel <strong>Environment</strong>, lo que nos ayuda a evitar errores y operaciones incoherentes.</p>
 </section>
-<section id="guardado-de-scripts" class="level3" data-number="2.3.4">
-<h3 data-number="2.3.4" class="anchored" data-anchor-id="guardado-de-scripts"><span class="header-section-number">2.3.4</span> Guardado de scripts</h3>
+<section id="guardado-de-scripts" class="level3">
+<h3 class="anchored" data-anchor-id="guardado-de-scripts">Guardado de scripts</h3>
 <p>Cualquier agregado o modificación que hayamos realizado al script y nos interese mantener nos obligará a guardar el archivo de código editado.</p>
 <p>Existen distintas formas de guardar un script:</p>
 <ul>
@@ -657,8 +668,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Si en cambio quisiera guardarlo como otro archivo para mantener el script original, podemos guardarlo con diferente nombre o en otra ubicación mediante <code>File &gt; Save As...</code></p>
 </section>
-<section id="abrir-scripts-existentes" class="level3" data-number="2.3.5">
-<h3 data-number="2.3.5" class="anchored" data-anchor-id="abrir-scripts-existentes"><span class="header-section-number">2.3.5</span> Abrir scripts existentes</h3>
+<section id="abrir-scripts-existentes" class="level3">
+<h3 class="anchored" data-anchor-id="abrir-scripts-existentes">Abrir scripts existentes</h3>
 <p>Los scripts que construyamos o nos compartan siempre tendrán extensión <code>.R</code> y, por lo general, se encontrarán dentro de un proyecto.</p>
 <p>Para abrir estos archivos <code>.R</code> podemos:</p>
 <ul>
@@ -669,8 +680,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Esto abrirá el script en una nueva pestaña dentro del editor de código.</p>
 </section>
-<section id="cómo-trabajaremos-en-este-curso" class="level3" data-number="2.3.6">
-<h3 data-number="2.3.6" class="anchored" data-anchor-id="cómo-trabajaremos-en-este-curso"><span class="header-section-number">2.3.6</span> ¿Cómo trabajaremos en este curso?</h3>
+<section id="cómo-trabajaremos-en-este-curso" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-trabajaremos-en-este-curso">¿Cómo trabajaremos en este curso?</h3>
 <p>En general, utilizaremos scripts dentro de <strong>proyectos de RStudio</strong>. La secuencia recomendada será:</p>
 <ol type="1">
 <li><p><strong>Descargar</strong> desde el Aula Virtual un archivo comprimido conteniendo la carpeta, el proyecto, los scripts y archivos de datos.</p></li>
@@ -684,8 +695,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="herramientas-de-rstudio" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="herramientas-de-rstudio"><span class="header-section-number">2.4</span> Herramientas de RStudio</h2>
 <p>Algunas de las herramientas fundamentales de RStudio son el asistente de código, la ayuda en línea y el historial de comandos.</p>
-<section id="asistente-de-código" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="asistente-de-código"><span class="header-section-number">2.4.1</span> Asistente de código</h3>
+<section id="asistente-de-código" class="level3">
+<h3 class="anchored" data-anchor-id="asistente-de-código">Asistente de código</h3>
 <p>Al escribir en el editor o la consola, la tecla <code>Tab</code> activa el autocompletado de funciones, nombres de objetos y argumentos, agilizando la escritura y reduciendo errores de sintaxis. En versiones recientes, el asistente también permite la previsualización de colores en los gráficos, resaltar los paréntesis de cierre en funciones anidadas con distintos colores y gestionar automáticamente la indentación del código.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -699,8 +710,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="ayuda-en-línea" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="ayuda-en-línea"><span class="header-section-number">2.4.2</span> Ayuda en línea</h3>
+<section id="ayuda-en-línea" class="level3">
+<h3 class="anchored" data-anchor-id="ayuda-en-línea">Ayuda en línea</h3>
 <p>Al posicionar el cursor sobre el nombre de una función en el editor y presionar <code>F1</code>, se accede directamente a la documentación correspondiente en el panel <strong>Help</strong> (habitualmente ubicado en la esquina inferior derecha).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -708,8 +719,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="historial-de-comandos" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="historial-de-comandos"><span class="header-section-number">2.4.3</span> Historial de comandos</h3>
+<section id="historial-de-comandos" class="level3">
+<h3 class="anchored" data-anchor-id="historial-de-comandos">Historial de comandos</h3>
 <p>En la consola, al usar las teclas de flecha arriba/abajo, se puede navegar por los comandos ejecutados durante la sesión actual. Además, el panel <strong>History</strong> (parte superior derecha) almacena los comandos de todas las sesiones previas, permitiendo reutilizarlos con un clic en <strong>To Console</strong> (<code>Enter</code>) o <strong>To Source</strong> (<code>Shift + Enter</code>), según se desee insertarlos en la consola o en el script activo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1309,8 +1320,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../unidad_1/03_intro_tidyverse.html" class="pagination-link" aria-label="Introducción a tidyverse">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción a tidyverse</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../unidad_1/03_intro_tidyverse.html" class="pagination-link" aria-label="Introducción a `tidyverse`">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción a <code>tidyverse</code></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

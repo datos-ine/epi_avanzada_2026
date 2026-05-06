@@ -1,5 +1,5 @@
 ---
-title: "Primeros pasos y generalidades"
+title: Introducción a RStudio
 author:   
   - name: Christian Ballejo
     orcid: 0000-0002-7346-5701
@@ -16,7 +16,7 @@ source("../setup.R")
 
 [![Artwork por \@allison_horst](images/cracked_setwd.png){fig-align="center" width="500" height="300"}](https://allisonhorst.com/)
 
-## Introducción a RStudio
+## Primeros pasos y generalidades
 
 RStudio Desktop [(2025, Posit Software)](https://posit.co/products/open-source/rstudio/) es un **entorno de desarrollo integrado** (*IDE*, por sus siglas en inglés) diseñado específicamente para trabajar con el lenguaje R.
 

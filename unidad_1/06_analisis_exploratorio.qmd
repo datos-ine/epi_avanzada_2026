@@ -1,5 +1,5 @@
 ---
-title: "Análisis exploratorio de datos"
+title: Análisis exploratorio de datos
 author: 
   - name: Christian Ballejo
     orcid: 0000-0002-7346-5701
@@ -598,3 +598,5 @@ datos |>
 ```
 
 En este ejemplo, mostramos resultados de variables numéricas menos de `id` agrupados por `sexo` (sin considerar valores `NA` en las categorías de sexo).
+
+## Referencias {.unnumbered}

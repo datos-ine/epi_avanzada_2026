@@ -28,7 +28,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -282,6 +281,16 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-descargas">    
         <li>
+    <a class="dropdown-item" href="./epi_avanzada.pdf"><i class="bi bi-file-earmark-pdf" role="img">
+</i> 
+ <span class="dropdown-text">Material en PDF</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./epi_avanzada.epub"><i class="bi bi-book" role="img">
+</i> 
+ <span class="dropdown-text">Material en EPUB</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://cran.rstudio.com/bin/windows/" target="_blank"><i class="bi bi-windows" role="img">
 </i> 
  <span class="dropdown-text">R para Windows</span></a>
@@ -309,17 +318,7 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./files/datos_y_paquetes.zip"><i class="bi bi-file-zip" role="img">
 </i> 
- <span class="dropdown-text">Paquetes y datos para el curso</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./epi_avanzada.pdf"><i class="bi bi-file-earmark-pdf" role="img">
-</i> 
- <span class="dropdown-text">Material en PDF</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./epi_avanzada.epub"><i class="bi bi-book" role="img">
-</i> 
- <span class="dropdown-text">Material en EPUB</span></a>
+ <span class="dropdown-text">Paquetes para el curso y datos de ejemplo</span></a>
   </li>  
     </ul>
   </li>
@@ -379,25 +378,37 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./unidad_1/02_intro_RStudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeros pasos y generalidades</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./unidad_1/03_intro_tidyverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción a tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción a <code>tidyverse</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./unidad_1/04_analisis_exploratorio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Análisis exploratorio de datos</span></span></a>
+  <a href="./unidad_1/04_intro_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gestión de datos con <code>dplyr</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./unidad_1/05_hoja_estilo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span></a>
+  <a href="./unidad_1/05_intro_ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Gráficos estadísticos con <code>ggplot2</code></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./unidad_1/06_analisis_exploratorio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Análisis exploratorio de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./unidad_1/07_hoja_estilo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span></a>
   </div>
 </li>
       </ul>
@@ -437,9 +448,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-
 <section id="les-damos-la-bienvenida-al-curso-de-epidemiología-nivel-avanzado" class="level1 unnumbered">
-<h1 class="unnumbered">¡Les damos la bienvenida al curso de Epidemiología Nivel Avanzado!</h1><p><img src="logos/logos_ine.svg" title="Epidemiología: Nivel Avanzado" class="quarto-cover-image nolightbox img-fluid"></p>
+<h1 class="unnumbered">¡Les damos la bienvenida al curso de Epidemiología Nivel Avanzado!</h1>
 <p>Es un gusto recibirles en esta nueva edición del curso, diseñado para profundizar en el análisis de datos provenientes de distintos diseños de estudio mediante el uso de modelos estadísticos.</p>
 <p>A lo largo del curso, abordaremos herramientas analíticas avanzadas que nos permitirán modelar adecuadamente la relación entre exposiciones y desenlaces en estudios transversales, de casos y controles, de cohortes y experimentales. Nos enfocaremos en la aplicación práctica de estos modelos, en la interpretación de resultados y en los supuestos que los sustentan, promoviendo una mirada crítica sobre su uso en la investigación epidemiológica.</p>
 <p>Esperamos que este espacio sea una experiencia formativa enriquecedora y un nuevo impulso en su desarrollo como investigadoras e investigadores en salud.</p>
@@ -453,6 +463,19 @@ ul.task-list li input[type="checkbox"] {
 <!-- Micaela Gauto [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-3288-1108) -->
 <p>Ramiro Dana Smith <a href="https://orcid.org/0009-0001-2243-3419"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="img-fluid"></a></p>
 <p>Julia Maxwell <a href="https://orcid.org/0009-0004-7410-1661"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="img-fluid"></a></p>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Declaración de uso de IA generativa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se utilizaron herramientas de inteligencia artificial generativa (ChatGPT, versión GPT-5.3) para la revisión gramatical y ortográfica del manuscrito. El contenido final fue evaluado, validado y editado manualmente por los/as autores/as, quienes asumen la responsabilidad por su integridad.</p>
+</div>
 </div>
 
 

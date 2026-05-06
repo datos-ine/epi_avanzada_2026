@@ -1,6 +1,5 @@
 project:
-  type: book
-  
+  type: book  
 
 book:
   ## Metadatos
@@ -8,8 +7,6 @@ book:
   author: "Instituto Nacional de Epidemiología 'Dr. J. H. Jara'"
   page-footer: 
     center: Este material es parte del curso de Epidemiología - Nivel Avanzado © 2025 Instituto Nacional de Epidemiología "Dr. Juan H. Jara" (ANLIS)
-
-  cover-image: logos/logos_ine.svg
   output-file: "epi_avanzada"
 
   ## Barra Navegación  
@@ -17,10 +14,17 @@ book:
     background: "#2F2E4E"
     logo: logos/logos_ine.svg
     search: true
+    pinned: true
     right: 
       - text: "Descargas"
         icon: cloud-download
         menu: 
+          - text: "Material en PDF"
+            icon: file-earmark-pdf
+            href: epi_avanzada.pdf
+          - text: "Material en EPUB"
+            icon: book
+            href: epi_avanzada.epub
           - text: "R para Windows"
             icon: windows
             target: _blank
@@ -41,15 +45,10 @@ book:
             icon: terminal
             target: _blank
             href: https://cran.r-project.org/bin/windows/Rtools/
-          - text: "Paquetes y datos para el curso"
+          - text: "Paquetes para el curso y datos de ejemplo"
             icon: file-zip
             href: files/datos_y_paquetes.zip
-          - text: "Material en PDF"
-            icon: file-earmark-pdf
-            href: epi_avanzada.pdf
-          - text: "Material en EPUB"
-            icon: book
-            href: epi_avanzada.epub
+          
           
   sidebar: 
     logo: logos/logo_curso.png 
@@ -65,8 +64,10 @@ book:
         - "unidad_1/01_intro_R.qmd"
         - "unidad_1/02_intro_RStudio.qmd"
         - "unidad_1/03_intro_tidyverse.qmd"
-        - "unidad_1/04_analisis_exploratorio.qmd"
-        - "unidad_1/05_hoja_estilo.qmd"
+        - "unidad_1/04_intro_dplyr.qmd"
+        - "unidad_1/05_intro_ggplot.qmd"
+        - "unidad_1/06_analisis_exploratorio.qmd"
+        - "unidad_1/07_hoja_estilo.qmd"
     # - part: "Unidad 2"
     #   icon: file-earmark-bar-graph
     #   chapters: 
@@ -116,6 +117,10 @@ page-navigation: true
 ## Botón de volver arriba
 back-to-top-navigation: true
 
+## Números de sección
+number-sections: true
+number-depth: 2
+
 ## Opciones de formato
 format:
   html:
@@ -152,8 +157,8 @@ format:
     documentclass: book
     papersize: a4
     geometry:
-      - top=25mm
-      - heightrounded
+      - top=20mm
+      - left=20mm
 
 # Tipografía
 mainfont: "Calibri"

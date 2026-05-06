@@ -10,10 +10,10 @@ knitr::opts_chunk$set(
 pacman::p_load(
   patchwork,
   scico,
-  janitor,
-  easystats,
+  performance,
   knitr,
   kableExtra,
+  janitor,
   tidyverse
 )
 

@@ -1,8 +1,8 @@
 ---
 toc: false
 ---
-# ¡Les damos la bienvenida al curso de Epidemiología Nivel Avanzado! {.unnumbered}
 
+# ¡Les damos la bienvenida al curso de Epidemiología Nivel Avanzado! {.unnumbered}
 
 Es un gusto recibirles en esta nueva edición del curso, diseñado para profundizar en el análisis de datos provenientes de distintos diseños de estudio mediante el uso de modelos estadísticos.
 
@@ -27,3 +27,9 @@ Ramiro Dana Smith [![](https://orcid.org/sites/default/files/images/orcid_16x16.
 
 Julia Maxwell [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0004-7410-1661)
 ::::
+
+::: {.callout-warning appearance="simple"}
+## Declaración de uso de IA generativa
+
+Se utilizaron herramientas de inteligencia artificial generativa (ChatGPT, versión GPT-5.3) para la revisión gramatical y ortográfica del manuscrito. El contenido final fue evaluado, validado y editado manualmente por los/as autores/as, quienes asumen la responsabilidad por su integridad.
+:::

@@ -1,5 +1,5 @@
 ---
-title: "Hoja de Estilo del lenguaje R"
+title: Hoja de Estilo del lenguaje R
 author: 
   - name: Christian Ballejo
     orcid: 0000-0002-7346-5701
@@ -200,15 +200,12 @@ ggplot(mpg, aes(x = cty, y = hwy, color = class)) +
 
 # Mal
 ggplot(mpg, aes(x = cty, y = hwy, color = class)) +
-  geom_point() +
-  geom_smooth() +
+  geom_point() +  geom_smooth() +
   theme_bw()
 
 # Muy mal
 ggplot(mpg, aes(x = cty, y = hwy, color = class)) +
-  geom_point() +
-  geom_smooth() +
-  theme_bw()
+  geom_point() +  geom_smooth() +  theme_bw()
 
 # Tan mal que no funciona
 ggplot(mpg, aes(x = cty, y = hwy, color = class))
@@ -281,3 +278,75 @@ mpg |>
 ```
 
 Si el comentario es muy largo, podemos dividirlo en varias líneas. RStudio incluye una herramienta útil para comentarios largos: `Code > Reflow Comment` los ajusta automáticamente al ancho deseado.
+
+### Nombres de columnas
+
+Se recomienda utilizar nombres de columnas en un formato consistente y compatible con el enfoque del ecosistema `tidyverse`. Esto facilita la manipulación de datos y reduce errores en el código.
+
+En particular, se sugiere evitar:
+
+- Nombres excesivamente largos
+
+- Uso de mayúsculas
+
+- Signos de puntuación, acentos y caracteres especiales
+
+- Espacios en blanco
+
+En su lugar, es recomendable utilizar:
+
+- Nombres breves pero descriptivos
+
+- Letras minúsculas
+
+palabras separadas por guiones bajos (`_`) o puntos (`.`)
+
+✔️ **Correcto**
+
+```{r}
+names(mpg)
+```
+
+✖️ **Incorrecto**
+
+En bases de datos existentes:
+
+```{r}
+names(iris)
+```
+
+Al crear un nuevo dataset:
+
+```{r}
+datos <- tibble(
+    Jurisdicción = c(rep("Buenos Aires", 10), rep("CABA", 10)),
+    CasosTotales = sample(100, 20),
+    POBLACIÓN = c(rep(16626374, 10), rep(3054237, 10)),
+)
+
+names(datos)
+```
+
+Al crear una nueva variable o una tabla resumen:
+
+```{r}
+#| error: true
+# Tan mal que da error
+datos  |> 
+summarise(tasa-incidencia(100k) = CasosTotales/POBLACIÓN * 100000)
+```
+
+En caso de que nuestros datos tengan nombres de columnas no compatibles con `tidyverse`, se recomienda usar la función `clean_names()` del paquete `janitor` para estandarizarlas:
+
+```{r}
+library(janitor)
+
+iris |>
+clean_names() |>
+head(10)
+
+datos <- datos |>
+clean_names()
+
+names(datos)
+```
