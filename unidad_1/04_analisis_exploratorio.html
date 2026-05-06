@@ -143,7 +143,7 @@ div.csl-indent {
 </style>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -585,10 +585,10 @@ Columns: 7
 $ id      &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,…
 $ sexo    &lt;chr&gt; "M", "M", "M", "M", "M", "M", "M", "M", NA, "F", "F", "M", "F"…
 $ edad    &lt;dbl&gt; 76, 68, 50, 49, 51, 68, 70, 64, 60, 57, 83, 76, 27, 34, 17, 45…
-$ peso    &lt;dbl&gt; 71, 71, 79, 71, 87, 75, 80, 83, 69, 73, 60, 70, 648, 718, 61, …
-$ talla   &lt;dbl&gt; 167, 164, 164, 164, 1675, 170, 166, 160, 160, 155, 155, 167, 1…
+$ peso    &lt;dbl&gt; 71.0, 71.0, 79.0, 71.0, 87.0, 75.0, 80.0, 83.0, 69.0, 73.0, 60…
+$ talla   &lt;dbl&gt; 167.0, 164.0, 164.0, 164.0, 167.5, 170.0, 166.0, 160.0, 160.0,…
 $ trabaja &lt;lgl&gt; FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, NA, TRUE, TRUE, TRUE, …
-$ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-05, 2…</code></pre>
+$ fecha   &lt;chr&gt; "20/10/2020", "20/10/2020", "20/10/2020", "05/11/2020", "05/11…</code></pre>
 </div>
 </div>
 <p>Esta función nos informa que la tabla contiene, por ejemplo, 74 observaciones y 7 variables, mostrando el tipo de dato de cada una y los primeros valores que aparecen.</p>
@@ -661,7 +661,7 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 4 peso      numeric               0            0              56      0.757 
 5 talla     numeric               0            0              38      0.514 
 6 trabaja   logical               9           12.2             3      0.0405
-7 fecha     Date                  0            0              11      0.149 </code></pre>
+7 fecha     character             0            0              11      0.149 </code></pre>
 </div>
 </div>
 <p>Esta función ofrece un resumen detallado que incluye el tipo de variable, la cantidad de valores faltantes, la proporción de valores únicos, entre otros indicadores de utilidad para la exploración inicial.</p>
@@ -770,9 +770,9 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <pre><code># A tibble: 3 × 26
   described_variables     n    na  mean    sd se_mean   IQR skewness kurtosis
   &lt;chr&gt;               &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
-1 edad                   74     0  48.1  20.1    2.34  36     -0.211    -1.11
-2 peso                   74     0 358.  323.    37.6  626.     0.451    -1.41
-3 talla                  74     0 363.  505.    58.7   12.8    2.19      2.90
+1 edad                   74     0  48.1 20.1    2.34  36      -0.211  -1.11  
+2 peso                   74     0  72.5 13.2    1.54  17.7     0.145   0.215 
+3 talla                  74     0 165.   8.12   0.944  9.75    0.256   0.0363
 # ℹ 17 more variables: p00 &lt;dbl&gt;, p01 &lt;dbl&gt;, p05 &lt;dbl&gt;, p10 &lt;dbl&gt;, p20 &lt;dbl&gt;,
 #   p25 &lt;dbl&gt;, p30 &lt;dbl&gt;, p40 &lt;dbl&gt;, p50 &lt;dbl&gt;, p60 &lt;dbl&gt;, p70 &lt;dbl&gt;,
 #   p75 &lt;dbl&gt;, p80 &lt;dbl&gt;, p90 &lt;dbl&gt;, p95 &lt;dbl&gt;, p99 &lt;dbl&gt;, p100 &lt;dbl&gt;</code></pre>
@@ -1200,7 +1200,7 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(datos<span class="sc">$</span>peso)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1105</code></pre>
+<pre><code>[1] 110.5</code></pre>
 </div>
 </div>
 <p>El paquete <code>dlookr</code> incluye la función <code>diagnose_outlier()</code> para la detección automatizada de valores atípicos en todas las variables numéricas de un conjunto de datos:</p>
@@ -1210,10 +1210,10 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <pre><code># A tibble: 4 × 6
   variables outliers_cnt outliers_ratio outliers_mean with_mean without_mean
   &lt;chr&gt;            &lt;int&gt;          &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;
-1 id                   0            0             NaN      37.5         37.5
-2 edad                 0            0             NaN      48.1         48.1
-3 peso                 0            0             NaN     358.         358. 
-4 talla               10           13.5          1630     363.         165. </code></pre>
+1 id                   0           0             NaN       37.5         37.5
+2 edad                 0           0             NaN       48.1         48.1
+3 peso                 1           1.35          110.      72.5         72.0
+4 talla                0           0             NaN      165.         165. </code></pre>
 </div>
 </div>
 <p>Esta función devuelve una tabla que incluye, para cada variable: cantidad y proporción de <em>outliers</em> detectados, media de la variable incluyendo los <em>outliers</em>, media de la variable excluyendo los <em>outliers</em>. En función de estos dos estadísticos se puede comparar el efecto de los valores atípicos en la media.</p>
@@ -1246,25 +1246,21 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 </tr>
 <tr class="even">
 <td style="text-align: left;">character</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Date</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">logical</td>
 <td style="text-align: left;">1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">numeric</td>
 <td style="text-align: left;">4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">________________________</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Group variables</td>
 <td style="text-align: left;">None</td>
 </tr>
@@ -1305,39 +1301,15 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 </tr>
-</tbody>
-</table>
-<p><strong>Variable type: Date</strong></p>
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 12%">
-<col style="width: 17%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 11%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: left;">min</th>
-<th style="text-align: left;">max</th>
-<th style="text-align: left;">median</th>
-<th style="text-align: right;">n_unique</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">fecha</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">2020-10-20</td>
-<td style="text-align: left;">2020-12-15</td>
-<td style="text-align: left;">2020-11-11</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
 </tr>
 </tbody>
 </table>
@@ -1365,16 +1337,16 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <p><strong>Variable type: numeric</strong></p>
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 16%">
+<col style="width: 15%">
 <col style="width: 11%">
-<col style="width: 16%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 4%">
-<col style="width: 8%">
+<col style="width: 15%">
+<col style="width: 7%">
 <col style="width: 6%">
-<col style="width: 8%">
-<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
 <col style="width: 6%">
 </colgroup>
 <thead>
@@ -1401,9 +1373,9 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <td style="text-align: right;">21.51</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">19.25</td>
-<td style="text-align: right;">37.5</td>
+<td style="text-align: right;">37.50</td>
 <td style="text-align: right;">55.75</td>
-<td style="text-align: right;">74</td>
+<td style="text-align: right;">74.0</td>
 <td style="text-align: left;">▇▇▇▇▇</td>
 </tr>
 <tr class="even">
@@ -1414,36 +1386,36 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <td style="text-align: right;">20.12</td>
 <td style="text-align: right;">13</td>
 <td style="text-align: right;">28.00</td>
-<td style="text-align: right;">52.5</td>
+<td style="text-align: right;">52.50</td>
 <td style="text-align: right;">64.00</td>
-<td style="text-align: right;">86</td>
+<td style="text-align: right;">86.0</td>
 <td style="text-align: left;">▇▃▇▇▃</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">peso</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">358.05</td>
-<td style="text-align: right;">323.31</td>
+<td style="text-align: right;">72.49</td>
+<td style="text-align: right;">13.23</td>
 <td style="text-align: right;">42</td>
-<td style="text-align: right;">75.00</td>
-<td style="text-align: right;">91.5</td>
-<td style="text-align: right;">700.50</td>
-<td style="text-align: right;">1105</td>
-<td style="text-align: left;">▇▁▂▃▁</td>
+<td style="text-align: right;">63.10</td>
+<td style="text-align: right;">72.35</td>
+<td style="text-align: right;">80.75</td>
+<td style="text-align: right;">110.5</td>
+<td style="text-align: left;">▂▃▇▂▁</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">talla</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">363.09</td>
-<td style="text-align: right;">504.93</td>
+<td style="text-align: right;">164.85</td>
+<td style="text-align: right;">8.12</td>
 <td style="text-align: right;">148</td>
-<td style="text-align: right;">161.00</td>
-<td style="text-align: right;">166.0</td>
-<td style="text-align: right;">173.75</td>
-<td style="text-align: right;">1745</td>
-<td style="text-align: left;">▇▁▁▁▁</td>
+<td style="text-align: right;">160.00</td>
+<td style="text-align: right;">164.00</td>
+<td style="text-align: right;">169.75</td>
+<td style="text-align: right;">185.0</td>
+<td style="text-align: left;">▂▅▇▂▂</td>
 </tr>
 </tbody>
 </table>
@@ -1501,17 +1473,17 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <p><strong>Variable type: numeric</strong></p>
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 15%">
+<col style="width: 14%">
 <col style="width: 5%">
 <col style="width: 10%">
-<col style="width: 15%">
+<col style="width: 14%">
 <col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 6%">
 <col style="width: 7%">
 <col style="width: 6%">
 <col style="width: 7%">
-<col style="width: 5%">
+<col style="width: 6%">
 <col style="width: 6%">
 </colgroup>
 <thead>
@@ -1538,11 +1510,11 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">41.89</td>
 <td style="text-align: right;">19.64</td>
-<td style="text-align: right;">15</td>
+<td style="text-align: right;">15.0</td>
 <td style="text-align: right;">26.00</td>
 <td style="text-align: right;">39.0</td>
 <td style="text-align: right;">54.50</td>
-<td style="text-align: right;">83</td>
+<td style="text-align: right;">83.0</td>
 <td style="text-align: left;">▇▃▅▃▂</td>
 </tr>
 <tr class="even">
@@ -1552,11 +1524,11 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">51.59</td>
 <td style="text-align: right;">19.56</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">13.0</td>
 <td style="text-align: right;">40.75</td>
 <td style="text-align: right;">55.5</td>
 <td style="text-align: right;">64.75</td>
-<td style="text-align: right;">86</td>
+<td style="text-align: right;">86.0</td>
 <td style="text-align: left;">▅▂▅▇▂</td>
 </tr>
 <tr class="odd">
@@ -1564,56 +1536,56 @@ $ fecha   &lt;date&gt; 2020-10-20, 2020-10-20, 2020-10-20, 2020-11-05, 2020-11-0
 <td style="text-align: left;">F</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">426.78</td>
-<td style="text-align: right;">300.85</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">70.50</td>
-<td style="text-align: right;">516.0</td>
-<td style="text-align: right;">677.00</td>
-<td style="text-align: right;">856</td>
-<td style="text-align: left;">▇▁▃▃▆</td>
+<td style="text-align: right;">63.88</td>
+<td style="text-align: right;">12.02</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">53.30</td>
+<td style="text-align: right;">61.0</td>
+<td style="text-align: right;">72.00</td>
+<td style="text-align: right;">85.6</td>
+<td style="text-align: left;">▂▅▇▅▃</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">peso</td>
 <td style="text-align: left;">M</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">306.95</td>
-<td style="text-align: right;">331.27</td>
-<td style="text-align: right;">64</td>
-<td style="text-align: right;">78.00</td>
-<td style="text-align: right;">86.5</td>
-<td style="text-align: right;">647.00</td>
-<td style="text-align: right;">1105</td>
-<td style="text-align: left;">▇▁▁▂▁</td>
+<td style="text-align: right;">77.97</td>
+<td style="text-align: right;">11.49</td>
+<td style="text-align: right;">51.8</td>
+<td style="text-align: right;">71.00</td>
+<td style="text-align: right;">77.2</td>
+<td style="text-align: right;">83.75</td>
+<td style="text-align: right;">110.5</td>
+<td style="text-align: left;">▂▇▇▃▂</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">talla</td>
 <td style="text-align: left;">F</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">421.74</td>
-<td style="text-align: right;">562.57</td>
-<td style="text-align: right;">148</td>
-<td style="text-align: right;">155.50</td>
-<td style="text-align: right;">161.0</td>
-<td style="text-align: right;">167.50</td>
-<td style="text-align: right;">1625</td>
-<td style="text-align: left;">▇▁▁▁▂</td>
+<td style="text-align: right;">158.57</td>
+<td style="text-align: right;">6.08</td>
+<td style="text-align: right;">148.0</td>
+<td style="text-align: right;">155.00</td>
+<td style="text-align: right;">159.5</td>
+<td style="text-align: right;">162.25</td>
+<td style="text-align: right;">172.0</td>
+<td style="text-align: left;">▅▇▇▅▂</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">talla</td>
 <td style="text-align: left;">M</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">340.77</td>
-<td style="text-align: right;">485.79</td>
-<td style="text-align: right;">158</td>
+<td style="text-align: right;">168.85</td>
+<td style="text-align: right;">6.58</td>
+<td style="text-align: right;">158.0</td>
 <td style="text-align: right;">164.00</td>
-<td style="text-align: right;">168.5</td>
-<td style="text-align: right;">177.25</td>
-<td style="text-align: right;">1745</td>
-<td style="text-align: left;">▇▁▁▁▁</td>
+<td style="text-align: right;">167.0</td>
+<td style="text-align: right;">173.00</td>
+<td style="text-align: right;">185.0</td>
+<td style="text-align: left;">▃▇▅▂▁</td>
 </tr>
 </tbody>
 </table>

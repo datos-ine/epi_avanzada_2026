@@ -63,7 +63,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -157,7 +156,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -351,6 +350,16 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-descargas">    
         <li>
+    <a class="dropdown-item" href="../epi_avanzada.pdf"><i class="bi bi-file-earmark-pdf" role="img">
+</i> 
+ <span class="dropdown-text">Material en PDF</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../epi_avanzada.epub"><i class="bi bi-book" role="img">
+</i> 
+ <span class="dropdown-text">Material en EPUB</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://cran.rstudio.com/bin/windows/" target="_blank"><i class="bi bi-windows" role="img">
 </i> 
  <span class="dropdown-text">R para Windows</span></a>
@@ -378,17 +387,7 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../files/datos_y_paquetes.zip"><i class="bi bi-file-zip" role="img">
 </i> 
- <span class="dropdown-text">Paquetes y datos para el curso</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../epi_avanzada.pdf"><i class="bi bi-file-earmark-pdf" role="img">
-</i> 
- <span class="dropdown-text">Material en PDF</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../epi_avanzada.epub"><i class="bi bi-book" role="img">
-</i> 
- <span class="dropdown-text">Material en EPUB</span></a>
+ <span class="dropdown-text">Paquetes para el curso y datos de ejemplo</span></a>
   </li>  
     </ul>
   </li>
@@ -448,25 +447,37 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../unidad_1/02_intro_RStudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeros pasos y generalidades</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../unidad_1/03_intro_tidyverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción a tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción a <code>tidyverse</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_1/04_analisis_exploratorio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Análisis exploratorio de datos</span></span></a>
+  <a href="../unidad_1/04_intro_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gestión de datos con <code>dplyr</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_1/05_hoja_estilo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span></a>
+  <a href="../unidad_1/05_intro_ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Gráficos estadísticos con <code>ggplot2</code></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/06_analisis_exploratorio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Análisis exploratorio de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/07_hoja_estilo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span></a>
   </div>
 </li>
       </ul>
@@ -489,27 +500,27 @@ window.Quarto = {
   <li><a href="#funciones" id="toc-funciones" class="nav-link" data-scroll-target="#funciones"><span class="header-section-number">1.6</span> Funciones</a></li>
   <li><a href="#paquetes-o-librerías" id="toc-paquetes-o-librerías" class="nav-link" data-scroll-target="#paquetes-o-librerías"><span class="header-section-number">1.7</span> Paquetes o librerías</a>
   <ul class="collapse">
-  <li><a href="#dependencias" id="toc-dependencias" class="nav-link" data-scroll-target="#dependencias"><span class="header-section-number">1.7.1</span> Dependencias</a></li>
+  <li><a href="#dependencias" id="toc-dependencias" class="nav-link" data-scroll-target="#dependencias">Dependencias</a></li>
   </ul></li>
   <li><a href="#errores-y-advertencias" id="toc-errores-y-advertencias" class="nav-link" data-scroll-target="#errores-y-advertencias"><span class="header-section-number">1.8</span> Errores y advertencias</a>
   <ul class="collapse">
-  <li><a href="#errores-de-sintaxis" id="toc-errores-de-sintaxis" class="nav-link" data-scroll-target="#errores-de-sintaxis"><span class="header-section-number">1.8.1</span> Errores de sintaxis</a></li>
-  <li><a href="#error-de-objeto-no-encontrado" id="toc-error-de-objeto-no-encontrado" class="nav-link" data-scroll-target="#error-de-objeto-no-encontrado"><span class="header-section-number">1.8.2</span> Error de objeto no encontrado</a></li>
-  <li><a href="#otros-errores" id="toc-otros-errores" class="nav-link" data-scroll-target="#otros-errores"><span class="header-section-number">1.8.3</span> Otros errores</a></li>
-  <li><a href="#advertencias" id="toc-advertencias" class="nav-link" data-scroll-target="#advertencias"><span class="header-section-number">1.8.4</span> Advertencias</a></li>
+  <li><a href="#errores-de-sintaxis" id="toc-errores-de-sintaxis" class="nav-link" data-scroll-target="#errores-de-sintaxis">Errores de sintaxis</a></li>
+  <li><a href="#error-de-objeto-no-encontrado" id="toc-error-de-objeto-no-encontrado" class="nav-link" data-scroll-target="#error-de-objeto-no-encontrado">Error de objeto no encontrado</a></li>
+  <li><a href="#otros-errores" id="toc-otros-errores" class="nav-link" data-scroll-target="#otros-errores">Otros errores</a></li>
+  <li><a href="#advertencias" id="toc-advertencias" class="nav-link" data-scroll-target="#advertencias">Advertencias</a></li>
   </ul></li>
   <li><a href="#creación-de-objetos" id="toc-creación-de-objetos" class="nav-link" data-scroll-target="#creación-de-objetos"><span class="header-section-number">1.9</span> Creación de objetos</a></li>
   <li><a href="#estructuras-de-datos" id="toc-estructuras-de-datos" class="nav-link" data-scroll-target="#estructuras-de-datos"><span class="header-section-number">1.10</span> Estructuras de datos</a>
   <ul class="collapse">
-  <li><a href="#vectores" id="toc-vectores" class="nav-link" data-scroll-target="#vectores"><span class="header-section-number">1.10.1</span> Vectores</a></li>
-  <li><a href="#factores" id="toc-factores" class="nav-link" data-scroll-target="#factores"><span class="header-section-number">1.10.2</span> Factores</a></li>
-  <li><a href="#dataframe" id="toc-dataframe" class="nav-link" data-scroll-target="#dataframe"><span class="header-section-number">1.10.3</span> <em>Dataframe</em></a></li>
+  <li><a href="#vectores" id="toc-vectores" class="nav-link" data-scroll-target="#vectores">Vectores</a></li>
+  <li><a href="#factores" id="toc-factores" class="nav-link" data-scroll-target="#factores">Factores</a></li>
+  <li><a href="#dataframe" id="toc-dataframe" class="nav-link" data-scroll-target="#dataframe"><em>Dataframe</em></a></li>
   </ul></li>
   <li><a href="#operadores" id="toc-operadores" class="nav-link" data-scroll-target="#operadores"><span class="header-section-number">1.11</span> Operadores</a>
   <ul class="collapse">
-  <li><a href="#operadores-aritméticos" id="toc-operadores-aritméticos" class="nav-link" data-scroll-target="#operadores-aritméticos"><span class="header-section-number">1.11.1</span> Operadores aritméticos</a></li>
-  <li><a href="#operadores-relacionales" id="toc-operadores-relacionales" class="nav-link" data-scroll-target="#operadores-relacionales"><span class="header-section-number">1.11.2</span> Operadores relacionales</a></li>
-  <li><a href="#operadores-lógicos" id="toc-operadores-lógicos" class="nav-link" data-scroll-target="#operadores-lógicos"><span class="header-section-number">1.11.3</span> Operadores lógicos</a></li>
+  <li><a href="#operadores-aritméticos" id="toc-operadores-aritméticos" class="nav-link" data-scroll-target="#operadores-aritméticos">Operadores aritméticos</a></li>
+  <li><a href="#operadores-relacionales" id="toc-operadores-relacionales" class="nav-link" data-scroll-target="#operadores-relacionales">Operadores relacionales</a></li>
+  <li><a href="#operadores-lógicos" id="toc-operadores-lógicos" class="nav-link" data-scroll-target="#operadores-lógicos">Operadores lógicos</a></li>
   </ul></li>
   <li><a href="#valores-especiales" id="toc-valores-especiales" class="nav-link" data-scroll-target="#valores-especiales"><span class="header-section-number">1.12</span> Valores especiales</a></li>
   <li><a href="#secuencias-regulares" id="toc-secuencias-regulares" class="nav-link" data-scroll-target="#secuencias-regulares"><span class="header-section-number">1.13</span> Secuencias regulares</a></li>
@@ -574,24 +585,24 @@ window.Quarto = {
 <p>El sitio oficial <a href="https://www.r-project.org/"><strong>r-project.org</strong></a> define a R como <em>“un entorno de software libre para gráficos y computación estadística. Se compila y se ejecuta en una amplia variedad de plataformas UNIX, Windows y MacOS.”</em></p>
 <p>Profundizando en su descripción, podemos decir que R es un <em>lenguaje de programación interpretado, orientado a objetos, multiplataforma y de código abierto (open source) aplicado al manejo y análisis de datos estadísticos.</em></p>
 <p>A continuación, detallamos cada una de sus características:</p>
-<section id="r-es-un-lenguaje-de-programación-estadístico" class="level4" data-number="1.1.0.1">
-<h4 data-number="1.1.0.1" class="anchored" data-anchor-id="r-es-un-lenguaje-de-programación-estadístico"><span class="header-section-number">1.1.0.1</span> R es un lenguaje de programación estadístico</h4>
+<section id="r-es-un-lenguaje-de-programación-estadístico" class="level4">
+<h4 class="anchored" data-anchor-id="r-es-un-lenguaje-de-programación-estadístico">R es un lenguaje de programación estadístico</h4>
 <p>Si bien posee un entorno y se puede utilizar como calculadora avanzada o para simulaciones, R es fundamentalmente un lenguaje de programación. Presenta una estructura y reglas de sintaxis propias, así como gran variedad de funciones desarrolladas con fines estadísticos.</p>
 </section>
-<section id="r-es-un-lenguaje-orientado-a-objetos" class="level4" data-number="1.1.0.2">
-<h4 data-number="1.1.0.2" class="anchored" data-anchor-id="r-es-un-lenguaje-orientado-a-objetos"><span class="header-section-number">1.1.0.2</span> R es un lenguaje orientado a objetos</h4>
+<section id="r-es-un-lenguaje-orientado-a-objetos" class="level4">
+<h4 class="anchored" data-anchor-id="r-es-un-lenguaje-orientado-a-objetos">R es un lenguaje orientado a objetos</h4>
 <p>R implementa conceptos de la programación orientada a objetos, lo cual le permite ofrecer simpleza y flexibilidad en el manejo de datos. En R, todo con lo que trabajamos —variables, funciones, datos, resultados— son objetos que pueden ser modificados o combinados con otros objetos.</p>
 </section>
-<section id="r-es-un-lenguaje-interpretado" class="level4" data-number="1.1.0.3">
-<h4 data-number="1.1.0.3" class="anchored" data-anchor-id="r-es-un-lenguaje-interpretado"><span class="header-section-number">1.1.0.3</span> R es un lenguaje interpretado</h4>
+<section id="r-es-un-lenguaje-interpretado" class="level4">
+<h4 class="anchored" data-anchor-id="r-es-un-lenguaje-interpretado">R es un lenguaje interpretado</h4>
 <p>R no requiere compilación previa. Los scripts se ejecutan directamente mediante el intérprete del lenguaje, que devuelve resultados de forma inmediata.</p>
 </section>
-<section id="r-es-un-lenguaje-multiplataforma" class="level4" data-number="1.1.0.4">
-<h4 data-number="1.1.0.4" class="anchored" data-anchor-id="r-es-un-lenguaje-multiplataforma"><span class="header-section-number">1.1.0.4</span> R es un lenguaje multiplataforma</h4>
+<section id="r-es-un-lenguaje-multiplataforma" class="level4">
+<h4 class="anchored" data-anchor-id="r-es-un-lenguaje-multiplataforma">R es un lenguaje multiplataforma</h4>
 <p>R puede instalarse y utilizarse en sistemas operativos Linux, Windows y MacOS. En todos ellos funciona de la misma manera, lo que garantiza que los scripts pueden correr en cualquier plataforma sin necesidad de modificaciones.</p>
 </section>
-<section id="r-es-software-libre-y-de-código-abierto" class="level4" data-number="1.1.0.5">
-<h4 data-number="1.1.0.5" class="anchored" data-anchor-id="r-es-software-libre-y-de-código-abierto"><span class="header-section-number">1.1.0.5</span> R es software libre y de código abierto</h4>
+<section id="r-es-software-libre-y-de-código-abierto" class="level4">
+<h4 class="anchored" data-anchor-id="r-es-software-libre-y-de-código-abierto">R es software libre y de código abierto</h4>
 <p>R se distribuye gratuitamente bajo licencia GNU - GPL (<em>General Public License</em>), lo que otorga a los usuarios la libertad de usar, estudiar, compartir y modificar el software. Esto ha favorecido el crecimiento de una comunidad global activa y colaborativa.</p>
 </section>
 </section>
@@ -660,8 +671,8 @@ window.Quarto = {
 </div>
 <p>En la actualidad, existen más de 17.000 paquetes disponibles para una amplia variedad de aplicaciones, número que crece mes a mes gracias a la naturaleza <em>open source</em> del lenguaje. Cualquier persona puede desarrollar y compartir sus propios paquetes, aunque no todos llegan a publicarse en el repositorio oficial CRAN (Comprehensive R Archive Network), que actúa como principal fuente de distribución.</p>
 <p>Los paquetes pueden descargarse directamente desde CRAN o instalarse a partir de archivos comprimidos locales (como <code>.zip</code> o <code>.tar.gz</code>). Una vez instalados, se los puede activar en cualquier análisis.</p>
-<section id="dependencias" class="level3" data-number="1.7.1">
-<h3 data-number="1.7.1" class="anchored" data-anchor-id="dependencias"><span class="header-section-number">1.7.1</span> Dependencias</h3>
+<section id="dependencias" class="level3">
+<h3 class="anchored" data-anchor-id="dependencias">Dependencias</h3>
 <p>En muchos casos, al utilizar un paquete, este necesita de otros para funcionar correctamente. Esta relación se conoce como <strong>dependencia</strong>, y es una característica central en el ecosistema de R.</p>
 <p>La mayoría de las funciones incluidas en los paquetes están desarrolladas en el propio lenguaje R y, durante su construcción, es habitual que recurran a funciones ya existentes en otros paquetes. Por ejemplo, una función nueva puede hacer uso de una función auxiliar que no pertenece al sistema base, sino a otro paquete externo.</p>
 <p>Cuando intentamos ejecutar una función que depende de otras no disponibles en nuestra instalación, R no podrá encontrar esas funciones y nos devolverá un mensaje de error indicando que no reconoce el nombre solicitado. Este tipo de errores suele alertar sobre funciones “desconocidas” o “no encontradas”, lo que indica que falta instalar o activar alguno de los paquetes requeridos.</p>
@@ -678,8 +689,8 @@ window.Quarto = {
 <li><p>Error de objeto no encontrado</p></li>
 <li><p>Otros errores</p></li>
 </ul>
-<section id="errores-de-sintaxis" class="level3" data-number="1.8.1">
-<h3 data-number="1.8.1" class="anchored" data-anchor-id="errores-de-sintaxis"><span class="header-section-number">1.8.1</span> Errores de sintaxis</h3>
+<section id="errores-de-sintaxis" class="level3">
+<h3 class="anchored" data-anchor-id="errores-de-sintaxis">Errores de sintaxis</h3>
 <p>Ocurre cuando R no puede interpretar una línea de código porque algo está mal escrito. Los errores de sintaxis más frecuentes incluyen:</p>
 <ul>
 <li><p>Paréntesis, comas, comillas, corchetes o llaves mal colocados o ausentes.</p></li>
@@ -729,8 +740,8 @@ window.Quarto = {
 <p>Este último error se asemeja a un error de objeto no encontrado, aunque tiene origen en un problema de sintaxis.</p>
 <p>Los mensajes de error en general y sobre todo al principio pueden parecer extraños y difíciles de entender, pero con un poco de práctica podemos inferir donde está el problema.</p>
 </section>
-<section id="error-de-objeto-no-encontrado" class="level3" data-number="1.8.2">
-<h3 data-number="1.8.2" class="anchored" data-anchor-id="error-de-objeto-no-encontrado"><span class="header-section-number">1.8.2</span> Error de objeto no encontrado</h3>
+<section id="error-de-objeto-no-encontrado" class="level3">
+<h3 class="anchored" data-anchor-id="error-de-objeto-no-encontrado">Error de objeto no encontrado</h3>
 <p>Este tipo de error se produce cuando R no reconoce un objeto utilizado en el código. Las causas más frecuentes incluyen:</p>
 <ul>
 <li><p>El nombre del objeto está mal escrito (por ejemplo, errores de sintaxis o uso incorrecto de mayúsculas/minúsculas).</p></li>
@@ -754,8 +765,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="otros-errores" class="level3" data-number="1.8.3">
-<h3 data-number="1.8.3" class="anchored" data-anchor-id="otros-errores"><span class="header-section-number">1.8.3</span> Otros errores</h3>
+<section id="otros-errores" class="level3">
+<h3 class="anchored" data-anchor-id="otros-errores">Otros errores</h3>
 <p>Son aquellos que se generan por causas distintas a errores de sintaxis o de objeto no encontrado. Por ejemplo:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="st">"x"</span> <span class="sc">+</span> <span class="dv">10</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -785,8 +796,8 @@ window.Quarto = {
 </div>
 <p>Este mensaje de error indica que el subíndice está fuera de los límites del objeto (<code>subscript out of bounds</code>).</p>
 </section>
-<section id="advertencias" class="level3" data-number="1.8.4">
-<h3 data-number="1.8.4" class="anchored" data-anchor-id="advertencias"><span class="header-section-number">1.8.4</span> Advertencias</h3>
+<section id="advertencias" class="level3">
+<h3 class="anchored" data-anchor-id="advertencias">Advertencias</h3>
 <p>Las advertencia no son tan serias como un error, o al menos no lo parece, ya que permiten el código se ejecute igual. Pero puede ocurrir que ignorar una advertencia llegue a ser algo muy serio, si esto implica que la salida de la función es equivocada.</p>
 <p>Ignorar advertencias puede llevar a conclusiones erróneas, por lo que es recomendable prestarles atención y entender su causa.</p>
 <p>Por ejemplo:</p>
@@ -800,8 +811,8 @@ window.Quarto = {
 </div>
 </div>
 <p>la función genera una advertencia porque el logaritmo de un número negativo no está definido en los reales, y R devuelve un valor <code>NaN</code> (<em>Not a Number</em>).</p>
-<section id="resumiendo" class="level4" data-number="1.8.4.1">
-<h4 data-number="1.8.4.1" class="anchored" data-anchor-id="resumiendo"><span class="header-section-number">1.8.4.1</span> Resumiendo…</h4>
+<section id="resumiendo" class="level4">
+<h4 class="anchored" data-anchor-id="resumiendo">Resumiendo…</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/error_warning.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
@@ -865,8 +876,8 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objeto</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="vectores" class="level3" data-number="1.10.1">
-<h3 data-number="1.10.1" class="anchored" data-anchor-id="vectores"><span class="header-section-number">1.10.1</span> Vectores</h3>
+<section id="vectores" class="level3">
+<h3 class="anchored" data-anchor-id="vectores">Vectores</h3>
 <p>Un vector es un conjunto de valores (números o símbolos), del mismo tipo ordenados de la forma (elemento 1, elemento 2, … , elemento <span class="math inline">\(n\)</span>), donde <span class="math inline">\(n\)</span> es la longitud o tamaño del vector.</p>
 <p>Los atributos principales son:</p>
 <ul>
@@ -929,8 +940,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="factores" class="level3" data-number="1.10.2">
-<h3 data-number="1.10.2" class="anchored" data-anchor-id="factores"><span class="header-section-number">1.10.2</span> Factores</h3>
+<section id="factores" class="level3">
+<h3 class="anchored" data-anchor-id="factores">Factores</h3>
 <p>Un factor es un objeto especialmente diseñado para contener datos categóricos y se asocia particularmente con las <em>variables cualitativas</em>.</p>
 <p>En su estructura interna está compuesto por dos vectores:</p>
 <ul>
@@ -953,8 +964,8 @@ Levels: a b c</code></pre>
 <p>Creamos el objeto <code>factor</code>1 con 6 elementos caracteres y tres niveles sin orden.</p>
 <p>Además de la practicidad de trabajar con factores, muchas funciones de R requieren que las variables categóricas estén en formato factor para funcionar correctamente.</p>
 </section>
-<section id="dataframe" class="level3" data-number="1.10.3">
-<h3 data-number="1.10.3" class="anchored" data-anchor-id="dataframe"><span class="header-section-number">1.10.3</span> <em>Dataframe</em></h3>
+<section id="dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="dataframe"><em>Dataframe</em></h3>
 <p>Un <em>dataframe</em> es un objeto diseñado para contener conjuntos de datos y representa una estructura bidimensional similar a una tabla, con filas y columnas. Cada columna puede almacenar elementos de distintos tipos (por ejemplo, numéricos, de texto o lógicos), siempre que todos tengan la misma longitud.</p>
 <p>Las columnas suelen tener nombres únicos, lo que permite referenciarlas fácilmente como si fueran variables individuales dentro del conjunto de datos.</p>
 <p>Este es el tipo de objeto que se utiliza habitualmente para almacenar información importada desde archivos externos (por ejemplo, archivos de texto separados por comas o planillas de Excel), y con el que más frecuentemente trabajamos en los análisis.</p>
@@ -1003,8 +1014,8 @@ Levels: a b c</code></pre>
 <section id="operadores" class="level2" data-number="1.11">
 <h2 data-number="1.11" class="anchored" data-anchor-id="operadores"><span class="header-section-number">1.11</span> Operadores</h2>
 <p>Además de funciones, el lenguaje R cuenta con operadores de uso relativamente intuitivo, que permiten realizar operaciones de diferentes tipos con los objetos que contienen datos.</p>
-<section id="operadores-aritméticos" class="level3" data-number="1.11.1">
-<h3 data-number="1.11.1" class="anchored" data-anchor-id="operadores-aritméticos"><span class="header-section-number">1.11.1</span> Operadores aritméticos</h3>
+<section id="operadores-aritméticos" class="level3">
+<h3 class="anchored" data-anchor-id="operadores-aritméticos">Operadores aritméticos</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table table-condensed table-hover caption-top table-sm table-striped small">
@@ -1105,8 +1116,8 @@ Levels: a b c</code></pre>
 </div>
 </div>
 </section>
-<section id="operadores-relacionales" class="level3" data-number="1.11.2">
-<h3 data-number="1.11.2" class="anchored" data-anchor-id="operadores-relacionales"><span class="header-section-number">1.11.2</span> Operadores relacionales</h3>
+<section id="operadores-relacionales" class="level3">
+<h3 class="anchored" data-anchor-id="operadores-relacionales">Operadores relacionales</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table table-condensed table-hover caption-top table-sm table-striped small">
@@ -1174,8 +1185,8 @@ Levels: a b c</code></pre>
 </div>
 </div>
 </section>
-<section id="operadores-lógicos" class="level3" data-number="1.11.3">
-<h3 data-number="1.11.3" class="anchored" data-anchor-id="operadores-lógicos"><span class="header-section-number">1.11.3</span> Operadores lógicos</h3>
+<section id="operadores-lógicos" class="level3">
+<h3 class="anchored" data-anchor-id="operadores-lógicos">Operadores lógicos</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table table-condensed table-hover caption-top table-sm table-striped small">
@@ -1633,8 +1644,8 @@ Levels: Mala &lt; Regular &lt; Buena &lt; Muy buena</code></pre>
 <h2 data-number="1.17" class="anchored" data-anchor-id="fórmulas"><span class="header-section-number">1.17</span> Fórmulas</h2>
 <p>En R, las fórmulas se utilizan principalmente para describir modelos estadísticos, y las vamos a emplear a lo largo de toda la cursada.</p>
 <p>Las fórmulas se escriben utilizando operadores como <code>~</code>, <code>+</code>, <code>*</code>, entre otros. Se usan para especificar modelos como regresiones, ANOVA, pruebas de hipótesis y, en algunos casos, también para generar ciertos tipos de gráficos.</p>
-<section id="formula-genérica" class="level4" data-number="1.17.0.1">
-<h4 data-number="1.17.0.1" class="anchored" data-anchor-id="formula-genérica"><span class="header-section-number">1.17.0.1</span> Formula genérica</h4>
+<section id="formula-genérica" class="level4">
+<h4 class="anchored" data-anchor-id="formula-genérica">Formula genérica</h4>
 <p>Aquí la formula está dada por el operador <code>~</code>, a la izquierda está la variable de respuesta o dependiente, a la derecha la o las variables explicativas o independientes. El esquema general es el siguiente:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a>variable_dependiente <span class="sc">~</span> variable</span>
@@ -2114,8 +2125,8 @@ Levels: Mala &lt; Regular &lt; Buena &lt; Muy buena</code></pre>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../unidad_1/02_intro_RStudio.html" class="pagination-link" aria-label="Primeros pasos y generalidades">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeros pasos y generalidades</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../unidad_1/02_intro_RStudio.html" class="pagination-link" aria-label="Introducción a RStudio">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
