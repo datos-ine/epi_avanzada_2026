@@ -454,18 +454,6 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Gráficos estadísticos con <code>ggplot2</code></span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../unidad_1/06_analisis_exploratorio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Análisis exploratorio de datos</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../unidad_1/07_hoja_estilo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -524,7 +512,7 @@ div.csl-indent {
 </div>
 <section id="introducción" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">3.1</span> Introducción</h2>
-<p>Tidyverse es el nombre que recibe el conjunto de paquetes desarrollados y/o promovidos por <a href="https://en.wikipedia.org/wiki/Hadley_Wickham"><strong>Hadley Wickham</strong></a> (jefe científico en Posit/RStudio) y su equipo, orientado al trabajo de ciencia de datos con R <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et&nbsp;al. 2019</a>)</span>. Estos paquetes están diseñados para integrarse de manera coherente, compartiendo una misma filosofía de diseño conocida como <a href="https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html"><strong><em>The tidy tools manifesto</em></strong></a>.</p>
+<p>Tidyverse es el nombre que recibe el conjunto de paquetes desarrollados y/o promovidos por <a href="https://en.wikipedia.org/wiki/Hadley_Wickham"><strong>Hadley Wickham</strong></a> (jefe científico en Posit/RStudio) y su equipo, orientado al trabajo de ciencia de datos con R <span class="citation" data-cites="wickham2019">(<a href="#ref-wickham2019" role="doc-biblioref">Wickham et&nbsp;al. 2019</a>)</span>. Estos paquetes están diseñados para integrarse de manera coherente, compartiendo una misma filosofía de diseño conocida como <a href="https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html"><strong><em>The tidy tools manifesto</em></strong></a>.</p>
 <p>Los cuatro principios básicos sobre los que se construye <em>tidyverse</em> son:</p>
 <ul>
 <li><p>Reutilización de estructuras de datos</p></li>
@@ -606,7 +594,7 @@ div.csl-indent {
 </section>
 <section id="dataframes-con-tibble" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="dataframes-con-tibble"><span class="header-section-number">3.2</span> <em>Dataframes</em> con <code>tibble</code></h2>
-<p>Uno de los paquetes que forman parte del núcleo básico de <em>tidyverse</em> es <code>tibble</code> <span class="citation" data-cites="tibble">(<a href="#ref-tibble" role="doc-biblioref">Müller y Wickham 2023</a>)</span>, que introduce una versión moderna del objeto <code>data.frame</code>. Todas las funciones que generan tablas de datos en <em>tidyverse</em> devuelven objetos <em>tibble</em> (<code>tbl_df</code>), los cuales son más eficientes y amigables para el flujo de trabajo.</p>
+<p>Uno de los paquetes que forman parte del núcleo básico de <em>tidyverse</em> es <code>tibble</code> <span class="citation" data-cites="müller2016">(<a href="#ref-müller2016" role="doc-biblioref">Müller y Wickham 2016</a>)</span>, que introduce una versión moderna del objeto <code>data.frame</code>. Todas las funciones que generan tablas de datos en <em>tidyverse</em> devuelven objetos <em>tibble</em> (<code>tbl_df</code>), los cuales son más eficientes y amigables para el flujo de trabajo.</p>
 <p>Las principales ventajas de trabajar con <code>tibble</code> son:</p>
 <ul>
 <li><p>Impresión en consola más legible y controlada (muestran un número limitado de filas y columnas).</p></li>
@@ -629,7 +617,7 @@ div.csl-indent {
 </section>
 <section id="tuberías-con-magrittr" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="tuberías-con-magrittr"><span class="header-section-number">3.3</span> Tuberías con <code>magrittr</code></h2>
-<p>Una de las incorporaciones más útiles y transversales del ecosistema <em>tidyverse</em> es el uso de “<em>tuberías”</em> o <em>pipe operators</em>. Una tubería conecta un bloque de código con otro, permitiendo encadenar operaciones de manera legible. El operador <code>%&gt;%</code>, proveniente del paquete <code>magrittr</code> <span class="citation" data-cites="magrittr">(<a href="#ref-magrittr" role="doc-biblioref">Bache y Wickham 2022</a>)</span>, transforma llamadas de funciones anidadas (con múltiples paréntesis) en una secuencia de pasos más simple de leer y escribir.</p>
+<p>Una de las incorporaciones más útiles y transversales del ecosistema <em>tidyverse</em> es el uso de “<em>tuberías”</em> o <em>pipe operators</em>. Una tubería conecta un bloque de código con otro, permitiendo encadenar operaciones de manera legible. El operador <code>%&gt;%</code>, proveniente del paquete <code>magrittr</code> <span class="citation" data-cites="bache2014">(<a href="#ref-bache2014" role="doc-biblioref">Bache y Wickham 2014</a>)</span>, transforma llamadas de funciones anidadas (con múltiples paréntesis) en una secuencia de pasos más simple de leer y escribir.</p>
 <p>A partir de la versión 4.1.0 de R, también se incorporó una <strong>tubería nativa</strong> (<code>|&gt;</code>), con un comportamiento muy similar. Ambas opciones son válidas y su uso es prácticamente equivalente.</p>
 <p>Este enfoque refleja el principio de que <em>cada función representa un paso en una secuencia lógica de transformación de datos</em>. La forma de trabajar se puede ver en el siguiente esquema general:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -716,7 +704,7 @@ Valiant           4.496665  1  0 1.732051 1.000000</code></pre>
 </section>
 <section id="archivos-de-texto-plano-con-readr" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="archivos-de-texto-plano-con-readr"><span class="header-section-number">3.4</span> Archivos de texto plano con <code>readr</code></h2>
-<p>El paquete <code>readr</code> <span class="citation" data-cites="readr">(<a href="#ref-readr" role="doc-biblioref">Wickham et&nbsp;al. 2024</a>)</span> contiene funciones similares a las de la familia <code>read.table()</code> de R base, pero desarrollados bajo el ecosistema <code>tidyverse</code>.</p>
+<p>El paquete <code>readr</code> <span class="citation" data-cites="wickham2015">(<a href="#ref-wickham2015" role="doc-biblioref">Wickham et&nbsp;al. 2015</a>)</span> contiene funciones similares a las de la familia <code>read.table()</code> de R base, pero desarrollados bajo el ecosistema <code>tidyverse</code>.</p>
 <p>Los archivos de texto plano (ASCII u otras codificaciones) son universalmente utilizados por la mayoría de los gestores de bases de datos y planillas de cálculo. Generalmente se encuentran con extensiones <code>.txt</code> o <code>.csv</code> (por <em>comma-separated values</em>) y son el tipo de archivo de datos más habitual en R.</p>
 <p>Estos datos planos tienen dos características principales:</p>
 <ul>
@@ -865,7 +853,7 @@ NULL</code></pre>
 </section>
 <section id="lectura-de-hojas-de-cálculo-con-readxl" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="lectura-de-hojas-de-cálculo-con-readxl"><span class="header-section-number">3.5</span> Lectura de hojas de cálculo con <code>readxl</code></h2>
-<p>Uno de los formatos más comunes para almacenar datos son las hojas de cálculo, en particular las creadas con Microsoft Excel. El paquete <code>readxl</code> <span class="citation" data-cites="readxl">(<a href="#ref-readxl" role="doc-biblioref">Wickham y Bryan 2025</a>)</span>, parte del ecosistema <code>tidyverse</code>, permite leer este tipo de archivos.</p>
+<p>Uno de los formatos más comunes para almacenar datos son las hojas de cálculo, en particular las creadas con Microsoft Excel. El paquete <code>readxl</code> <span class="citation" data-cites="wickham2015a">(<a href="#ref-wickham2015a" role="doc-biblioref">Wickham y Bryan 2015</a>)</span>, parte del ecosistema <code>tidyverse</code>, permite leer este tipo de archivos.</p>
 <p><code>readxl</code> es compatible con hojas de cálculo de Excel 97-2003, con extensión <code>.xls</code>, y con versiones más recientes, con extensión <code>.xlsx</code>.</p>
 <p>Una primera función útil es <code>excel_sheets()</code>, que permite conocer y listar los nombres de las hojas contenidas en un archivo Excel (también llamado libro o <em>workbook</em>).</p>
 <p>Por ejemplo, supongamos que tenemos un archivo denominado “<code>datos.xlsx</code><strong>“</strong> y queremos saber por cuantas hojas está compuesto y que nombre tienen:</p>
@@ -988,20 +976,20 @@ NULL</code></pre>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-magrittr" class="csl-entry" role="listitem">
-Bache, Stefan Milton, y Hadley Wickham. 2022. <em>magrittr: A Forward-Pipe Operator for R</em>. <a href="https://CRAN.R-project.org/package=magrittr">https://CRAN.R-project.org/package=magrittr</a>.
+<div id="ref-bache2014" class="csl-entry" role="listitem">
+Bache, Stefan Milton, y Hadley Wickham. 2014. <em>magrittr: A Forward-Pipe Operator for R</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.magrittr">https://doi.org/10.32614/cran.package.magrittr</a>.
 </div>
-<div id="ref-tibble" class="csl-entry" role="listitem">
-Müller, Kirill, y Hadley Wickham. 2023. <em>tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
+<div id="ref-müller2016" class="csl-entry" role="listitem">
+Müller, Kirill, y Hadley Wickham. 2016. <em>tibble: Simple Data Frames</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.tibble">https://doi.org/10.32614/cran.package.tibble</a>.
 </div>
-<div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, et&nbsp;al. 2019. <em>Welcome to the <span></span>tidyverse<span></span></em>. 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+<div id="ref-wickham2019" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, et&nbsp;al. 2019. <span>«Welcome to the Tidyverse»</span>. <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
-<div id="ref-readxl" class="csl-entry" role="listitem">
-Wickham, Hadley, y Jennifer Bryan. 2025. <em>readxl: Read Excel Files</em>. <a href="https://CRAN.R-project.org/package=readxl">https://CRAN.R-project.org/package=readxl</a>.
+<div id="ref-wickham2015a" class="csl-entry" role="listitem">
+Wickham, Hadley, y Jennifer Bryan. 2015. <em>readxl: Read Excel Files</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.readxl">https://doi.org/10.32614/cran.package.readxl</a>.
 </div>
-<div id="ref-readr" class="csl-entry" role="listitem">
-Wickham, Hadley, Jim Hester, y Jennifer Bryan. 2024. <em>readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
+<div id="ref-wickham2015" class="csl-entry" role="listitem">
+Wickham, Hadley, Jim Hester, y Jennifer Bryan. 2015. <em>readr: Read Rectangular Text Data</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.readr">https://doi.org/10.32614/cran.package.readr</a>.
 </div>
 </div>
 </section>
