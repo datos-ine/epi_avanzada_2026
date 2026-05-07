@@ -519,12 +519,12 @@ div.csl-indent {
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/tidyverse.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:44.0%"></p>
+<p><img src="..\images/tidyverse.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:44.0%"></p>
 </figure>
 </div>
 <section id="introducción" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">3.1</span> Introducción</h2>
-<p><em>Tidyverse</em><span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et&nbsp;al. 2019</a>)</span> es el nombre que recibe el conjunto de paquetes desarrollados y/o promovidos por <a href="https://en.wikipedia.org/wiki/Hadley_Wickham"><strong>Hadley Wickham</strong></a> (jefe científico en Posit/RStudio) y su equipo, orientado al trabajo de ciencia de datos con R. Estos paquetes están diseñados para integrarse de manera coherente, compartiendo una misma filosofía de diseño conocida como <a href="https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html"><strong><em>The tidy tools manifesto</em></strong></a>.</p>
+<p>Tidyverse es el nombre que recibe el conjunto de paquetes desarrollados y/o promovidos por <a href="https://en.wikipedia.org/wiki/Hadley_Wickham"><strong>Hadley Wickham</strong></a> (jefe científico en Posit/RStudio) y su equipo, orientado al trabajo de ciencia de datos con R <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et&nbsp;al. 2019</a>)</span>. Estos paquetes están diseñados para integrarse de manera coherente, compartiendo una misma filosofía de diseño conocida como <a href="https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html"><strong><em>The tidy tools manifesto</em></strong></a>.</p>
 <p>Los cuatro principios básicos sobre los que se construye <em>tidyverse</em> son:</p>
 <ul>
 <li><p>Reutilización de estructuras de datos</p></li>
@@ -541,12 +541,12 @@ div.csl-indent {
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/tidy.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="..\images/tidy.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>Además de los paquetes principales, al instalar <code>tidyverse</code> se incluyen otros que permiten trabajar con fechas, cadenas de caracteres o factores, también siguiendo los mismos principios.</p>
 <p>Uno de los objetivos de los desarrolladores fue dotar a la sintaxis de estos paquetes de una <strong>gramática</strong> clara: funciones cuyos nombres y argumentos permiten construir “<em>frases</em>” que sean semánticamente comprensibles. Un ejemplo de esto se ve en el paquete <code>dplyr</code>, donde la mayoría de las funciones son verbos en inglés como <code>filter()</code>, <code>mutate()</code>, <code>summarise()</code>, lo que facilita su lectura y comprensión.</p>
-<p>El paquete <code>tidyverse</code> (versión 2.0.0) puede instalarse desde el repositorio oficial CRAN mediante el menú <em>Packages</em> de RStudio, o ejecutando el siguiente código:</p>
+<p>El paquete <code>tidyverse</code> puede instalarse desde el repositorio oficial CRAN mediante el menú <em>Packages</em> de RStudio, o ejecutando el siguiente código:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -600,7 +600,7 @@ div.csl-indent {
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/tibble.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
+<p><img src="..\images/tibble.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
 </figure>
 </div>
 </section>
@@ -623,7 +623,7 @@ div.csl-indent {
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/magrittr.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
+<p><img src="..\images/magrittr.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
 </figure>
 </div>
 </section>
@@ -634,7 +634,7 @@ div.csl-indent {
 <p>Este enfoque refleja el principio de que <em>cada función representa un paso en una secuencia lógica de transformación de datos</em>. La forma de trabajar se puede ver en el siguiente esquema general:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/pipe.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="..\images/pipe.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>A continuación, mostramos un ejemplo comparativo de cómo cambia la sintaxis usando el dataset incorporado en R <code>mtcars</code>, que contiene datos sobre autos:</p>
@@ -710,7 +710,7 @@ Valiant           4.496665  1  0 1.732051 1.000000</code></pre>
 <p>Las tuberías le dan mucha mas claridad al código separándolo en partes, como si fuesen oraciones de un párrafo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/readr.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
+<p><img src="..\images/readr.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
 </figure>
 </div>
 </section>
@@ -858,7 +858,7 @@ NULL</code></pre>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/readxl.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
+<p><img src="..\images/readxl.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
 </figure>
 </div>
 </section>
