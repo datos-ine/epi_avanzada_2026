@@ -2,7 +2,7 @@
 toc: false
 ---
 
-# ¡Les damos la bienvenida al curso de Epidemiología Nivel Avanzado! {.unnumbered}
+# ¡Les damos la bienvenida al curso! {.unnumbered}
 
 Es un gusto recibirles en esta nueva edición del curso, diseñado para profundizar en el análisis de datos provenientes de distintos diseños de estudio mediante el uso de modelos estadísticos.
 
@@ -10,10 +10,10 @@ A lo largo del curso, abordaremos herramientas analíticas avanzadas que nos per
 
 Esperamos que este espacio sea una experiencia formativa enriquecedora y un nuevo impulso en su desarrollo como investigadoras e investigadores en salud.
 
-:::: {style="text-align: right;"}
-::: {style="font-size: 1.5em"}
+<!-- :::: {style="text-align: center;"}
+::: {style="font-size: 1.5em"} -->
 **El equipo docente**
-:::
+<!-- ::: -->
 
 Christian Ballejo [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0002-7346-5701)
 
@@ -21,12 +21,13 @@ Andrea Silva [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)]
 
 Tamara Ricardo [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0002-0921-2611)
 
-<!-- Micaela Gauto [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-3288-1108) -->
-
-Ramiro Dana Smith [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0001-2243-3419)
+Ramiro Dana Smith [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0001-2243-3419) 
 
 Julia Maxwell [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0004-7410-1661)
-::::
+
+<!-- Micaela Gauto [![](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-3288-1108) -->
+<!-- :::: -->
+
 
 ::: {.callout-warning appearance="simple"}
 ## Declaración de uso de IA generativa

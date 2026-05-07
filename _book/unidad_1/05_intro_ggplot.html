@@ -6,8 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Christian Ballejo">
-<meta name="author" content="Tamara Ricardo">
+<meta name="author" content="Christian Ballejo, Andrea Silva y Tamara Ricardo">
 
 <title>5&nbsp; Gráficos estadísticos con ggplot2 – Epidemiología: Nivel Avanzado</title>
 <style>
@@ -101,15 +100,15 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5662fa92489301afc32aff67d5f1989e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-d32db83eb8663e36a0cc0a539047211b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5662fa92489301afc32aff67d5f1989e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e27e2a7f1faf7f5f37c7f213f0024cd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ea374cc9d4c9c2c39a97165044fa095a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e27e2a7f1faf7f5f37c7f213f0024cd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -131,22 +130,12 @@ div.csl-indent {
     "search-label": "Buscar"
   }
 }</script>
-<style type="text/css">
-.quarto-reader-toggle .bi::before, .quarto-color-scheme-toggle .bi::before {
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  background-size: 20px 20px;
-  background-position: center;
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(189, 195, 199, 1)" class="bi bi-moon-stars-fill" viewBox="0 0 16 16"> <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/> <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/> </svg>') !important;
-}
-</style>
 
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -312,79 +301,6 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../logos/logos_ine.svg" alt="" class="navbar-logo light-content">
-    <img src="../logos/logos_ine.svg" alt="" class="navbar-logo dark-content">
-    </a>
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Epidemiología: Nivel Avanzado</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Buscar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-descargas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="bi bi-cloud-download" role="img">
-</i> 
- <span class="menu-text">Descargas</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-descargas">    
-        <li>
-    <a class="dropdown-item" href="../epi_avanzada.pdf"><i class="bi bi-file-earmark-pdf" role="img">
-</i> 
- <span class="dropdown-text">Material en PDF</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../epi_avanzada.epub"><i class="bi bi-book" role="img">
-</i> 
- <span class="dropdown-text">Material en EPUB</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://cran.rstudio.com/bin/windows/" target="_blank"><i class="bi bi-windows" role="img">
-</i> 
- <span class="dropdown-text">R para Windows</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://cran.rstudio.com/bin/macosx/" target="_blank"><i class="bi bi-apple" role="img">
-</i> 
- <span class="dropdown-text">R para macOS</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://cran.rstudio.com/bin/linux/" target="_blank"><i class="bi bi-ubuntu" role="img">
-</i> 
- <span class="dropdown-text">R para Linux</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://posit.co/download/rstudio-desktop/" target="_blank"><i class="bi bi-terminal" role="img">
-</i> 
- <span class="dropdown-text">RStudio Desktop</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank"><i class="bi bi-terminal" role="img">
-</i> 
- <span class="dropdown-text">RTools</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../files/datos_y_paquetes.zip"><i class="bi bi-file-zip" role="img">
-</i> 
- <span class="dropdown-text">Paquetes para el curso y datos de ejemplo</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -393,19 +309,102 @@ div.csl-indent {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_1/01_intro_R.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../unidad_1/05_intro_ggplot.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Gráficos estadísticos con <code>ggplot2</code></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
       <img src="../logos/logo_curso.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
       <img src="../logos/logo_curso.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Epidemiología: Nivel Avanzado</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-r-circle-fill"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.rstudio.com/bin/windows/" target="_blank">
+              <i class="bi bi-windows pe-1"></i>
+            R para Windows
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.rstudio.com/bin/macosx/" target="_blank">
+              <i class="bi bi-apple pe-1"></i>
+            R para macOS
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.rstudio.com/bin/linux/" target="_blank">
+              <i class="bi bi-ubuntu pe-1"></i>
+            R para Linux
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://posit.co/download/rstudio-desktop/" target="_blank">
+              <i class="bi bi-terminal pe-1"></i>
+            RStudio Desktop
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank">
+              <i class="bi bi-terminal pe-1"></i>
+            RTools
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-file-zip"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../files/paquetes_curso.zip" target="_blank">
+              <i class="bi bi-file-zip pe-1"></i>
+            Paquetes para el curso
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../files/datos.zip">
+              <i class="bi bi-file-zip pe-1"></i>
+            Datos de ejemplo
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Descargar" id="quarto-navigation-tool-dropdown-2" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Descargar"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-2">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../epi_avanzada.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Descargar PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../epi_avanzada.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Descargar ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
       </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -469,6 +468,60 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true"><i class="bi bi-file-earmark-bar-graph" role="img">
+</i> 
+ <span class="menu-text">Unidad 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_2/01_est_epidemiologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Estudios epidemiológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_2/02_est_transversales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Estudios de corte transversal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_2/03_inferencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inferencia estadística</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_2/04_normalidad_heterocedasticidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Análisis de normalidad y homocedasticidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_2/05_muestreo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Selección de la muestra</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_2/06_fun_condicionales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Funciones condicionales en R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_2/07_IC_complejos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Intervalos de confianza en muestras complejas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -476,7 +529,7 @@ div.csl-indent {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contenidos</h2>
+    <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
   <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">5.1</span> Introducción</a></li>
@@ -534,7 +587,7 @@ div.csl-indent {
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/ggplot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
+<p><img src="..\images/ggplot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
 </figure>
 </div>
 <section id="introducción" class="level2" data-number="5.1">
@@ -548,7 +601,7 @@ div.csl-indent {
 <p>La estructura para construir un gráfico es la siguiente:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/ggplot_estruct.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+<p><img src="..\images/ggplot_estruct.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 </section>
@@ -557,7 +610,7 @@ div.csl-indent {
 <p>La construcción de gráficos en <code>ggplot2</code> se organiza a partir de una gramática que puede entenderse a través de sus componentes fundamentales:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/ggplot_comp.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+<p><img src="..\images/ggplot_comp.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 <ul>
@@ -855,7 +908,7 @@ div.csl-indent {
 </div>
 </div>
 <blockquote class="blockquote">
-<p>Se recomienda trabajar con paletas de colores accesibles para personas con daltonismo y otras dificultades en la percepción visual, como las incluidas en las dependencias <code>RColorBrewer</code> [@RColorBrewer] y <code>viridisLite</code>, así como en paquetes específicos con paletas <em>colorblind-friendly</em>, como <code>scico</code> [@scico] y <code>cols4all</code> [@cols4all].</p>
+<p>Se recomienda trabajar con paletas de colores accesibles para personas con daltonismo y otras dificultades en la percepción visual, como las incluidas en las dependencias <code>RColorBrewer</code> y <code>viridisLite</code>, así como en paquetes específicos con paletas <em>colorblind-friendly</em>, como <code>scico</code> <span class="citation" data-cites="pedersen2018">(<a href="#ref-pedersen2018" role="doc-biblioref">Pedersen y Crameri 2018</a>)</span> y <code>cols4all</code> <span class="citation" data-cites="tennekes2023">(<a href="#ref-tennekes2023" role="doc-biblioref">Tennekes y Puts 2023</a>)</span>.</p>
 </blockquote>
 <p>En versiones recientes de <code>ggplot2</code>, varias funciones de escala permiten utilizar el argumento <code>aesthetics</code>, que facilita aplicar una misma escala a múltiples estéticas simultáneamente. Esto resulta especialmente útil cuando queremos usar una misma paleta de colores tanto para el contorno (<code>color</code>) como para el relleno (<code>fill</code>).</p>
 <p>Retomando el ejemplo anterior:</p>
@@ -1121,7 +1174,7 @@ div.csl-indent {
 <p>A continuación se muestra un cuadro con los principales temas disponibles en <code>ggplot2</code> y sus características visuales:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/ggplot_temas.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="..\images/ggplot_temas.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>Además del aspecto general del gráfico, es posible agregar títulos, subtítulos y etiquetas de ejes con la función <code>labs()</code>. Por ejemplo:</p>
@@ -1160,10 +1213,10 @@ div.csl-indent {
 <h2 data-number="5.8" class="anchored" data-anchor-id="paquete-esquisse"><span class="header-section-number">5.8</span> Paquete <code>esquisse</code></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/esquisse.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
+<p><img src="..\images/esquisse.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
 </figure>
 </div>
-<p>El paquete<code>esquisse</code> <span class="citation" data-cites="esquisse">(<a href="#ref-esquisse" role="doc-biblioref">Meyer y Perrier 2025</a>)</span> es una extensión de <code>ggplot2</code> que permite crear gráficos de manera interactiva, mediante una interfaz gráfica intuitiva basada en el sistema de arrastrar y soltar (<em>drag &amp; drop</em>).</p>
+<p>El paquete<code>esquisse</code> <span class="citation" data-cites="meyer2018">(<a href="#ref-meyer2018" role="doc-biblioref">Meyer y Perrier 2018</a>)</span> es una extensión de <code>ggplot2</code> que permite crear gráficos de manera interactiva, mediante una interfaz gráfica intuitiva basada en el sistema de arrastrar y soltar (<em>drag &amp; drop</em>).</p>
 <p>Con <code>esquisse</code> es posible:</p>
 <ul>
 <li><p>Explorar visualmente los datos según su tipo.</p></li>
@@ -1178,7 +1231,7 @@ div.csl-indent {
 <p>Luego se puede acceder a la aplicación por medio del acceso Addins:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/addins.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="..\images/addins.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>o ejecutando en consola:</p>
@@ -1196,12 +1249,12 @@ div.csl-indent {
 <p>Una de las grandes fortalezas de <code>ggplot2</code> es su ecosistema de extensiones. Hasta el momento, existen más de <a href="https://exts.ggplot2.tidyverse.org/gallery/">158</a> <a href="https://exts.ggplot2.tidyverse.org/gallery/"><strong>paquetes</strong></a> desarrollados para ampliar sus funcionalidades, muchos de ellos diseñados para facilitar tareas específicas o agregar nuevas capas, geometrías, temas, escalas o herramientas interactivas.</p>
 <p>Algunas de las extensiones que utilizaremos durante el curso son:</p>
 <ul>
-<li><p><code>patchwork</code><span class="citation" data-cites="patchwork">(<a href="#ref-patchwork" role="doc-biblioref">Pedersen 2024</a>)</span>: permite combinar múltiples gráficos de <code>ggplot2</code> en una misma figura de forma sencilla y controlada.</p></li>
-<li><p><code>GGally</code><span class="citation" data-cites="GGally">(<a href="#ref-GGally" role="doc-biblioref">Schloerke et&nbsp;al. 2024</a>)</span>: extiende <code>ggplot2</code> con funciones para crear matrices de gráficos (como <code>ggpairs()</code>), útiles para análisis exploratorio multivariado.</p></li>
-<li><p><code>ggpubr</code><span class="citation" data-cites="ggpubr">(<a href="#ref-ggpubr" role="doc-biblioref">Kassambara 2023</a>)</span>: facilita la creación de gráficos listos para publicar, con funciones simplificadas para agregar títulos, etiquetas, comparaciones estadísticas y anotaciones.</p></li>
-<li><p><code>see</code><span class="citation" data-cites="see">(<a href="#ref-see" role="doc-biblioref">Lüdecke et&nbsp;al. 2021</a>)</span>: ofrece temas, paletas de colores y escalas compatibles con personas con daltonismo, además de geometrías personalizadas.</p></li>
-<li><p><code>survminer</code><span class="citation" data-cites="survminer">(<a href="#ref-survminer" role="doc-biblioref">Kassambara et&nbsp;al. 2024</a>)</span>: diseñado para la visualización de análisis de supervivencia (como curvas de Kaplan-Meier) utilizando <code>ggplot2</code>.</p></li>
-<li><p><code>ggfortify</code><span class="citation" data-cites="ggfortify">(<a href="#ref-ggfortify" role="doc-biblioref">Tang et&nbsp;al. 2016</a>)</span>: permite graficar objetos estadísticos como modelos lineales, PCA o series temporales sin necesidad de escribir código <code>ggplot2</code> desde cero.</p></li>
+<li><p><code>patchwork</code> <span class="citation" data-cites="pedersen2019">(<a href="#ref-pedersen2019" role="doc-biblioref">Pedersen 2019</a>)</span>: permite combinar múltiples gráficos de <code>ggplot2</code> en una misma figura de forma sencilla y controlada.</p></li>
+<li><p><code>GGally</code> <span class="citation" data-cites="schloerke2010">(<a href="#ref-schloerke2010" role="doc-biblioref">Schloerke et&nbsp;al. 2010</a>)</span>: extiende <code>ggplot2</code> con funciones para crear matrices de gráficos (como <code>ggpairs()</code>), útiles para análisis exploratorio multivariado.</p></li>
+<li><p><code>ggpubr</code> <span class="citation" data-cites="kassambara2016">(<a href="#ref-kassambara2016" role="doc-biblioref">Kassambara 2016</a>)</span>: facilita la creación de gráficos listos para publicar, con funciones simplificadas para agregar títulos, etiquetas, comparaciones estadísticas y anotaciones.</p></li>
+<li><p><code>see</code> <span class="citation" data-cites="lüdecke2021">(<a href="#ref-lüdecke2021" role="doc-biblioref">Lüdecke et&nbsp;al. 2021</a>)</span>: ofrece temas, paletas de colores y escalas compatibles con personas con daltonismo, además de geometrías personalizadas.</p></li>
+<li><p><code>survminer</code><span class="citation" data-cites="kassambara2016a">(<a href="#ref-kassambara2016a" role="doc-biblioref">Kassambara et&nbsp;al. 2016</a>)</span>: diseñado para la visualización de análisis de supervivencia (como curvas de Kaplan-Meier) utilizando <code>ggplot2</code>.</p></li>
+<li><p><code>ggfortify</code>: permite graficar objetos estadísticos como modelos lineales, PCA o series temporales sin necesidad de escribir código <code>ggplot2</code> desde cero.</p></li>
 </ul>
 <p>Estas extensiones permiten ampliar la flexibilidad y expresividad gráfica de <code>ggplot2</code> sin perder la estructura gramatical que lo caracteriza.</p>
 </section>
@@ -1210,29 +1263,32 @@ div.csl-indent {
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-ggpubr" class="csl-entry" role="listitem">
-Kassambara, Alboukadel. 2023. <em>ggpubr: ’ggplot2’ Based Publication Ready Plots</em>. <a href="https://CRAN.R-project.org/package=ggpubr">https://CRAN.R-project.org/package=ggpubr</a>.
+<div id="ref-kassambara2016" class="csl-entry" role="listitem">
+Kassambara, Alboukadel. 2016. <em>ggpubr: ’ggplot2’ Based Publication Ready Plots</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.ggpubr">https://doi.org/10.32614/cran.package.ggpubr</a>.
 </div>
-<div id="ref-survminer" class="csl-entry" role="listitem">
-Kassambara, Alboukadel, Marcin Kosinski, y Przemyslaw Biecek. 2024. <em>survminer: Drawing Survival Curves using ’ggplot2’</em>. <a href="https://CRAN.R-project.org/package=survminer">https://CRAN.R-project.org/package=survminer</a>.
+<div id="ref-kassambara2016a" class="csl-entry" role="listitem">
+Kassambara, Alboukadel, Marcin Kosinski, y Przemyslaw Biecek. 2016. <em>survminer: Drawing Survival Curves using ’ggplot2’</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.survminer">https://doi.org/10.32614/cran.package.survminer</a>.
 </div>
-<div id="ref-see" class="csl-entry" role="listitem">
-Lüdecke, Daniel, Indrajeet Patil, Mattan S. Ben-Shachar, Brenton M. Wiernik, Philip Waggoner, y Dominique Makowski. 2021. <em><span></span>see<span></span>: An <span></span>R<span></span> Package for Visualizing Statistical Models</em>. 6: 3393. <a href="https://doi.org/10.21105/joss.03393">https://doi.org/10.21105/joss.03393</a>.
+<div id="ref-lüdecke2021" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Indrajeet Patil, Mattan Ben-Shachar, Brenton Wiernik, Philip Waggoner, y Dominique Makowski. 2021. <span>«see: An R Package for Visualizing Statistical Models»</span>. <em>Journal of Open Source Software</em> 6 (64): 3393. <a href="https://doi.org/10.21105/joss.03393">https://doi.org/10.21105/joss.03393</a>.
 </div>
-<div id="ref-esquisse" class="csl-entry" role="listitem">
-Meyer, Fanny, y Victor Perrier. 2025. <em>esquisse: Explore and Visualize Your Data Interactively</em>. <a href="https://CRAN.R-project.org/package=esquisse">https://CRAN.R-project.org/package=esquisse</a>.
+<div id="ref-meyer2018" class="csl-entry" role="listitem">
+Meyer, Fanny, y Victor Perrier. 2018. <em>esquisse: Explore and Visualize Your Data Interactively</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.esquisse">https://doi.org/10.32614/cran.package.esquisse</a>.
 </div>
-<div id="ref-patchwork" class="csl-entry" role="listitem">
-Pedersen, Thomas Lin. 2024. <em>patchwork: The Composer of Plots</em>. <a href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a>.
+<div id="ref-pedersen2019" class="csl-entry" role="listitem">
+Pedersen, Thomas Lin. 2019. <em>patchwork: The Composer of Plots</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.patchwork">https://doi.org/10.32614/cran.package.patchwork</a>.
 </div>
-<div id="ref-GGally" class="csl-entry" role="listitem">
-Schloerke, Barret, Di Cook, Joseph Larmarange, et&nbsp;al. 2024. <em>GGally: Extension to ’ggplot2’</em>. <a href="https://CRAN.R-project.org/package=GGally">https://CRAN.R-project.org/package=GGally</a>.
+<div id="ref-pedersen2018" class="csl-entry" role="listitem">
+Pedersen, Thomas Lin, y Fabio Crameri. 2018. <em>scico: Colour Palettes Based on the Scientific Colour-Maps</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.scico">https://doi.org/10.32614/cran.package.scico</a>.
 </div>
-<div id="ref-ggfortify" class="csl-entry" role="listitem">
-Tang, Yuan, Masaaki Horikoshi, y Wenxuan Li. 2016. <em>ggfortify: Unified Interface to Visualize Statistical Result of Popular R Packages</em>. 8. <a href="https://doi.org/10.32614/RJ-2016-060">https://doi.org/10.32614/RJ-2016-060</a>.
+<div id="ref-schloerke2010" class="csl-entry" role="listitem">
+Schloerke, Barret, Di Cook, Joseph Larmarange, et&nbsp;al. 2010. <em>GGally: Extension to ’ggplot2’</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.ggally">https://doi.org/10.32614/cran.package.ggally</a>.
+</div>
+<div id="ref-tennekes2023" class="csl-entry" role="listitem">
+Tennekes, Martijn, y Marco Puts. 2023. <span>«cols4all: a Color Palette Analysis Tool»</span>. <em>EuroVis 2023 - Short Papers</em>, 37-41. <a href="https://doi.org/10.2312/EVS.20231040">https://doi.org/10.2312/EVS.20231040</a>.
 </div>
 <div id="ref-ggplot2" class="csl-entry" role="listitem">
-Wickham, Hadley. 2016. <em>ggplot2: Elegant Graphics for Data Analysis</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+Wickham, Hadley. 2016. <em>ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
 </div>
 </section>
@@ -1670,7 +1726,7 @@ Wickham, Hadley. 2016. <em>ggplot2: Elegant Graphics for Data Analysis</em>. <a 
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Este material es parte del curso de Epidemiología - Nivel Avanzado © 2025 Instituto Nacional de Epidemiología “Dr.&nbsp;Juan H. Jara” (ANLIS)</p>
+<p>Este material fue creado en <a href="https://quarto.org/">Quarto</a> y forma parte del curso de Epidemiología - Nivel Avanzado © 2026 Instituto Nacional de Epidemiología “Dr.&nbsp;Juan H. Jara” (ANLIS)</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

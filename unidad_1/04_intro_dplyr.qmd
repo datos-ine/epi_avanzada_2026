@@ -5,21 +5,20 @@ author:
     orcid: 0000-0002-7346-5701
   - name: Tamara Ricardo
     orcid: 0000-0002-0921-2611
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
-![](images/dplyr.png){fig-align="center" width="25%"}
+![](/images/dplyr.png){fig-align="center" width="25%"}
 
 ## Introducción
 
-El paquete `dplyr` [@dplyr] fue desarrollado por *Hadley Wickham* como una versión optimizada del paquete `plyr` [@plyr].
+El paquete `dplyr` [@wickham2014] fue desarrollado por *Hadley Wickham* como una versión optimizada del paquete `plyr` [@plyr].
 
 Su principal contribución es ofrecer una *gramática* para la manipulación de datos, basada en funciones que actúan como verbos, lo que facilita la lectura y comprensión del código.
 

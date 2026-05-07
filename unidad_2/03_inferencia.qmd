@@ -5,12 +5,11 @@ author:
     orcid: 0000-0002-4791-9706
   - name: Tamara Ricardo
     orcid: 0000-0002-0921-2611
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
 ## Introducción
@@ -19,16 +18,16 @@ La **estadística inferencial** es la rama de la estadística que permite formul
 
 Las dos actividades principales en este proceso son:
 
--   **Estimación de parámetros**: consiste en calcular, a partir de los datos muestrales, valores que aproximen parámetros desconocidos de la población.
+- **Estimación de parámetros**: consiste en calcular, a partir de los datos muestrales, valores que aproximen parámetros desconocidos de la población.
 
-    -   *Ejemplo: Estimar la prevalencia de una enfermedad X en la población.*
+  - *Ejemplo: Estimar la prevalencia de una enfermedad X en la población.*
 
--   **Pruebas de hipótesis**: implica evaluar con base estadística afirmaciones acerca de uno o más parámetros.\
-    *Ejemplos:*
+- **Pruebas de hipótesis**: implica evaluar con base estadística afirmaciones acerca de uno o más parámetros.\
+  *Ejemplos:*
 
-    -   *¿La prevalencia de la enfermedad X en Argentina es menor que en Uruguay?*
+  - *¿La prevalencia de la enfermedad X en Argentina es menor que en Uruguay?*
 
-    -   *¿La prevalencia de la enfermedad X en Argentina en 2010 fue menor que en el año 2000?*
+  - *¿La prevalencia de la enfermedad X en Argentina en 2010 fue menor que en el año 2000?*
 
 Al trabajar con muestras, entra en juego el concepto de **teoría del muestreo**, que, si bien no abordaremos en profundidad aquí, es clave para comprender cómo se relacionan los valores observados en la muestra con los de la población.
 
@@ -36,11 +35,11 @@ Esta teoría estudia la relación entre la distribución de una variable en la p
 
 Por ejemplo, supongamos que queremos conocer el valor medio de colesterol total de la población de Mar del Plata y tomamos una muestra de tamaño $n$.
 
--   La media poblacional del colesterol total se representa con la letra griega $\mu$ y corresponde al **parámetro**.
+- La media poblacional del colesterol total se representa con la letra griega $\mu$ y corresponde al **parámetro**.
 
--   La media muestral, que se obtiene a partir de los datos de la muestra, se representa como $\bar{x}$ y es un **estimador** o estadístico muestral.
+- La media muestral, que se obtiene a partir de los datos de la muestra, se representa como $\bar{x}$ y es un **estimador** o estadístico muestral.
 
-![](images/poblacion_muestra.svg){fig-align="center" width="75%"}
+![](/images/poblacion_muestra.svg){fig-align="center" width="75%"}
 
 La **distribución muestral de un estadístico** es la distribución de todos los valores posibles que ese estadístico puede tomar al calcularse en muestras aleatorias del mismo tamaño extraídas de una misma población. Este concepto es central en la inferencia estadística, ya que permite cuantificar la incertidumbre asociada a las estimaciones.
 
@@ -62,41 +61,38 @@ $$ IC = estimador~puntual \pm (coeficiente~de~confiabilidad) * (error~ estandar)
 
 donde:
 
--   **Estimador puntual**:
+- **Estimador puntual**:
 
-    -   Para la media poblacional ($\mu$), se toma la media muestral($\bar{x}$).
+  - Para la media poblacional ($\mu$), se toma la media muestral($\bar{x}$).
 
-    -   Para una proporción de la población ($p$), se toma la proporción muestral ($\hat{p}$).
+  - Para una proporción de la población ($p$), se toma la proporción muestral ($\hat{p}$).
 
--   **Coeficiente de confiabilidad:** Se relaciona con el nivel de confianza deseado (por ejemplo, 90%, 95% o 99%), y se expresa como $1 - \alpha$, es decir la probabilidad de que el parámetro se encuentre dentro del IC. Recordemos que el nivel de significancia ($\alpha$) es la probabilidad de que el parámetro no se halle dentro del IC y es un valor generalmente pequeño (por ejemplo, 0.1, 0.05 o 0.01) expresado como probabilidad o porcentaje (por ejemplo, 10%, 5% o 1%).
+- **Coeficiente de confiabilidad:** Se relaciona con el nivel de confianza deseado (por ejemplo, 90%, 95% o 99%), y se expresa como $1 - \alpha$, es decir la probabilidad de que el parámetro se encuentre dentro del IC. Recordemos que el nivel de significancia ($\alpha$) es la probabilidad de que el parámetro no se halle dentro del IC y es un valor generalmente pequeño (por ejemplo, 0.1, 0.05 o 0.01) expresado como probabilidad o porcentaje (por ejemplo, 10%, 5% o 1%).
 
--   **Error estándar (SE):** Representa la variabilidad de la distribución muestral. Por ejemplo, para la media el error estándar se calcula como la raíz cuadrada de la varianza de la distribución muestral:
+- **Error estándar (SE):** Representa la variabilidad de la distribución muestral. Por ejemplo, para la media el error estándar se calcula como la raíz cuadrada de la varianza de la distribución muestral:
 
-    $$ 
-    SE = \frac{\sigma}{\sqrt{n}} 
-    $$
+  $$ 
+  SE = \frac{\sigma}{\sqrt{n}} $$
 
-    Donde $\sigma$ es la desviación estándar poblacional y $n$ el tamaño de la muestra. Si se estima un IC para una proporción, el error estándar es:
+  Donde $\sigma$ es la desviación estándar poblacional y $n$ el tamaño de la muestra. Si se estima un IC para una proporción, el error estándar es:
 
-    $$ 
-    SE = \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} 
-    $$
+  $$ 
+  SE = \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} $$
 
 El proceso se fundamenta en el Teorema del Límite Central (TCL), que establece que, para muestras suficientemente grandes, la distribución de $\bar{x}$ es aproximadamente normal, con media $\mu$ y varianza $\sigma^2/n$. Así, la variable tipificada:
 
 $$ 
-Z = \frac{\bar{x}-\mu}{\sigma} 
-$$
+Z = \frac{\bar{x}-\mu}{\sigma} $$
 
 sigue una distribución normal estándar (media 0 y desviación estándar 1), lo que permite calcular probabilidades y construir el IC.
 
 En cualquier distribución normal:
 
--   Entre $\mu \pm \sigma$ se encuentra el 68% de los datos.
+- Entre $\mu \pm \sigma$ se encuentra el 68% de los datos.
 
--   Entre $\mu \pm 2\sigma$ se encuentra el 95%.
+- Entre $\mu \pm 2\sigma$ se encuentra el 95%.
 
--   Entre $\mu \pm 3\sigma$ se encuentra el 99%.
+- Entre $\mu \pm 3\sigma$ se encuentra el 99%.
 
 El siguiente gráfico ilustra lo explicado anteriormente:
 
@@ -254,18 +250,15 @@ g1 +
 Finalmente, y basándonos en las propiedades de la distribución Normal, se puede deducir la expresión del IC:
 
 $$ 
-P(Z_{\alpha/2} < Z_{1-\alpha/2)} = 1 - \alpha 
-$$ Reemplazando $Z$:
+P(Z_{\alpha/2} < Z_{1-\alpha/2)} = 1 - \alpha $$ Reemplazando $Z$:
 
 $$ 
-P(Z_{\alpha/2} < \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}} < Z_{(1-\alpha/2)}) = 1-\alpha   
-$$
+P(Z_{\alpha/2} < \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}} < Z_{(1-\alpha/2)}) = 1-\alpha   $$
 
 Reordenando, la expresión del IC para la media queda:
 
 $$ 
-\bar{x} - Z_{\alpha/2}\sqrt{\frac{\sigma^2}{n}} < \mu < \bar{x} + Z_{\alpha/2}\frac{\sigma^2}{n}   
-$$
+\bar{x} - Z_{\alpha/2}\sqrt{\frac{\sigma^2}{n}} < \mu < \bar{x} + Z_{\alpha/2}\frac{\sigma^2}{n}   $$
 
 ### ¿Cómo se interpreta un IC?
 
@@ -277,13 +270,13 @@ $$ IC = estimador~puntual \pm (coeficiente~de~confiabilidad) * (error~ estandar)
 
 Para el caso de la media:
 
--   **Aumento de la confiabilidad:** Si se incrementa el nivel de confianza, el coeficiente (por ejemplo, pasando de 1.96 a un valor mayor) aumenta, lo que a su vez incrementa la amplitud del IC.
+- **Aumento de la confiabilidad:** Si se incrementa el nivel de confianza, el coeficiente (por ejemplo, pasando de 1.96 a un valor mayor) aumenta, lo que a su vez incrementa la amplitud del IC.
 
--   **Reducción del error estándar:** Si se fija la confiabilidad (por ejemplo, al 95%), para disminuir la amplitud del IC es necesario reducir el error estándar. Dado que el error estándar de la media es:
+- **Reducción del error estándar:** Si se fija la confiabilidad (por ejemplo, al 95%), para disminuir la amplitud del IC es necesario reducir el error estándar. Dado que el error estándar de la media es:
 
-    $$ SE = \frac{\sigma}{\sqrt{n}} $$
+  $$ SE = \frac{\sigma}{\sqrt{n}} $$
 
-    y considerando que $\sigma$ es constante, la única forma de disminuir el error estándar es aumentando el tamaño muestral ($n$).
+  y considerando que $\sigma$ es constante, la única forma de disminuir el error estándar es aumentando el tamaño muestral ($n$).
 
 Surge entonces la pregunta: **¿qué tan grande debe ser** $n$?\
 La respuesta dependerá de $\sigma$, del nivel de significación ($\alpha$) y de la amplitud deseada para el IC. La relación es:
@@ -294,13 +287,12 @@ $$ Amplitud = Z \frac{\sigma}{\sqrt{n}} \Longrightarrow n = \frac{Z^2\sigma^2}{A
 
 La expresión del error estándar varía según el parámetro a estimar. Hemos visto el caso de la media; si lo que se desea es calcular un IC para una proporción, recordemos que, para muestras grandes, la distribución de las proporciones de la muestra es aproximadamente normal de acuerdo con el TCL. En este caso:
 
--   La media de la distribución es la proporción real $p$
+- La media de la distribución es la proporción real $p$
 
--   La varianza es $p(1-p)/n$, lo que nos lleva a que el error estándar es:
+- La varianza es $p(1-p)/n$, lo que nos lleva a que el error estándar es:
 
 $$ 
-SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      
-$$
+SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      $$
 
 y el IC para la proporción se expresa como:
 
@@ -326,9 +318,9 @@ Con esto en mente, revisaremos las herramientas que permiten comparar grupos med
 
 Antes de adentrarnos en la parte estadística, es importante distinguir entre dos tipos de hipótesis:
 
--   **Hipótesis de investigación:** Es la conjetura o suposición que motiva la investigación.
+- **Hipótesis de investigación:** Es la conjetura o suposición que motiva la investigación.
 
--   **Hipótesis estadística:** Es aquella que puede ser evaluada mediante técnicas estadísticas apropiadas.
+- **Hipótesis estadística:** Es aquella que puede ser evaluada mediante técnicas estadísticas apropiadas.
 
 En este texto nos centraremos en aclarar aspectos relativos a las hipótesis estadísticas, asumiendo que las hipótesis de investigación ya han sido discutidas previamente por los investigadores. Describiremos brevemente el razonamiento subyacente a estos test.
 
@@ -338,9 +330,9 @@ El método estadístico nos permite cuantificar la diferencia entre grupos asumi
 
 Los contrastes de hipótesis se realizan generalmente bajo las siguientes condiciones:
 
--   Se asume a priori que la ley de distribución de la población es conocida.
+- Se asume a priori que la ley de distribución de la población es conocida.
 
--   Se extrae una muestra aleatoria de dicha población.
+- Se extrae una muestra aleatoria de dicha población.
 
 El conjunto de estas técnicas de inferencia se denomina **técnicas paramétricas**. Sin embargo, existen otros métodos, denominados **técnicas no paramétricas** o contrastes de distribuciones libres, que no requieren estimar parámetros ni suponer una ley de probabilidad específica para la población. Algunos de estos métodos serán desarrollados más adelante en este módulo.
 
@@ -350,75 +342,75 @@ Es importante señalar que los contrastes de hipótesis se utilizan no solo en e
 
 Los componentes básicos de cualquier test de contraste de hipótesis son:
 
--   **Hipótesis nula** ($H_0$): Afirma que no existe diferencia entre los grupos que se comparan, es decir, que las variaciones observadas se deben únicamente al azar.
+- **Hipótesis nula** ($H_0$): Afirma que no existe diferencia entre los grupos que se comparan, es decir, que las variaciones observadas se deben únicamente al azar.
 
--   **Hipótesis alternativa** ($H_1$): Es la conjetura o suposición que plantea el investigador, estableciendo que sí existe una diferencia entre los grupos. Generalmente es complementaria de la $H_0$.
+- **Hipótesis alternativa** ($H_1$): Es la conjetura o suposición que plantea el investigador, estableciendo que sí existe una diferencia entre los grupos. Generalmente es complementaria de la $H_0$.
 
--   **Estadístico de prueba**: Es el valor calculado a partir de los datos muestrales que se utiliza para tomar la decisión sobre la $H_0$. Cada tipo de problema tiene un estadístico adecuado, cuya magnitud, al compararse con su distribución muestral (por ejemplo, la distribución normal estándar en el caso del estadístico $Z$), permite determinar si las diferencias observadas son atribuibles al azar.
+- **Estadístico de prueba**: Es el valor calculado a partir de los datos muestrales que se utiliza para tomar la decisión sobre la $H_0$. Cada tipo de problema tiene un estadístico adecuado, cuya magnitud, al compararse con su distribución muestral (por ejemplo, la distribución normal estándar en el caso del estadístico $Z$), permite determinar si las diferencias observadas son atribuibles al azar.
 
--   **Valor crítico o Región crítica**: La región crítica se establece en función del nivel de significación ($\alpha$) y consiste en el conjunto de valores extremos del estadístico de prueba que, de ser alcanzados, llevarían a rechazar la $H_0$. Todos los posibles valores del estadístico se ubican en el eje horizontal de la gráfica de su distribución, y la región crítica delimita aquellos valores que son muy poco probables bajo la hipótesis nula.
+- **Valor crítico o Región crítica**: La región crítica se establece en función del nivel de significación ($\alpha$) y consiste en el conjunto de valores extremos del estadístico de prueba que, de ser alcanzados, llevarían a rechazar la $H_0$. Todos los posibles valores del estadístico se ubican en el eje horizontal de la gráfica de su distribución, y la región crítica delimita aquellos valores que son muy poco probables bajo la hipótesis nula.
 
-    ```{r}
-    #| echo: false
-    ## Define región crítica
-    crit_n <- limitRange <- function(fun, min, max) {
-      function(x) {
-        y <- fun(x)
-        y[x < min  |  x > max] <- NA
-        return(y)
-      }}
+  ```{r}
+  #| echo: false
+  ## Define región crítica
+  crit_n <- limitRange <- function(fun, min, max) {
+    function(x) {
+      y <- fun(x)
+      y[x < min  |  x > max] <- NA
+      return(y)
+    }}
 
-    ## Gráfico base
-    g1 <- tibble(x = c(-4, 4)) |> 
-      
-      ggplot(mapping = aes(x = x)) +
-      
-      # Curva normal
-      stat_function(fun = dnorm, size = 1) +
-      
-      # línea mu
-      geom_vline(xintercept = 0) +
-      
-      # Tema
-      labs(x = NULL, y = NULL) +
-      theme_minimal() +
-      theme(axis.text.x = element_text(face = "bold", 
-                                       size = 11))
+  ## Gráfico base
+  g1 <- tibble(x = c(-4, 4)) |> 
+    
+    ggplot(mapping = aes(x = x)) +
+    
+    # Curva normal
+    stat_function(fun = dnorm, size = 1) +
+    
+    # línea mu
+    geom_vline(xintercept = 0) +
+    
+    # Tema
+    labs(x = NULL, y = NULL) +
+    theme_minimal() +
+    theme(axis.text.x = element_text(face = "bold", 
+                                     size = 11))
 
-    ## Gráfico región crítica
-    g1 + 
-      # Sombreado
-      stat_function(fun = crit_n(dnorm, min = 1.645, max = Inf), 
-                    geom = "area", 
-                    fill = pal[2], alpha = 0.7) +
-      
-      # Región crítica
-      annotate(geom = "text", 
-               label = "zona de rechazo", x = 3, y = .1) +
-      
-      # Líneas región crítica
-      geom_vline(xintercept = 1.645, lty = 2) +
-      
-      
-      # Etiquetas
-      scale_x_continuous(breaks = c(-Inf, 0, 1.645, Inf),
-                         labels = c("", "", "valor crítico",""))
-    ```
+  ## Gráfico región crítica
+  g1 + 
+    # Sombreado
+    stat_function(fun = crit_n(dnorm, min = 1.645, max = Inf), 
+                  geom = "area", 
+                  fill = pal[2], alpha = 0.7) +
+    
+    # Región crítica
+    annotate(geom = "text", 
+             label = "zona de rechazo", x = 3, y = .1) +
+    
+    # Líneas región crítica
+    geom_vline(xintercept = 1.645, lty = 2) +
+    
+    
+    # Etiquetas
+    scale_x_continuous(breaks = c(-Inf, 0, 1.645, Inf),
+                       labels = c("", "", "valor crítico",""))
+  ```
 
-    La regla de decisión es la siguiente:
+  La regla de decisión es la siguiente:
 
-    -   Si el valor del estadístico de prueba calculado a partir de la muestra cae en la región crítica, se rechaza la $H_0$​ y se concluye que las diferencias observadas son **estadísticamente significativas**.
-    -   Si el valor no cae en la región crítica, no se rechaza la $H_0$​; esto indica que las diferencias entre lo observado y lo esperado pueden explicarse por el azar. Es decir, **no son estadísticamente significativas**.
+  - Si el valor del estadístico de prueba calculado a partir de la muestra cae en la región crítica, se rechaza la $H_0$​ y se concluye que las diferencias observadas son **estadísticamente significativas**.
+  - Si el valor no cae en la región crítica, no se rechaza la $H_0$​; esto indica que las diferencias entre lo observado y lo esperado pueden explicarse por el azar. Es decir, **no son estadísticamente significativas**.
 
--   **Nivel de significación** ($\alpha$): Es la probabilidad de cometer un error tipo I, es decir, rechazar $H_0$ cuando es verdadera. Este valor, elegido por el investigador (comúnmente 5% o 1%), determina el límite entre la región de no rechazo y la región crítica.
+- **Nivel de significación** ($\alpha$): Es la probabilidad de cometer un error tipo I, es decir, rechazar $H_0$ cuando es verdadera. Este valor, elegido por el investigador (comúnmente 5% o 1%), determina el límite entre la región de no rechazo y la región crítica.
 
--   **Valor *p***: Es una medida de qué tan probable son los resultados de la muestra, considerando que $H_0$ sea verdadera.
+- **Valor *p***: Es una medida de qué tan probable son los resultados de la muestra, considerando que $H_0$ sea verdadera.
 
-    -   Un valor $p$ muy pequeño indica que es muy poco probable obtener los resultados observados para el estadístico muestral si $H_0$ fuese cierta, por lo que debemos rechazarla.
+  - Un valor $p$ muy pequeño indica que es muy poco probable obtener los resultados observados para el estadístico muestral si $H_0$ fuese cierta, por lo que debemos rechazarla.
 
-    -   Esto significa que si el valor $p \leq \alpha$, es posible rechazar $H_0$; mientras que si $p > \alpha$, no es posible rechazar la hipótesis nula.
+  - Esto significa que si el valor $p \leq \alpha$, es posible rechazar $H_0$; mientras que si $p > \alpha$, no es posible rechazar la hipótesis nula.
 
-    Por ejemplo, si en un test de contraste de dos proporciones se obtiene un estadístico $Z= 3,034$ y un valor $p = 0.0024$, esto significa que la probabilidad de obtener un valor de $Z$ de 3.034 o mayor, suponiendo que $H_0$ es cierta, es del 0.24%. Dado que este valor es mucho menor que un nivel de significación del 5% (o incluso del 1%), se rechaza $H_0$ y se concluye que la diferencia observada es estadísticamente significativa. En otras palabras, si bajo un supuesto dado, la probabilidad de un suceso observado particular es excepcionalmente pequeña, concluimos que el supuesto probablemente es incorrecto (*regla del suceso infrecuente*).
+  Por ejemplo, si en un test de contraste de dos proporciones se obtiene un estadístico $Z= 3,034$ y un valor $p = 0.0024$, esto significa que la probabilidad de obtener un valor de $Z$ de 3.034 o mayor, suponiendo que $H_0$ es cierta, es del 0.24%. Dado que este valor es mucho menor que un nivel de significación del 5% (o incluso del 1%), se rechaza $H_0$ y se concluye que la diferencia observada es estadísticamente significativa. En otras palabras, si bajo un supuesto dado, la probabilidad de un suceso observado particular es excepcionalmente pequeña, concluimos que el supuesto probablemente es incorrecto (*regla del suceso infrecuente*).
 
 ### Tipos de contrastes
 
@@ -428,9 +420,7 @@ Los contrastes de hipótesis se clasifican según la forma de la hipótesis alte
 
 La hipótesis alternativa plantea que la media del primer grupo es significativamente **menor** que la del segundo:
 
-$$
-H_1: \mu_1 < \mu_2
-$$
+$$H_1: \mu_1 < \mu_2$$
 
 La región crítica se encuentra en el extremo izquierdo de la distribución. Todo el área crítica tiene un tamaño $\alpha$ con un valor crítico de $-1,645$.
 
@@ -531,9 +521,7 @@ tibble(x = c(-4, 4)) |>
 
 La hipótesis alternativa afirma que existen diferencias entre los grupos, **sin especificar la dirección**:
 
-$$
-H_1: \mu_1 \neq \mu_2
-$$
+$$H_1: \mu_1 \neq \mu_2$$
 
 La región crítica se divide entre ambos extremos de la distribución, con valores críticos de $\pm 1,96$. El nivel de significación total ($\alpha$) se reparte en partes iguales entre las dos colas ($\alpha/2$ en cada una), lo que implica un 2,5% de probabilidad en cada cola si $H_0$ es verdadera.
 
@@ -597,17 +585,17 @@ tibble(x = c(-4, 4)) |>
 
 Al utilizar el razonamiento de los contrastes de hipótesis, existen dos tipos principales de errores que podemos cometer:
 
--   **Error tipo I** ($\alpha$): Ocurre cuando el investigador rechaza la hipótesis nula ($H_0$) siendo esta verdadera en la población y se concluye erróneamente que existe una diferencia cuando en realidad no la hay. Se suele eligir un valor pequeño de $\alpha$ (0.01, 0.05 y 0.10) para hacer que la probabilidad de rechazo de $H_0$ sea pequeña.
+- **Error tipo I** ($\alpha$): Ocurre cuando el investigador rechaza la hipótesis nula ($H_0$) siendo esta verdadera en la población y se concluye erróneamente que existe una diferencia cuando en realidad no la hay. Se suele eligir un valor pequeño de $\alpha$ (0.01, 0.05 y 0.10) para hacer que la probabilidad de rechazo de $H_0$ sea pequeña.
 
--   **Error tipo II (**$\beta$): Ocurre cuando el investigador no rechaza la $H_0$ siendo esta falsa en la población, es decir, se falla en detectar una diferencia real. Generalmente $\beta$ es mayor que $\alpha$, pero su valor real se desconoce en la práctica.
+- **Error tipo II (**$\beta$): Ocurre cuando el investigador no rechaza la $H_0$ siendo esta falsa en la población, es decir, se falla en detectar una diferencia real. Generalmente $\beta$ es mayor que $\alpha$, pero su valor real se desconoce en la práctica.
 
 Es importante notar que, una vez que se realiza el procedimiento de prueba, no es posible saber con certeza si se ha cometido alguno de estos errores, ya que se desconoce el verdadero estado de la realidad. Sin embargo, al fijar un $\alpha$ pequeño, se busca asegurar que, en caso de rechazar la $H_0$, la probabilidad de haber cometido un error Tipo I sea baja.
 
 En resumen, al interpretar los resultados de un test de hipótesis:
 
--   **Si se rechaza la** $H_0$: se asume que la probabilidad de haber cometido un error Tipo I es baja (debido al valor pequeño de $\alpha$).
+- **Si se rechaza la** $H_0$: se asume que la probabilidad de haber cometido un error Tipo I es baja (debido al valor pequeño de $\alpha$).
 
--   **Si no se rechaza la** $H_0$: se desconoce el riesgo real de un error Tipo II, pero es importante tener en cuenta que, en muchas situaciones, este riesgo es mayor que el de un error Tipo I.
+- **Si no se rechaza la** $H_0$: se desconoce el riesgo real de un error Tipo II, pero es importante tener en cuenta que, en muchas situaciones, este riesgo es mayor que el de un error Tipo I.
 
 La tabla que se presenta a continuación resume las posibles situaciones a las que nos enfrentamos con los test de hipótesis:
 
@@ -819,17 +807,17 @@ Por otro lado, cuando existe una diferencia real —o un efecto real de una tera
 
 La potencia de un test estadístico depende de tres factores que actúan de manera interrelacionada:
 
--   El **riesgo de error** que se tolerará al rechazar la hipótesis de ausencia de efecto o diferencia ($\alpha$).
+- El **riesgo de error** que se tolerará al rechazar la hipótesis de ausencia de efecto o diferencia ($\alpha$).
 
--   La **dimensión de la diferencia** que se desea identificar en relación con la variabilidad en las poblaciones.
+- La **dimensión de la diferencia** que se desea identificar en relación con la variabilidad en las poblaciones.
 
--   El **tamaño de la muestra**.
+- El **tamaño de la muestra**.
 
 Del mismo modo que en un problema de estimación se necesita una idea de la magnitud a estimar y del error aceptable para definir el tamaño de la muestra, en un contraste de hipótesis se requiere conocer el **tamaño del efecto** que se quiere detectar. Así, el tamaño muestral se determina en función del nivel de confianza y de la potencia de la prueba, además de otros aspectos relacionados con el diseño y la prueba estadística elegida.
 
 En epidemiología, una de las situaciones más frecuentes al diseñar un estudio es el cálculo del tamaño muestral para un **nivel de confianza del 95%** y una **potencia del 80%**, que, como se mencionó, es un nivel de potencia alto y que además permite manejar un $\alpha$ relativamente bajo. El lenguaje **R** cuenta con diversas funciones para **calcular y visualizar** la relación entre tamaño muestral, potencia, tamaño del efecto y nivel de confianza, facilitando el diseño de estudios con un adecuado balance entre la probabilidad de detectar diferencias reales y la de controlar errores estadísticos.
 
-Por ejemplo, la función `pwr.t.test()` del paquete `pwr` [@pwr], calcula la potencia para pruebas $t$ de Student de medias (para una muestra, dos muestras y muestras pareadas), basado en el tamaño de la muestra, el nivel de confianza y el tamaño de efecto:
+Por ejemplo, la función `pwr.t.test()` del paquete `pwr` [@champely2006], calcula la potencia para pruebas $t$ de Student de medias (para una muestra, dos muestras y muestras pareadas), basado en el tamaño de la muestra, el nivel de confianza y el tamaño de efecto:
 
 ```{r}
 #| eval: false
@@ -838,19 +826,19 @@ pwr.t.test(n, d, sig.level = 0.05, power, type, alternative)
 
 Donde:
 
--   `n`: Número de observaciones para cada grupo.
+- `n`: Número de observaciones para cada grupo.
 
--   `d`: tamaño de efecto ($d$ de Cohen) - diferencia (estandarizada) entre grupos.
+- `d`: tamaño de efecto ($d$ de Cohen) - diferencia (estandarizada) entre grupos.
 
-    > *Nota:* La $d$ de Cohen representa las desviaciones estándar que separan dos o más grupos. Por ejemplo: $d_{Cohen} = 0.5$ representa que la diferencia entre grupo experimental y muestral es de media desviación estándar. Cohen sugirió (provisoriamente) que 0.2 es un tamaño de efecto pequeño, 0.5 es mediano y 0.8 es grande,
+  > *Nota:* La $d$ de Cohen representa las desviaciones estándar que separan dos o más grupos. Por ejemplo: $d_{Cohen} = 0.5$ representa que la diferencia entre grupo experimental y muestral es de media desviación estándar. Cohen sugirió (provisoriamente) que 0.2 es un tamaño de efecto pequeño, 0.5 es mediano y 0.8 es grande,
 
--   `sig.level`: nivel de significación (probabilidad del error de tipo I).
+- `sig.level`: nivel de significación (probabilidad del error de tipo I).
 
--   `power`: potencia del test (1 menos la probabilidad del error tipo II).
+- `power`: potencia del test (1 menos la probabilidad del error tipo II).
 
--   `type`: tipo de test (`"two.sample"`, `"one.sample"`, `"paired"`).
+- `type`: tipo de test (`"two.sample"`, `"one.sample"`, `"paired"`).
 
--   `alternative`: palabra que especifica la hipotesis alternativa, debe ser `"two.sided"` (predeterminado), `"greater"` or `"less"`.
+- `alternative`: palabra que especifica la hipotesis alternativa, debe ser `"two.sided"` (predeterminado), `"greater"` or `"less"`.
 
 La función se ejecuta incorporando todos los argumentos obligatorios (`d`,`n`, `power` y `sig.level`) menos el que se quiere calcular. En ese caso se iguala a `NULL` o se omite.
 
@@ -891,11 +879,11 @@ Hemos discutido la mecánica general de los test de hipótesis. Ahora, nos centr
 
 Para sistematizar los contrastes de hipótesis, es útil responder dos preguntas fundamentales:
 
--   **¿Qué tipo de variable dependiente tengo?**\
-    La variable resultado puede ser cuantitativa, cualitativa, de tiempo hasta un evento, etc.
+- **¿Qué tipo de variable dependiente tengo?**\
+  La variable resultado puede ser cuantitativa, cualitativa, de tiempo hasta un evento, etc.
 
--   **¿Qué se está comparando?**\
-    Esto se traduce en evaluar el tipo de experimento: ¿se comparan dos grupos o más? ¿Son muestras independientes o relacionadas (por ejemplo, medidas en el mismo grupo antes y después de una intervención)?
+- **¿Qué se está comparando?**\
+  Esto se traduce en evaluar el tipo de experimento: ¿se comparan dos grupos o más? ¿Son muestras independientes o relacionadas (por ejemplo, medidas en el mismo grupo antes y después de una intervención)?
 
 #### Variable resultado cuantitativa
 
@@ -905,8 +893,8 @@ Cuando la variable de interés es cuantitativa, la comparación de grupos genera
 
 Por ejemplo, para comparar dos grupos se plantearía:
 
--   $H_0: \mu_1 = \mu_2$ (o su equivalente $\mu_1 - \mu_2 = 0$)
--   $H_1: \mu_1 \neq \mu_2$ (contraste bilateral) o bien $\mu_1 < \mu_2$ o $\mu_1 > \mu_2$ (contrastes unilaterales).
+- $H_0: \mu_1 = \mu_2$ (o su equivalente $\mu_1 - \mu_2 = 0$)
+- $H_1: \mu_1 \neq \mu_2$ (contraste bilateral) o bien $\mu_1 < \mu_2$ o $\mu_1 > \mu_2$ (contrastes unilaterales).
 
 Se calcula el estadístico de prueba (por ejemplo, $t$ de Student o $Z$, según el tamaño de la muestra y si se conoce la varianza poblacional), se determina la región de rechazo y, finalmente, si $p < \alpha$ rechazo $H_0$ y si $p >  \alpha$ no rechazo $H_0$.
 
@@ -1103,22 +1091,19 @@ En el archivo "`bebe1.txt`" se encuentran datos de una muestra aleatoria de los 
 Podemos resolver la primer parte manualmente:
 
 $$ 
-IC = \bar{x} \pm Z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}} 
-$$
+IC = \bar{x} \pm Z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}} $$
 
 donde:
 
--   media ($\bar{x}$): 3103 gramos
+- media ($\bar{x}$): 3103 gramos
 
--   desvío estándar ($\sigma$): 696
+- desvío estándar ($\sigma$): 696
 
--   número de observaciones ($n$): 186
+- número de observaciones ($n$): 186
 
 $$ 
-IC = 3103 \pm 2,57\frac{696}{\sqrt{186}} = 3103 \pm 131,16 
-$$ $$ 
-IC = 2971,85 - 3234,15
-$$
+IC = 3103 \pm 2,57\frac{696}{\sqrt{186}} = 3103 \pm 131,16 $$ $$ 
+IC = 2971,85 - 3234,15$$
 
 El peso medio al nacer de los bebés oscila entre 2971,85 y 3234,15 gramos ($\alpha = 0,99$).
 
@@ -1140,8 +1125,7 @@ datos2 <- read_csv2("datos/bebe2.txt")
 La función `t.test()` del paquete `base` utiliza la distribución $t$ *de Student*:
 
 ```{r}
-t.test(datos1,
-       conf.level = 0.99)
+t.test(datos1, conf.level = 0.99)
 ```
 
 Los IC producidos son similares a los calculados manualmente.
@@ -1151,12 +1135,12 @@ Para comparar los datos de los bebés de madres que consumieron cocaína, debemo
 ```{r}
 shapiro.test(datos1$peso)
 
-datos1 |> 
+datos1 |>
   plot_normality()
 
 shapiro.test(datos2$peso)
 
-datos2 |> 
+datos2 |>
   plot_normality()
 ```
 
@@ -1168,10 +1152,8 @@ var.test(datos1$peso, datos2$peso)
 
 Como las varianzas son iguales, aplicamos un $t$ test para comparar medias de dos poblaciones independientes con varianzas iguales planteando un contraste bilateral:
 
-$$
-H_0: \mu_1 = \mu_2 \\
-H_1: \mu_1 \neq \mu_2
-$$
+$$H_0: \mu_1 = \mu_2 \\
+H_1: \mu_1 \neq \mu_2$$
 
 ```{r}
 t.test(x = datos1$peso, 
@@ -1182,10 +1164,8 @@ t.test(x = datos1$peso,
 
 O también podríamos plantear un contraste unilateral, si consideramos que nuestra hipótesis de trabajo es que el peso de los bebés de madres que no consumen cocaína es mayor que aquellos de madres que sí consumen.
 
-$$
-H_0: \mu_1 = \mu_2 \\
-H_1: \mu_1 > \mu_2 \quad ó \quad \mu_1 - \mu_2 > 0
-$$
+$$H_0: \mu_1 = \mu_2 \\
+H_1: \mu_1 > \mu_2 \quad ó \quad \mu_1 - \mu_2 > 0$$
 
 ```{r}
 t.test(x = datos1$peso, 
@@ -1204,9 +1184,9 @@ Un caso común en epidemiología y medicina es el estudio de la eficacia de un t
 
 Queremos evaluar si la presión arterial media en pacientes tratados con el nuevo fármaco es **significativamente menor** que la presión arterial histórica de 165 mmHg:
 
--   $H_0: \mu = 165~mmHg$
+- $H_0: \mu = 165~mmHg$
 
--   $H_1: \mu < 165~mmHg$
+- $H_1: \mu < 165~mmHg$
 
 Este es un **contraste unilateral a la izquierda**, ya que buscamos evidencia de que el tratamiento reduce la presión arterial.
 
@@ -1254,13 +1234,13 @@ Dado que $p < 0.05$, rechazamos la hipótesis nula y concluimos que, con un nive
 
 @daniel2002
 
-@alvarez2007
+@norman1996
+
+@alvarezcaceres2007
 
 @triola2018
 
-@normangr1996
-
-@glantzs2006
+@bioestad2006
 
 @epidat4
 
@@ -1268,7 +1248,7 @@ Dado que $p < 0.05$, rechazamos la hipótesis nula y concluimos que, con un nive
 
 @manitz2021
 
-[@dlookr]
+@dlookr
 
-[@pwr]
+@champely2006
 :::

@@ -3,12 +3,11 @@ title: "Covarianza y correlación"
 author:
   - name: Tamara Ricardo
     orcid: 0000-0002-0921-2611
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
 ## Introducción
@@ -55,34 +54,29 @@ El siguiente gráfico muestra una relación positiva entre minutos de actividad 
 
 ```{r}
 #| echo: false
-
 # Covarianza positiva
 datos <- tibble(
-  x = sample(20:150, 50, replace = TRUE), 
+  x = sample(20:150, 50, replace = TRUE),
   y = 60 + (0.3 * x) + rnorm(50, 0, 5)
 )
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F, color = pal[1]) +
-  
-  # líneas de referencia
-  geom_vline(xintercept = mean(datos$x), 
-             linetype = "dashed") +
-  geom_hline(yintercept = mean(datos$y),
-             linetype = "dashed") +
-  
-  # etiquetas
-  labs(x = "Actividad física (min/semana)",
-       y = "Capacidad aeróbica") +
-  
-  # tema 
-  theme_minimal() 
 
+  # líneas de referencia
+  geom_vline(xintercept = mean(datos$x), linetype = "dashed") +
+  geom_hline(yintercept = mean(datos$y), linetype = "dashed") +
+
+  # etiquetas
+  labs(x = "Actividad física (min/semana)", y = "Capacidad aeróbica") +
+
+  # tema
+  theme_minimal()
 ```
 
 #### Covarianza negativa
@@ -91,32 +85,31 @@ En este gráfico, a medida que aumenta el consumo de alcohol semanal ($X$ ), dis
 
 ```{r}
 #| echo: false
-
 # Covarianza negativa
 datos <- tibble(
-  x = sample(0:100, 50, replace = TRUE), 
+  x = sample(0:100, 50, replace = TRUE),
   y = 100 - (0.5 * x) + rnorm(50, 0, 5)
 )
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F, color = pal[1]) +
-  
+
   # líneas de referencia
-  geom_vline(xintercept = mean(datos$x), 
-             linetype = "dashed") +
-  geom_hline(yintercept = mean(datos$y),
-             linetype = "dashed") +
-  
+  geom_vline(xintercept = mean(datos$x), linetype = "dashed") +
+  geom_hline(yintercept = mean(datos$y), linetype = "dashed") +
+
   # etiquetas
-  labs(x = "Consumo de Alcohol (gramos/semana)",
-       y = "Salud del Hígado (niveles de enzimas)") +
-  
-  # tema 
+  labs(
+    x = "Consumo de Alcohol (gramos/semana)",
+    y = "Salud del Hígado (niveles de enzimas)"
+  ) +
+
+  # tema
   theme_minimal()
 ```
 
@@ -126,32 +119,28 @@ En el diagrama de dispersión se puede observar que los cambios en las horas de 
 
 ```{r}
 #| echo: false
-
 # Covarianza nula
 datos <- tibble(
-  x = sample(4:10, 50, replace = TRUE), 
+  x = sample(4:10, 50, replace = TRUE),
   y = 180 + rnorm(50, 0, 10)
 )
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F, color = pal[2]) +
-  
+
   # líneas de referencia
-  geom_vline(xintercept = mean(datos$x), 
-             linetype = "dashed") +
-  geom_hline(yintercept = mean(datos$y),
-             linetype = "dashed") +
-  
+  geom_vline(xintercept = mean(datos$x), linetype = "dashed") +
+  geom_hline(yintercept = mean(datos$y), linetype = "dashed") +
+
   # etiquetas
-  labs(x = "Horas de Sueño",
-       y = "Nivel de Colesterol (mg/dL)") +
-  
-  # tema 
+  labs(x = "Horas de Sueño", y = "Nivel de Colesterol (mg/dL)") +
+
+  # tema
   theme_minimal()
 ```
 
@@ -209,132 +198,134 @@ El coeficiente de correlación $r$ entonces se interpreta como:
 
 ```{r}
 #| echo: false
-
 # Genera datos
 datos <- tibble(
   x = 1:100,
-  y = x)
+  y = x
+)
 
 # coeficiente
 cor <- with(datos, round(cor(x, y), 3))
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
-  
+
   # añade coeficiente de correlación
-  annotate("text", x = 10, y = 85, 
-            label = paste0("R² = ", cor)) +
-  
+  annotate("text", x = 10, y = 85, label = paste0("R² = ", cor)) +
+
   # tema
   theme_minimal() +
-   theme(title = element_text(size = 10, face = "bold"),
-       axis.text = element_text(size = 9))
+  theme(
+    title = element_text(size = 10, face = "bold"),
+    axis.text = element_text(size = 9)
+  )
 ```
 
 #### Correlación positiva fuerte entre $X$ e $Y$
 
 ```{r}
 #| echo: false
-
 set.seed(123)
 
 # Datos
 datos <- tibble(
   x = 1:100,
-  y = x + rnorm(100, mean = 0, sd = 20))
+  y = x + rnorm(100, mean = 0, sd = 20)
+)
 
 # coeficiente
 cor <- with(datos, round(cor(x, y), 3))
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
-  
+
   # añade coeficiente de correlación
-  annotate("text", x = 10, y = 85, 
-            label = paste0("R² = ", cor)) +
-  
+  annotate("text", x = 10, y = 85, label = paste0("R² = ", cor)) +
+
   # tema
   theme_minimal() +
-   theme(title = element_text(size = 10, face = "bold"),
-       axis.text = element_text(size = 9))
+  theme(
+    title = element_text(size = 10, face = "bold"),
+    axis.text = element_text(size = 9)
+  )
 ```
 
 #### Correlación positiva moderada entre $X$ e $Y$
 
 ```{r}
 #| echo: false
-
 set.seed(123)
 
 # Datos
 datos <- tibble(
   x = 1:100,
-  y = x + rnorm(100, mean = 0, sd = 40))
+  y = x + rnorm(100, mean = 0, sd = 40)
+)
 
 # coeficiente
 cor <- with(datos, round(cor(x, y), 3))
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
-  
+
   # añade coeficiente de correlación
-  annotate("text", x = 10, y = 100, 
-           label = paste0("R² = ", cor)) +
-  
+  annotate("text", x = 10, y = 100, label = paste0("R² = ", cor)) +
+
   # tema
   theme_minimal() +
-   theme(title = element_text(size = 10, face = "bold"),
-       axis.text = element_text(size = 9))
+  theme(
+    title = element_text(size = 10, face = "bold"),
+    axis.text = element_text(size = 9)
+  )
 ```
 
 #### Correlación negativa perfecta entre $X$ e $Y$
 
 ```{r}
 #| echo: false
-
-# Genera datos 
+# Genera datos
 datos <- tibble(
   x = 1:100,
   y = -x
 )
-  
+
 # coeficiente
 cor <- with(datos, round(cor(x, y), 3))
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
-  
+
   # añade coeficiente de correlación
-  annotate("text", x = 10, y = 85, 
-            label = paste0("R² = ", cor)) +
-  
+  annotate("text", x = 10, y = 85, label = paste0("R² = ", cor)) +
+
   # tema
   theme_minimal() +
-   theme(title = element_text(size = 10, face = "bold"),
-       axis.text = element_text(size = 9))
+  theme(
+    title = element_text(size = 10, face = "bold"),
+    axis.text = element_text(size = 9)
+  )
 ```
 
 #### Correlación negativa fuerte entre $X$ e $Y$
 
 ```{r}
 #| echo: false
-
 set.seed(123)
 
 # Genera datos
@@ -342,32 +333,32 @@ datos <- tibble(
   x = 1:100,
   y = -x + rnorm(100, mean = 0, sd = 15)
 )
-  
+
 # coeficiente
 cor <- with(datos, round(cor(x, y), 3))
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
-  
+
   # añade coeficiente de correlación
-  annotate("text", x = 10, y = 85, 
-            label = paste0("R² = ", cor)) +
-  
+  annotate("text", x = 10, y = 85, label = paste0("R² = ", cor)) +
+
   # tema
   theme_minimal() +
-   theme(title = element_text(size = 10, face = "bold"),
-       axis.text = element_text(size = 9))
+  theme(
+    title = element_text(size = 10, face = "bold"),
+    axis.text = element_text(size = 9)
+  )
 ```
 
 #### Correlación negativa moderada entre $X$ e $Y$
 
 ```{r}
 #| echo: false
-
 set.seed(123)
 
 # Genera datos
@@ -375,94 +366,92 @@ datos <- tibble(
   x = 1:100,
   y = -x + rnorm(100, mean = 0, sd = 40)
 )
-  
+
 # coeficiente
 cor <- with(datos, round(cor(x, y), 3))
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
-  
+
   # añade coeficiente de correlación
-  annotate("text", x = 10, y = 85, 
-            label = paste0("R² = ", cor)) +
-  
+  annotate("text", x = 10, y = 85, label = paste0("R² = ", cor)) +
+
   # tema
   theme_minimal() +
-   theme(title = element_text(size = 10, face = "bold"),
-       axis.text = element_text(size = 9))
-
+  theme(
+    title = element_text(size = 10, face = "bold"),
+    axis.text = element_text(size = 9)
+  )
 ```
 
 #### $X$ e $Y$ no correlacionadas
 
 ```{r}
 #| echo: false
-
 set.seed(123)
 
 # Genera datos
 datos <- tibble(
   x = 1:100,
   y = rnorm(100, mean = 0, sd = 10)
-) 
-   
+)
+
 # coeficiente
 cor <- with(datos, round(cor(x, y), 3))
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
-  
+
   # añade coeficiente de correlación
-  annotate("text", x = 10, y = 85, 
-            label = paste0("R² = ", cor)) +
-  
+  annotate("text", x = 10, y = 85, label = paste0("R² = ", cor)) +
+
   # tema
   theme_minimal() +
-   theme(title = element_text(size = 10, face = "bold"),
-       axis.text = element_text(size = 9))
-
+  theme(
+    title = element_text(size = 10, face = "bold"),
+    axis.text = element_text(size = 9)
+  )
 ```
 
 #### Relación no lineal entre $X$ e $Y$
 
 ```{r}
 #| echo: false
-
 set.seed(123)
 
 # Genera datos
 datos <- tibble(
   x = seq(-10, 10, by = 0.2),
   y = -x^2 + rnorm(length(x), mean = 0, sd = 20)
-) 
-   
+)
+
 # coeficiente
 cor <- with(datos, round(cor(x, y), 3))
 
 # Gráfico
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
-  
+
   # puntos
   geom_point(color = pal[2], size = 3, alpha = .8) +
-  
+
   # añade coeficiente de correlación
-  annotate("text", x = -7.5, y = 85, 
-            label = paste0("R² = ", cor)) +
-  
+  annotate("text", x = -7.5, y = 85, label = paste0("R² = ", cor)) +
+
   # tema
   theme_minimal() +
-   theme(title = element_text(size = 10, face = "bold"),
-       axis.text = element_text(size = 9))
-
+  theme(
+    title = element_text(size = 10, face = "bold"),
+    axis.text = element_text(size = 9)
+  )
 ```
 
 #### Correlogramas
@@ -542,8 +531,7 @@ La base de datos tiene `r nrow(datos)` observaciones y `r ncol(datos)` variables
 La función `cor()` estima la correlación entre dos variables. El método predeterminado devuelve la correlación de Pearson y puede modificarse el argumento `method` para obtener la correlación de Kendall o Spearman:
 
 ```{r}
-cor(datos$tasa_mortalidad, datos$pct_pobreza,
-    method = "pearson")
+cor(datos$tasa_mortalidad, datos$pct_pobreza, method = "pearson")
 ```
 
 La función `cor.test()` determina si la prueba de correlación de Pearson calculada es significativa mediante el estadístico $t$ de Student:
@@ -572,10 +560,10 @@ Los argumentos predeterminados para la función `cor.test()` son:
 Podemos generar diagramas de dispersión para cada par de variables numéricas usando la función `ggpairs()` del paquete `GGally` [@GGally]:
 
 ```{r}
-datos |> 
+datos |>
   # selecciono soloamente las variables numéricas
-  select(where(is.numeric)) |> 
-  
+  select(where(is.numeric)) |>
+
   # diagramas de dispersión
   ggpairs()
 ```
@@ -583,19 +571,19 @@ datos |>
 Podemos generar los correlogramas con el paquete `correlation` usando el siguiente código:
 
 ```{r}
-datos |> 
-  correlation() |> 
-  summary() |> 
+datos |>
+  correlation() |>
+  summary() |>
   plot()
 ```
 
 El comando `ggcorr()` del paquete `GGally` también nos permite generar correlogramas:
 
 ```{r}
-datos |> 
+datos |>
   # selecciono soloamente las variables numéricas
-  select(where(is.numeric)) |> 
-  
+  select(where(is.numeric)) |>
+
   # correlograma
   ggcorr(label = T)
 ```
@@ -603,17 +591,19 @@ datos |>
 Podemos hacerlos más atractivos visualmente modificando los argumentos `nbreaks`, `geom`, `size`, `max_size` y `palette`:
 
 ```{r}
-datos |> 
+datos |>
   # selecciono soloamente las variables numéricas
-  select(where(is.numeric)) |> 
-  
+  select(where(is.numeric)) |>
+
   # correlograma
-  ggcorr(label = T, # coeficientes
-         size = 3, # tamaño de texto
-         geom = "circle", # forma del gráfico
-         max_size = 15, # tamaño máximo de las formas
-         nbreaks = 6, # número de categorías de color
-         palette = "PRGn") # color de las formas
+  ggcorr(
+    label = T, # coeficientes
+    size = 3, # tamaño de texto
+    geom = "circle", # forma del gráfico
+    max_size = 15, # tamaño máximo de las formas
+    nbreaks = 6, # número de categorías de color
+    palette = "PRGn"
+  ) # color de las formas
 ```
 
 Observamos que la variable dependiente (`tasa_mortalidad`) tiene correlación negativa moderada con `mediana_ingresos`, también que existe una correlación negativa fuerte entre `pct_pobreza` y `mediana_ingresos` y moderada con `pct_salud_publica`. Las correlaciones entre las demás variables son débiles o nulas.
@@ -621,35 +611,39 @@ Observamos que la variable dependiente (`tasa_mortalidad`) tiene correlación ne
 Para visualizar el correlograma con el coeficiente de Spearman, añadimos el argumento `method = c("pairwise", "spearman")` al código del ejemplo anterior:
 
 ```{r}
-datos |> 
+datos |>
   # selecciono soloamente las variables numéricas
-  select(where(is.numeric)) |> 
-  
+  select(where(is.numeric)) |>
+
   # correlograma
-  ggcorr(label = T, # coeficientes
-         size = 3, # tamaño de texto
-         geom = "circle", # forma del gráfico
-         max_size = 15, # tamaño máximo de las formas
-         nbreaks = 6, # número de categorías de color
-         palette = "PRGn", # color de las formas
-         method = c("pairwise", "spearman")) # coeficiente de Spearman
+  ggcorr(
+    label = T, # coeficientes
+    size = 3, # tamaño de texto
+    geom = "circle", # forma del gráfico
+    max_size = 15, # tamaño máximo de las formas
+    nbreaks = 6, # número de categorías de color
+    palette = "PRGn", # color de las formas
+    method = c("pairwise", "spearman")
+  ) # coeficiente de Spearman
 ```
 
 De igual modo, si queremos aplicar el coeficiente de Spearman, añadimos el argumento `method = c("pairwise", "kendall")`:
 
 ```{r}
-datos |> 
+datos |>
   # selecciono soloamente las variables numéricas
-  select(where(is.numeric)) |> 
-  
+  select(where(is.numeric)) |>
+
   # correlograma
-  ggcorr(label = T, # coeficientes
-         size = 3, # tamaño de texto
-         geom = "circle", # forma del gráfico
-         max_size = 15, # tamaño máximo de las formas
-         nbreaks = 6, # número de categorías de color
-         palette = "PRGn", # color de las formas
-         method = c("pairwise", "kendall")) # coeficiente de Kendall
+  ggcorr(
+    label = T, # coeficientes
+    size = 3, # tamaño de texto
+    geom = "circle", # forma del gráfico
+    max_size = 15, # tamaño máximo de las formas
+    nbreaks = 6, # número de categorías de color
+    palette = "PRGn", # color de las formas
+    method = c("pairwise", "kendall")
+  ) # coeficiente de Kendall
 ```
 
 Para explicar la forma de esta correlación e incluso predecir los valores que puede alcanzar una variable dependiente numérica en función de una variable independiente también numérica podemos utilizar la [**regresión lineal simple**](04_reg_lineal.qmd).

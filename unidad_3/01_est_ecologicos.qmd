@@ -1,11 +1,10 @@
 ---
 title: "Estudios ecológicos"
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
 ## Introducción
@@ -20,16 +19,21 @@ Repasemos las principales ventajas y desventajas de este diseño:
 #| echo: false
 # Datos
 tibble(
-  Ventajas = c("Se pueden estudiar grandes grupos poblacionales",
-               "Relativamente fáciles de realizar",
-               "Aumenta el poder estadístico",
-               "Aumenta la variabilidad en exposición",
-               "Se puede utilizar información de estadísticas vitales"),
-  Desventajas = c("No se tiene información del individuo,por lo que no se puede ajustar por diferencias a nivel individual",
-                  "No se puede saber quién sí está expuesto o quién sí desarrolló el evento de interés",
-                  "No se tiene información sobre factores de confusión y no se puede corregir por esto",
-                  rep("",2))) |> 
-  
+  Ventajas = c(
+    "Se pueden estudiar grandes grupos poblacionales",
+    "Relativamente fáciles de realizar",
+    "Aumenta el poder estadístico",
+    "Aumenta la variabilidad en exposición",
+    "Se puede utilizar información de estadísticas vitales"
+  ),
+  Desventajas = c(
+    "No se tiene información del individuo,por lo que no se puede ajustar por diferencias a nivel individual",
+    "No se puede saber quién sí está expuesto o quién sí desarrolló el evento de interés",
+    "No se tiene información sobre factores de confusión y no se puede corregir por esto",
+    rep("", 2)
+  )
+) |>
+
   # Tabla
   kbl_format()
 ```
@@ -76,17 +80,19 @@ Algunos autores presentan la perspectiva que mostramos en la siguiente tabla, pa
 #| echo: false
 # Datos
 tibble(
-  Tipo = c("Transversal",
-           "Series temporales",
-           "Descriptivo"),
-  "Diseño" = c("A lo largo de diferentes comunidades",
-               "Dentro de la misma comunidad",
-               "A lo largo de diferentes comunidades o dentro de la misma comunidad"),
-  "Marco temporal" = c("Mismo período",
-                       "A lo largo del tiempo",
-                       "Un punto en el tiempo o a lo largo del tiempo")
-) |> 
-  
+  Tipo = c("Transversal", "Series temporales", "Descriptivo"),
+  "Diseño" = c(
+    "A lo largo de diferentes comunidades",
+    "Dentro de la misma comunidad",
+    "A lo largo de diferentes comunidades o dentro de la misma comunidad"
+  ),
+  "Marco temporal" = c(
+    "Mismo período",
+    "A lo largo del tiempo",
+    "Un punto en el tiempo o a lo largo del tiempo"
+  )
+) |>
+
   # Tabla
   kbl_format()
 ```

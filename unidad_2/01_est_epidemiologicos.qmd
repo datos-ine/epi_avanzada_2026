@@ -5,12 +5,11 @@ author:
     orcid: 0000-0002-4791-9706
   - name: Tamara Ricardo
     orcid: 0000-0002-0921-2611
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
 Un estudio epidemiológico es un proceso que se desarrolla en varias fases: desde la definición del **problema de investigación**, la selección de la estrategia o **diseño del estudio**, hasta la planificación de las **actividades**. En esencia, el diseño constituye la estrategia metodológica elegida para alcanzar los objetivos planteados.
@@ -25,26 +24,33 @@ Existen distintos criterios para clasificar los estudios epidemiológicos. La si
 #| tbl-cap: Clasificación de estudios epidemiológicos.
 # Datos
 tibble(
-  Poblacionales = c("Análisis de situación",
-                    "Estudios Ecológicos",
-                    ""),
-  Individuales = c("Serie de casos",
-                   "Reporte de casos",
-                   "Estudios transversales"),
-  
-  Observacionales = c("Estudios de casos y controles",
-                      "Estudios de cohortes",
-                      ""),
-  
-  Experimentales = c("Ensayos clínicos",
-                     "Ensayos comunitarios y/o de campo",
-                     "")
-) |> 
-  
+  Poblacionales = c("Análisis de situación", "Estudios Ecológicos", ""),
+  Individuales = c(
+    "Serie de casos",
+    "Reporte de casos",
+    "Estudios transversales"
+  ),
+
+  Observacionales = c(
+    "Estudios de casos y controles",
+    "Estudios de cohortes",
+    ""
+  ),
+
+  Experimentales = c(
+    "Ensayos clínicos",
+    "Ensayos comunitarios y/o de campo",
+    ""
+  )
+) |>
+
   # Tabla
-  kbl_format() |> 
-  add_header_above(c("Estudios descriptivos" = 2, "Estudios analíticos" = 2),
-                   background = "#2f2e4e", color = "white")
+  kbl_format() |>
+  add_header_above(
+    c("Estudios descriptivos" = 2, "Estudios analíticos" = 2),
+    background = "#2f2e4e",
+    color = "white"
+  )
 ```
 
 Toda investigación debe partir de una revisión actualizada del conocimiento sobre el tema a abordar. Esto implica delimitar el problema de investigación de forma precisa, definiendo objetivos, propósito, justificación e hipótesis. Para ello, es fundamental conocer las características y ventajas de cada tipo de estudio epidemiológico, evaluar su adecuación a los objetivos planteados y considerar los recursos disponibles en términos de tiempo, personal y presupuesto.
@@ -55,11 +61,11 @@ Existen propuestas que jerarquizan la calidad de la evidencia según el tipo de 
 
 El análisis riguroso de la evidencia facilita establecer grados de recomendación para intervenciones diagnósticas, terapéuticas o preventivas. Uno de los sistemas más utilizados para clasificar la calidad de la evidencia y la fuerza de las recomendaciones es [**GRADE**](https://www.gradeworkinggroup.org/) (*Grading of Recommendations Assessment, Development and Evaluation*), que permite sintetizar la calidad de la evidencia según el tipo de diseño:
 
--   **Ensayos clínicos aleatorizados (EC):** calidad alta
+- **Ensayos clínicos aleatorizados (EC):** calidad alta
 
--   **Estudios observacionales:** calidad baja
+- **Estudios observacionales:** calidad baja
 
--   **Otras fuentes:** calidad muy baja
+- **Otras fuentes:** calidad muy baja
 
 La siguiente tabla (@tbl-tab2) muestra la clasificación de GRADE, que combina calidad metodológica, balance entre beneficios y riesgos, y las implicancias de cada recomendación:
 
@@ -69,26 +75,18 @@ La siguiente tabla (@tbl-tab2) muestra la clasificación de GRADE, que combina c
 #| tbl-cap: Clasificación GRADE de estudios epidemiológicos.
 # Datos
 tibble(
-  Grado = c("1.A",
-            "1.B",
-            "1.C",
-            "2.A",
-            "2.B",
-            "2.C"),
-  
-  "Recomendación" = c(rep("Fuerte", 3),
-                      rep("Débil", 3)),
-  
-  Calidad = rep(c("Alta",
-              "Moderada",
-              "Baja o muy baja"), 2),
-  
+  Grado = c("1.A", "1.B", "1.C", "2.A", "2.B", "2.C"),
+
+  "Recomendación" = c(rep("Fuerte", 3), rep("Débil", 3)),
+
+  Calidad = rep(c("Alta", "Moderada", "Baja o muy baja"), 2),
+
   "Beneficio vs. Riesgo y cargas" = c(
-    rep("Superan ampliamente los riesgos y cargas (o viceversa)",3),
+    rep("Superan ampliamente los riesgos y cargas (o viceversa)", 3),
     rep("Estrechamente equilibrados", 2),
     "Incertidumbre en las estimaciones de beneficios, riesgos y carga"
   ),
-  
+
   "Calidad metodológica que apoya la evidencia" = c(
     "EC sin importantes limitaciones o evidencia abrumadora de estudios observacionales.",
     "EC con importantes limitaciones (resultados inconsistentes, defectos metodológicos indirectos o imprecisos) o pruebas excepcionalmente fuertes a partir de estudios observacionales.",
@@ -97,7 +95,7 @@ tibble(
     "EC con importantes limitaciones (resultados inconsistentes, defectos metodológicos indirectos o imprecisos) o pruebas excepcionalmente fuertes a partir de estudios observacionales.",
     "Estudios observacionales o series de casos."
   ),
-  
+
   Implicancias = c(
     "Puede aplicarse a la mayoría de los pacientes, en la mayoría de las circunstancias sin reservas.",
     "Puede aplicarse a la mayoría de los pacientes, en la mayoría de las circunstancias sin reservas.",
@@ -106,8 +104,8 @@ tibble(
     "La mejor acción puede variar dependiendo de las circunstancias de los pacientes o de los valores de la sociedad.",
     "Otras alternativas pueden ser igual de razonables."
   )
-) |> 
-  
+) |>
+
   # Tabla
   kbl_format()
 ```

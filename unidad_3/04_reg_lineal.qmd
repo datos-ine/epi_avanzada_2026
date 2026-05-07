@@ -1,11 +1,10 @@
 ---
 title: "Regresión lineal simple"
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
-source("../setup.R")
+source("files/setup.R")
 
 # Paquetes extra
 library(MASS)

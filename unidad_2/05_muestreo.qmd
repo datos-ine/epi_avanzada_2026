@@ -3,29 +3,28 @@ title: "Selección de la muestra"
 author: 
   - name: Andrea Silva
     orcid: 0000-0002-4791-9706
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
 ## Introducción
 
 Toda investigación epidemiológica requiere, en principio, la selección de una muestra representativa de la población objeto de estudio. Esto implica:
 
--   Determinar el tamaño de la muestra.
+- Determinar el tamaño de la muestra.
 
--   Definir cómo se seleccionarán los sujetos (es decir, las unidades de análisis).
+- Definir cómo se seleccionarán los sujetos (es decir, las unidades de análisis).
 
--   Calcular la incertidumbre que introduce este proceso de muestreo en nuestras estimaciones.
+- Calcular la incertidumbre que introduce este proceso de muestreo en nuestras estimaciones.
 
 El tamaño de la muestra se establece en la fase de diseño del estudio, habitualmente cuando se redacta el protocolo de investigación. Es importante considerar que este tamaño es, en cierto sentido, orientador, ya que su cálculo depende de factores que en ocasiones pueden ser subjetivos o estar limitados por la información previa disponible. Además, las exigencias varían según el objetivo del estudio. Por ejemplo:
 
--   En un estudio transversal, donde se estima una prevalencia, se puede aceptar una precisión menor.
+- En un estudio transversal, donde se estima una prevalencia, se puede aceptar una precisión menor.
 
--   En un estudio experimental, donde se compara la eficacia de un fármaco frente a un placebo, el tamaño de la muestra debe ser suficiente para detectar una “diferencia significativa” entre los grupos.
+- En un estudio experimental, donde se compara la eficacia de un fármaco frente a un placebo, el tamaño de la muestra debe ser suficiente para detectar una “diferencia significativa” entre los grupos.
 
 Cuando el objetivo de la investigación incluye la estimación de un intervalo de confianza (IC) para alguna variable, se busca que dicho IC tenga alta confiabilidad y sea lo más estrecho posible.
 
@@ -38,31 +37,29 @@ Al tomar una muestra para estimar lo que sucede en la realidad, debemos aceptar 
 
 Como se mencionó anteriormente, se requiere conocer algunos datos para el cálculo del tamaño de muestra requerido, entre los que destacan:
 
--   **La proporción esperada del evento:** Aunque resulte paradójico, ya que es el parámetro que se desea estimar, el investigador suele contar con información previa que permite delimitar sus posibles valores. Si no fuera el caso, se utiliza el peor escenario, es decir, una proporción del 50%, ya que este valor maximiza el producto $p(1-p)$ y, por ende, exige el mayor tamaño muestral. De esta forma, muchas veces se recurre a esto para tener al menos una idea del “límite superior” que estaríamos manejando.
+- **La proporción esperada del evento:** Aunque resulte paradójico, ya que es el parámetro que se desea estimar, el investigador suele contar con información previa que permite delimitar sus posibles valores. Si no fuera el caso, se utiliza el peor escenario, es decir, una proporción del 50%, ya que este valor maximiza el producto $p(1-p)$ y, por ende, exige el mayor tamaño muestral. De esta forma, muchas veces se recurre a esto para tener al menos una idea del “límite superior” que estaríamos manejando.
 
--   **El nivel de confianza deseado:** Habitualmente se emplea un 95% (lo que equivale a un $\alpha$ de 0.05). Este valor indica la probabilidad de que el intervalo calculado contenga el parámetro poblacional verdadero. A mayor nivel de confianza (es decir, menor $\alpha$), mayor es el coeficiente de confiabilidad y, por ende, mayor el tamaño muestral requerido.
+- **El nivel de confianza deseado:** Habitualmente se emplea un 95% (lo que equivale a un $\alpha$ de 0.05). Este valor indica la probabilidad de que el intervalo calculado contenga el parámetro poblacional verdadero. A mayor nivel de confianza (es decir, menor $\alpha$), mayor es el coeficiente de confiabilidad y, por ende, mayor el tamaño muestral requerido.
 
--   **La precisión (**$\delta$**) deseada:** Se refiere a la amplitud aceptable del intervalo de confianza. Cuanta más precisión se exija (es decir, un intervalo más estrecho), mayor será el tamaño de la muestra necesario.
+- **La precisión (**$\delta$**) deseada:** Se refiere a la amplitud aceptable del intervalo de confianza. Cuanta más precisión se exija (es decir, un intervalo más estrecho), mayor será el tamaño de la muestra necesario.
 
 La fórmula para el cálculo es la siguiente:
 
-$$
-N = \frac{p.q.(Z\alpha)^2}{\delta^2}
-$$ Donde:
+$$N = \frac{p.q.(Z\alpha)^2}{\delta^2}$$
+Donde:
 
--   $N$ es el tamaño muestra requerido.
--   $p$ es la proporción esperada de sujetos portadores del evento.
--   $q = 1 – p$ es la proporción complementaria (sujetos que no tienen la variable en estudio).
--   $\delta$ es la precisión o magnitud de error aceptable.
--   $Z\alpha$ es el valor crítico de la distribución normal asociado al nivel de significancia. Se obtiene de tablas de distribución normal de probabilidades y habitualmente se utiliza un valor $\alpha$ de 0.05, al que le corresponde un valor $Z$ de 1.96
+- $N$ es el tamaño muestra requerido.
+- $p$ es la proporción esperada de sujetos portadores del evento.
+- $q = 1 – p$ es la proporción complementaria (sujetos que no tienen la variable en estudio).
+- $\delta$ es la precisión o magnitud de error aceptable.
+- $Z\alpha$ es el valor crítico de la distribución normal asociado al nivel de significancia. Se obtiene de tablas de distribución normal de probabilidades y habitualmente se utiliza un valor $\alpha$ de 0.05, al que le corresponde un valor $Z$ de 1.96
 
 Cuando se conoce el tamaño de la población, es necesario aplicar una corrección por población finita:
 
-$$
-N =\frac{n^1}{1+\frac{n^1}{Población}}
-$$ donde $n^1$ es el $N$ calculado con la ecuación anterior.
+$$N =\frac{n^1}{1+\frac{n^1}{Población}}$$
+donde $n^1$ es el $N$ calculado con la ecuación anterior.
 
-Es fundamental entender que el tamaño de la muestra dependerá de $p$ de $\alpha$ y de la precisión deseada, más que de la complejidad de la fórmula en sí. Existen numerosos softwares que calculan tamaños de muestra. Algunos están especializados en esta tarea (por ejemplo, **EpiDat**, **EpiInfo**, **OpenEp**i), mientras que otros lo incluyen como una opción dentro de un paquete más amplio de análisis. En el lenguaje R, funciones como `power.prop.test()` (para comparación de proporciones) y `power.t.test()` (para pruebas de medias basadas en la distribución $t$ de Student) están incluidas en el paquete `stats`. Otros paquetes útiles incluyen `samplingbook` [@samplingbook], `samplesize` , `pwr` [@pwr] y `epiR` [@epiR].
+Es fundamental entender que el tamaño de la muestra dependerá de $p$ de $\alpha$ y de la precisión deseada, más que de la complejidad de la fórmula en sí. Existen numerosos softwares que calculan tamaños de muestra. Algunos están especializados en esta tarea (por ejemplo, **EpiDat**, **EpiInfo**, **OpenEp**i), mientras que otros lo incluyen como una opción dentro de un paquete más amplio de análisis. En el lenguaje R, funciones como `power.prop.test()` (para comparación de proporciones) y `power.t.test()` (para pruebas de medias basadas en la distribución $t$ de Student) están incluidas en el paquete `stats`. Otros paquetes útiles incluyen `samplingbook` [@sampling2010], `samplesize` , `pwr` [@champely2006] y `epiR` [@stevenson2025].
 
 A continuación, se presenta un ejemplo práctico utilizando la función `sample.size.prop()` del paquete `samplingbook`. Supongamos que queremos estimar la prevalencia de diabetes en una ciudad de 600,000 habitantes, donde estudios previos sugieren una prevalencia cercana al 10.2%. El objetivo es determinar el tamaño de la muestra en un muestreo aleatorio simple.
 
@@ -74,10 +71,10 @@ library(samplingbook)
 
 Calculamos el tamaño muestral en base a los siguientes argumentos:
 
--   `e`: número positivo que especifica la precisión que es la mitad del ancho del intervalo de confianza
--   `p:` proporción esperada de eventos con dominio entre los valores 0 y 1.
--   `N`: número entero positivo para el tamaño de la población. El valor predeterminado es `Inf`, lo que significa que los cálculos se realizan sin *corrección de población finita*.
--   `level`: nivel de confianza para los intervalos de confianza. El valor predeterminado es 95%.
+- `e`: número positivo que especifica la precisión que es la mitad del ancho del intervalo de confianza
+- `p:` proporción esperada de eventos con dominio entre los valores 0 y 1.
+- `N`: número entero positivo para el tamaño de la población. El valor predeterminado es `Inf`, lo que significa que los cálculos se realizan sin *corrección de población finita*.
+- `level`: nivel de confianza para los intervalos de confianza. El valor predeterminado es 95%.
 
 ```{r}
 sample.size.prop(e = 0.02, P = 0.102, N = 600000, level = 0.95)
@@ -103,9 +100,9 @@ Además del cálculo del tamaño muestral, es esencial planificar la forma en qu
 
 Un muestreo se considera **probabilístico** cuando se cumplen dos condiciones fundamentales:
 
--   Es posible conocer de antemano la probabilidad de selección que tiene cada elemento de la población.
+- Es posible conocer de antemano la probabilidad de selección que tiene cada elemento de la población.
 
--   Esta probabilidad es mayor que cero para todos los elementos.
+- Esta probabilidad es mayor que cero para todos los elementos.
 
 Solo con un muestreo probabilístico se puede medir el grado de precisión de las estimaciones realizadas, ya que se conocen las probabilidades de inclusión. Algunos de los métodos más usados son: Muestreo aleatorio simple, muestreo sistemático en fases, Muestreo aleatorio estratificado, muestreo por conglomerados, etc.
 
@@ -113,15 +110,13 @@ Solo con un muestreo probabilístico se puede medir el grado de precisión de la
 
 En el MAS, cada elemento de la población tiene la misma probabilidad de ser seleccionado (es decir, es un método **equiprobabilístico**). La probabilidad de inclusión se expresa como:
 
-$$
-P = \frac{n}{N} 
-$$
+$$P = \frac{n}{N} $$
 
 donde:
 
--   $n$ es el tamaño de la muestra,
+- $n$ es el tamaño de la muestra,
 
--   $N$ es el tamaño de la población.
+- $N$ es el tamaño de la población.
 
 Este método requiere contar con un listado completo de la población y se utiliza principalmente en poblaciones cerradas (por ejemplo, escuelas, cárceles, hospitales o muestras de laboratorio), donde los elementos pueden identificarse y numerarse fácilmente.
 
@@ -135,9 +130,7 @@ El procedimiento consiste en:
 
 2.  Calcular el intervalo de selección:
 
-    $$
-    k = \frac{N}{n}
-    $$
+    $$k = \frac{N}{n}$$
 
 3.  Seleccionar aleatoriamente un número $r$ entre 1 y $k$.
 
@@ -145,29 +138,23 @@ El procedimiento consiste en:
 
 La probabilidad de ser seleccionado es igual que en el MAS
 
-$$
-P = \frac{n}{N} 
-$$
+$$P = \frac{n}{N} $$
 
 ### Muestreo aleatorio estratificado (MAE)
 
 Este método se emplea cuando la población puede dividirse en subgrupos o **estratos** que difieren en las características de interés (por ejemplo, edad, sexo o nivel socioeconómico). La idea es asegurar que cada estrato esté representado en la muestra. El proceso habitual consiste en:
 
--   Elaborar listas separadas para cada estrato.
+- Elaborar listas separadas para cada estrato.
 
--   Seleccionar una submuestra de cada uno de ellos.
+- Seleccionar una submuestra de cada uno de ellos.
 
 La probabilidad de selección en cada estrato es:
 
-$$
-P \ estrato = \frac{n \ estrato}{N \ estrato} 
-$$
+$$P \ estrato = \frac{n \ estrato}{N \ estrato} $$
 
 Si se aplica un muestreo proporcional, el tamaño de la muestra en cada estrato se calcula como:
 
-$$
-n \ estrato = n\frac{N \ estrato}{N} 
-$$
+$$n \ estrato = n\frac{N \ estrato}{N} $$
 
 El objetivo es obtener una muestra cuya variabilidad interna se asemeje a la de la población, logrando que los estratos sean internamente homogéneos y heterogéneos entre sí.
 
@@ -197,17 +184,15 @@ El factor de expansión se utiliza para extrapolar los resultados obtenidos en l
 
 Supongamos que queremos estimar la prevalencia de sobrepeso/obesidad en estudiantes de enseñanza media de una localidad. Se tiene la siguiente información:
 
--   **Población total de alumnos:** 966
+- **Población total de alumnos:** 966
 
--   **Número de escuelas (conglomerados):** 21
+- **Número de escuelas (conglomerados):** 21
 
--   **Tamaño de la muestra global (ya calculado):** 120 alumnos
+- **Tamaño de la muestra global (ya calculado):** 120 alumnos
 
 Si se realizara un **muestreo aleatorio simple (MAS)**, se necesitaría disponer del listado completo de los 966 alumnos y, mediante un sorteo, seleccionar 120 individuos. En ese caso, la probabilidad de selección para cada alumno sería:
 
-$$
-P = \frac{n}{N} = \frac{120}{966}=0,124
-$$
+$$P = \frac{n}{N} = \frac{120}{966}=0,124$$
 
 Supongamos ahora que decide realizar un muestreo por conglomerados biétapico. Cada escuela se considera un conglomerado; se seleccionan 10 de las 21 escuelas por MAS y, dentro de cada escuela seleccionada, se elige una submuestra de estudiantes también mediante MAS. Se decide que el número de estudiantes elegidos en cada conglomerado sea igual para todos.
 
@@ -217,13 +202,12 @@ Los datos globales quedan de la siguiente forma:
 #| echo: false
 # Datos
 tibble(
-  " " = c("Tamaño total",
-         "Número de conglomerados"),
+  " " = c("Tamaño total", "Número de conglomerados"),
   "Población" = c(966, 21),
   "Muestra" = c(120, 10)
-) |> 
+) |>
   # Tabla
-  kbl() |> 
+  kbl() |>
   kable_material(html_font = "Calibri")
 ```
 
@@ -235,24 +219,26 @@ Dentro de los conglomerados seleccionados, se obtiene la siguiente distribución
 #| echo: false
 # Datos
 tibble(
-  Conglomerado = c("5.1",
-                   "1.3",
-                   "2.3",
-                   "2.2",
-                   "3.1",
-                   "5.3",
-                   "1.4",
-                   "3.3",
-                   "2.4",
-                   "1.5",
-                   "Total"),
+  Conglomerado = c(
+    "5.1",
+    "1.3",
+    "2.3",
+    "2.2",
+    "3.1",
+    "5.3",
+    "1.4",
+    "3.3",
+    "2.4",
+    "1.5",
+    "Total"
+  ),
   "Tamaño" = c(48, 28, 64, 43, 37, 86, 37, 56, 48, 33, 480),
   "Muestra" = c(rep(12, 10), 120)
-) |> 
-  
+) |>
+
   # Tabla
-  kbl(align = "l") |> 
-  kable_material(html_font = "Calibri") |> 
+  kbl(align = "l") |>
+  kable_material(html_font = "Calibri") |>
   row_spec(11, bold = TRUE)
 ```
 
@@ -266,33 +252,23 @@ La probabilidad total de selección es el producto de:
 
 1.  La probabilidad de que el conglomerado sea seleccionado:
 
-    $$
-    P_{conglomerado} = \frac{10}{21}
-    $$
+    $$P_{conglomerado} = \frac{10}{21}$$
 
 2.  La probabilidad de que un individuo sea seleccionado dentro de su conglomerado:
 
-    $$
-    P_{dentro} = \frac{N°~alumnos~en~la~muestra~del~conglomerado}{Tamaño~del~conglomerado}
-    $$
+    $$P_{dentro} = \frac{N°~alumnos~en~la~muestra~del~conglomerado}{Tamaño~del~conglomerado}$$
 
 Para los individuos del conglomerado 5.1; la probabilidad de selección será:
 
-$$
-P_{5.1} = \frac{10}{21}*\frac{12}{48} \approx 0,1190 \quad (11.9\%)
-$$
+$$P_{5.1} = \frac{10}{21}*\frac{12}{48} \approx 0,1190 \quad (11.9\%)$$
 
 La ponderación o **factor de expansión** se obtiene como el inverso de la probabilidad de selección:
 
-$$
-w = \frac{1}{P}
-$$
+$$w = \frac{1}{P}$$
 
 Es decir:
 
-$$
-w_{5.1} = \frac{1}{1.190} \approx 8.4
-$$
+$$w_{5.1} = \frac{1}{1.190} \approx 8.4$$
 
 Esto significa que cada alumno seleccionado del conglomerado 5.1 representa aproximadamente a 8 alumnos de la población.
 
@@ -302,24 +278,35 @@ Si se realizan los cálculos para cada uno de los conglomerados, se obtiene la s
 #| echo: false
 # Datos
 tibble(
-  Conglomerado = c("5.1",
-                   "1.3",
-                   "2.3",
-                   "2.2",
-                   "3.1",
-                   "5.3",
-                   "1.4",
-                   "3.3",
-                   "2.4",
-                   "1.5"),
-  "Probabilidad" = c(11.9, 20.41, 8.93, 13.29, 15.44, 
-                     6.65, 15.44, 10.20, 11.9, 17.32),
-  "Ponderación" = c(8.4, 4.9, 11.2, 7.53, 6.48, 
-                    15.05, 6.48, 9.8, 8.4, 5.78)
-) |> 
-  
+  Conglomerado = c(
+    "5.1",
+    "1.3",
+    "2.3",
+    "2.2",
+    "3.1",
+    "5.3",
+    "1.4",
+    "3.3",
+    "2.4",
+    "1.5"
+  ),
+  "Probabilidad" = c(
+    11.9,
+    20.41,
+    8.93,
+    13.29,
+    15.44,
+    6.65,
+    15.44,
+    10.20,
+    11.9,
+    17.32
+  ),
+  "Ponderación" = c(8.4, 4.9, 11.2, 7.53, 6.48, 15.05, 6.48, 9.8, 8.4, 5.78)
+) |>
+
   # Tabla
-  kbl(align = "l") |> 
+  kbl(align = "l") |>
   kable_material(html_font = "Calibri")
 ```
 

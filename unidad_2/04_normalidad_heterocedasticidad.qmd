@@ -3,12 +3,11 @@ title: "Análisis de normalidad y homocedasticidad"
 author: 
   - name: Christian Ballejo
     orcid: 0000-0002-7346-5701
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
 ## Introducción
@@ -23,9 +22,9 @@ Determinar que una distribución es aproximadamente normal nos permite decidirno
 
 Existen tres enfoques que debemos analizar simultáneamente:
 
--   Métodos gráficos
--   Métodos analíticos
--   Pruebas de bondad de ajuste
+- Métodos gráficos
+- Métodos analíticos
+- Pruebas de bondad de ajuste
 
 ### Métodos gráficos
 
@@ -53,8 +52,8 @@ datos <- read_csv2("datos/datos_normalidad.csv")
 Evaluación gráfica de normalidad usando la función `plot_normality()` del paquete `dlookr`:
 
 ```{r}
-datos |> 
-  plot_normality(peso) 
+datos |>
+  plot_normality(peso)
 ```
 
 A simple vista observamos que los puntos de la variable `peso` *se ajustan bastante bien a la recta*.
@@ -62,24 +61,24 @@ A simple vista observamos que los puntos de la variable `peso` *se ajustan basta
 También podemos generar el qqplot usando las funciones `geom_qq_line()` y `geom_qq()` de `ggplot2`:
 
 ```{r}
-datos |> 
+datos |>
   ggplot(mapping = aes(sample = peso)) +
   geom_qq_line() +
   geom_qq() +
   theme_minimal()
 ```
 
-La función `ggqqplot()` del paquete `ggpubr` [@ggpubr] nos permite agregar intervalos de confianza (zona gris alrededor de la recta) que nos orienta mejor sobre "donde caen" los puntos de la variable analizada:
+La función `ggqqplot()` del paquete `ggpubr` [@kassambara2016] nos permite agregar intervalos de confianza (zona gris alrededor de la recta) que nos orienta mejor sobre "donde caen" los puntos de la variable analizada:
 
 ```{r}
-datos$peso |> 
+datos$peso |>
   ggqqplot()
 ```
 
 Un ejemplo donde la variable parece no cumplir con el suspuesto de normalidad en estos datos de prueba es `edad`:
 
 ```{r}
-datos$edad |> 
+datos$edad |>
   ggqqplot()
 ```
 
@@ -89,21 +88,23 @@ datos$edad |>
 
 Existen dos medidas de forma útiles que podemos calcular mediante funciones de R.
 
--   La curtosis (kurtosis)
--   La asimetría (skewness)
+- La curtosis (kurtosis)
+- La asimetría (skewness)
 
 La curtosis mide el grado de agudeza o achatamiento de una distribución con relación a la distribución normal.
 
--   \< 0 Distribución platicúrtica (apuntamiento negativo): baja concentración de valores
--   \> 0 Distribución leptocúrtica (apuntamiento positivo): gran concentración de valores
--   = 0 Distribución mesocúrtica (apuntamiento normal): concentración como en la distribución normal.
+- \< 0 Distribución platicúrtica (apuntamiento negativo): baja concentración de valores
+- \> 0 Distribución leptocúrtica (apuntamiento positivo): gran concentración de valores
+- = 0 Distribución mesocúrtica (apuntamiento normal): concentración como en la distribución normal.
 
-El paquete `moments` [@moments] posee algunas funciones interesantes para analizar medidas de forma, como el estimador de Pearson para curtosis:
+El paquete `moments` [@moments:2005] posee algunas funciones interesantes para analizar medidas de forma, como el estimador de Pearson para curtosis:
 
 ```{r}
-datos |> 
-  summarise(kurtosis_edad = kurtosis(edad, na.rm = T),
-            kurtosis_peso = kurtosis(peso, na.rm = T))
+datos |>
+  summarise(
+    kurtosis_edad = kurtosis(edad, na.rm = T),
+    kurtosis_peso = kurtosis(peso, na.rm = T)
+  )
 ```
 
 En los dos casos estamos frente a una *distribución leptocúrtica* pero de magnitudes bien diferentes. Muy alta en el caso de la variable `edad` (8,0) y mucho menor para la variable `peso` (2,7).
@@ -111,9 +112,11 @@ En los dos casos estamos frente a una *distribución leptocúrtica* pero de magn
 El índice de asimetría es un indicador que permite establecer el *grado de asimetría* que presenta una distribución. Los valores menores que 0 indican distribución asimétrica negativa; los mayores a 0: distribución asimetrica positiva y cuando sea 0, o muy próximo a 0, distribución simétrica:
 
 ```{r}
-datos |>  
-  summarise(asimetria_edad = skewness(edad, na.rm = T),
-            asimetria_peso = skewness(peso, na.rm = T))
+datos |>
+  summarise(
+    asimetria_edad = skewness(edad, na.rm = T),
+    asimetria_peso = skewness(peso, na.rm = T)
+  )
 ```
 
 Los valores obtenidos con la función `skewness()` del paquete `moments` nos informan que la distribución de la edad tienen una asimetría positiva (2,2) y que los valores de peso se distribuyen bastante simétricos (0,1).
@@ -121,11 +124,11 @@ Los valores obtenidos con la función `skewness()` del paquete `moments` nos inf
 Estas características de las distribuciones también se pueden ver mediante histogramas o gráficos de densidad:
 
 ```{r}
-datos  |>  
-  plot_normality(edad, col = "forestgreen") 
+datos |>
+  plot_normality(edad, col = "forestgreen")
 
-datos |> 
-  plot_normality(peso, col = "royalblue") 
+datos |>
+  plot_normality(peso, col = "royalblue")
 ```
 
 Los histogramas que se acerquen a la clásica "campana de Gauss" tendrán curtosis y asimetrías alrededor del valor cero.
@@ -166,7 +169,7 @@ El test de [**Lilliefors**](https://es.wikipedia.org/wiki/Prueba_de_Lilliefors) 
 
 Es la alternativa al test de Shapiro-Wilk cuando el número de observaciones es mayor de 50.
 
-La función `lillie.test()` del paquete `nortest` [@nortest] permite aplicarlo:
+La función `lillie.test()` del paquete `nortest` [@gross2006] permite aplicarlo:
 
 ```{r}
 lillie.test(datos$edad)
@@ -204,9 +207,9 @@ Existen diferentes test de bondad de ajuste que permiten evaluar la distribució
 
 La diferencia entre ellos es el estadístico de centralidad que utilizan:
 
--   Media de la varianza: son los más potentes pero se aplican en distribuciones que se aproximan a la normal.
+- Media de la varianza: son los más potentes pero se aplican en distribuciones que se aproximan a la normal.
 
--   Mediana de la varianza: son menos potentes pero consiguen mejores resultados en distribuciones asimétricas.
+- Mediana de la varianza: son menos potentes pero consiguen mejores resultados en distribuciones asimétricas.
 
 ### F-test
 
@@ -269,10 +272,10 @@ Los difenilos policlorados (PCB) son una clase de contaminantes ambientales con 
 
 Un estudio realizado por Tu Binh Minh y colaboradores en la Universidad Nacional de Vietnam analizó la concentración de PCB en la grasa de un grupo de 14 adultos. Los valores de PCB hallados en las personas estudiadas se encuentran almacenadas en el archivo "*`PCB.txt`"* y se nos pide realizar los siguientes items:
 
--   Leer el archivo y explorar su contenido.
--   Describir estadísticamente las mediciones.
--   Evaluar si los datos provienen de una distribución normal.
--   Calcular los intervalos de confianza (IC) del **90% y 95%** para la media de la concentración de PCB.
+- Leer el archivo y explorar su contenido.
+- Describir estadísticamente las mediciones.
+- Evaluar si los datos provienen de una distribución normal.
+- Calcular los intervalos de confianza (IC) del **90% y 95%** para la media de la concentración de PCB.
 
 Veamos como llevamos adelante estos pasos mediante el lenguaje R:
 
@@ -304,7 +307,7 @@ Tenemos una tabla con 14 observaciones (mediciones en individuos) y la variable 
 Con la función `describe()` de `dlookr` podemos obtener los estadísticos de esta variable cuantitativa continua:
 
 ```{r}
-datos  |> 
+datos |>
   describe(concentracion)
 ```
 
@@ -321,7 +324,7 @@ shapiro.test(datos$concentracion)
 Un *p*-valor mayor a 0,05 habla de un ajuste a la curva normal.
 
 ```{r}
-datos  |> 
+datos |>
   plot_normality(concentracion)
 ```
 
@@ -339,12 +342,11 @@ La función `t.test()`, incluída en el paquete `stats` de R, sirve apara ejecut
 
 Para este ejemplo debemos utilizar como argumentos:
 
--   la variable de interés que contiene los valores de la muestra
--   el nivel de confianza con el que necesitamos el IC
+- la variable de interés que contiene los valores de la muestra
+- el nivel de confianza con el que necesitamos el IC
 
 ```{r}
-t.test(x = datos$concentracion, 
-       conf.level = 0.95)
+t.test(x = datos$concentracion, conf.level = 0.95)
 ```
 
 En la lista de resultados devuelta debemos observar los valores que figuran debajo de `"95 percent confidence interval:`". En este caso, el resultado es de una media de 1709,3 (IC 95%: 1233,0-2185,5 ng/g).
@@ -352,12 +354,13 @@ En la lista de resultados devuelta debemos observar los valores que figuran deba
 Si cambiamos el argumento `conf.level` a 0.90 obtendremos el IC 90%:
 
 ```{r}
-t.test(x = datos$concentracion, 
-       conf.level = 0.90)
+t.test(x = datos$concentracion, conf.level = 0.90)
 ```
 
 Este va de 1318,9 a 2099,7 ng/g, lógicamente más estrecho que el anterior porque redujimos el intervalo de confianza.
 
 ::: hidden
-[@base; @tidyverse]
+@base
+
+@wickham2019
 :::

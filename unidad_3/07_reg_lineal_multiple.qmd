@@ -1,11 +1,10 @@
 ---
 title: "Regresión lineal múltiple"
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
-source("../setup.R")
+source("files/setup.R")
 
 # paquetes extra
 library(plotly)

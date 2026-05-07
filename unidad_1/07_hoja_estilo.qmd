@@ -9,7 +9,7 @@ author:
 #| echo: false
 #| warning: false
 #| message: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
 ## Convenciones de estilo R
@@ -200,12 +200,15 @@ ggplot(mpg, aes(x = cty, y = hwy, color = class)) +
 
 # Mal
 ggplot(mpg, aes(x = cty, y = hwy, color = class)) +
-  geom_point() +  geom_smooth() +
+  geom_point() +
+  geom_smooth() +
   theme_bw()
 
 # Muy mal
 ggplot(mpg, aes(x = cty, y = hwy, color = class)) +
-  geom_point() +  geom_smooth() +  theme_bw()
+  geom_point() +
+  geom_smooth() +
+  theme_bw()
 
 # Tan mal que no funciona
 ggplot(mpg, aes(x = cty, y = hwy, color = class))
@@ -319,9 +322,9 @@ Al crear un nuevo dataset:
 
 ```{r}
 datos <- tibble(
-    Jurisdicción = c(rep("Buenos Aires", 10), rep("CABA", 10)),
-    CasosTotales = sample(100, 20),
-    POBLACIÓN = c(rep(16626374, 10), rep(3054237, 10)),
+  Jurisdicción = c(rep("Buenos Aires", 10), rep("CABA", 10)),
+  CasosTotales = sample(100, 20),
+  POBLACIÓN = c(rep(16626374, 10), rep(3054237, 10)),
 )
 
 names(datos)
@@ -342,11 +345,11 @@ En caso de que nuestros datos tengan nombres de columnas no compatibles con `tid
 library(janitor)
 
 iris |>
-clean_names() |>
-head(10)
+  clean_names() |>
+  head(10)
 
 datos <- datos |>
-clean_names()
+  clean_names()
 
 names(datos)
 ```

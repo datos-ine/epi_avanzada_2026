@@ -3,12 +3,11 @@ title: "Rol de las variables"
 author: 
   - name: Christian Ballejo
     orcid: 0000-0002-7346-5701
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
 ## Introducción
@@ -61,13 +60,10 @@ Un camino entre dos nodos es cualquier secuencia de flechas que los conecta, ind
 #| echo: false
 # Datos
 tibble(
-  `Estructura del DAG`= c("X --> M --> Y",
-                 "X <-- Z --> Y",
-                 "X --> C <-- Y"),
-  Nombre = c("Cadena (mediación)",
-               "Bifurcación (confusión)",
-               "Colisionador")) |> 
-  
+  `Estructura del DAG` = c("X --> M --> Y", "X <-- Z --> Y", "X --> C <-- Y"),
+  Nombre = c("Cadena (mediación)", "Bifurcación (confusión)", "Colisionador")
+) |>
+
   # Tabla
   kbl_format()
 ```
@@ -91,7 +87,7 @@ Según @gordis2017, en un estudio que evalúa si la exposición ($X$) causa un r
 -	$Z$ no está en el camino causal entre $X$ e $Y$ (no es mediadora)
 
 
-![](images/DAG1.svg){fig-align="center" width="70%"}
+![](/images/DAG1.svg){fig-align="center" width="70%"}
 
 Para quienes necesiten profundizar, se recomienda leer el artículo:
 
@@ -119,7 +115,7 @@ En este curso utilizaremos la [**regresión lineal múltiple**](07_reg_lineal_mu
 #| echo: false
 datos_conf <- read_csv2("datos/datos_conf.csv")
 
-datos_conf |> 
+datos_conf |>
   ggplot(aes(x = x, y = y)) +
   geom_point(color = pal[7], size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F, color = pal[4]) +
@@ -136,7 +132,6 @@ La salida en R de este modelo se vería de la siguiente forma:
 
 ```{r}
 #| echo: false
-
 modelo <- lm(y ~ x, data = datos_conf)
 
 summary(modelo)
@@ -152,11 +147,10 @@ Ahora incorporemos la covariable $Z$, con categorías **A** y **B**, que sospech
 
 ```{r}
 #| echo: false
-
-datos_conf |> 
+datos_conf |>
   ggplot(aes(x = x, y = y, color = z)) +
   geom_point(size = 3) +
-  geom_smooth(method = "lm", se = F)  +
+  geom_smooth(method = "lm", se = F) +
   scale_color_manual(values = c(pal[2], pal[6])) +
   theme_minimal() +
   theme(legend.position = "bottom")
@@ -172,7 +166,6 @@ Visto en resultados de consola:
 
 ```{r}
 #| echo: false
-
 modelo_conf <- lm(y ~ x + z, data = datos_conf)
 
 summary(modelo_conf)
@@ -188,7 +181,7 @@ Entonces podemos ver que la regresión multiple ajustó el efecto de $X$ sobre $
 
 Una variable $M$ es mediadora si se encuentra en la cadena causal entre $X$ e $Y$: $X$ actúa a través de $M$ para afectar a $Y$. Puede coexistir un efecto directo $X \rightarrow Y$.
 
-![](images/dag_med.svg){fig-align="center" width="70%"}
+![](/images/dag_med.svg){fig-align="center" width="70%"}
 
 El análisis de mediación descompone el efecto total en:
 
@@ -205,11 +198,11 @@ Cuentan con otras variables que consideraron, entre las cuales, tienen la propor
 
 ```{r, echo=F}
 set.seed(2024)
-n       <- 120
-a_true  <-  0.55
-b_true  <- -1.80
+n <- 120
+a_true <- 0.55
+b_true <- -1.80
 c1_true <- -0.90
-c_true  <- c1_true + a_true * b_true
+c_true <- c1_true + a_true * b_true
 # X: % hogares con acceso a espacios verdes
 X <- rnorm(n, mean = 42, sd = 14)
 X <- pmax(5, pmin(X, 90))
@@ -228,9 +221,9 @@ Y <- pmax(50, Y)
 
 datos <- data.frame(
   espverde = round(X, 1),
-  actfis   = round(M, 1),
-  mortalidad_ev     = round(Y, 1),
-  pobreza  = round(U, 1)
+  actfis = round(M, 1),
+  mortalidad_ev = round(Y, 1),
+  pobreza = round(U, 1)
 )
 
 mod1 <- lm(mortalidad_ev ~ espverde, data = datos)
@@ -238,8 +231,6 @@ mod1 <- lm(mortalidad_ev ~ espverde, data = datos)
 mod2 <- lm(mortalidad_ev ~ espverde + actfis, data = datos)
 
 sjPlot::tab_model(mod1, mod2)
-
-
 ```
 
 Llegamos a estos resultados, hipotetizando en nuestro modelo teórico que los espacios verdes reducen la mortalidad cardiovascular parcialmente a través de facilitar la actividad física, pero también por vías directas (reducción de estrés, calidad del aire, cohesión social). Razonar con este modelo teórico, explica porque el coeficiente de espacios verdes cambia al incluirla. Es decir, que el efecto total de espacios verdes pasa de -2,20 a -0,78, es decir de un efecto total a un efecto directo ante la presencia de actividad fisica.
@@ -250,7 +241,7 @@ Por lo tanto, si una variable es mediadora, no debe incluirse en el modelo cuand
 
 Una variable $C$ es colisionadora (o collider en inglés), si es una consecuencia común de $X$ e $Y$ (o de causas de $X$ e $Y$).
 
-![](images/dag_col.svg){fig-align="center" width="70%"}
+![](/images/dag_col.svg){fig-align="center" width="70%"}
 
 A diferencia del confusor, el camino a través de un colisionador está naturalmente bloqueado. La asociación espuria se crea cuando condicionamos o controlamos por el colisionador: al incluirlo en el modelo, restringir la muestra, o seleccionar participantes basándonos en él, podemos generar una asociación artificial. Esto se llama sesgo de colisionador (usualmente conocido como *collider bias*, en inglés). 
 
@@ -263,22 +254,20 @@ Supongamos que en la población general la enfermedad CV y la diabetes son indep
 Otro ejemplo, que podemos ver en los datos, es el de una investigación sobre el efecto del consumo de sodio (exposición) en la presión arterial sistólica (desenlace). La recolección de datos incluye la edad y la proteinuria (presencia de proteína en la orina). 
 
 ```{r, echo = F}
-generateData <- function(n, seed){
-  
+generateData <- function(n, seed) {
   set.seed(seed)
-  
+
   edad <- rnorm(n, 65, 5)
-  
+
   sodio <- edad / 18 + rnorm(n)
-  
+
   presion <- 1.05 * sodio + 2.00 * edad + rnorm(n)
-  
+
   hipertension <- ifelse(presion > 140, 1, 0)
-  
-  proteinuria <- 2.00*presion + 2.80*sodio + rnorm(n)
-  
+
+  proteinuria <- 2.00 * presion + 2.80 * sodio + rnorm(n)
+
   data.frame(presion, hipertension, sodio, edad, proteinuria)
-  
 }
 
 ObsData <- generateData(n = 1000, seed = 777)
@@ -329,7 +318,7 @@ Un ejemplo similar al recién mostrado para la confusión, pero para la interacc
 #| echo: false
 datos_int <- read_csv2("datos/datos_int.csv")
 
-datos_int |> 
+datos_int |>
   ggplot(aes(x = x, y = y)) +
   geom_point(color = pal[7], size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F, color = pal[4]) +
@@ -342,7 +331,6 @@ Partimos de esta relación entre $X$ e $Y$ representada por la recta de la ecuac
 
 ```{r}
 #| echo: false
-
 modelo2 <- lm(y ~ x, data = datos_int)
 
 summary(modelo2)
@@ -354,8 +342,7 @@ Ahora incorporemos la covariable $I$, con categorías **A** y **B**, que sospech
 
 ```{r}
 #| echo: false
-
-datos_int |> 
+datos_int |>
   ggplot(aes(x = x, y = y, color = i)) +
   geom_point(size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F) +
@@ -374,8 +361,7 @@ Visto en resultados de consola:
 
 ```{r}
 #| echo: false
-
-modelo_int <- lm(y ~ x*i, data = datos_int)
+modelo_int <- lm(y ~ x * i, data = datos_int)
 
 summary(modelo_int)
 ```
@@ -424,27 +410,28 @@ Aunque el análisis de interacción en modelos lineales generales es una herrami
 #| echo: false
 # Datos
 tibble(
-  Variable = c("Confusora",
-               "Mediadora",
-               "Colisionadora",
-               "Interacción"),
-  `Estructura DAG` = c( "X <-- Z --> Y",
-          "X --> M --> Y",
-          "X --> C <-- Y",
-          "I --> (X --> Y)"),
-  Ajuste = c("Sí",
-             "Depende del objetivo",
-             "No",
-             "Incluir como interaccón"),
-  `Si no ajustás` = c("Sesgo de confusión",
-                     "Se estima efecto total",
-                     "Sin problema (camino bloqueado)",
-                     "Efecto promediado (heterogeneidad oculta)"),
-  `Si ajustas innecesariamente` = c("---",
-                                   "Sesgo por sobre-ajuste; subestimación del efecto total",
-                                   "Sesgo de colisionador; asociación espuria",
-                                   "---")) |> 
-  
+  Variable = c("Confusora", "Mediadora", "Colisionadora", "Interacción"),
+  `Estructura DAG` = c(
+    "X <-- Z --> Y",
+    "X --> M --> Y",
+    "X --> C <-- Y",
+    "I --> (X --> Y)"
+  ),
+  Ajuste = c("Sí", "Depende del objetivo", "No", "Incluir como interaccón"),
+  `Si no ajustás` = c(
+    "Sesgo de confusión",
+    "Se estima efecto total",
+    "Sin problema (camino bloqueado)",
+    "Efecto promediado (heterogeneidad oculta)"
+  ),
+  `Si ajustas innecesariamente` = c(
+    "---",
+    "Sesgo por sobre-ajuste; subestimación del efecto total",
+    "Sesgo de colisionador; asociación espuria",
+    "---"
+  )
+) |>
+
   # Tabla
   kbl_format()
 ```

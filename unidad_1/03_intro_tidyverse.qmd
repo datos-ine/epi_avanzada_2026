@@ -5,21 +5,20 @@ author:
     orcid: 0000-0002-7346-5701
   - name: Tamara Ricardo
     orcid: 0000-0002-0921-2611
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
-![](images/tidyverse.png){fig-align="center" width="44%"}
+![](/images/tidyverse.png){fig-align="center" width="44%"}
 
 ## Introducción
 
-*Tidyverse*[@tidyverse] es el nombre que recibe el conjunto de paquetes desarrollados y/o promovidos por [**Hadley Wickham**](https://en.wikipedia.org/wiki/Hadley_Wickham) (jefe científico en Posit/RStudio) y su equipo, orientado al trabajo de ciencia de datos con R. Estos paquetes están diseñados para integrarse de manera coherente, compartiendo una misma filosofía de diseño conocida como [***The tidy tools manifesto***](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html).
+Tidyverse es el nombre que recibe el conjunto de paquetes desarrollados y/o promovidos por [**Hadley Wickham**](https://en.wikipedia.org/wiki/Hadley_Wickham) (jefe científico en Posit/RStudio) y su equipo, orientado al trabajo de ciencia de datos con R [@wickham2019]. Estos paquetes están diseñados para integrarse de manera coherente, compartiendo una misma filosofía de diseño conocida como [***The tidy tools manifesto***](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html).
 
 Los cuatro principios básicos sobre los que se construye *tidyverse* son:
 
@@ -39,13 +38,13 @@ La palabra *tidy* se traduce como “ordenado”, y hace referencia a una estruc
 - Cada ***observación*** es una *fila* de la tabla de datos.
 - Cada ***tabla*** responde a una *unidad de observación o* análisis.
 
-![](images/tidy.PNG){fig-align="center"}
+![](/images/tidy.PNG){fig-align="center"}
 
 Además de los paquetes principales, al instalar `tidyverse` se incluyen otros que permiten trabajar con fechas, cadenas de caracteres o factores, también siguiendo los mismos principios.
 
 Uno de los objetivos de los desarrolladores fue dotar a la sintaxis de estos paquetes de una **gramática** clara: funciones cuyos nombres y argumentos permiten construir “*frases*” que sean semánticamente comprensibles. Un ejemplo de esto se ve en el paquete `dplyr`, donde la mayoría de las funciones son verbos en inglés como `filter()`, `mutate()`, `summarise()`, lo que facilita su lectura y comprensión.
 
-El paquete `tidyverse` (versión 2.0.0) puede instalarse desde el repositorio oficial CRAN mediante el menú *Packages* de RStudio, o ejecutando el siguiente código:
+El paquete `tidyverse` puede instalarse desde el repositorio oficial CRAN mediante el menú *Packages* de RStudio, o ejecutando el siguiente código:
 
 ```{r}
 #| eval: false
@@ -103,11 +102,11 @@ Nueva versión (*r4ds 2e*): https://r4ds.hadley.nz/
 EpiRhandbook en español: https://www.epirhandbook.com/es/index.es.html
 :::
 
-![](images/tibble.png){fig-align="center" width="25%"}
+![](/images/tibble.png){fig-align="center" width="25%"}
 
 ## *Dataframes* con `tibble`
 
-Uno de los paquetes que forman parte del núcleo básico de *tidyverse* es `tibble` [@tibble], que introduce una versión moderna del objeto `data.frame`. Todas las funciones que generan tablas de datos en *tidyverse* devuelven objetos *tibble* (`tbl_df`), los cuales son más eficientes y amigables para el flujo de trabajo.
+Uno de los paquetes que forman parte del núcleo básico de *tidyverse* es `tibble` [@müller2016], que introduce una versión moderna del objeto `data.frame`. Todas las funciones que generan tablas de datos en *tidyverse* devuelven objetos *tibble* (`tbl_df`), los cuales son más eficientes y amigables para el flujo de trabajo.
 
 Las principales ventajas de trabajar con `tibble` son:
 
@@ -127,17 +126,17 @@ datos <- tibble(
 )
 ```
 
-![](images/magrittr.png){fig-align="center" width="25%"}
+![](/images/magrittr.png){fig-align="center" width="25%"}
 
 ## Tuberías con `magrittr`
 
-Una de las incorporaciones más útiles y transversales del ecosistema *tidyverse* es el uso de "*tuberías"* o *pipe operators*. Una tubería conecta un bloque de código con otro, permitiendo encadenar operaciones de manera legible. El operador `%>%`, proveniente del paquete `magrittr` [@magrittr], transforma llamadas de funciones anidadas (con múltiples paréntesis) en una secuencia de pasos más simple de leer y escribir.
+Una de las incorporaciones más útiles y transversales del ecosistema *tidyverse* es el uso de "*tuberías"* o *pipe operators*. Una tubería conecta un bloque de código con otro, permitiendo encadenar operaciones de manera legible. El operador `%>%`, proveniente del paquete `magrittr` [@bache2014], transforma llamadas de funciones anidadas (con múltiples paréntesis) en una secuencia de pasos más simple de leer y escribir.
 
 A partir de la versión 4.1.0 de R, también se incorporó una **tubería nativa** (`|>`), con un comportamiento muy similar. Ambas opciones son válidas y su uso es prácticamente equivalente.
 
 Este enfoque refleja el principio de que *cada función representa un paso en una secuencia lógica de transformación de datos*. La forma de trabajar se puede ver en el siguiente esquema general:
 
-![](images/pipe.png){fig-align="center"}
+![](/images/pipe.png){fig-align="center"}
 
 A continuación, mostramos un ejemplo comparativo de cómo cambia la sintaxis usando el dataset incorporado en R `mtcars`, que contiene datos sobre autos:
 
@@ -170,11 +169,11 @@ mtcars |>
 
 Las tuberías le dan mucha mas claridad al código separándolo en partes, como si fuesen oraciones de un párrafo.
 
-![](images/readr.png){fig-align="center" width="25%"}
+![](/images/readr.png){fig-align="center" width="25%"}
 
 ## Archivos de texto plano con `readr`
 
-El paquete `readr` [@readr] contiene funciones similares a las de la familia `read.table()` de R base, pero desarrollados bajo el ecosistema `tidyverse`.
+El paquete `readr` [@wickham2015] contiene funciones similares a las de la familia `read.table()` de R base, pero desarrollados bajo el ecosistema `tidyverse`.
 
 Los archivos de texto plano (ASCII u otras codificaciones) son universalmente utilizados por la mayoría de los gestores de bases de datos y planillas de cálculo. Generalmente se encuentran con extensiones `.txt` o `.csv` (por *comma-separated values*) y son el tipo de archivo de datos más habitual en R.
 
@@ -318,11 +317,11 @@ o más sencillo, usando la función específica `write_csv2()`:
 write_csv2(datos, "ejemplo.csv") # define cabecera y separador ;
 ```
 
-![](images/readxl.png){fig-align="center" width="25%"}
+![](/images/readxl.png){fig-align="center" width="25%"}
 
 ## Lectura de hojas de cálculo con `readxl`
 
-Uno de los formatos más comunes para almacenar datos son las hojas de cálculo, en particular las creadas con Microsoft Excel. El paquete `readxl` [@readxl], parte del ecosistema `tidyverse`, permite leer este tipo de archivos.
+Uno de los formatos más comunes para almacenar datos son las hojas de cálculo, en particular las creadas con Microsoft Excel. El paquete `readxl` [@wickham2015a], parte del ecosistema `tidyverse`, permite leer este tipo de archivos.
 
 `readxl` es compatible con hojas de cálculo de Excel 97-2003, con extensión `.xls`, y con versiones más recientes, con extensión `.xlsx`.
 

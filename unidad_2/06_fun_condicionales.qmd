@@ -5,12 +5,11 @@ author:
     orcid: 0000-0002-7346-5701
   - name: Tamara Ricardo
     orcid: 0000-0002-0921-2611
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
-source("../setup.R")
+source("files/setup.R")
 ```
 
 ## Introducción
@@ -23,7 +22,7 @@ Como vimos dentro del universo `tidyverse`, para crear nuevas variables a partir
 
 ```{r}
 #| eval: false
-datos <- datos  |>   
+datos <- datos |>
   mutate(variable_nueva = funcion(var1))
 ```
 
@@ -44,17 +43,21 @@ set.seed(123)
 
 datos <- tibble(
   var1 = sample(1:90, size = 50, replace = TRUE)
-  )
+)
 ```
 
 Queremos crear una variable cualitativa dentro de `datos`, llamada `variable_nueva`, cuyos valores estén dados por el cumplimiento de alguna condición de `var1`. Por ejemplo, si los valores de `var1` son mayores a 10, entonces `variable_nueva`, tomará el valor `“mayor a 10”`, en caso contrario, tomará el valor `“menor o igual a 10”`:
 
 ```{r}
 # Crear variable_nueva
-datos <- datos |>   
-  mutate(variable_nueva = if_else(condition = var1 > 10,  
-                                  true = "mayor a 10",  
-                                  false = "menor o igual a 10"))
+datos <- datos |>
+  mutate(
+    variable_nueva = if_else(
+      condition = var1 > 10,
+      true = "mayor a 10",
+      false = "menor o igual a 10"
+    )
+  )
 
 # Explorar variable_nueva
 tabyl(datos, variable_nueva)
@@ -62,11 +65,11 @@ tabyl(datos, variable_nueva)
 
 La función `if_else()` tiene tres argumentos obligatorios:
 
--   `condition`: la condición a evaluar.
+- `condition`: la condición a evaluar.
 
--   `true`: valor que tomará la nueva variable si se cumple la condición.
+- `true`: valor que tomará la nueva variable si se cumple la condición.
 
--   `false`: valor que tomará la nueva variable si no se cumple la condición.
+- `false`: valor que tomará la nueva variable si no se cumple la condición.
 
 Este proceso se conoce como **dicotomización** de una variable, ya que el resultado posible consta de solo dos categorías.
 
@@ -79,14 +82,19 @@ La categoría `"mayor a 10”` se ordena alfabéticamente antes de `“menor o i
 Para ordenar estas categorías debemos transformar la variable de `character` a `factor`. Esto se puede hacer en un solo paso dentro del `mutate()`:
 
 ```{r}
-datos <- datos |>   
-  mutate(variable_nueva = if_else(condition = var1 > 10,  
-                                  true = "mayor a 10",  
-                                  false = "menor o igual a 10"),
-         
-         variable_nueva = factor(variable_nueva,
-                                 levels = c("menor o igual a 10", 
-                                            "mayor a 10")))
+datos <- datos |>
+  mutate(
+    variable_nueva = if_else(
+      condition = var1 > 10,
+      true = "mayor a 10",
+      false = "menor o igual a 10"
+    ),
+
+    variable_nueva = factor(
+      variable_nueva,
+      levels = c("menor o igual a 10", "mayor a 10")
+    )
+  )
 
 # Explorar variable_nueva
 tabyl(datos, variable_nueva)
@@ -95,10 +103,14 @@ tabyl(datos, variable_nueva)
 Otra forma más artesanal, igualmente válido, es “forzar” el ordenamiento con las categorías así:
 
 ```{r}
-datos <- datos |>   
-  mutate(variable_nueva = if_else(condition = var1 > 10,  
-                                  true = "2.mayor a 10",  
-                                  false = "1.menor o igual a 10"))
+datos <- datos |>
+  mutate(
+    variable_nueva = if_else(
+      condition = var1 > 10,
+      true = "2.mayor a 10",
+      false = "1.menor o igual a 10"
+    )
+  )
 
 # Explorar variable_nueva
 tabyl(datos, variable_nueva)
@@ -113,12 +125,15 @@ El ecosistema `tidyverse` ofrece la función `cut_interval()` para la creación 
 Es una adaptación de la función `cut()` de R base para *tidy data* y sus argumentos son similares. Volviendo al ejemplo anterior:
 
 ```{r}
-datos <- datos |> 
-  mutate(grupo_var = cut_interval(x = var1,
-                                  length = 10,
-                                  right = TRUE, 
-                                  ordered_result = TRUE)
-         )
+datos <- datos |>
+  mutate(
+    grupo_var = cut_interval(
+      x = var1,
+      length = 10,
+      right = TRUE,
+      ordered_result = TRUE
+    )
+  )
 
 # Explora grupo_var
 tabyl(datos, grupo_var)
@@ -126,17 +141,17 @@ tabyl(datos, grupo_var)
 
 Los argumentos función son:
 
--   `x`: conjunto de datos numéricos de entrada (obligatorio).
+- `x`: conjunto de datos numéricos de entrada (obligatorio).
 
--   `length`: longitud de cada intervalo regular (obligatorio).
+- `length`: longitud de cada intervalo regular (obligatorio).
 
--   `n`: cantidad de intervalos a crear (obligatorio, omitir si se definió `length`).
+- `n`: cantidad de intervalos a crear (obligatorio, omitir si se definió `length`).
 
--   `right`: indica si los intervalos son cerrados a la derecha o viceversa (valor por defecto `TRUE`, intervalos cerrados a la derecha).
+- `right`: indica si los intervalos son cerrados a la derecha o viceversa (valor por defecto `TRUE`, intervalos cerrados a la derecha).
 
--   `labels`: etiquetas de los intervalos automáticas o numéricas (por defecto intervalos matemáticos).
+- `labels`: etiquetas de los intervalos automáticas o numéricas (por defecto intervalos matemáticos).
 
--   `ordered_result`: determina si el resultado es un factor ordenado. Por defecto vale `FALSE` (la salida es tipo carácter).
+- `ordered_result`: determina si el resultado es un factor ordenado. Por defecto vale `FALSE` (la salida es tipo carácter).
 
 No es necesario definir los argumentos opcionales siempre y cuando los valores por defecto sirvan para nuestra tarea.
 
@@ -147,12 +162,14 @@ Cuando las condiciones no son simples, es decir, el resultado no es dicotómico 
 Supongamos que queremos agrupar la variable cuantitativa de números enteros (`var1`) en tres grupos irregulares:
 
 ```{r}
-datos <- datos |> 
-  mutate(grupo_var = case_when( 
-    var1 %in% c(0:24)  ~  "Grupo 1", 
-    var1 %in% c(25:64) ~ 	"Grupo 2", 
-    var1 >= 65 ~ "Grupo 3")
+datos <- datos |>
+  mutate(
+    grupo_var = case_when(
+      var1 %in% c(0:24) ~ "Grupo 1",
+      var1 %in% c(25:64) ~ "Grupo 2",
+      var1 >= 65 ~ "Grupo 3"
     )
+  )
 
 # Explora grupo_var
 tabyl(datos, grupo_var)
@@ -167,16 +184,18 @@ Si incorporamos el argumento `.default` podemos indicar que valor toma si no se 
 Por ejemplo, podríamos tener algún valor perdido (`NA`) en `var1` y queremos que la variable `grupo_var` etiquete esos valores perdidos como `"Sin dato"`.
 
 ```{r}
-datos <- datos |> 
+datos <- datos |>
   # Generar valores NA
-  mutate(var1 = na_if(var1, 50)) |> 
-  
-  mutate(grupo_var = case_when( 
-    var1 %in% c(0:24)  ~  "Grupo 1", 
-    var1 %in% c(25:64) ~ 	"Grupo 2", 
-    var1 >= 65 ~ "Grupo 3",
-    .default = "Sin dato")
+  mutate(var1 = na_if(var1, 50)) |>
+
+  mutate(
+    grupo_var = case_when(
+      var1 %in% c(0:24) ~ "Grupo 1",
+      var1 %in% c(25:64) ~ "Grupo 2",
+      var1 >= 65 ~ "Grupo 3",
+      .default = "Sin dato"
     )
+  )
 
 # Explora grupo_var
 tabyl(datos, grupo_var)
@@ -185,16 +204,18 @@ tabyl(datos, grupo_var)
 Otra forma de definir los valores que no cumplen con ninguna condición es usando `TRUE ~ valor`:
 
 ```{r}
-datos <- datos |> 
+datos <- datos |>
   # Generar valores NA
-  mutate(var1 = na_if(var1, 50)) |> 
-  
-  mutate(grupo_var = case_when( 
-    var1 %in% c(0:24)  ~  "Grupo 1", 
-    var1 %in% c(25:64) ~ 	"Grupo 2", 
-    var1 >= 65 ~ "Grupo 3",
-    TRUE ~ "Sin dato")
+  mutate(var1 = na_if(var1, 50)) |>
+
+  mutate(
+    grupo_var = case_when(
+      var1 %in% c(0:24) ~ "Grupo 1",
+      var1 %in% c(25:64) ~ "Grupo 2",
+      var1 >= 65 ~ "Grupo 3",
+      TRUE ~ "Sin dato"
     )
+  )
 
 # Explora grupo_var
 tabyl(datos, grupo_var)
@@ -211,12 +232,15 @@ La función `between()` básicamente opera como un atajo para condiciones de int
 Aplicado sobre el ejemplo anterior se vería así:
 
 ```{r}
-datos <- datos |> 
-  mutate(grupo_var = case_when( 
-    between(var1, 0, 24)   ~  "Grupo 1", 
-		between(var1, 25, 64)  ~ 	"Grupo 2", 
-		between(var1, 65, Inf) ~ 	"Grupo 3",
-		.default = "Sin dato"))
+datos <- datos |>
+  mutate(
+    grupo_var = case_when(
+      between(var1, 0, 24) ~ "Grupo 1",
+      between(var1, 25, 64) ~ "Grupo 2",
+      between(var1, 65, Inf) ~ "Grupo 3",
+      .default = "Sin dato"
+    )
+  )
 
 # Explora grupo_var
 tabyl(datos, grupo_var)
@@ -226,19 +250,23 @@ Los valores declarados como límites quedan incluidos siempre dentro del interva
 
 ### Intervalos: función `age_categories()`
 
-El paquete `epikit` [@epikit], contiene herramientas útiles para trabajar con datos en salud públicas. La función `age_categories()`, transforma una variable numérica discreta en grupos de edad. Volviendo al ejemplo anterior, supongamos que `var1` contiene edades de pacientes:
+El paquete `epikit` [@spina2020], contiene herramientas útiles para trabajar con datos en salud públicas. La función `age_categories()`, transforma una variable numérica discreta en grupos de edad. Volviendo al ejemplo anterior, supongamos que `var1` contiene edades de pacientes:
 
 ```{r}
 # Cargar paquete
 library(epikit)
 
-datos <- datos |> 
-  mutate(edad_cat = age_categories(x = var1,
-                                   lower = 1,
-                                   upper = 80,
-                                   by = 10,
-                                   separator = " a ",
-                                   above.char = " y más"))
+datos <- datos |>
+  mutate(
+    edad_cat = age_categories(
+      x = var1,
+      lower = 1,
+      upper = 80,
+      by = 10,
+      separator = " a ",
+      above.char = " y más"
+    )
+  )
 
 # Explora edad_cat
 tabyl(datos, edad_cat)
@@ -246,21 +274,21 @@ tabyl(datos, edad_cat)
 
 Los argumentos principales de la función son:
 
--   `x`: vector numérico (obligatorio).
+- `x`: vector numérico (obligatorio).
 
--   `lower`: límite inferior de edades (por defecto `0`).
+- `lower`: límite inferior de edades (por defecto `0`).
 
--   `upper`: límite superior de edades.
+- `upper`: límite superior de edades.
 
--   `by`: intervalo de años para los grupos.
+- `by`: intervalo de años para los grupos.
 
--   `breakers`: alternativo a `by`, para definir manualmente los grupos.
+- `breakers`: alternativo a `by`, para definir manualmente los grupos.
 
--   `separator`: carácter que separa el rango de edades (por defecto `"-"`).
+- `separator`: carácter que separa el rango de edades (por defecto `"-"`).
 
--   `ceiling`: define si incluir el valor más alto en los grupos (por defecto `FALSE`).
+- `ceiling`: define si incluir el valor más alto en los grupos (por defecto `FALSE`).
 
--   `above.char`: el valor que queremos que aparezca para las edades por fuera del grupo de edad más alto (por defecto `+`). Solo funciona si `ceiling = FALSE`.
+- `above.char`: el valor que queremos que aparezca para las edades por fuera del grupo de edad más alto (por defecto `+`). Solo funciona si `ceiling = FALSE`.
 
 ## Ejemplo práctico en R
 
@@ -277,32 +305,38 @@ glimpse(datos)
 A continuación, vamos a transformar las variables cuyo nombre contenga "`fecha_`" a formato fecha para poder calcular edades:
 
 ```{r}
-datos <- datos |> 
+datos <- datos |>
   # Transformar a formato fecha
-  mutate(across(.cols = starts_with("fecha_"),
-                .fns = ~ dmy(.x))) |> 
+  mutate(across(.cols = starts_with("fecha_"), .fns = ~ dmy(.x))) |>
   # Calcular edad al momento del testeo
-  mutate(edad = round(
-    as.duration(fecha_test - fecha_nacimiento) / dyears(1)))
+  mutate(
+    edad = round(
+      as.duration(fecha_test - fecha_nacimiento) / dyears(1)
+    )
+  )
 ```
 
 Una primera posibilidad es dicotomizar la edad usando el valor de la mediana:
 
 ```{r}
-datos |>  
+datos |>
   summarise(mediana = median(edad))
 ```
 
 Aplicando el valor de la mediana dentro de un `if_else()` podríamos hacer:
 
 ```{r}
-datos <- datos |>  
-  mutate(grupo_edad1 = if_else(condition = edad > 56, 
-                                  true = "mayor a la mediana", 
-                                  false = "menor o igual a la mediana"))
+datos <- datos |>
+  mutate(
+    grupo_edad1 = if_else(
+      condition = edad > 56,
+      true = "mayor a la mediana",
+      false = "menor o igual a la mediana"
+    )
+  )
 
 # Explorar grupo_edad1
-datos |> 
+datos |>
   count(grupo_edad1)
 ```
 
@@ -311,16 +345,21 @@ Observamos en el conteo que `grupo_edad1` se construyó adecuadamente pero el or
 Una de las formas que vimos es convertir a factor:
 
 ```{r}
-datos <- datos |> 
-  mutate(grupo_edad1 = if_else(condition = edad > 56, 
-                                  true = "mayor a la mediana", 
-                                  false = "menor o igual a la mediana"),
-         grupo_edad1 = factor(grupo_edad1, 
-                                 levels = c("menor o igual a la mediana",
-                                            "mayor a la mediana")))
+datos <- datos |>
+  mutate(
+    grupo_edad1 = if_else(
+      condition = edad > 56,
+      true = "mayor a la mediana",
+      false = "menor o igual a la mediana"
+    ),
+    grupo_edad1 = factor(
+      grupo_edad1,
+      levels = c("menor o igual a la mediana", "mayor a la mediana")
+    )
+  )
 
 # Explorar grupo_edad1
-datos |> 
+datos |>
   count(grupo_edad1)
 ```
 
@@ -329,25 +368,28 @@ Vemos que en el conteo el formato de la variable ya no es `chr` sino `fct` y el 
 Otra forma es:
 
 ```{r}
-datos <- datos |> 
-  mutate(grupo_edad1 = if_else(condition = edad > 56, 
-                                  true = "2.mayor a la mediana", 
-                                  false = "1.menor o igual a la mediana"))
+datos <- datos |>
+  mutate(
+    grupo_edad1 = if_else(
+      condition = edad > 56,
+      true = "2.mayor a la mediana",
+      false = "1.menor o igual a la mediana"
+    )
+  )
 
 # Explorar grupo_edad1
-datos |> 
+datos |>
   count(grupo_edad1)
 ```
 
 Si en cambio necesitamos que los grupos sean mas de dos y que estos intervalos de clase sean regulares, podemos usar `cut_interval()`:
 
 ```{r}
-datos <- datos |>  
-  mutate(grupo_edad2 = cut_interval(x = edad, 
-                                    length = 10))
+datos <- datos |>
+  mutate(grupo_edad2 = cut_interval(x = edad, length = 10))
 
 # Explorar grupo_edad2
-datos |> 
+datos |>
   count(grupo_edad2)
 ```
 
@@ -356,13 +398,11 @@ La salida muestra ocho grupos etarios con etiquetas ordenadas con notación mate
 Estos sucede así porque en forma predeterminada el argumento `right = TRUE`. Veamos que pasa si lo cambiamos a `FALSE`:
 
 ```{r}
-datos <- datos |>  
-  mutate(grupo_edad2 = cut_interval(x = edad, 
-                                    length = 10,
-                                    right = F))
+datos <- datos |>
+  mutate(grupo_edad2 = cut_interval(x = edad, length = 10, right = F))
 
 # Explorar grupo_edad2
-datos |> 
+datos |>
   count(grupo_edad2)
 ```
 
@@ -371,13 +411,11 @@ En esta salida el primer grupo va de 0 a 9 y el segundo de 10 a 19.
 Hasta ahora la variable `grupo_edad2` es de tipo carácter, pero si deseamos que la salida sea factor podemos incorporar el argumento `ordered_result = TRUE`:
 
 ```{r}
-datos <- datos |> 
-  mutate(grupo_edad2 = cut_interval(x = edad, 
-                                    length = 10,
-                                    ordered_result = T))
+datos <- datos |>
+  mutate(grupo_edad2 = cut_interval(x = edad, length = 10, ordered_result = T))
 
 # Explorar grupo_edad2
-datos |> 
+datos |>
   count(grupo_edad2)
 ```
 
@@ -386,30 +424,30 @@ Construimos así una variable factor ordenada `<ord>`.
 Por último, con el argumento `labels= FALSE` hacemos que las etiquetas de los ocho grupos sean numéricas:
 
 ```{r}
-datos <- datos |> 
-  mutate(grupo_edad2 = cut_interval(x = edad, 
-                                    length = 10,
-                                    labels = F))
+datos <- datos |>
+  mutate(grupo_edad2 = cut_interval(x = edad, length = 10, labels = F))
 
 # Explorar grupo_edad2
-datos |> 
+datos |>
   count(grupo_edad2)
 ```
 
 Otro ejemplo, podría ser aplicando `case_when()` donde discretizamos la edad en cuatro grupos irregulares, forzando sus etiquetas para lograr el orden adecuado:
 
 ```{r}
-datos <- datos |>  
-  mutate(grupo_edad3 = case_when(
-    edad < 13              ~ "1.Niño",
-    edad > 12 & edad < 26  ~ "2.Adolescente",
-    edad > 25 & edad < 65  ~ "3.Adulto_joven",
-    edad > 64              ~ "4.Adulto_mayor"
-  ))
+datos <- datos |>
+  mutate(
+    grupo_edad3 = case_when(
+      edad < 13 ~ "1.Niño",
+      edad > 12 & edad < 26 ~ "2.Adolescente",
+      edad > 25 & edad < 65 ~ "3.Adulto_joven",
+      edad > 64 ~ "4.Adulto_mayor"
+    )
+  )
 
 # Explorar grupo_edad3
-datos |> 
-  count(grupo_edad3) 
+datos |>
+  count(grupo_edad3)
 ```
 
 Si no hubiésemos etiquetado con los números por delante el orden alfabético hacía que Niño fuese a parar al final del conteo.
@@ -417,16 +455,18 @@ Si no hubiésemos etiquetado con los números por delante el orden alfabético h
 De la misma forma pero más sencillo y controlado es:
 
 ```{r}
-datos <- datos |>  
-  mutate(grupo_edad3 = case_when(
-    between(edad, 0, 12)   ~ "1.Niño",
-    between(edad, 13, 25)  ~ "2.Adolescente",
-    between(edad, 26, 64)  ~ "3.Adulto_joven",
-    between(edad, 65, Inf) ~ "4.Adulto_mayor"
-  ))
+datos <- datos |>
+  mutate(
+    grupo_edad3 = case_when(
+      between(edad, 0, 12) ~ "1.Niño",
+      between(edad, 13, 25) ~ "2.Adolescente",
+      between(edad, 26, 64) ~ "3.Adulto_joven",
+      between(edad, 65, Inf) ~ "4.Adulto_mayor"
+    )
+  )
 
 # Explorar grupo_edad3
-datos |> 
+datos |>
   count(grupo_edad3)
 ```
 
@@ -437,14 +477,17 @@ Estas funciones condicionales que tratamos en este documento no se limitan a la 
 Finalmente veamos como quedarían los grupos de edad con la función `age_categories()`:
 
 ```{r}
-datos <- datos |>  
-  mutate(grupo_edad4 = age_categories(x = edad,
-                                      breakers = c(0, 12, 25, 65),
-                                      above.char = " y más")
+datos <- datos |>
+  mutate(
+    grupo_edad4 = age_categories(
+      x = edad,
+      breakers = c(0, 12, 25, 65),
+      above.char = " y más"
+    )
   )
 
 # Explorar grupo_edad4
-datos |> 
+datos |>
   count(grupo_edad4)
 ```
 

@@ -3,18 +3,17 @@ title: Análisis exploratorio de datos
 author: 
   - name: Christian Ballejo
     orcid: 0000-0002-7346-5701
-bibliography: references.bib
 ---
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-source("../setup.R")
+source("files/setup.R")
 showtext::showtext_opts(dpi = 500)
 ```
 
-![](images/EDA_packages.png){fig-align="center" width="44%"}
+![](/images/EDA_packages.png){fig-align="center" width="44%"}
 
 ## Introducción
 
@@ -26,12 +25,12 @@ En términos sencillos, antes de avanzar hacia el análisis formal o la construc
 
 Entre los principales objetivos perseguidos por EDA se encuentran:
 
--   Conocer la estructura de la tabla de datos y sus tipos de variable.
--   Detectar observaciones incompletas (valores *missing* o `NA`).
--   Explorar la distribución de las variables de interés a partir de:
-    -   Estadísticos descriptivos
-    -   Representaciones gráficas
--   Detectar valores atípicos (*outliers*).
+- Conocer la estructura de la tabla de datos y sus tipos de variable.
+- Detectar observaciones incompletas (valores *missing* o `NA`).
+- Explorar la distribución de las variables de interés a partir de:
+  - Estadísticos descriptivos
+  - Representaciones gráficas
+- Detectar valores atípicos (*outliers*).
 
 #### Aclaración
 
@@ -39,10 +38,10 @@ En este documento utilizaremos funciones del lenguaje R basadas en la filosofía
 
 Presentaremos estas diferentes funciones de distintos paquetes que pueden servir en cada etapa de un EDA. Los paquetes con los que trabajaremos son:
 
--   `tidyverse`
--   `skimr`
--   `dlookr`
--   `janitor`
+- `tidyverse`
+- `skimr`
+- `dlookr`
+- `janitor`
 
 ::: {.callout-warning appearance="simple"}
 **Nota:** Algunos paquetes, como `dlookr`, pueden generar falsos positivos en la detección del antivirus durante el proceso de instalación. Sugerimos desactivar momentáneamente el antivirus para evitar inconvenientes.
@@ -68,9 +67,9 @@ Para ilustrar los pasos del análisis exploratorio, utilizaremos un archivo con 
 
 El primer paso en la exploración de un conjunto de datos es conocer su estructura y tamaño:
 
--   El **tamaño** se refiere a la cantidad de observaciones (filas) y de variables (columnas).
+- El **tamaño** se refiere a la cantidad de observaciones (filas) y de variables (columnas).
 
--   La **estructura** incluye cómo están organizadas las variables, qué tipo de datos contiene cada una y qué categorías o valores pueden tomar.
+- La **estructura** incluye cómo están organizadas las variables, qué tipo de datos contiene cada una y qué categorías o valores pueden tomar.
 
 Comenzaremos por cargar los datos de ejemplo con la función `read_csv2()` de `tidyverse`:
 
@@ -88,27 +87,27 @@ Esta función nos informa que la tabla contiene, por ejemplo, 74 observaciones y
 
 Entre los tipos de datos más comunes que podemos encontrar se incluyen:
 
--   `int` (*integer*): números enteros.
+- `int` (*integer*): números enteros.
 
--   `dbl` (*double*): números reales.
+- `dbl` (*double*): números reales.
 
--   `lgl` (*logical*): valores lógicos (`TRUE`, `FALSE`).
+- `lgl` (*logical*): valores lógicos (`TRUE`, `FALSE`).
 
--   `chr` (*character*): texto o cadenas de caracteres.
+- `chr` (*character*): texto o cadenas de caracteres.
 
--   `Date`: fechas.
+- `Date`: fechas.
 
--   `fct` (*factor*): variables categóricas con niveles.
+- `fct` (*factor*): variables categóricas con niveles.
 
--   `dttm` (*date-time*): fechas y horas.
+- `dttm` (*date-time*): fechas y horas.
 
 Esta primera revisión de la estructura suele complementarse con el **diccionario de datos**, un recurso fundamental que describe el significado, tipo, unidad y codificación de cada variable. Este diccionario puede acompañar tanto a bases de datos generadas en investigaciones propias (fuentes primarias) como a datos provenientes de fuentes secundarias.
 
 Es importante tener en cuenta que el tipo de dato en R no siempre coincide con la naturaleza estadística de la variable. Por ejemplo:
 
--   Una variable codificada como `dbl` puede representar una medida cuantitativa continua, como la edad o el peso.
+- Una variable codificada como `dbl` puede representar una medida cuantitativa continua, como la edad o el peso.
 
--   Pero también puede representar una variable cualitativa codificada con números. Por ejemplo, si una variable que registra respuestas "Sí" y "No" fue codificada como `1` y `0`, su tipo de dato será numérico (`dbl` o `int`), aunque conceptualmente sea una variable categórica.
+- Pero también puede representar una variable cualitativa codificada con números. Por ejemplo, si una variable que registra respuestas "Sí" y "No" fue codificada como `1` y `0`, su tipo de dato será numérico (`dbl` o `int`), aunque conceptualmente sea una variable categórica.
 
 Por esta razón, además de inspeccionar el tipo de datos en R, es importante revisar el significado y el uso previsto de cada variable dentro del contexto del análisis.
 
@@ -239,19 +238,19 @@ Esta función puede aplicarse directamente sobre todo el conjunto de datos. Si b
 
 El resumen que devuelve incluye:
 
--   `na`: cantidad de observaciones con datos y con `NA.`
+- `na`: cantidad de observaciones con datos y con `NA.`
 
--   `mean`: media aritmética.
+- `mean`: media aritmética.
 
--   `sd`: desvío estándar de la media.
+- `sd`: desvío estándar de la media.
 
--   `se_mean`: error estándar de la media.
+- `se_mean`: error estándar de la media.
 
--   `IQR`: rango intercuartílico.
+- `IQR`: rango intercuartílico.
 
--   Medidas de forma como la simetría (`skewness`) y la curtosis (`kurtosis`).
+- Medidas de forma como la simetría (`skewness`) y la curtosis (`kurtosis`).
 
--   Percentiles, incluyendo la mediana (`P50`) y los cuartiles (`P25` y `P75`).
+- Percentiles, incluyendo la mediana (`P50`) y los cuartiles (`P25` y `P75`).
 
 ### Resumir variables cualitativas
 
@@ -302,7 +301,7 @@ datos |>
   )
 ```
 
-El paquete `janitor` [@janitor] ofrece una alternativa más completa mediante la función `tabyl()`:
+El paquete `janitor` [@firke2016] ofrece una alternativa más completa mediante la función `tabyl()`:
 
 ```{r}
 datos |>
@@ -327,11 +326,11 @@ datos |>
 
 La forma más adecuada de describir la relación entre dos variables cualitativas es a través de una **tabla de contingencia**, en la cual:
 
--   Las filas representan las categorías de una variable.
+- Las filas representan las categorías de una variable.
 
--   Las columnas representan las categorías de otra variable.
+- Las columnas representan las categorías de otra variable.
 
--   Las celdas muestran el número de observaciones correspondientes a cada combinación de categorías.
+- Las celdas muestran el número de observaciones correspondientes a cada combinación de categorías.
 
 La función `tabyl()` también permite crear este tipo de tablas. A continuación, un ejemplo entre `sexo` y `trabaja` (aunque `trabaja` sea lógica, puede tratarse como categórica):
 
@@ -400,21 +399,19 @@ Uno de los aportes más importantes de John Tukey al análisis de datos es la in
 
 En R, los gráficos más útiles para explorar la distribución **univariada** de las variables son:
 
--   Para variables **cualitativas**: gráficos de barras
+- Para variables **cualitativas**: gráficos de barras
 
--   Para variables **cuantitativas**: histogramas, gráficos de densidad, boxplots y violin plots
+- Para variables **cuantitativas**: histogramas, gráficos de densidad, boxplots y violin plots
 
--   Cuando queremos explorar la relación entre **dos o más variables**, los tipos de gráficos más comunes incluyen:
+- Cuando queremos explorar la relación entre **dos o más variables**, los tipos de gráficos más comunes incluyen:
 
-    -   Diagramas de dispersión (puntos)
+  - Diagramas de dispersión (puntos)
 
-    -   Gráficos de líneas
+  - Gráficos de líneas
 
-    -   Gráficos de mosaico para variables categóricas cruzadas
+  - Gráficos de mosaico para variables categóricas cruzadas
 
 El lenguaje R soporta una serie de sistemas gráficos asociados a paquetes como `graphics`, `lattice`, `ggplot2`, etc. que sirven de base incluso para otros paquetes con funciones más específicas. Actualmente el estándar gráfico en R es `ggplot2`.
-
-En el documento dedicado a [**tidyverse**](03_intro_tidyverse.qmd#gráficos-estadísticos-con-ggplot2) ya explicamos cómo funciona `ggplot2`. Aquí nos concentraremos únicamente en aplicar distintos elementos geométricos (`geoms`) para representar las variables según su tipo.
 
 #### Barras (univariado)
 
@@ -545,11 +542,11 @@ Podemos decir que la variable `peso` se ajusta mejor a una distribución normal,
 
 Un valor atípico (*outlier*) es una observación que se encuentra numéricamente alejada del resto de los datos. Su presencia puede tener diferentes causas, y su tratamiento dependerá del contexto:
 
--   **Errores de carga o procedimiento**: deben corregirse si se detectan.
+- **Errores de carga o procedimiento**: deben corregirse si se detectan.
 
--   **Valores extremos plausibles**: pueden ser válidos, pero conviene evaluarlos en detalle.
+- **Valores extremos plausibles**: pueden ser válidos, pero conviene evaluarlos en detalle.
 
--   **Eventos extraordinarios o causas desconocidas**: si no se pueden justificar, suelen excluirse del análisis.
+- **Eventos extraordinarios o causas desconocidas**: si no se pueden justificar, suelen excluirse del análisis.
 
 Estos valores pueden afectar sensiblemente ciertos estadísticos como la media, distorsionando su interpretación.
 
