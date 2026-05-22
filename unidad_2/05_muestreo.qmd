@@ -343,3 +343,5 @@ Este proceso es fundamental en estudios basados en muestreos complejos, ya que p
 
 @epidat4
 :::
+
+## Referencias

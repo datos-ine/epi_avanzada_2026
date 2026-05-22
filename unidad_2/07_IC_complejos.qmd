@@ -609,3 +609,5 @@ Cuando la incidencia de un fenómeno es muy baja y el diseño de la encuesta no 
 
 @gutiérrez2020
 :::
+
+## Referencias

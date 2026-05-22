@@ -73,3 +73,5 @@ Una vez obtenidos los datos, éstos pueden representarse gráficamente, resumirs
 
 @hernández-ávila2011
 :::
+
+## Referencias

@@ -173,3 +173,5 @@ En este curso nos centraremos en los aspectos metodológicos y en el análisis d
 ::: hidden
 @hernández-ávila2011
 :::
+
+## Referencias

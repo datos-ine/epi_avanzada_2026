@@ -1252,3 +1252,5 @@ Dado que $p < 0.05$, rechazamos la hipótesis nula y concluimos que, con un nive
 
 @champely2006
 :::
+
+## Referencias

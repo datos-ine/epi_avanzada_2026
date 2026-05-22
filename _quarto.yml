@@ -70,16 +70,16 @@ book:
       - "unidad_1/06_analisis_exploratorio.qmd"
       - "unidad_1/07_hoja_estilo.qmd"
 
-  # - part: "Unidad 2"
-  #   icon: file-earmark-bar-graph
-  #   chapters: 
-  #       - "unidad_2/01_est_epidemiologicos.qmd"
-  #       - "unidad_2/02_est_transversales.qmd"
-  #       - "unidad_2/03_inferencia.qmd"
-  #       - "unidad_2/04_normalidad_heterocedasticidad.qmd"
-  #       - "unidad_2/05_muestreo.qmd"
-  #       - "unidad_2/06_fun_condicionales.qmd"
-  #       - "unidad_2/07_IC_complejos.qmd"
+  - part: "Unidad 2"
+    icon: file-earmark-bar-graph
+    chapters: 
+        - "unidad_2/01_est_epidemiologicos.qmd"
+        - "unidad_2/02_est_transversales.qmd"
+        - "unidad_2/03_inferencia.qmd"
+        - "unidad_2/04_normalidad_heterocedasticidad.qmd"
+        - "unidad_2/05_muestreo.qmd"
+        - "unidad_2/06_fun_condicionales.qmd"
+        - "unidad_2/07_IC_complejos.qmd"
     # - part: "Unidad 3"
     #   icon: file-earmark-bar-graph
     #   chapters: 
