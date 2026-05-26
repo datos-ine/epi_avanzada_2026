@@ -668,7 +668,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Un ejemplo donde la variable parece no cumplir con el suspuesto de normalidad en estos datos de prueba es <code>edad</code>:</p>
+<p>Un ejemplo donde la variable parece no cumplir con el supuesto de normalidad en estos datos de prueba es <code>edad</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>edad <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggqqplot</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -692,9 +692,9 @@ window.Quarto = {
 </ul>
 <p>La curtosis mide el grado de agudeza o achatamiento de una distribución con relación a la distribución normal.</p>
 <ul>
-<li>&lt; 0 Distribución platicúrtica (apuntamiento negativo): baja concentración de valores</li>
-<li>&gt; 0 Distribución leptocúrtica (apuntamiento positivo): gran concentración de valores</li>
-<li>= 0 Distribución mesocúrtica (apuntamiento normal): concentración como en la distribución normal.</li>
+<li><span class="math inline">\(&lt; 0\)</span> Distribución platicúrtica (apuntamiento negativo): baja concentración de valores</li>
+<li><span class="math inline">\(&gt; 0\)</span> Distribución leptocúrtica (apuntamiento positivo): gran concentración de valores</li>
+<li><span class="math inline">\(= 0\)</span> Distribución mesocúrtica (apuntamiento normal): concentración como en la distribución normal.</li>
 </ul>
 <p>El paquete <code>moments</code> <span class="citation" data-cites="moments:2005">(<a href="#ref-moments:2005" role="doc-biblioref"><em>moments</em> 2005</a>)</span> posee algunas funciones interesantes para analizar medidas de forma, como el estimador de Pearson para curtosis:</p>
 <div class="cell" data-layout-align="center">
@@ -711,7 +711,7 @@ window.Quarto = {
 </div>
 </div>
 <p>En los dos casos estamos frente a una <em>distribución leptocúrtica</em> pero de magnitudes bien diferentes. Muy alta en el caso de la variable <code>edad</code> (8,0) y mucho menor para la variable <code>peso</code> (2,7).</p>
-<p>El índice de asimetría es un indicador que permite establecer el <em>grado de asimetría</em> que presenta una distribución. Los valores menores que 0 indican distribución asimétrica negativa; los mayores a 0: distribución asimetrica positiva y cuando sea 0, o muy próximo a 0, distribución simétrica:</p>
+<p>El índice de asimetría es un indicador que permite establecer el <em>grado de asimetría</em> que presenta una distribución. Los valores menores que 0 indican distribución asimétrica negativa; los mayores a 0: distribución asimétrica positiva y cuando sea 0, o muy próximo a 0, distribución simétrica:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -757,7 +757,7 @@ window.Quarto = {
 <p>A continuación, presentaremos los test de hipótesis más utilizados para analizar normalidad.</p>
 <section id="test-de-shapiro-wilk" class="level4">
 <h4 class="anchored" data-anchor-id="test-de-shapiro-wilk">Test de Shapiro-Wilk</h4>
-<p>Lleva el nombre de sus <a href="https://es.wikipedia.org/wiki/Test_de_Shapiro%E2%80%93Wilk">autores</a> (Samuel Shapiro y Martin Wilk) y es usado preferentemente para muestras de hasta 50 observaciones.</p>
+<p>Lleva el nombre de sus autores (Samuel Shapiro y Martin Wilk) y es usado preferentemente para muestras de hasta 50 observaciones.</p>
 <p>La función se encuentra desarrollada en el paquete <code>stats</code> y se llama <code>shapiro.test()</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(datos<span class="sc">$</span>edad)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -782,12 +782,12 @@ W = 0.98615, p-value = 0.383</code></pre>
 </section>
 <section id="test-de-kolmogorov-smirnov" class="level4">
 <h4 class="anchored" data-anchor-id="test-de-kolmogorov-smirnov">Test de Kolmogorov-Smirnov</h4>
-<p>El test de <a href="https://es.wikipedia.org/wiki/Prueba_de_Kolmogorov-Smirnov"><strong>Kolmogorov-Smirnov</strong></a> permite estudiar si una muestra procede de una población con una determinada distribución que no está limitado únicamente a la distribución normal.</p>
+<p>El test de <strong>Kolmogorov-Smirnov</strong> permite estudiar si una muestra procede de una población con una determinada distribución que no está limitado únicamente a la distribución normal.</p>
 <p>El test asume que se conoce la media y varianza poblacional, lo que en la mayoría de los casos no es posible. Para resolver este problema, se realizó una modificación conocida como test Lilliefors.</p>
 </section>
 <section id="test-de-lilliefors" class="level4">
 <h4 class="anchored" data-anchor-id="test-de-lilliefors">Test de Lilliefors</h4>
-<p>El test de <a href="https://es.wikipedia.org/wiki/Prueba_de_Lilliefors"><strong>Lilliefors</strong></a> asume que la media y varianza son desconocidas y está especialmente desarrollado para contrastar la normalidad.</p>
+<p>El test de <strong>Lilliefors</strong> asume que la media y varianza son desconocidas y está especialmente desarrollado para contrastar la normalidad.</p>
 <p>Es la alternativa al test de Shapiro-Wilk cuando el número de observaciones es mayor de 50.</p>
 <p>La función <code>lillie.test()</code> del paquete <code>nortest</code> <span class="citation" data-cites="gross2006">(<a href="#ref-gross2006" role="doc-biblioref">Gross y Ligges 2006</a>)</span> permite aplicarlo:</p>
 <div class="cell" data-layout-align="center">
@@ -1116,13 +1116,13 @@ mean of x
 2 Si                 19         38</code></pre>
 </div>
 </div>
-<p>Eso representa el 38 % de las observaciones que tenemos.</p>
+<p>Eso representa el 38% de las observaciones que tenemos.</p>
 </section>
 <section id="ic-95-de-la-proporción" class="level3">
 <h3 class="anchored" data-anchor-id="ic-95-de-la-proporción">IC 95% de la proporción</h3>
 <p>En este punto queremos construir el intervalo de confianza del 95% que acompañe a la estimación puntual anterior.</p>
-<p>Tenemos dos posibilidades que estan implementadas en R base: la función <code>prop.test()</code> o <code>binom.test()</code>.</p>
-<p><code>prop.test()</code> utiliza la aproximación de la distribución Normal (puntuación <span class="math inline">\(z\)</span>) a la distribución Binomial. Podríamos decir que es el análogo categórico del t.test(). Los elementos necesarios son: <strong>x</strong> número de éxitos y <strong>n</strong> que es tamaño de la muestra.</p>
+<p>Tenemos dos posibilidades que están implementadas en R base: la función <code>prop.test()</code> o <code>binom.test()</code>.</p>
+<p><code>prop.test()</code> utiliza la aproximación de la distribución Normal (puntuación <span class="math inline">\(z\)</span>) a la distribución Binomial. Podríamos decir que es el análogo categórico del <code>t.test(</code>). Los elementos necesarios son: <strong>x</strong> número de éxitos y <strong>n</strong> que es tamaño de la muestra.</p>
 <p>Se usa con muestras “grandes” (<span class="math inline">\(n &gt; 30\)</span>). Pero si en cambio el tamaño de la muestra es pequeño, la proporción es muy cercana a 0 o a 1, o quieres una precisión absoluta y no quieres depender de aproximaciones matemáticas ejecutamos <code>binom.test()</code>.</p>
 <p>La función aplica la prueba exacta de Clopper-Pearson, donde en <strong>x</strong> definimos cuántos bivalvos superaron el umbral y en <strong>n</strong> el tamaño total de la muestra.</p>
 <p>Ejecutamos las dos posibilidades:</p>
@@ -1168,6 +1168,7 @@ probability of success
 </section>
 <section id="referencias" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="referencias"><span class="header-section-number">11.5</span> Referencias</h2>
+<!--#  -->
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
