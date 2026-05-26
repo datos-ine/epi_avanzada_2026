@@ -767,5 +767,49 @@
       "Unidad 2",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Estudios epidemiológicos</span>"
     ]
+  },
+  {
+    "objectID": "unidad_2/02_est_transversales.html",
+    "href": "unidad_2/02_est_transversales.html",
+    "title": "9  Estudios de corte transversal",
+    "section": "",
+    "text": "9.1 Introducción\nLos estudios transversales se caracterizan por realizar mediciones en un único momento en el tiempo, sin llevar a cabo un seguimiento de los participantes. En este diseño, el investigador mide de forma simultánea la exposición y el evento en los sujetos seleccionados mediante criterios de inclusión y exclusión predefinidos.\nSe trata de un diseño observacional de base individual, que puede tener un propósito descriptivo, analítico, o ambos. También se los conoce como estudios de prevalencia o encuestas transversales. Los estudios transversales entonces pueden dividirse en:\nEn los estudios transversales, la medida de frecuencia más utilizada es la prevalencia. Para evaluar asociaciones se pueden calcular dos medidas principales:\nA continuación se resumen las ventajas y desventajas de este diseño:\nVentajas\nDesventajas\n\n\n\n\nEficientes para estudiar la prevalencia de enfermedades en la población\nProblemas para definir y medir exposición\n\n\nSe pueden estudiar varias exposiciones\nSesgos de selección\n\n\nSon poco costosos y se pueden realizar en poco tiempo\nSesgos por casos prevalentes\n\n\nSe puede estimar la prevalencia del evento\nLa relación causa efecto no siempre es verificable\n\n\n\nSobrerrepresentación de enfermos con tiempos prolongados de sobrevida o con manifestaciones con mejor curso clínico\n\n\n\nSe puede presentar causalidad débil",
+    "crumbs": [
+      "Unidad 2",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Estudios de corte transversal</span>"
+    ]
+  },
+  {
+    "objectID": "unidad_2/02_est_transversales.html#introducción",
+    "href": "unidad_2/02_est_transversales.html#introducción",
+    "title": "9  Estudios de corte transversal",
+    "section": "",
+    "text": "Descriptivos: se enfocan en determinar la frecuencia y distribución de eventos de salud y enfermedad en un momento determinado, midiendo una o más variables o condiciones.\nAnalíticos: se orientan a explorar asociaciones y generar hipótesis de investigación. Algunos autores ubican este diseño en el límite entre los estudios descriptivos y los analíticos.\n\n\n\nRazón de prevalencia (prevalence ratio): que aproxima el riesgo relativo observado en estudios de cohortes.\nOdds ratio de prevalencia (prevalence odds ratio): que se utiliza como aproximación al odds ratio calculado en estudios de casos y controles.\n\n\n\n\nNota: Los aspectos metodológicos esenciales para el reporte de estudios transversales pueden consultarse en la Declaración STROBE, sección Métodos.",
+    "crumbs": [
+      "Unidad 2",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Estudios de corte transversal</span>"
+    ]
+  },
+  {
+    "objectID": "unidad_2/02_est_transversales.html#análisis-de-estudios-transversales",
+    "href": "unidad_2/02_est_transversales.html#análisis-de-estudios-transversales",
+    "title": "9  Estudios de corte transversal",
+    "section": "9.2 Análisis de estudios transversales",
+    "text": "9.2 Análisis de estudios transversales\nAl planificar un estudio transversal, es fundamental definir con precisión la población de estudio. La selección de los sujetos depende directamente de la pregunta de investigación y los objetivos planteados. Una identificación adecuada de la población garantiza la validez externa de los resultados y su potencial generalización.\nEn la práctica, estos estudios rara vez incluyen a todos los miembros de la población objetivo, sino que se trabaja con una muestra. Solo una muestra representativa, que refleje las características de la población base, permite desarrollar el componente analítico y exploratorio del diseño transversal, de modo que las conclusiones sean relevantes y aplicables.\nUna vez obtenidos los datos, éstos pueden representarse gráficamente, resumirse mediante estadísticas descriptivas (como medidas de tendencia central y dispersión) e incluso utilizarse para modelar relaciones entre variables.\n\nSi el objetivo es describir los resultados en la muestra, las herramientas descriptivas pueden ser suficientes.\nSi se busca extrapolar a la población general, es necesario aplicar métodos de inferencia estadística, fundamentados en la teoría de la probabilidad.\n\n\nRodríguez y Mendivelso (2018)\nHernández-Ávila (2011)",
+    "crumbs": [
+      "Unidad 2",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Estudios de corte transversal</span>"
+    ]
+  },
+  {
+    "objectID": "unidad_2/02_est_transversales.html#referencias",
+    "href": "unidad_2/02_est_transversales.html#referencias",
+    "title": "9  Estudios de corte transversal",
+    "section": "9.3 Referencias",
+    "text": "9.3 Referencias\n\n\n\n\nHernández-Ávila, Mauricio. 2011. Epidemiología: diseño y análisis de estudios. Editorial Médica Panamericana.\n\n\nRodríguez, Milena, y Fredy Mendivelso. 2018. «Diseño de investigación de corte transversal». Revista Médica Sanitas 21 (3): 141-47. //revistas.unisanitas.edu.co/index.php/rms/article/view/368.",
+    "crumbs": [
+      "Unidad 2",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Estudios de corte transversal</span>"
+    ]
   }
 ]
