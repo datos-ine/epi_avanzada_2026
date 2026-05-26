@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
-<head>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
 
-<meta charset="utf-8" />
-<meta name="generator" content="quarto-1.9.37" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="author" content="Christian Ballejo, Andrea Silva y Tamara Ricardo">
 
-<meta name="author" content="Christian Ballejo, Andrea Silva y Tamara Ricardo" />
-
-<title>9  Inferencia estadística – Epidemiología: Nivel Avanzado</title>
+<title>10&nbsp; Inferencia estadística – Epidemiología: Nivel Avanzado</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -82,7 +80,28 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
-<!-- htmldependencies:E3FAD763 -->
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../unidad_2/02_est_transversales.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e27e2a7f1faf7f5f37c7f213f0024cd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ea374cc9d4c9c2c39a97165044fa095a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e27e2a7f1faf7f5f37c7f213f0024cd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -110,8 +129,10 @@ div.csl-indent {
     "search-label": "Buscar"
   }
 }</script>
-<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -143,255 +164,10 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body>
-
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn"
-      data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" 
-      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral"
-      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" role="link"
-        aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral"
-        onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="/index.html" class="sidebar-logo-link">
-      <img src="/logos/logo_curso.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"/>
-      <img src="/logos/logo_curso.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"/>
-      </a>
-    <div class="sidebar-title mb-0 py-0">
-      <a href="/">
-      Epidemiología: Nivel Avanzado
-      </a> 
-        <div class="sidebar-tools-main tools-wide">
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-r-circle-fill"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.rstudio.com/bin/windows/" target="_blank">
-              <i class="bi bi-windows pe-1"></i>
-            R para Windows
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.rstudio.com/bin/macosx/" target="_blank">
-              <i class="bi bi-apple pe-1"></i>
-            R para macOS
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.rstudio.com/bin/linux/" target="_blank">
-              <i class="bi bi-ubuntu pe-1"></i>
-            R para Linux
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://posit.co/download/rstudio-desktop/" target="_blank">
-              <i class="bi bi-terminal pe-1"></i>
-            RStudio Desktop
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank">
-              <i class="bi bi-terminal pe-1"></i>
-            RTools
-            </a>
-          </li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-file-zip"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="/files/paquetes_curso.zip" target="_blank">
-              <i class="bi bi-file-zip pe-1"></i>
-            Paquetes para el curso
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="/files/datos.zip">
-              <i class="bi bi-file-zip pe-1"></i>
-            Datos de ejemplo
-            </a>
-          </li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <a href="" title="Descargar" id="quarto-navigation-tool-dropdown-2" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Descargar"><i class="bi bi-download"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-2">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="/epi_avanzada.pdf">
-              <i class="bi bi-file-pdf pe-1"></i>
-            Descargar PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="/epi_avanzada.epub">
-              <i class="bi bi-journal pe-1"></i>
-            Descargar ePub
-            </a>
-          </li>
-      </ul>
-    </div>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Buscar"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/index.html" class="sidebar-item-text sidebar-link"><i 
-  class="bi bi-book" 
-  role="img" 
->
-</i> 
- <span class="menu-text">Prefacio</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1"  role="navigation" aria-expanded="true"><i 
-  class="bi bi-file-earmark-bar-graph" 
-  role="img" 
->
-</i> 
- <span class="menu-text">Unidad 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_1/01_intro_R.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción a R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_1/02_intro_RStudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción a RStudio</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_1/03_intro_tidyverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>3</span>  <span class='chapter-title'>Introducción a `tidyverse`</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_1/04_intro_dplyr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>4</span>  <span class='chapter-title'>Gestión de datos con `dplyr`</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_1/05_intro_ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>5</span>  <span class='chapter-title'>Gráficos estadísticos con `ggplot2`</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_1/06_analisis_exploratorio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>6</span>  <span class='chapter-title'>Análisis exploratorio de datos</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_1/07_hoja_estilo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>7</span>  <span class='chapter-title'>Hoja de Estilo del lenguaje R</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2"  role="navigation" aria-expanded="true"><i 
-  class="bi bi-file-earmark-bar-graph" 
-  role="img" 
->
-</i> 
- <span class="menu-text">Unidad 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_2/02_est_transversales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>8</span>  <span class='chapter-title'>Estudios de corte transversal</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_2/03_inferencia.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class='chapter-number'>9</span>  <span class='chapter-title'>Inferencia estadística</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_2/04_normalidad_heterocedasticidad.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>10</span>  <span class='chapter-title'>Análisis de normalidad y homocedasticidad</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_2/05_muestreo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>11</span>  <span class='chapter-title'>Selección de la muestra</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_2/06_fun_condicionales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>12</span>  <span class='chapter-title'>Funciones condicionales en R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="/unidad_2/07_IC_complejos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class='chapter-number'>13</span>  <span class='chapter-title'>Intervalos de confianza en muestras complejas</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" ></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <div id="quarto-toc-target"></div>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-<script id = "quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -555,9 +331,242 @@ window.Quarto = {
     }
   </script>
 
-<header id="title-block-header" class="quarto-title-block default">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_2/01_est_epidemiologicos.html">Unidad 2</a></li><li class="breadcrumb-item"><a href="../unidad_2/03_inferencia.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inferencia estadística</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../logos/logo_curso.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../logos/logo_curso.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Epidemiología: Nivel Avanzado</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-r-circle-fill"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.rstudio.com/bin/windows/" target="_blank">
+              <i class="bi bi-windows pe-1"></i>
+            R para Windows
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.rstudio.com/bin/macosx/" target="_blank">
+              <i class="bi bi-apple pe-1"></i>
+            R para macOS
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.rstudio.com/bin/linux/" target="_blank">
+              <i class="bi bi-ubuntu pe-1"></i>
+            R para Linux
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://posit.co/download/rstudio-desktop/" target="_blank">
+              <i class="bi bi-terminal pe-1"></i>
+            RStudio Desktop
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank">
+              <i class="bi bi-terminal pe-1"></i>
+            RTools
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-file-zip"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../files/paquetes_curso.zip" target="_blank">
+              <i class="bi bi-file-zip pe-1"></i>
+            Paquetes para el curso
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../files/datos.zip">
+              <i class="bi bi-file-zip pe-1"></i>
+            Datos de ejemplo
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Descargar" id="quarto-navigation-tool-dropdown-2" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Descargar"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-2">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../epi_avanzada.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Descargar PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../epi_avanzada.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Descargar ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true"><i class="bi bi-file-earmark-bar-graph" role="img">
+</i> 
+ <span class="menu-text">Unidad 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/01_intro_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/02_intro_RStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a RStudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/03_intro_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción a <code>tidyverse</code></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/04_intro_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gestión de datos con <code>dplyr</code></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/05_intro_ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Gráficos estadísticos con <code>ggplot2</code></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/06_analisis_exploratorio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Análisis exploratorio de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_1/07_hoja_estilo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true"><i class="bi bi-file-earmark-bar-graph" role="img">
+</i> 
+ <span class="menu-text">Unidad 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_2/01_est_epidemiologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Estudios epidemiológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_2/02_est_transversales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Estudios de corte transversal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_2/03_inferencia.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inferencia estadística</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">10.1</span> Introducción</a></li>
+  <li><a href="#intervalos-de-confianza-ic" id="toc-intervalos-de-confianza-ic" class="nav-link" data-scroll-target="#intervalos-de-confianza-ic"><span class="header-section-number">10.2</span> Intervalos de Confianza (IC)</a>
+  <ul class="collapse">
+  <li><a href="#cómo-se-interpreta-un-ic" id="toc-cómo-se-interpreta-un-ic" class="nav-link" data-scroll-target="#cómo-se-interpreta-un-ic">¿Cómo se interpreta un IC?</a></li>
+  </ul></li>
+  <li><a href="#test-de-hipótesis" id="toc-test-de-hipótesis" class="nav-link" data-scroll-target="#test-de-hipótesis"><span class="header-section-number">10.3</span> Test de hipótesis</a>
+  <ul class="collapse">
+  <li><a href="#estructura-del-test-de-hipótesis" id="toc-estructura-del-test-de-hipótesis" class="nav-link" data-scroll-target="#estructura-del-test-de-hipótesis">Estructura del test de hipótesis</a></li>
+  <li><a href="#tipos-de-contrastes" id="toc-tipos-de-contrastes" class="nav-link" data-scroll-target="#tipos-de-contrastes">Tipos de contrastes</a></li>
+  <li><a href="#errores" id="toc-errores" class="nav-link" data-scroll-target="#errores">Errores</a></li>
+  <li><a href="#qué-test-se-debe-aplicar-en-cada-caso" id="toc-qué-test-se-debe-aplicar-en-cada-caso" class="nav-link" data-scroll-target="#qué-test-se-debe-aplicar-en-cada-caso">¿Qué test se debe aplicar en cada caso?</a></li>
+  </ul></li>
+  <li><a href="#ejemplo-práctico-en-r" id="toc-ejemplo-práctico-en-r" class="nav-link" data-scroll-target="#ejemplo-práctico-en-r"><span class="header-section-number">10.4</span> Ejemplo práctico en R</a>
+  <ul class="collapse">
+  <li><a href="#inferencia-sobre-una-población" id="toc-inferencia-sobre-una-población" class="nav-link" data-scroll-target="#inferencia-sobre-una-población">Inferencia sobre una población</a></li>
+  </ul></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">10.5</span> Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_2/01_est_epidemiologicos.html">Unidad 2</a></li><li class="breadcrumb-item"><a href="../unidad_2/03_inferencia.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inferencia estadística</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>  <span class="chapter-title">Inferencia estadística</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inferencia estadística</span></h1>
 </div>
 
 
@@ -580,31 +589,9 @@ window.Quarto = {
 
 </header>
 
-<nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">Tabla de contenidos</h2>
-   
-  <ul>
-  <li><a href="#introducción" id="toc-introducción"><span class="header-section-number">9.1</span> Introducción</a></li>
-  <li><a href="#intervalos-de-confianza-ic" id="toc-intervalos-de-confianza-ic"><span class="header-section-number">9.2</span> Intervalos de Confianza (IC)</a>
-  <ul>
-  <li><a href="#cómo-se-interpreta-un-ic" id="toc-cómo-se-interpreta-un-ic">¿Cómo se interpreta un IC?</a></li>
-  </ul></li>
-  <li><a href="#test-de-hipótesis" id="toc-test-de-hipótesis"><span class="header-section-number">9.3</span> Test de hipótesis</a>
-  <ul>
-  <li><a href="#estructura-del-test-de-hipótesis" id="toc-estructura-del-test-de-hipótesis">Estructura del test de hipótesis</a></li>
-  <li><a href="#tipos-de-contrastes" id="toc-tipos-de-contrastes">Tipos de contrastes</a></li>
-  <li><a href="#errores" id="toc-errores">Errores</a></li>
-  <li><a href="#qué-test-se-debe-aplicar-en-cada-caso" id="toc-qué-test-se-debe-aplicar-en-cada-caso">¿Qué test se debe aplicar en cada caso?</a></li>
-  </ul></li>
-  <li><a href="#ejemplo-práctico-en-r" id="toc-ejemplo-práctico-en-r"><span class="header-section-number">9.4</span> Ejemplo práctico en R</a>
-  <ul>
-  <li><a href="#inferencia-sobre-una-población" id="toc-inferencia-sobre-una-población">Inferencia sobre una población</a></li>
-  </ul></li>
-  <li><a href="#referencias" id="toc-referencias"><span class="header-section-number">9.5</span> Referencias</a></li>
-  </ul>
-</nav>
-<section id="introducción" class="level2" data-number="9.1">
-<h2 data-number="9.1"><span class="header-section-number">9.1</span> Introducción</h2>
+
+<section id="introducción" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">10.1</span> Introducción</h2>
 <p>La <strong>estadística inferencial</strong> es la rama de la estadística que permite formular conclusiones sobre una población a partir del análisis de una muestra. Se apoya en el cálculo de probabilidades, que proporciona el marco teórico para modelar fenómenos aleatorios y generalizar los resultados muestrales a toda la población. Dado que las inferencias basadas en muestras están sujetas a incertidumbre, es fundamental expresarlas siempre en términos <strong>probabilísticos</strong>.</p>
 <p>Las dos actividades principales en este proceso son:</p>
 <ul>
@@ -612,7 +599,7 @@ window.Quarto = {
 <ul>
 <li><em>Ejemplo: Estimar la prevalencia de una enfermedad X en la población.</em></li>
 </ul></li>
-<li><p><strong>Pruebas de hipótesis</strong>: implica evaluar con base estadística afirmaciones acerca de uno o más parámetros.<br />
+<li><p><strong>Pruebas de hipótesis</strong>: implica evaluar con base estadística afirmaciones acerca de uno o más parámetros.<br>
 <em>Ejemplos:</em></p>
 <ul>
 <li><p><em>¿La prevalencia de la enfermedad X en Argentina es menor que en Uruguay?</em></p></li>
@@ -627,8 +614,8 @@ window.Quarto = {
 <li><p>La media muestral, que se obtiene a partir de los datos de la muestra, se representa como <span class="math inline">\(\bar{x}\)</span> y es un <strong>estimador</strong> o estadístico muestral.</p></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="..\images/poblacion_muestra.svg" class="img-fluid quarto-figure quarto-figure-center" style="width:75.0%" /></p>
+<figure class="figure">
+<p><img src="..\images/poblacion_muestra.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
 </figure>
 </div>
 <p>La <strong>distribución muestral de un estadístico</strong> es la distribución de todos los valores posibles que ese estadístico puede tomar al calcularse en muestras aleatorias del mismo tamaño extraídas de una misma población. Este concepto es central en la inferencia estadística, ya que permite cuantificar la incertidumbre asociada a las estimaciones.</p>
@@ -636,8 +623,8 @@ window.Quarto = {
 <p>➡️ <a href="https://youtu.be/UgWW88s5vYQ"><strong>Distribuciones Muestrales</strong></a></p>
 <p>Como construir una distribución muestral puede resultar muy laborioso cuando la población es grande, y directamente imposible si es infinita, se suelen utilizar aproximaciones basadas en la toma de un gran número de muestras aleatorias del mismo tamaño.</p>
 </section>
-<section id="intervalos-de-confianza-ic" class="level2" data-number="9.2">
-<h2 data-number="9.2"><span class="header-section-number">9.2</span> Intervalos de Confianza (IC)</h2>
+<section id="intervalos-de-confianza-ic" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="intervalos-de-confianza-ic"><span class="header-section-number">10.2</span> Intervalos de Confianza (IC)</h2>
 <p>Una forma eficaz de abordar la inferencia estadística es a través de los <strong>intervalos de confianza (IC)</strong>, ya que, aunque son procedimientos inferenciales, están estrechamente vinculados con la estadística descriptiva.</p>
 <p>Supongamos que queremos estimar la <strong>media de colesterol</strong> de la población de Mar del Plata. Sería inviable medir el colesterol de cada habitante, por lo que optamos por tomar una muestra de, por ejemplo, 100, 200 o 300 individuos (más adelante veremos cómo determinar el tamaño adecuado de la muestra). Debemos recordar que diferentes muestras producirán en general medias diferentes. Existe, por tanto, un grado de incertidumbre asociado. Si hiciéramos una estimación puntual, obtendríamos un solo valor, pero sin información sobre su variabilidad. No sabríamos qué tan cerca o lejos está nuestra estimación (<span class="math inline">\(\bar{x}\)</span>) de la verdadera media poblacional (<span class="math inline">\(\mu\)</span>).</p>
 <p>El <strong>intervalo de confianza</strong> proporciona un rango de valores dentro del cual se espera que se encuentre el valor verdadero del parámetro poblacional, con un cierto nivel de confianza. A diferencia de la estimación puntual que proporciona un único valor numérico, el intervalo consta de dos valores entre los cuales se supone está contenido el parámetro estimado. Entonces, el intervalo de confianza puede expresarse como:</p>
@@ -671,8 +658,8 @@ Z = \frac{\bar{x}-\mu}{\sigma} \]</span></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -683,8 +670,8 @@ Z = \frac{\bar{x}-\mu}{\sigma} \]</span></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -698,7 +685,7 @@ P(Z_{\alpha/2} &lt; \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}} &lt; Z_{(1-\al
 <p><span class="math display">\[
 \bar{x} - Z_{\alpha/2}\sqrt{\frac{\sigma^2}{n}} &lt; \mu &lt; \bar{x} + Z_{\alpha/2}\frac{\sigma^2}{n}   \]</span></p>
 <section id="cómo-se-interpreta-un-ic" class="level3">
-<h3>¿Cómo se interpreta un IC?</h3>
+<h3 class="anchored" data-anchor-id="cómo-se-interpreta-un-ic">¿Cómo se interpreta un IC?</h3>
 <p>Si hubiésemos tomado múltiples muestras del mismo tamaño de la población, en al menos <span class="math inline">\(100 * (1 − \alpha)\%\)</span> de las ocasiones el intervalo calculado contendría el parámetro poblacional real. Es decir, un IC al 95% implica que, a largo plazo, el 95% de los intervalos obtenidos a partir de muestras repetidas incluirán el valor verdadero del parámetro.</p>
 <p>El producto del coeficiente de confiabilidad y el error estándar se denomina <strong>precisión de la estimación</strong> y es el componente responsable de la amplitud del IC. Recordemos que la fórmula general para construir un intervalo de confianza era:</p>
 <p><span class="math display">\[ IC = estimador~puntual \pm (coeficiente~de~confiabilidad) * (error~ estandar) \]</span></p>
@@ -709,7 +696,7 @@ P(Z_{\alpha/2} &lt; \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}} &lt; Z_{(1-\al
 <p><span class="math display">\[ SE = \frac{\sigma}{\sqrt{n}} \]</span></p>
 <p>y considerando que <span class="math inline">\(\sigma\)</span> es constante, la única forma de disminuir el error estándar es aumentando el tamaño muestral (<span class="math inline">\(n\)</span>).</p></li>
 </ul>
-<p>Surge entonces la pregunta: <strong>¿qué tan grande debe ser</strong> <span class="math inline">\(n\)</span>?<br />
+<p>Surge entonces la pregunta: <strong>¿qué tan grande debe ser</strong> <span class="math inline">\(n\)</span>?<br>
 La respuesta dependerá de <span class="math inline">\(\sigma\)</span>, del nivel de significación (<span class="math inline">\(\alpha\)</span>) y de la amplitud deseada para el IC. La relación es:</p>
 <p><span class="math display">\[ Amplitud = Z \frac{\sigma}{\sqrt{n}} \Longrightarrow n = \frac{Z^2\sigma^2}{Amplitud^2} \quad (Z = 1.96~si~\alpha = 0.05) \]</span></p>
 <p>(En la práctica, <span class="math inline">\(\sigma\)</span> generalmente no se conoce, así que se usa su estimación muestral).</p>
@@ -729,10 +716,10 @@ SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      \]</span></p>
 <p>➡️ <a href="https://cballejo.github.io/R_Epi_Avanzada/Unidad2/IC/"><strong>Intervalos de confianza con R</strong></a></p>
 </section>
 </section>
-<section id="test-de-hipótesis" class="level2" data-number="9.3">
-<h2 data-number="9.3"><span class="header-section-number">9.3</span> Test de hipótesis</h2>
+<section id="test-de-hipótesis" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="test-de-hipótesis"><span class="header-section-number">10.3</span> Test de hipótesis</h2>
 <p>Aunque los estudios de corte transversal no se diseñan originalmente con grupos de comparación, en aquellos de carácter más analítico es frecuente establecer comparaciones. Por ejemplo, pueden surgir preguntas como:</p>
-<blockquote>
+<blockquote class="blockquote">
 <p><em>¿La prevalencia de la enfermedad es mayor en mujeres, en determinados grupos etarios o en una provincia específica?</em></p>
 </blockquote>
 <p>Con esto en mente, revisaremos las herramientas que permiten comparar grupos mediante test o contrastes de hipótesis. El propósito de estos test es ofrecer al investigador una herramienta para tomar decisiones sobre la población a partir de la información obtenida en una muestra.</p>
@@ -752,7 +739,7 @@ SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      \]</span></p>
 <p>El conjunto de estas técnicas de inferencia se denomina <strong>técnicas paramétricas</strong>. Sin embargo, existen otros métodos, denominados <strong>técnicas no paramétricas</strong> o contrastes de distribuciones libres, que no requieren estimar parámetros ni suponer una ley de probabilidad específica para la población. Algunos de estos métodos serán desarrollados más adelante en este módulo.</p>
 <p>Es importante señalar que los contrastes de hipótesis se utilizan no solo en estudios transversales, sino con mayor frecuencia en diseños en los que <em>a priori</em> existen grupos de comparación, como en estudios de casos y controles, cohortes, ensayos clínicos, entre otros. Desarrollaremos aquí la teoría que los sustenta y los utilizaremos a lo largo de todo el curso.</p>
 <section id="estructura-del-test-de-hipótesis" class="level3">
-<h3>Estructura del test de hipótesis</h3>
+<h3 class="anchored" data-anchor-id="estructura-del-test-de-hipótesis">Estructura del test de hipótesis</h3>
 <p>Los componentes básicos de cualquier test de contraste de hipótesis son:</p>
 <ul>
 <li><p><strong>Hipótesis nula</strong> (<span class="math inline">\(H_0\)</span>): Afirma que no existe diferencia entre los grupos que se comparan, es decir, que las variaciones observadas se deben únicamente al azar.</p></li>
@@ -762,8 +749,8 @@ SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      \]</span></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -783,48 +770,48 @@ SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      \]</span></p>
 </ul>
 </section>
 <section id="tipos-de-contrastes" class="level3">
-<h3>Tipos de contrastes</h3>
+<h3 class="anchored" data-anchor-id="tipos-de-contrastes">Tipos de contrastes</h3>
 <p>Los contrastes de hipótesis se clasifican según la forma de la hipótesis alternativa (<span class="math inline">\(H_1\)</span>). Esta clasificación determina si la prueba es <strong>unilateral</strong> de cola izquierda o derecha) o <strong>bilateral</strong> (de dos colas). Siendo las colas de la distribución las regiones extremas limitadas por los valores críticos.</p>
 <section id="test-de-cola-izquierda" class="level4">
-<h4>Test de cola izquierda</h4>
+<h4 class="anchored" data-anchor-id="test-de-cola-izquierda">Test de cola izquierda</h4>
 <p>La hipótesis alternativa plantea que la media del primer grupo es significativamente <strong>menor</strong> que la del segundo:</p>
 <p><span class="math display">\[H_1: \mu_1 &lt; \mu_2\]</span></p>
 <p>La región crítica se encuentra en el extremo izquierdo de la distribución. Todo el área crítica tiene un tamaño <span class="math inline">\(\alpha\)</span> con un valor crítico de <span class="math inline">\(-1,645\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="test-de-cola-derecha" class="level4">
-<h4>Test de cola derecha</h4>
+<h4 class="anchored" data-anchor-id="test-de-cola-derecha">Test de cola derecha</h4>
 <p>La hipótesis alternativa establece que la media del primer grupo es significativamente <strong>mayor</strong> que la del segundo:</p>
 <p><span class="math display">\[ H_1: \mu_1 &gt; \mu_2 \]</span></p>
 <p>La región crítica se concentra en el extremo derecho de la distribución y toda el área crítica tiene un tamaño <span class="math inline">\(\alpha\)</span> con un valor crítico de <span class="math inline">\(1,645\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="pruebas-bilaterales" class="level4">
-<h4>Pruebas bilaterales</h4>
+<h4 class="anchored" data-anchor-id="pruebas-bilaterales">Pruebas bilaterales</h4>
 <p>La hipótesis alternativa afirma que existen diferencias entre los grupos, <strong>sin especificar la dirección</strong>:</p>
 <p><span class="math display">\[H_1: \mu_1 \neq \mu_2\]</span></p>
 <p>La región crítica se divide entre ambos extremos de la distribución, con valores críticos de <span class="math inline">\(\pm 1,96\)</span>. El nivel de significación total (<span class="math inline">\(\alpha\)</span>) se reparte en partes iguales entre las dos colas (<span class="math inline">\(\alpha/2\)</span> en cada una), lo que implica un 2,5% de probabilidad en cada cola si <span class="math inline">\(H_0\)</span> es verdadera.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -832,7 +819,7 @@ SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      \]</span></p>
 </section>
 </section>
 <section id="errores" class="level3">
-<h3>Errores</h3>
+<h3 class="anchored" data-anchor-id="errores">Errores</h3>
 <p>Al utilizar el razonamiento de los contrastes de hipótesis, existen dos tipos principales de errores que podemos cometer:</p>
 <ul>
 <li><p><strong>Error tipo I</strong> (<span class="math inline">\(\alpha\)</span>): Ocurre cuando el investigador rechaza la hipótesis nula (<span class="math inline">\(H_0\)</span>) siendo esta verdadera en la población y se concluye erróneamente que existe una diferencia cuando en realidad no la hay. Se suele eligir un valor pequeño de <span class="math inline">\(\alpha\)</span> (0.01, 0.05 y 0.10) para hacer que la probabilidad de rechazo de <span class="math inline">\(H_0\)</span> sea pequeña.</p></li>
@@ -847,7 +834,7 @@ SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      \]</span></p>
 <p>La tabla que se presenta a continuación resume las posibles situaciones a las que nos enfrentamos con los test de hipótesis:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="table table-condensed table-hover caption-top" data-quarto-postprocess="true" style="font-family: Calibri; margin-left: auto; margin-right: auto;">
+<table class="table table-condensed table-hover caption-top table-sm table-striped small">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 255) !important;"></th>
@@ -857,12 +844,12 @@ SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      \]</span></p>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(47, 46, 78, 255) !important;">H0 es cierta</td>
+<td style="text-align: left;">H0 es cierta</td>
 <td style="text-align: left;">Correcto (1-α)</td>
 <td style="text-align: left;">Error tipo I (α)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(47, 46, 78, 255) !important;">H0 es falsa</td>
+<td style="text-align: left;">H0 es falsa</td>
 <td style="text-align: left;">Error tipo II (β)</td>
 <td style="text-align: left;">Correcto (1-β)</td>
 </tr>
@@ -878,8 +865,8 @@ SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      \]</span></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -888,13 +875,13 @@ SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}      \]</span></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Finalmente, podemos decir que la potencia estadística ofrece un segundo mecanismo de seguridad en un contraste de hipótesis. Es como contar con una protección adicional en la toma de decisiones: si solo dispusiéramos del nivel de significación (<span class="math inline">\(\alpha\)</span>), tendríamos menos garantías. Al incorporar la potencia (<span class="math inline">\(1-\beta\)</span>) agregamos un segundo control. Por ello, en un contraste no basta con tener un valor <em>p</em> pequeño; también se necesita una potencia alta, que en la práctica suele fijarse en un 80% (es decir, <span class="math inline">\(1 - \beta = 0.8\)</span>).<br />
+<p>Finalmente, podemos decir que la potencia estadística ofrece un segundo mecanismo de seguridad en un contraste de hipótesis. Es como contar con una protección adicional en la toma de decisiones: si solo dispusiéramos del nivel de significación (<span class="math inline">\(\alpha\)</span>), tendríamos menos garantías. Al incorporar la potencia (<span class="math inline">\(1-\beta\)</span>) agregamos un segundo control. Por ello, en un contraste no basta con tener un valor <em>p</em> pequeño; también se necesita una potencia alta, que en la práctica suele fijarse en un 80% (es decir, <span class="math inline">\(1 - \beta = 0.8\)</span>).<br>
 Por otro lado, cuando existe una diferencia real —o un efecto real de una terapia, o una verdadera diferencia entre dos fármacos—, la <strong>magnitud</strong> de ese efecto influye en la facilidad para detectarlo. Los efectos grandes son más fáciles de identificar que los pequeños. Para estimar la potencia de una prueba, debemos especificar el <strong>efecto mínimo</strong> que valga la pena identificar.</p>
 <p>La potencia de un test estadístico depende de tres factores que actúan de manera interrelacionada:</p>
 <ul>
@@ -906,13 +893,13 @@ Por otro lado, cuando existe una diferencia real —o un efecto real de una tera
 <p>En epidemiología, una de las situaciones más frecuentes al diseñar un estudio es el cálculo del tamaño muestral para un <strong>nivel de confianza del 95%</strong> y una <strong>potencia del 80%</strong>, que, como se mencionó, es un nivel de potencia alto y que además permite manejar un <span class="math inline">\(\alpha\)</span> relativamente bajo. El lenguaje <strong>R</strong> cuenta con diversas funciones para <strong>calcular y visualizar</strong> la relación entre tamaño muestral, potencia, tamaño del efecto y nivel de confianza, facilitando el diseño de estudios con un adecuado balance entre la probabilidad de detectar diferencias reales y la de controlar errores estadísticos.</p>
 <p>Por ejemplo, la función <code>pwr.t.test()</code> del paquete <code>pwr</code> <span class="citation" data-cites="champely2006">(<a href="#ref-champely2006" role="doc-biblioref">Champely 2006</a>)</span>, calcula la potencia para pruebas <span class="math inline">\(t\)</span> de Student de medias (para una muestra, dos muestras y muestras pareadas), basado en el tamaño de la muestra, el nivel de confianza y el tamaño de efecto:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(n, d, <span class="at">sig.level =</span> <span class="fl">0.05</span>, power, type, alternative)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(n, d, <span class="at">sig.level =</span> <span class="fl">0.05</span>, power, type, alternative)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Donde:</p>
 <ul>
 <li><p><code>n</code>: Número de observaciones para cada grupo.</p></li>
 <li><p><code>d</code>: tamaño de efecto (<span class="math inline">\(d\)</span> de Cohen) - diferencia (estandarizada) entre grupos.</p>
-<blockquote>
+<blockquote class="blockquote">
 <p><em>Nota:</em> La <span class="math inline">\(d\)</span> de Cohen representa las desviaciones estándar que separan dos o más grupos. Por ejemplo: <span class="math inline">\(d_{Cohen} = 0.5\)</span> representa que la diferencia entre grupo experimental y muestral es de media desviación estándar. Cohen sugirió (provisoriamente) que 0.2 es un tamaño de efecto pequeño, 0.5 es mediano y 0.8 es grande,</p>
 </blockquote></li>
 <li><p><code>sig.level</code>: nivel de significación (probabilidad del error de tipo I).</p></li>
@@ -924,15 +911,15 @@ Por otro lado, cuando existe una diferencia real —o un efecto real de una tera
 <p>Supongamos que queremos conocer el tamaño de la muestra para detectar diferencias en la media de la hemoglobina glicosilada entre dos grupos de pacientes con tratamientos de control de la diabetes distintos. Aceptamos un nivel de efecto convencional de una pequeña desviación (<span class="math inline">\(d_{Cohen} = 0.2\)</span>), una potencia del 80% y una significación habitual de 0,05.</p>
 <p>Cargamos el paquete requerido:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Calculamos el tamaño de muestra:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.2</span>, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.2</span>, </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">power =</span> <span class="fl">0.8</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">sig.level =</span> <span class="fl">0.05</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">"two.sample"</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      Two-sample t test power calculation 
@@ -948,16 +935,16 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 <p>También podemos graficar la salida:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.2</span>, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.2</span>, </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">power =</span> <span class="fl">0.8</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">sig.level =</span> <span class="fl">0.05</span>, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>, </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>()</span></code></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">"two.sample"</span>, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">alternative =</span> <span class="st">"two.sided"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
@@ -965,19 +952,19 @@ NOTE: n is number in *each* group</code></pre>
 <p>Observamos que, si por ejemplo tomásemos una muestra de 300 individuos por grupo, la potencia del estudio con ese tamaño de efecto y nivel de significación del 0,05 sería aproximadamente de 68%.</p>
 </section>
 <section id="qué-test-se-debe-aplicar-en-cada-caso" class="level3">
-<h3>¿Qué test se debe aplicar en cada caso?</h3>
+<h3 class="anchored" data-anchor-id="qué-test-se-debe-aplicar-en-cada-caso">¿Qué test se debe aplicar en cada caso?</h3>
 <p>Hemos discutido la mecánica general de los test de hipótesis. Ahora, nos centraremos en orientarnos sobre qué test aplicar en cada situación. Aunque existe un desarrollo teórico detrás de cada caso, aquí nos quedaremos con ciertas reglas prácticas.</p>
 <p>Para sistematizar los contrastes de hipótesis, es útil responder dos preguntas fundamentales:</p>
 <ul>
-<li><p><strong>¿Qué tipo de variable dependiente tengo?</strong><br />
+<li><p><strong>¿Qué tipo de variable dependiente tengo?</strong><br>
 La variable resultado puede ser cuantitativa, cualitativa, de tiempo hasta un evento, etc.</p></li>
-<li><p><strong>¿Qué se está comparando?</strong><br />
+<li><p><strong>¿Qué se está comparando?</strong><br>
 Esto se traduce en evaluar el tipo de experimento: ¿se comparan dos grupos o más? ¿Son muestras independientes o relacionadas (por ejemplo, medidas en el mismo grupo antes y después de una intervención)?</p></li>
 </ul>
 <section id="variable-resultado-cuantitativa" class="level4">
-<h4>Variable resultado cuantitativa</h4>
+<h4 class="anchored" data-anchor-id="variable-resultado-cuantitativa">Variable resultado cuantitativa</h4>
 <p>Cuando la variable de interés es cuantitativa, la comparación de grupos generalmente se traduce en comparar las medias de dichos grupos. En este contexto, se deben responder una tercera pregunta y es si dicha variable se <em>distribuye normalmente</em>, porque si no fuera así, debemos recurrir a los contrastes <em>no paramétricos</em>.</p>
-<blockquote>
+<blockquote class="blockquote">
 <p>En la <a href="04_normalidad_heterocedasticidad.qmd"><strong>siguiente sección</strong></a> detallaremos las pruebas de normalidad y heterogeneidad de varianzas y su aplicación en R.</p>
 </blockquote>
 <p>Por ejemplo, para comparar dos grupos se plantearía:</p>
@@ -990,7 +977,7 @@ Esto se traduce en evaluar el tipo de experimento: ¿se comparan dos grupos o m�
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p><figure class=''></p>
+<p></p><figure class="figure"><p></p>
 <div>
 <svg width="672" height="480" viewbox="0.00 0.00 794.58 434.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 430)">
@@ -1161,7 +1148,7 @@ Esto se traduce en evaluar el tipo de experimento: ¿se comparan dos grupos o m�
 </g>
 </svg>
 </div>
-<p></figure></p>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1169,7 +1156,7 @@ Esto se traduce en evaluar el tipo de experimento: ¿se comparan dos grupos o m�
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p><figure class=''></p>
+<p></p><figure class="figure"><p></p>
 <div>
 <svg width="672" height="480" viewbox="0.00 0.00 385.94 278.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 274.8)">
@@ -1270,20 +1257,20 @@ Esto se traduce en evaluar el tipo de experimento: ¿se comparan dos grupos o m�
 </g>
 </svg>
 </div>
-<p></figure></p>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
 <p>Cuando trabajamos con muestras independientes, a menudo nos encontramos en el escenario de <em>varianzas desconocidas</em>. Esto nos obliga a realizar, de manera previa, un test de homogeneidad de varianzas para determinar si se puede asumir que son iguales o si, por el contrario, difieren. La razón es que, aunque se utiliza el estadístico <span class="math inline">\(t\)</span> de Student para comparar las medias, su cálculo y la forma en que se distribuye varían en función de si las varianzas de los grupos son iguales o no.</p>
 </section>
 <section id="variable-resultado-cualitativa" class="level4">
-<h4>Variable resultado cualitativa</h4>
+<h4 class="anchored" data-anchor-id="variable-resultado-cualitativa">Variable resultado cualitativa</h4>
 <p>Cuando la variable dependiente es cualitativa (categórica), como por ejemplo Enfermo (Sí/No) o Expuesto (Sí/No), la comparación de grupos no se basa en medias, sino en <strong>proporciones</strong>. Para ello, se utilizan pruebas estadísticas específicas según el número de grupos y el diseño del estudio.</p>
 <p>A continuación, presentamos una guía análoga a la anterior:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p><figure class=''></p>
+<p></p><figure class="figure"><p></p>
 <div>
 <svg width="672" height="480" viewbox="0.00 0.00 561.24 301.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 297.2)">
@@ -1414,15 +1401,15 @@ Esto se traduce en evaluar el tipo de experimento: ¿se comparan dos grupos o m�
 </g>
 </svg>
 </div>
-<p></figure></p>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
 </section>
 </section>
 </section>
-<section id="ejemplo-práctico-en-r" class="level2" data-number="9.4">
-<h2 data-number="9.4"><span class="header-section-number">9.4</span> Ejemplo práctico en R</h2>
+<section id="ejemplo-práctico-en-r" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="ejemplo-práctico-en-r"><span class="header-section-number">10.4</span> Ejemplo práctico en R</h2>
 <p>En el archivo “<code>bebe1.txt</code>” se encuentran datos de una muestra aleatoria de los pesos al nacer de 186 bebés cuyas madres no consumieron cocaína durante el embarazo. En el archivo “<code>bebe2.txt</code>” se encuentran datos de una muestra aleatoria de 190 bebés cuyas madres consumieron cocaína durante el embarazo. Nos interesa conocer el peso promedio al nacer de los bebés de la primer base de datos y, de acuerdo a estos resultados, saber si el consumo de cocaína afecta el peso que tiene un bebé al nacer.</p>
 <p>Podemos resolver la primer parte manualmente:</p>
 <p><span class="math display">\[
@@ -1439,18 +1426,18 @@ IC = 2971,85 - 3234,15\]</span></p>
 <p>El peso medio al nacer de los bebés oscila entre 2971,85 y 3234,15 gramos (<span class="math inline">\(\alpha = 0,99\)</span>).</p>
 <p>Para resolver las preguntas en R, comenzaremos cargando los paquetes necesarios:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Cargamos los datos:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">&quot;datos/bebe1.txt&quot;</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/bebe1.txt"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>datos2 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">&quot;datos/bebe2.txt&quot;</span>)</span></code></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>datos2 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/bebe2.txt"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La función <code>t.test()</code> del paquete <code>base</code> utiliza la distribución <span class="math inline">\(t\)</span> <em>de Student</em>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(datos1, <span class="at">conf.level =</span> <span class="fl">0.99</span>)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(datos1, <span class="at">conf.level =</span> <span class="fl">0.99</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1468,7 +1455,7 @@ mean of x
 <p>Los IC producidos son similares a los calculados manualmente.</p>
 <p>Para comparar los datos de los bebés de madres que consumieron cocaína, debemos realizar un test de comparación de medias para dos poblaciones independientes. Para ello, comenzamos por chequear normalidad:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb10"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(datos1<span class="sc">$</span>peso)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(datos1<span class="sc">$</span>peso)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -1476,16 +1463,16 @@ mean of x
 data:  datos1$peso
 W = 0.99293, p-value = 0.5092</code></pre>
 </div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>datos1 <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_normality</span>()</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>datos1 <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_normality</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(datos2<span class="sc">$</span>peso)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(datos2<span class="sc">$</span>peso)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -1493,19 +1480,19 @@ W = 0.99293, p-value = 0.5092</code></pre>
 data:  datos2$peso
 W = 0.98951, p-value = 0.1774</code></pre>
 </div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>datos2 <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_normality</span>()</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>datos2 <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_normality</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="03_inferencia_files/figure-html/unnamed-chunk-21-2.png" class="img-fluid quarto-figure quarto-figure-center" style="width:85.0%" /></p>
+<figure class="figure">
+<p><img src="03_inferencia_files/figure-html/unnamed-chunk-21-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Se cumple con el supuesto de normalidad, ahora procedemos a comparar varianzas usando la función <code>var.test()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb16"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(datos1<span class="sc">$</span>peso, datos2<span class="sc">$</span>peso)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(datos1<span class="sc">$</span>peso, datos2<span class="sc">$</span>peso)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     F test to compare two variances
@@ -1524,10 +1511,10 @@ ratio of variances
 <p><span class="math display">\[H_0: \mu_1 = \mu_2 \\
 H_1: \mu_1 \neq \mu_2\]</span></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb18"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> datos1<span class="sc">$</span>peso, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> datos1<span class="sc">$</span>peso, </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> datos2<span class="sc">$</span>peso, </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
@@ -1546,10 +1533,10 @@ mean of x mean of y
 <p><span class="math display">\[H_0: \mu_1 = \mu_2 \\
 H_1: \mu_1 &gt; \mu_2 \quad ó \quad \mu_1 - \mu_2 &gt; 0\]</span></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb20"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> datos1<span class="sc">$</span>peso, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> datos1<span class="sc">$</span>peso, </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> datos2<span class="sc">$</span>peso, </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
@@ -1566,7 +1553,7 @@ mean of x mean of y
 </div>
 <p>Concluimos que los pesos de los bebés hijos de madres que no consumen cocaína es significativamente mayor respecto de los hijos de madres que sí la consumen.</p>
 <section id="inferencia-sobre-una-población" class="level3">
-<h3>Inferencia sobre una población</h3>
+<h3 class="anchored" data-anchor-id="inferencia-sobre-una-población">Inferencia sobre una población</h3>
 <p>En algunas situaciones, además de obtener intervalos de confianza para estimar parámetros como la media o la proporción poblacional, también puede ser de interés realizar contrastes de hipótesis sobre un valor específico de referencia. Este tipo de análisis se denomina <strong>inferencia sobre una población</strong> y permite evaluar si un parámetro poblacional es significativamente diferente de un valor dado.</p>
 <p>Un caso común en epidemiología y medicina es el estudio de la eficacia de un tratamiento. Supongamos que queremos evaluar si un nuevo fármaco reduce la presión arterial en pacientes con un determinado síndrome. Se sabe que, en ausencia de tratamiento, la presión arterial media en estos pacientes es de <strong>165 mmHg</strong>. Para investigar el efecto del fármaco, se administra a un grupo de <strong>15 pacientes</strong> y se mide su presión arterial después del tratamiento.</p>
 <p>Queremos evaluar si la presión arterial media en pacientes tratados con el nuevo fármaco es <strong>significativamente menor</strong> que la presión arterial histórica de 165 mmHg:</p>
@@ -1577,13 +1564,13 @@ mean of x mean of y
 <p>Este es un <strong>contraste unilateral a la izquierda</strong>, ya que buscamos evidencia de que el tratamiento reduce la presión arterial.</p>
 <p>Cargamos los datos:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb22"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>enfermos <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">&quot;datos/enfermos.txt&quot;</span>)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>enfermos <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/enfermos.txt"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Calculamos la media y el desvío estándar:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb23"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>enfermos  <span class="sc">|&gt;</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>enfermos  <span class="sc">|&gt;</span> </span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(V1), </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">desvio =</span> <span class="fu">sd</span>(V1))</span></code></pre></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">desvio =</span> <span class="fu">sd</span>(V1))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   media desvio
@@ -1593,7 +1580,7 @@ mean of x mean of y
 </div>
 <p>Evaluamos normalidad:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb25"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(enfermos<span class="sc">$</span>V1)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(enfermos<span class="sc">$</span>V1)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -1605,10 +1592,10 @@ W = 0.94967, p-value = 0.5192</code></pre>
 <p>Este grupo de enfermos tratados con el nuevo fármaco tienen una media de aproximadamente 151.9619928, con un desvío de 21.9788237. Además, los datos cumplen con el supuesto de normalidad.</p>
 <p>Realizamos la prueba de hipótesis para evaluar si este valor es significativamente menor a 165:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb27"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> enfermos<span class="sc">$</span>V1, </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> enfermos<span class="sc">$</span>V1, </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"less"</span>, </span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mu =</span> <span class="dv">165</span>, </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1627,32 +1614,25 @@ mean of x
 <div class="hidden">
 <p><span class="citation" data-cites="rodríguez2018">Rodríguez y Mendivelso (<a href="#ref-rodríguez2018" role="doc-biblioref">2018</a>)</span></p>
 <p><span class="citation" data-cites="hernández-ávila2011">Hernández-Ávila (<a href="#ref-hernández-ávila2011" role="doc-biblioref">2011</a>)</span></p>
-<p><span class="citation" data-cites="rodríguez2003">Rodríguez et al. (<a href="#ref-rodríguez2003" role="doc-biblioref">2003</a>)</span></p>
-<p><span class="citation" data-cites="ríusdíaz2012">Ríus Díaz et al. (<a href="#ref-ríusdíaz2012" role="doc-biblioref">2012</a>)</span></p>
+<p><span class="citation" data-cites="rodríguez2003">Rodríguez et&nbsp;al. (<a href="#ref-rodríguez2003" role="doc-biblioref">2003</a>)</span></p>
+<p><span class="citation" data-cites="ríusdíaz2012">Ríus Díaz et&nbsp;al. (<a href="#ref-ríusdíaz2012" role="doc-biblioref">2012</a>)</span></p>
 <p><span class="citation" data-cites="daniel2002">Daniel (<a href="#ref-daniel2002" role="doc-biblioref">2002</a>)</span></p>
 <p><span class="citation" data-cites="norman1996"><em>Bioestadística</em> (<a href="#ref-norman1996" role="doc-biblioref">1996</a>)</span></p>
 <p><span class="citation" data-cites="alvarezcaceres2007">Álvarez Cáceres (<a href="#ref-alvarezcaceres2007" role="doc-biblioref">2007</a>)</span></p>
 <p><span class="citation" data-cites="triola2018">Triola (<a href="#ref-triola2018" role="doc-biblioref">2018</a>)</span></p>
 <p><span class="citation" data-cites="bioestad2006"><em>Bioestadística</em> (<a href="#ref-bioestad2006" role="doc-biblioref">2006</a>)</span></p>
-<p><span class="citation" data-cites="epidat4"><em>EPIDAT 4.2 - Consellería de Sanidade - Servizo Galego de Saúde</em> (<a href="#ref-epidat4" role="doc-biblioref">s. f.</a>)</span></p>
+<p><span class="citation" data-cites="epidat4"><em>EPIDAT 4.2 - Consellería de Sanidade - Servizo Galego de Saúde</em> (<a href="#ref-epidat4" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
 <p><span class="citation" data-cites="base">R Core Team (<a href="#ref-base" role="doc-biblioref">2026</a>)</span></p>
-<p><span class="citation" data-cites="manitz2021">Manitz et al. (<a href="#ref-manitz2021" role="doc-biblioref">2021</a>)</span></p>
+<p><span class="citation" data-cites="manitz2021">Manitz et&nbsp;al. (<a href="#ref-manitz2021" role="doc-biblioref">2021</a>)</span></p>
 <p><span class="citation" data-cites="dlookr">Ryu (<a href="#ref-dlookr" role="doc-biblioref">2025</a>)</span></p>
 <p><span class="citation" data-cites="champely2006">Champely (<a href="#ref-champely2006" role="doc-biblioref">2006</a>)</span></p>
 </div>
 </section>
 </section>
-<section id="referencias" class="level2" data-number="9.5">
-<h2 data-number="9.5"><span class="header-section-number">9.5</span> Referencias</h2>
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">Epidemiología: Nivel Avanzado</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">Epidemiología: Nivel Avanzado</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uZXh0"><span class="chapter-number">10</span>  <span class="chapter-title">Análisis de normalidad y homocedasticidad</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1wcmV2"><span class="chapter-number">8</span>  <span class="chapter-title">Estudios de corte transversal</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9pbmRleC5odG1sUHJlZmFjaW8=">Prefacio</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tMQ==">Unidad 1</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMS8wMV9pbnRyb19SLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjE8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+SW50cm9kdWNjacOzbi1hLVI8L3NwYW4+"><span class="chapter-number">1</span>  <span class="chapter-title">Introducción a R</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMS8wMl9pbnRyb19SU3R1ZGlvLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjI8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+SW50cm9kdWNjacOzbi1hLVJTdHVkaW88L3NwYW4+"><span class="chapter-number">2</span>  <span class="chapter-title">Introducción a RStudio</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMS8wM19pbnRyb190aWR5dmVyc2UuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Mzwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5JbnRyb2R1Y2Npw7NuLWEtYHRpZHl2ZXJzZWA8L3NwYW4+"><span class="chapter-number">3</span>  <span class="chapter-title">Introducción a <code>tidyverse</code></span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMS8wNF9pbnRyb19kcGx5ci5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz40PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPkdlc3Rpw7NuLWRlLWRhdG9zLWNvbi1gZHBseXJgPC9zcGFuPg=="><span class="chapter-number">4</span>  <span class="chapter-title">Gestión de datos con <code>dplyr</code></span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMS8wNV9pbnRyb19nZ3Bsb3QuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+NTwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5HcsOhZmljb3MtZXN0YWTDrXN0aWNvcy1jb24tYGdncGxvdDJgPC9zcGFuPg=="><span class="chapter-number">5</span>  <span class="chapter-title">Gráficos estadísticos con <code>ggplot2</code></span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMS8wNl9hbmFsaXNpc19leHBsb3JhdG9yaW8uaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Njwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5BbsOhbGlzaXMtZXhwbG9yYXRvcmlvLWRlLWRhdG9zPC9zcGFuPg=="><span class="chapter-number">6</span>  <span class="chapter-title">Análisis exploratorio de datos</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMS8wN19ob2phX2VzdGlsby5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz43PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPkhvamEtZGUtRXN0aWxvLWRlbC1sZW5ndWFqZS1SPC9zcGFuPg=="><span class="chapter-number">7</span>  <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tMg==">Unidad 2</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMi8wMl9lc3RfdHJhbnN2ZXJzYWxlcy5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz44PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPkVzdHVkaW9zLWRlLWNvcnRlLXRyYW5zdmVyc2FsPC9zcGFuPg=="><span class="chapter-number">8</span>  <span class="chapter-title">Estudios de corte transversal</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMi8wM19pbmZlcmVuY2lhLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjk8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+SW5mZXJlbmNpYS1lc3RhZMOtc3RpY2E8L3NwYW4+"><span class="chapter-number">9</span>  <span class="chapter-title">Inferencia estadística</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMi8wNF9ub3JtYWxpZGFkX2hldGVyb2NlZGFzdGljaWRhZC5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4xMDwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5BbsOhbGlzaXMtZGUtbm9ybWFsaWRhZC15LWhvbW9jZWRhc3RpY2lkYWQ8L3NwYW4+"><span class="chapter-number">10</span>  <span class="chapter-title">Análisis de normalidad y homocedasticidad</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMi8wNV9tdWVzdHJlby5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4xMTwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5TZWxlY2Npw7NuLWRlLWxhLW11ZXN0cmE8L3NwYW4+"><span class="chapter-number">11</span>  <span class="chapter-title">Selección de la muestra</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMi8wNl9mdW5fY29uZGljaW9uYWxlcy5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4xMjwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5GdW5jaW9uZXMtY29uZGljaW9uYWxlcy1lbi1SPC9zcGFuPg=="><span class="chapter-number">12</span>  <span class="chapter-title">Funciones condicionales en R</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91bmlkYWRfMi8wN19JQ19jb21wbGVqb3MuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+MTM8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+SW50ZXJ2YWxvcy1kZS1jb25maWFuemEtZW4tbXVlc3RyYXMtY29tcGxlamFzPC9zcGFuPg=="><span class="chapter-number">13</span>  <span class="chapter-title">Intervalos de confianza en muestras complejas</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLVVuaWRhZC0y">Unidad 2</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLTxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+OTwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5JbmZlcmVuY2lhLWVzdGFkw61zdGljYTwvc3Bhbj4="><span class="chapter-number">9</span>  <span class="chapter-title">Inferencia estadística</span></span></p>
-<div class="hidden quarto-markdown-envelope-contents" data-render-id="Zm9vdGVyLWNlbnRlcg==">
-<p>Este material fue creado en <a href="https://quarto.org/">Quarto</a> y forma parte del curso de Epidemiología - Nivel Avanzado © 2026 Instituto Nacional de Epidemiología “Dr. Juan H. Jara” (ANLIS)</p>
-</div>
-</div>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ=="><span class="chapter-number">9</span>  <span class="chapter-title">Inferencia estadística</span> – Epidemiología: Nivel Avanzado</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU="><span class="chapter-number">9</span>  <span class="chapter-title">Inferencia estadística</span> – Epidemiología: Nivel Avanzado</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl"><span class="chapter-number">9</span>  <span class="chapter-title">Inferencia estadística</span> – Epidemiología: Nivel Avanzado</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Epidemiología: Nivel Avanzado</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw=="></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj"></span></p>
-</div>
+<section id="referencias" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="referencias"><span class="header-section-number">10.5</span> Referencias</h2>
+
+
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-alvarezcaceres2007" class="csl-entry" role="listitem">
 Álvarez Cáceres, Rafael. 2007. <em>Estadística aplicada a las ciencias de la salud</em>. Ediciones Díaz de Santos.
@@ -1670,13 +1650,13 @@ Champely, Stephane. 2006. <em>pwr: Basic Functions for Power Analysis</em>. The 
 Daniel, Wayne W. 2002. <em>Bioestadística: Base para el análisis de las ciencias de la salud</em>. 4.ª ed. Limusa Wiley.
 </div>
 <div id="ref-epidat4" class="csl-entry" role="listitem">
-<em>EPIDAT 4.2 - Consellería de Sanidade - Servizo Galego de Saúde</em>. s. f. <a href="https://www.sergas.es/Saude-publica/EPIDAT-4-2">https://www.sergas.es/Saude-publica/EPIDAT-4-2</a>.
+<em>EPIDAT 4.2 - Consellería de Sanidade - Servizo Galego de Saúde</em>. s.&nbsp;f. <a href="https://www.sergas.es/Saude-publica/EPIDAT-4-2">https://www.sergas.es/Saude-publica/EPIDAT-4-2</a>.
 </div>
 <div id="ref-hernández-ávila2011" class="csl-entry" role="listitem">
 Hernández-Ávila, Mauricio. 2011. <em>Epidemiología: diseño y análisis de estudios</em>. Editorial Médica Panamericana.
 </div>
 <div id="ref-manitz2021" class="csl-entry" role="listitem">
-Manitz, Juliane, Mark Hempelmann, Goeran Kauermann, et al. 2021. <em>samplingbook: Survey Sampling Procedures</em>. <a href="https://cran.r-project.org/web/packages/samplingbook/index.html">https://cran.r-project.org/web/packages/samplingbook/index.html</a>.
+Manitz, Juliane, Mark Hempelmann, Goeran Kauermann, et&nbsp;al. 2021. <em>samplingbook: Survey Sampling Procedures</em>. <a href="https://cran.r-project.org/web/packages/samplingbook/index.html">https://cran.r-project.org/web/packages/samplingbook/index.html</a>.
 </div>
 <div id="ref-base" class="csl-entry" role="listitem">
 R Core Team. 2026. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
@@ -1700,7 +1680,7 @@ Triola, Mario F. 2018. <em>ESTADÍSTICA Decimosegunda Edicion</em>. Pearson Educ
 </section>
 
 </main> <!-- /main -->
-<script id = "quarto-html-after-body" type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2115,14 +2095,11 @@ Triola, Mario F. 2018. <em>ESTADÍSTICA Decimosegunda Edicion</em>. Pearson Educ
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a  href="/unidad_2/02_est_transversales.html" class="pagination-link" aria-label="Estudios de corte transversal">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class='chapter-number'>8</span>  <span class='chapter-title'>Estudios de corte transversal</span></span>
+      <a href="../unidad_2/02_est_transversales.html" class="pagination-link" aria-label="Estudios de corte transversal">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Estudios de corte transversal</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a  href="/unidad_2/04_normalidad_heterocedasticidad.html" class="pagination-link" aria-label="Análisis de normalidad y homocedasticidad">
-        <span class="nav-page-text"><span class='chapter-number'>10</span>  <span class='chapter-title'>Análisis de normalidad y homocedasticidad</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -2132,14 +2109,15 @@ Triola, Mario F. 2018. <em>ESTADÍSTICA Decimosegunda Edicion</em>. Pearson Educ
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-      <div class='footer-contents'>Este material fue creado en <a href="https://quarto.org/">Quarto</a> y forma parte del curso de Epidemiología - Nivel Avanzado © 2026 Instituto Nacional de Epidemiología "Dr. Juan H. Jara" (ANLIS)</div>  
-    </div>
+<p>Este material fue creado en <a href="https://quarto.org/">Quarto</a> y forma parte del curso de Epidemiología - Nivel Avanzado © 2026 Instituto Nacional de Epidemiología “Dr.&nbsp;Juan H. Jara” (ANLIS)</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
 
-</body>
 
-</html>
+
+
+</body></html>
