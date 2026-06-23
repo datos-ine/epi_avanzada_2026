@@ -612,8 +612,7 @@ tibble(
 ) |> 
   
   # Tabla
-  kbl_format() |> 
-  column_spec(1, background = "#2f2e4e", color = "white", bold = TRUE)
+  kbl_format() 
 ```
 
 Para quienes están familiarizados con el ámbito del diagnóstico, existe una clara analogía entre los falsos positivos y falsos negativos en las pruebas diagnósticas y, respectivamente, el error Tipo I y el error Tipo II en los contrastes de hipótesis.

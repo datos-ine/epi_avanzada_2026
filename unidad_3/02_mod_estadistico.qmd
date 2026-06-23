@@ -7,6 +7,7 @@ author:
 
 ```{r}
 #| echo: false
+#| id: setup
 source("files/setup.R")
 ```
 
@@ -31,24 +32,23 @@ Un modelo de regresión describe la relación entre la variable dependiente ($Y$
 Matemáticamente, esto se representa como:
 
 $$
-Y = \underbrace{\beta_0 + \beta_1 X_1}_{Componente \: sistemático} + \underbrace{\epsilon}_{Componente \: aleatorio}
-$$
+Y = \underbrace{\beta_0 + \beta_1 X_1}_{Componente \: sistemático} + \underbrace{\epsilon}_{Componente \: aleatorio}$$
 
 La función puede ser lineal o no lineal según la naturaleza y distribución de la variable dependiente. El componente aleatorio es esa parte de la variación de $Y$ que no puede ser totalmente explicada por la variación de la/s variable/s independiente/s. En algunos casos el error tendrá valor positivo y en otros tendrá valor negativo. El promedio del error es igual a 0.
 
 Una vez establecida esta función estaremos en condiciones de:
 
--   Comprender cómo se comporta la variable respuesta $Y$ en función de la/s variable/s independientes ($X$).
+- Comprender cómo se comporta la variable respuesta $Y$ en función de la/s variable/s independientes ($X$).
 
--   Estimar o predecir el valor de $Y$ para determinados valores de $X$.
+- Estimar o predecir el valor de $Y$ para determinados valores de $X$.
 
--   Calcular intervalos de confianza para estas estimaciones o predicciones.
+- Calcular intervalos de confianza para estas estimaciones o predicciones.
 
 Los modelos probabilísticos pueden clasificarse en:
 
--   **Paramétricos**: Asumen que los datos provienen de una distribución específica con un conjunto fijo de parámetros (por ejemplo, media, varianza).
+- **Paramétricos**: Asumen que los datos provienen de una distribución específica con un conjunto fijo de parámetros (por ejemplo, media, varianza).
 
--   **No paramétricos**: Se utilizan cuando la distribución subyacente de los datos es desconocida o no sigue un patrón estándar.
+- **No paramétricos**: Se utilizan cuando la distribución subyacente de los datos es desconocida o no sigue un patrón estándar.
 
 ## Modelo lineal general
 
@@ -60,21 +60,21 @@ $$
 
 Donde:
 
--   $Y_i$: Vector de valores de la variable dependiente (también llamada variable respuesta o resultado), que representa el efecto observado de un proceso o interacción causal.
+- $Y_i$: Vector de valores de la variable dependiente (también llamada variable respuesta o resultado), que representa el efecto observado de un proceso o interacción causal.
 
--   $X_i$: Matriz de diseño que contiene las variables independientes (variables explicativas o predictores), las cuales representan la influencia medida sobre la variable dependiente.
+- $X_i$: Matriz de diseño que contiene las variables independientes (variables explicativas o predictores), las cuales representan la influencia medida sobre la variable dependiente.
 
--   $\beta$: Vector de coeficientes (parámetros), que cuantifican la magnitud y dirección de la influencia de cada predictor.
+- $\beta$: Vector de coeficientes (parámetros), que cuantifican la magnitud y dirección de la influencia de cada predictor.
 
--   $\epsilon_i$: Error aleatorio, que refleja la variabilidad no explicada por las variables independientes. Este componente puede deberse a diferencias individuales, errores de medición o calibración, y puede controlarse aumentando el tamaño muestral.
+- $\epsilon_i$: Error aleatorio, que refleja la variabilidad no explicada por las variables independientes. Este componente puede deberse a diferencias individuales, errores de medición o calibración, y puede controlarse aumentando el tamaño muestral.
 
 #### Casos específicos del MLG
 
--   [**Regresión lineal simple**](04_reg_lineal.qmd): Examina la relación entre $Y$ y una variable independiente numérica.
+- [**Regresión lineal simple**](04_reg_lineal.qmd): Examina la relación entre $Y$ y una variable independiente numérica.
 
--   [**Análisis de la varianza (ANOVA)**](05_anova.qmd): Evalúa las diferencias en la media de $Y$ respecto a los niveles de una variable categórica.
+- [**Análisis de la varianza (ANOVA)**](05_anova.qmd): Evalúa las diferencias en la media de $Y$ respecto a los niveles de una variable categórica.
 
--   [**Regresión lineal múltiple**](07_reg_lineal_multiple.qmd): Explora la relación entre $Y$ y dos o más variables independientes, que pueden ser numéricas y/o categóricas.
+- [**Regresión lineal múltiple**](07_reg_lineal_multiple.qmd): Explora la relación entre $Y$ y dos o más variables independientes, que pueden ser numéricas y/o categóricas.
 
 ::: {.callout-warning appearance="simple"}
 La principal fuente del "error" se debe a la variabilidad entre individuos propia de la naturaleza (error aleatorio). Puede haber otras fuentes de error, incluso no detectadas y que deben ser tenidas en cuenta, como pueden ser errores en la medición, calibración o incluso por una mala elección del método.
@@ -102,6 +102,7 @@ La estructura sintáctica es:
 
 ```{r}
 #| eval: false
+#| id: lm-1
 lm(variable_dependiente ~ variable_independiente)
 ```
 
@@ -109,6 +110,7 @@ La función muestra resultados básicos, tales como la relación entre las varia
 
 ```{r}
 #| eval: false
+#| id: lm-2
 modelo <- lm(variable_dependiente ~ variable_independiente, data = datos)
 ```
 
@@ -116,29 +118,31 @@ Todos los ajustes de modelos lineales que produce la función `lm()` tienen la f
 
 ```{r}
 #| eval: false
+#| id: lm-3
 summary(modelo)
 ```
 
 La salida de esta función incluye:
 
--   `Call`**:** Fórmula del modelo.
+- `Call`**:** Fórmula del modelo.
 
--   `Residuals`**:** Distribución de los residuos (mínimo, máximo, mediana y percentiles 25-75).
+- `Residuals`**:** Distribución de los residuos (mínimo, máximo, mediana y percentiles 25-75).
 
--   `Coefficients`**:** Incluye el intercepto y la pendiente, junto con errores estándar, valores *t* y *p*-valores asociados.
+- `Coefficients`**:** Incluye el intercepto y la pendiente, junto con errores estándar, valores *t* y *p*-valores asociados.
 
--   `Residual standard error`**:** Error estándar de los residuos con sus grados de libertad.
+- `Residual standard error`**:** Error estándar de los residuos con sus grados de libertad.
 
--   `Multiple R-squared`**:** Coeficiente de determinación $R^2$.
+- `Multiple R-squared`**:** Coeficiente de determinación $R^2$.
 
--   `Adjusted R-squared`**:** Coeficiente $R^2$ ajustado.
+- `Adjusted R-squared`**:** Coeficiente $R^2$ ajustado.
 
--   `F-statistic`**:** Estadístico $F$ y su *p*-valor asociado.
+- `F-statistic`**:** Estadístico $F$ y su *p*-valor asociado.
 
 Además, la salida de `summary(modelo)` utiliza asteriscos (`*`) para indicar la significación de los coeficientes. Debajo de la tabla de coeficientes se encuentra la referencia del significado de los códigos, que van desde el 0 hasta el 1 como posible resultado del valor de probabilidad, y donde:
 
 ```{r}
 #| echo: false
+#| id: lm-4
 # Datos
 tibble(
   "Código" = c("***", "**", "*", ".", ""),
@@ -152,66 +156,77 @@ tibble(
 
 Los elementos de la lista también pueden llamarse de forma independiente, siendo los más importantes:
 
--   `coefficients`**:** Vector con los coeficientes del modelo, pueden visualizarse usando alguno de los siguientes comandos:
+- `coefficients`**:** Vector con los coeficientes del modelo, pueden visualizarse usando alguno de los siguientes comandos:
 
-    ```{r}
-    #| eval: false
-    modelo$coefficients
+  ```{r}
+  #| eval: false
+  #| id: lm-5
+  modelo$coefficients
 
-    coef(modelo)
-    ```
+  coef(modelo)
+  ```
 
--   `residuals`**:** Los residuos o residuales para cada valor que surgen de la diferencia entre los valores predictivos calculados por el modelo y los valores reales. Se visualizan desde el objeto resultado de la regresión:
+- `residuals`**:** Los residuos o residuales para cada valor que surgen de la diferencia entre los valores predictivos calculados por el modelo y los valores reales. Se visualizan desde el objeto resultado de la regresión:
 
-    ```{r}
-    #| eval: false
-    modelo$residuals
-    ```
+  ```{r}
+  #| eval: false
+  #| id: lm-6
+  modelo$residuals
+  ```
 
-    O bien usando el comando:
+  O bien usando el comando:
 
-    ```{r}
-    #| eval: false
-    resid(modelo)
-    ```
+  ```{r}
+  #| eval: false
+  #| id: lm-7
+  resid(modelo)
+  ```
 
--   `fitted.values`**:** Los valores calculados por el modelo en base a los datos existentes en la variable independiente. Los encontramos en:
+- `fitted.values`**:** Los valores calculados por el modelo en base a los datos existentes en la variable independiente. Los encontramos en:
 
-    ```{r}
-    #| eval: false
-    modelo$fitted.values
-    ```
+  ```{r}
+  #| eval: false
+  #| id: lm-8
+  modelo$fitted.values
+  ```
 
-    O usando la función:
+  O usando la función:
 
-    ```{r}
-    #| eval: false
-    fitted(modelo)
-    ```
+  ```{r}
+  #| eval: false
+  #| id: lm-9
+  fitted(modelo)
+  ```
 
--   Otra función interesante para el análisis del objeto de regresión es `confint()` que calcula los intervalos de confianza de los coeficientes o parámetros del modelo de regresión. Para este modelo la línea de ejecución de la función es:
+- Otra función interesante para el análisis del objeto de regresión es `confint()` que calcula los intervalos de confianza de los coeficientes o parámetros del modelo de regresión. Para este modelo la línea de ejecución de la función es:
 
-    ```{r}
-    #| eval: false
-    confint(modelo)
-    ```
+  ```{r}
+  #| eval: false
+  #| id: lm-10
+  confint(modelo)
+  ```
 
-    Si agregamos la función `round()` podemos redondear los valores con la cantidad de decimales que necesitemos.
+  Si agregamos la función `round()` podemos redondear los valores con la cantidad de decimales que necesitemos.
 
-    ```{r}
-    #| eval: false
-    round(confint(mode lo2)  
-    ```
+  ```{r}
+  #| eval: false
+  #| id: lm-11
 
-    En forma predeterminada los IC se calculan al 95%, pero mediante el argumento `level` podemos modificarlo, por ejemplo al 99%:
+  round(confint(mode lo2) ) 
+  ```
 
-    ```{r}
-    #| eval: false
-    confint(modelo, level = 0.99)
-    ```
+  En forma predeterminada los IC se calculan al 95%, pero mediante el argumento `level` podemos modificarlo, por ejemplo al 99%:
+
+  ```{r}
+  #| eval: false
+  #| id: lm-12
+  confint(modelo, level = 0.99)
+  ```
 
 ::: hidden
-@agresti2015
-
 @triola2018
+
+@agresti2015
 :::
+
+## Referencias

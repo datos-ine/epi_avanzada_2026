@@ -4,6 +4,7 @@ title: "Regresión lineal simple"
 
 ```{r}
 #| echo: false
+#| id: setup
 source("files/setup.R")
 
 # Paquetes extra
@@ -24,7 +25,9 @@ Hemos ajustado un modelo cuyos parámetros son:
 
 $$
 \hat{y} = b_0 + b_1X_1
-$$ donde $b_1$ nos está indicando cuánto se modifica $\hat{y}$ por cada unidad de aumento de $X_1$.
+$$
+
+donde $b_1$ nos está indicando cuánto se modifica $\hat{y}$ por cada unidad de aumento de $X_1$.
 
 $$
 \hat{y} = 2468,9 + 100,7 \: edad \: (en \: semanas) 
@@ -38,45 +41,41 @@ Ahora vamos a concentrarnos en la relación entre la varianza de la muestra, a t
 
 ```{r}
 #| echo: false
-
+#| id: rls-1
 # Semilla para reproducibilidad
 set.seed(123)
 
 # genera datos
-datos1 <- as_tibble(mvrnorm(n = 100, mu = c(0, 0), 
-                          Sigma = matrix(c(1000^2, 
-                                            1000^2 * .99, 
-                                            1000^2 * .99, 
-                                            1000^2), nrow = 2))) |> 
-  rename(x = V1, 
-         y = V2)
+datos1 <- as_tibble(mvrnorm(
+  n = 100,
+  mu = c(0, 0),
+  Sigma = matrix(c(1000^2, 1000^2 * .99, 1000^2 * .99, 1000^2), nrow = 2)
+)) |>
+  rename(x = V1, y = V2)
 
-datos2 <- as_tibble(mvrnorm(n = 100, mu = c(0, 0), 
-                          Sigma = matrix(c(1300^2, 
-                                            1300^2 * .89, 
-                                            1300^2 * .89, 
-                                            1300^2), nrow = 2))) |> 
-  rename(x = V1, 
-         y = V2)
+datos2 <- as_tibble(mvrnorm(
+  n = 100,
+  mu = c(0, 0),
+  Sigma = matrix(c(1300^2, 1300^2 * .89, 1300^2 * .89, 1300^2), nrow = 2)
+)) |>
+  rename(x = V1, y = V2)
 
-datos3 <- as_tibble(mvrnorm(n = 100, mu = c(0, 0), 
-                          Sigma = matrix(c(1500^2, 
-                                            1500^2 * .59, 
-                                            1500^2 * .59, 
-                                            1500^2), nrow = 2))) |> 
-  rename(x = V1, 
-         y = V2)
+datos3 <- as_tibble(mvrnorm(
+  n = 100,
+  mu = c(0, 0),
+  Sigma = matrix(c(1500^2, 1500^2 * .59, 1500^2 * .59, 1500^2), nrow = 2)
+)) |>
+  rename(x = V1, y = V2)
 
-datos4 <- as_tibble(mvrnorm(n = 100, mu = c(0, 0), 
-                          Sigma = matrix(c(1700^2, 
-                                            1700^2 * .28, 
-                                            1700^2 * .28, 
-                                            1700^2), nrow = 2))) |> 
-  rename(x = V1, 
-         y = V2)
+datos4 <- as_tibble(mvrnorm(
+  n = 100,
+  mu = c(0, 0),
+  Sigma = matrix(c(1700^2, 1700^2 * .28, 1700^2 * .28, 1700^2), nrow = 2)
+)) |>
+  rename(x = V1, y = V2)
 
 # plots
-g1 <- datos1 |> 
+g1 <- datos1 |>
   ggplot(mapping = aes(x = x, y = y)) +
   geom_point(color = pal[3], size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F, color = pal[1]) +
@@ -84,7 +83,7 @@ g1 <- datos1 |>
   theme_minimal() +
   theme(axis.text = element_blank())
 
-g2 <- datos2 |> 
+g2 <- datos2 |>
   ggplot(mapping = aes(x = x, y = y)) +
   geom_point(color = pal[3], size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F, color = pal[1]) +
@@ -92,25 +91,24 @@ g2 <- datos2 |>
   theme_minimal() +
   theme(axis.text = element_blank())
 
-g3 <- datos3 |> 
+g3 <- datos3 |>
   ggplot(mapping = aes(x = x, y = y)) +
-   geom_point(color = pal[3], size = 3, alpha = .8) +
+  geom_point(color = pal[3], size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F, color = pal[1]) +
   labs(caption = "ds = 1500, r = 0,59") +
   theme_minimal() +
   theme(axis.text = element_blank())
 
-g4 <- datos4 |> 
+g4 <- datos4 |>
   ggplot(mapping = aes(x = x, y = y)) +
-   geom_point(color = pal[3], size = 3, alpha = .8) +
+  geom_point(color = pal[3], size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F, color = pal[1]) +
   labs(caption = "ds = 1700, r = 0,28") +
   theme_minimal() +
   theme(axis.text = element_blank())
 
 # Une gráficos
-g1 + g2 + g3 + g4 +
-  plot_annotation(tag_levels = "A")
+g1 + g2 + g3 + g4 + plot_annotation(tag_levels = "A")
 
 # Limpia environment
 rm(list = setdiff(ls(), "pal"))
@@ -118,9 +116,9 @@ rm(list = setdiff(ls(), "pal"))
 
 Podemos observar que cuanto mayor es la varianza en una muestra:
 
--   Mayor es la variabilidad de $y$ en torno a la recta de regresión
+- Mayor es la variabilidad de $y$ en torno a la recta de regresión
 
--   Mayor es la imprecisión asociada a la estimativa de los parámetros de regresión
+- Mayor es la imprecisión asociada a la estimativa de los parámetros de regresión
 
 ## Presupuestos del modelo
 
@@ -147,6 +145,7 @@ Gráficamente:
 
 ```{r}
 #| echo: false
+#| id: rls-2
 # Create a sample dataset with 7 points
 set.seed(123)
 datos <- tibble(
@@ -165,11 +164,11 @@ datos <- datos |>
 get_perpendicular_points <- function(x, y, coef) {
   slope <- coef[2]
   intercept <- coef[1]
-  
+
   # Calculate the projection of (x, y) onto the regression line
   x_proj <- (x + slope * (y - intercept)) / (1 + slope^2)
   y_proj <- (slope * x + (slope^2 * y + intercept)) / (1 + slope^2)
-  
+
   tibble(x_proj = x_proj, y_proj = y_proj)
 }
 
@@ -184,54 +183,64 @@ datos <- datos |>
   left_join(perpendicular_points, by = c("x", "y", "fitted"))
 
 # Plot
-datos |> 
+datos |>
   ggplot(mapping = aes(x = x, y = y)) +
   # add geoms
-  geom_segment(mapping = aes(xend = x_proj, yend = y_proj), 
-               linetype = "dashed", alpha = .5) +
+  geom_segment(
+    mapping = aes(xend = x_proj, yend = y_proj),
+    linetype = "dashed",
+    alpha = .5
+  ) +
   geom_point(color = pal[7], size = 4, alpha = .7) +
-  geom_abline(intercept = coef(model)[1], 
-              slope = coef(model)[2], 
-              color = pal[2]) +
-  
+  geom_abline(
+    intercept = coef(model)[1],
+    slope = coef(model)[2],
+    color = pal[2]
+  ) +
+
   # axis
   scale_x_continuous(limits = c(0, max(datos$x) + 1), n.breaks = 7) +
-  scale_y_continuous(limits = c(0, max(datos$y) + 1),
-                     labels = function(y) y * 1000) +
-  
+  scale_y_continuous(limits = c(0, max(datos$y) + 1), labels = function(y) {
+    y * 1000
+  }) +
+
   # add text labels (usar parse = TRUE)
-  annotate(geom = "text", x = 4, y = 2.5,
-           label = "hat(Y) == b[0] + b[1] * x",
-           parse = TRUE) +
-  annotate(geom = "text", x = 7.5, y = 4.1,
-           label = "y - hat(y) == e",
-           parse = TRUE) +
-  annotate(geom = "text", x = 7, y = 3,
-           label = "y[7]",
-           parse = TRUE) +
-  annotate(geom = "text", x = 7, y = 5,
-           label = "hat(y)[7]",
-           parse = TRUE) +
-  
+  annotate(
+    geom = "text",
+    x = 4,
+    y = 2.5,
+    label = "hat(Y) == b[0] + b[1] * x",
+    parse = TRUE
+  ) +
+  annotate(
+    geom = "text",
+    x = 7.5,
+    y = 4.1,
+    label = "y - hat(y) == e",
+    parse = TRUE
+  ) +
+  annotate(geom = "text", x = 7, y = 3, label = "y[7]", parse = TRUE) +
+  annotate(geom = "text", x = 7, y = 5, label = "hat(y)[7]", parse = TRUE) +
+
   # theme
   theme_minimal()
 ```
 
 donde:
 
--   $\hat{y}$ es la ecuación de la "mejor" recta que puede trazarse entre estos puntos
+- $\hat{y}$ es la ecuación de la "mejor" recta que puede trazarse entre estos puntos
 
--   $b_0$ es la ordenada al origen o constante, también llamada alfa. Es el punto donde la recta de regresión corta al eje de ordenadas.
+- $b_0$ es la ordenada al origen o constante, también llamada alfa. Es el punto donde la recta de regresión corta al eje de ordenadas.
 
--   $b_1$ es la pendiente de la recta (más adelante veremos cuál es la interpretación de estos coeficientes).
+- $b_1$ es la pendiente de la recta (más adelante veremos cuál es la interpretación de estos coeficientes).
 
 Consideremos qué pasa en el caso de la niña 7. Veamos las distancias para este punto.
 
--   $y_7$ es el valor "real" del peso de la niña 7.
+- $y_7$ es el valor "real" del peso de la niña 7.
 
--   $\hat{y}_7$ es el valor estimado de $y$ que obtendremos a través de la regresión.
+- $\hat{y}_7$ es el valor estimado de $y$ que obtendremos a través de la regresión.
 
--   $y – \hat{y} = e$ (residuo o error residual) es el desvío de $y$ del valor ajustado $\hat{y}$ en la ecuación de la regresión estimada.
+- $y – \hat{y} = e$ (residuo o error residual) es el desvío de $y$ del valor ajustado $\hat{y}$ en la ecuación de la regresión estimada.
 
 Para poder operar con el valor de estos errores (ya que algunos tendrán valor positivo y otros valor negativo) se los eleva al cuadrado. Esta técnica se denomina **"método de los mínimos cuadrados"** y consiste en adoptar como estimativas de los parámetros de la regresión (o sea los coeficientes $b_0$ y $b_1$ y por ende la recta de regresión) los valores que minimizan la suma de los cuadrados de los residuos o error (**SCE**) para todas las observaciones de $y$. Lo podemos expresar así:
 
@@ -293,9 +302,7 @@ $$
 \sum (y_i-\bar{y})^2 = \sum (\hat{y}-\bar{y})^2 + \sum (y_i -\hat{y}_i)^2 
 $$
 
-$$
-\frac{Suma \; de \; cuadrados}{totales \; (SCT)} \; \frac{Suma \; de \; cuadrados}{de \; la \; regresion \; (SCR)} \; \frac{Suma \; de \; cuadrados}{residuales \; (SCE)}
-$$
+$$\frac{Suma \; de \; cuadrados}{totales \; (SCT)} \; \frac{Suma \; de \; cuadrados}{de \; la \; regresion \; (SCR)} \; \frac{Suma \; de \; cuadrados}{residuales \; (SCE)}$$
 
 Cuanto mayor sea la variabilidad que logre explicar la regresión en relación a los residuos, tanto mejor será el modelo. Este es el fundamento para el cálculo del coeficiente de determinación ($R^2$)
 
@@ -305,9 +312,9 @@ $$
 
 $R^2$ expresa la proporción de la variación total que logra explicar el modelo de regresión. Su valor oscila entre 0 y 1, es una cantidad adimensional.
 
--   Cuando el ajuste es bueno $R^2$ será cercano a 1, cuando el ajuste es malo $R^2$ será cercano a 0.
+- Cuando el ajuste es bueno $R^2$ será cercano a 1, cuando el ajuste es malo $R^2$ será cercano a 0.
 
--   En la Regresión lineal simple el coeficiente de determinación ($R^2$) es igual al $r$ de Pearson elevado al cuadrado.
+- En la Regresión lineal simple el coeficiente de determinación ($R^2$) es igual al $r$ de Pearson elevado al cuadrado.
 
 Para visualizar simulaciones al respecto pueden visitar el siguiente enlace:
 
@@ -320,24 +327,26 @@ Para llevar a cabo el análisis en R y presentar las funciones y paquetes que no
 Comenzaremos por cargar los paquetes necesarios para el análisis:
 
 ```{r}
+#| id: ej-1
 # Tablas de coeficientes
 library(gtsummary)
 
 # Chequeo de supuestos
 library(easystats)
-library(lmtest) 
+library(lmtest)
 library(nortest)
 
 # Paletas aptas daltonismo
 library(scico)
 
 # Manejo de datos
-library(tidyverse) 
+library(tidyverse)
 ```
 
 Cargamos los datos y revisamos la estructura de la tabla:
 
 ```{r}
+#| id: ej-2
 # Carga datos
 datos <- read_csv2("datos/cancer_USA.txt")
 
@@ -356,13 +365,14 @@ La **independencia** (o ausencia de autocorrelación) puede determinarse, en gra
 La **linealidad** se refiere a la relación entre las variables `tasa_mortalidad` y `mediana_ingresos`. Para comprobarla, se puede utilizar un diagrama de dispersión:
 
 ```{r}
-datos |> 
-  
+#| id: ej-3
+datos |>
+
   ggplot(mapping = aes(x = mediana_ingresos, y = tasa_mortalidad)) +
-  
+
   # gráfico de dispersión
   geom_point(color = "#502345") +
-  
+
   # tema
   theme_minimal()
 ```
@@ -370,15 +380,16 @@ datos |>
 Observamos en el gráfico una clara relación inversa entre las variables, dado que los condados donde las personas tienen mayores ingresos la mortalidad por cáncer es menor y viceversa. Podemos dibujar la recta de regresión lineal sobre el diagrama de dispersión adicionando una capa más al gráfico mediante `geom_smooth()` e indicando `method = "lm"` como método. Además de la recta se puede ver el intervalo de confianza (zona gris alrededor de ella).
 
 ```{r}
-datos |>  
+#| id: ej-4
+datos |>
   ggplot(mapping = aes(x = mediana_ingresos, y = tasa_mortalidad)) +
-  
- # diagrama de dispersión
-   geom_point(color = "#502345") +
-  
+
+  # diagrama de dispersión
+  geom_point(color = "#502345") +
+
   # añade línea de regresión
-  geom_smooth(method = "lm", color = "#1B0D33") + 
-  
+  geom_smooth(method = "lm", color = "#1B0D33") +
+
   # cambia color de fondo
   theme_minimal()
 ```
@@ -386,13 +397,14 @@ datos |>
 Usaremos la función `cor()` para estimar la correlación entre las dos variables:
 
 ```{r}
-cor(datos$mediana_ingresos, datos$tasa_mortalidad,
-    method = "pearson")
+#| id: ej-5
+cor(datos$mediana_ingresos, datos$tasa_mortalidad, method = "pearson")
 ```
 
 El valor es negativo, lo que confirma lo observado en la nube de puntos anterior. Para poder descartar que esta **correlación negativa** se debe al azar, debemos calcular su significancia:
 
 ```{r}
+#| id: ej-6
 cor.test(datos$mediana_ingresos, datos$tasa_mortalidad)
 ```
 
@@ -403,24 +415,24 @@ La **homocedasticidad** implica que la varianza de los residuos se mantiene apro
 Finalmente, la **normalidad** de los residuos se puede evaluar mediante el **test de Lilliefors**, disponible en el paquete `nortest` [@nortest]:
 
 ```{r}
+#| id: ej-7
 lillie.test(datos$tasa_mortalidad)
 ```
 
 También se puede verificar gráficamente con un **QQ plot**:
 
 ```{r}
-datos |> 
+#| id: ej-8
+datos |>
   ggplot(mapping = aes(sample = tasa_mortalidad)) +
-  
+
   # añade qqplot
   stat_qq() +
   stat_qq_line() +
-  
+
   # cambia nombres de los ejes X e Y
-  labs(title = "QQplot", 
-       x = "Theoretical Quantiles", 
-       y = "Sample Quantiles") +
-  
+  labs(title = "QQplot", x = "Theoretical Quantiles", y = "Sample Quantiles") +
+
   # modifico color de fondo
   theme_minimal()
 ```
@@ -432,6 +444,7 @@ Tanto el test de hipótesis como los gráficos de cuantiles nos informan que las
 Como vimos [**anteriormente**](02_mod_estadistico.qmd), la función `lm()` del paquete `stats` nos permite ajustar modelos de regresión lineal:
 
 ```{r}
+#| id: ej-9
 lm(tasa_mortalidad ~ mediana_ingresos, data = datos)
 ```
 
@@ -439,23 +452,21 @@ En este caso, `Intercept` representa el valor de `mediana_ingresos` cuando `tasa
 
 Estos resultados obtenidos y aplicados en la fórmula del modelo simple quedarían así:
 
-$$
-\operatorname{tasa mortalidad} = \alpha + \beta_{1}(\operatorname{mediana ingresos}) + \epsilon
-$$
+$$\operatorname{tasa mortalidad} = \alpha + \beta_{1}(\operatorname{mediana ingresos}) + \epsilon$$
 
-$$
-\operatorname{tasa mortalidad} = 201.4128 + -0.0005*\operatorname{mediana ingresos} + \epsilon
-$$
+$$\operatorname{tasa mortalidad} = 201.4128 + -0.0005*\operatorname{mediana ingresos} + \epsilon$$
 
 Guardamos el modelo como un objeto:
 
 ```{r}
+#| id: ej-10
 modelo <- lm(tasa_mortalidad ~ mediana_ingresos, data = datos)
 ```
 
 Podemos acceder a la salida del modelo mediante la función `summary()`:
 
 ```{r}
+#| id: ej-11
 summary(modelo)
 ```
 
@@ -464,6 +475,7 @@ La asociación entre la tasa de mortalidad por cáncer y la mediana de ingresos 
 Todos los ajustes de modelos lineales que produce la función `lm()` tienen la forma de una lista.La manera de conocer su clase es `class()` y su estructura mediante `str()`
 
 ```{r}
+#| id: ej-12
 class(modelo)
 str(modelo)
 ```
@@ -471,9 +483,8 @@ str(modelo)
 La función `tbl_regression()` del paquete `gtsummary` [@gtsummary], nos permite generar una tabla con los coeficientes del modelo. El nivel de confianza puede ajustarse con el argumento `conf.level` y el argumento `intercept` muestra u oculta el intercepto:
 
 ```{r}
-tbl_regression(modelo, 
-               intercept = T, 
-               conf.level = .95)
+#| id: ej-13
+tbl_regression(modelo, intercept = T, conf.level = .95)
 ```
 
 ### Residuales
@@ -488,6 +499,7 @@ Los residuales se almacenan en el objeto de regresión y pueden visualizarse med
 
 ```{r}
 #| eval: false
+#| id: ej-14
 resid(modelo)
 ```
 
@@ -496,36 +508,42 @@ Cuanto mayor sea la **sumatoria de los cuadrados de los residuales**, menor ser�
 Un análisis gráfico resulta muy útil para evaluar los supuestos del modelo. Aplicando la función `plot()` al objeto de regresión:
 
 ```{r}
-par(mfrow = c(2,2))
+#| id: ej-15
+par(mfrow = c(2, 2))
 plot(modelo)
 ```
 
 Esta función genera cuatro gráficos automáticos:
 
--   `Residuals vs Fitted`**:** Permite evaluar la **linealidad**. La línea roja debería ser lo más horizontal posible y sin curvaturas pronunciadas. Si hay curvatura, podría indicar la necesidad de un término no lineal (cuadrático, logarítmico, etc.) o la omisión de una variable importante en el modelo.
+- `Residuals vs Fitted`**:** Permite evaluar la **linealidad**. La línea roja debería ser lo más horizontal posible y sin curvaturas pronunciadas. Si hay curvatura, podría indicar la necesidad de un término no lineal (cuadrático, logarítmico, etc.) o la omisión de una variable importante en el modelo.
 
--   `Normal Q-Q`**:** Evalúa la **normalidad** de los residuos. Los puntos deberían ajustarse a la diagonal. Desviaciones importantes sugieren un incumplimiento del supuesto de normalidad.
+- `Normal Q-Q`**:** Evalúa la **normalidad** de los residuos. Los puntos deberían ajustarse a la diagonal. Desviaciones importantes sugieren un incumplimiento del supuesto de normalidad.
 
--   `Scale-Location`**:** Indica si los residuos se distribuyen uniformemente a lo largo del rango de los predictores, verificando la **homocedasticidad**. Una línea aproximadamente horizontal con puntos dispersos de manera aleatoria es una buena señal.
+- `Scale-Location`**:** Indica si los residuos se distribuyen uniformemente a lo largo del rango de los predictores, verificando la **homocedasticidad**. Una línea aproximadamente horizontal con puntos dispersos de manera aleatoria es una buena señal.
 
--   `Residuals vs Leverage`**:** Ayuda a identificar **valores influyentes**. Un punto extremo no necesariamente es influyente, pero aquellos fuera de las líneas rojas punteadas (altas puntuaciones de distancia de Cook) pueden estar afectando considerablemente el modelo.
+- `Residuals vs Leverage`**:** Ayuda a identificar **valores influyentes**. Un punto extremo no necesariamente es influyente, pero aquellos fuera de las líneas rojas punteadas (altas puntuaciones de distancia de Cook) pueden estar afectando considerablemente el modelo.
 
 Otra opción para evaluar gráficamente los supuestos del modelo es la función `check_model()` del paquete `performance` , el cual forma parte del ecosistema `easystats` [@easystats]:
 
 ```{r}
+#| id: ej-16
 check_model(modelo)
 ```
 
 Podemos elegir que gráficos visualizar usando el argumento `check`:
 
 ```{r}
-check_model(modelo, check = c("normality","qq", "linearity",
-                              "homogeneity", "outliers"))
+#| id: ej-17
+check_model(
+  modelo,
+  check = c("normality", "qq", "linearity", "homogeneity", "outliers")
+)
 ```
 
 Para evaluar la linealidad se puede aplicar el test RESET de Ramsey, mediante la función `resettest()` del paquete `lmtest` [@lmtest]:
 
 ```{r}
+#| id: ej-18
 resettest(modelo)
 ```
 
@@ -534,6 +552,7 @@ La hipótesis nula indica que las variables se relacionan de forma lineal; un $p
 Otro supuesto fundamental es que los residuales deben distribuirse de forma normal (con media 0). Además del QQ-plot, se puede aplicar el test de Lilliefors:
 
 ```{r}
+#| id: ej-19
 lillie.test(modelo$residuals)
 ```
 
@@ -542,6 +561,7 @@ Con un *p*-valor de `r round(lillie.test(modelo$residuals)$p.value, 3)` se confi
 El test de Breusch-Pagan, implementado en `lmtest` y `performance`, evalúa si la varianza de los residuos es constante. Parte de la hipótesis nula de **homocedasticidad** o varianza constante en las perturbaciones y la enfrenta a la alternativa de varianza variable, por lo que es válido decir que cumple con el supuesto de homocedasticidad si el valor $p>0,05$:
 
 ```{r}
+#| id: ej-20
 # paquete lmtest
 bptest(modelo)
 
@@ -556,6 +576,7 @@ Para ello se pueden analizar los residuales estandarizados y los residuales estu
 Estos dos procesos sobre los residuales se pueden calcular en R mediante las funciones `rstandar()` y `rstudent()`:
 
 ```{r}
+#| id: ej-21
 # Creación del dataset de residuales
 residuales <- tibble(
   residuales = residuals(modelo),
@@ -567,33 +588,35 @@ residuales <- tibble(
 Podemos visualizar la comparación de estos residuales mediante un *boxplot* usando *facets*:
 
 ```{r}
-residuales |> 
-  
+#| id: ej-22
+residuales |>
+
   # Pasa a formato long
-  pivot_longer(cols = everything(),
-               names_to = "tipo") |> 
-  
+  pivot_longer(cols = everything(), names_to = "tipo") |>
+
   # Genera gráfico
   ggplot(mapping = aes(y = value, fill = tipo)) +
-  
+
   geom_boxplot() +
-  
+
   scale_fill_scico_d() +
-  
-  facet_wrap(~ tipo, scales = "free_y") + # subdivide en facets
-  
+
+  facet_wrap(~tipo, scales = "free_y") + # subdivide en facets
+
   theme_minimal()
 ```
 
 Si encontramos residuales con valores absolutos superiores a 3 en el gráfico de residuales estudentizados, es recomendable investigarlos más a fondo. Podemos identificarlos con:
 
 ```{r}
+#| id: ej-23
 table(rstudent(modelo) > 3)
 ```
 
 Para evaluar la influencia de observaciones, se utiliza la **distancia de Cook**, que combina la magnitud del residual y el *leverage*. Valores superiores a 1 se consideran generalmente influyentes. Esto se puede visualizar mediante:
 
 ```{r}
+#| id: ej-24
 plot(modelo, which = 5)
 ```
 
@@ -602,6 +625,7 @@ Al observar el gráfico, se debe prestar especial atención a los puntos situado
 Además, el paquete `performance` incluye la función `check_outliers()` para detectar valores atípicos según su distancia de Cook:
 
 ```{r}
+#| id: ej-25
 check_outliers(modelo)
 ```
 
@@ -614,6 +638,7 @@ Una vez ajustado un modelo, es necesario verificar su eficiencia, ya que, aun si
 Podemos acceder al valor de $R^2$ del modelo usando la función `r2()` del paquete `performance`:
 
 ```{r}
+#| id: ej-26
 r2(modelo)
 ```
 
@@ -624,6 +649,7 @@ La salida de `summary()` también incluye un estadístico $F$ de Snedecor y su $
 Otra forma de verificar de manera independiente la significación del modelo es mediante la función `anova()`, que plantea el contraste de la regresión mediante el [**análisis de la varianza**](05_anova.qmd):
 
 ```{r}
+#| id: ej-27
 anova(modelo)
 ```
 
@@ -644,9 +670,7 @@ Finalmente, la gráfica de dispersión de los valores pronosticados estandarizad
 
 @daniel2002
 
-@escuelasanidad
-
-@hernández-ávila2011
+@hernández-hernández-ávila2011
 
 @weisberg2005
 
@@ -654,7 +678,11 @@ Finalmente, la gráfica de dispersión de los valores pronosticados estandarizad
 
 @base
 
-@tidyverse
+@wickham2019
 
-@GGally
+@royo-bordonada2009
+
+@schloerke2010
 :::
+
+## Referencias

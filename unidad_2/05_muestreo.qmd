@@ -45,8 +45,7 @@ Como se mencionó anteriormente, se requiere conocer algunos datos para el cálc
 
 La fórmula para el cálculo es la siguiente:
 
-$$N = \frac{p.q.(Z\alpha)^2}{\delta^2}$$
-Donde:
+$$N = \frac{p.q.(Z\alpha)^2}{\delta^2}$$ Donde:
 
 - $N$ es el tamaño muestra requerido.
 - $p$ es la proporción esperada de sujetos portadores del evento.
@@ -56,8 +55,7 @@ Donde:
 
 Cuando se conoce el tamaño de la población, es necesario aplicar una corrección por población finita:
 
-$$N =\frac{n^1}{1+\frac{n^1}{Población}}$$
-donde $n^1$ es el $N$ calculado con la ecuación anterior.
+$$N =\frac{n^1}{1+\frac{n^1}{Población}}$$ donde $n^1$ es el $N$ calculado con la ecuación anterior.
 
 Es fundamental entender que el tamaño de la muestra dependerá de $p$ de $\alpha$ y de la precisión deseada, más que de la complejidad de la fórmula en sí. Existen numerosos softwares que calculan tamaños de muestra. Algunos están especializados en esta tarea (por ejemplo, **EpiDat**, **EpiInfo**, **OpenEp**i), mientras que otros lo incluyen como una opción dentro de un paquete más amplio de análisis. En el lenguaje R, funciones como `power.prop.test()` (para comparación de proporciones) y `power.t.test()` (para pruebas de medias basadas en la distribución $t$ de Student) están incluidas en el paquete `stats`. Otros paquetes útiles incluyen `samplingbook` [@sampling2010], `samplesize` , `pwr` [@champely2006] y `epiR` [@stevenson2025].
 
@@ -207,8 +205,7 @@ tibble(
   "Muestra" = c(120, 10)
 ) |>
   # Tabla
-  kbl() |>
-  kable_material(html_font = "Calibri")
+  gt::gt()
 ```
 
 La decisión de cuántos conglomerados forman parte de la muestra, es una decisión del investigador: a veces puede ser necesario fijar un número, a veces puede ser más conveniente fijar el tamaño de la muestra en cada conglomerado. Por otra parte, puede que decidamos que el número de sujetos seleccionados en cada conglomerado sea igual para todos; que sea una fracción fija o algo a definir.
@@ -237,9 +234,7 @@ tibble(
 ) |>
 
   # Tabla
-  kbl(align = "l") |>
-  kable_material(html_font = "Calibri") |>
-  row_spec(11, bold = TRUE)
+  gt::gt()
 ```
 
 ### Cálculo de las Probabilidades de Selección y Ponderaciones
@@ -306,8 +301,7 @@ tibble(
 ) |>
 
   # Tabla
-  kbl(align = "l") |>
-  kable_material(html_font = "Calibri")
+  gt::gt()
 ```
 
 Cada individuo seleccionado en el estudio tiene una probabilidad de inclusión que depende tanto de la probabilidad de que su escuela (conglomerado) sea seleccionada como de la probabilidad de que él sea elegido dentro de su escuela. La ponderación resultante (el inverso de esta probabilidad) se utiliza para "expandir" el resultado del estudio, de manera que cada alumno en la muestra represente a un número determinado de alumnos en la población total.
@@ -327,11 +321,11 @@ Este proceso es fundamental en estudios basados en muestreos complejos, ya que p
 
 @triola2018
 
-@caceres2007
+@alvarezcaceres2007
 
-@normangr1996
+@norman1996
 
-@glantzs2006
+@bioestad2006a
 
 @vonelm2008
 

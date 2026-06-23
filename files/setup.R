@@ -13,6 +13,8 @@ pacman::p_load(
   performance,
   knitr,
   kableExtra,
+  webshot,
+  webshot2,
   janitor,
   tidyverse
 )

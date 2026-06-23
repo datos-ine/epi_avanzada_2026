@@ -4,6 +4,7 @@ title: "Estudios ecológicos"
 
 ```{r}
 #| echo: false
+#| id: setup
 source("files/setup.R")
 ```
 
@@ -17,6 +18,7 @@ Repasemos las principales ventajas y desventajas de este diseño:
 
 ```{r}
 #| echo: false
+#| id: eco-1
 # Datos
 tibble(
   Ventajas = c(
@@ -48,36 +50,37 @@ Sesgo que puede aparecer al observar una asociación a partir de un estudio ecol
 
 En un estudio ecológico, existen distintos niveles de medición de las variables de grupo:
 
--   **Medidas agregadas**: Se trata de resumir las observaciones sobre individuos en cada grupo, expresándolas como medias o proporciones (ejemplo la proporción de usuarios de cinturón de seguridad).
+- **Medidas agregadas**: Se trata de resumir las observaciones sobre individuos en cada grupo, expresándolas como medias o proporciones (ejemplo la proporción de usuarios de cinturón de seguridad).
 
--   **Mediciones ambientales**: Son características generalmente del lugar en el que los miembros del grupo viven o trabajan (ejemplo: niveles de contaminación ambiental). Cada medición ambiental tiene su análogo a nivel individual y la exposición individual puede variar dentro del grupo.
+- **Mediciones ambientales**: Son características generalmente del lugar en el que los miembros del grupo viven o trabajan (ejemplo: niveles de contaminación ambiental). Cada medición ambiental tiene su análogo a nivel individual y la exposición individual puede variar dentro del grupo.
 
--   **Mediciones globales**: Son características de grupos, organizaciones o áreas para las que no existe una analogía con el nivel individual (ejemplo: densidad de población).
+- **Mediciones globales**: Son características de grupos, organizaciones o áreas para las que no existe una analogía con el nivel individual (ejemplo: densidad de población).
 
 Esta distinción es importante, porque para las dos primeras siempre existe el recurso de la medición individual, en tanto que en las mediciones globales, el diseño ecológico es la única alternativa viable.
 
 ## Clasificación de estudios ecológicos
 
--   **Exploratorios**: En los estudios exploratorios se comparan las tasas de enfermedad entre muchas regiones durante un mismo periodo, o se compara la frecuencia de la enfermedad a través del tiempo en una misma región. Se podría decir que se buscan patrones regionales o temporales, que pudieran dar origen a alguna hipótesis.
+- **Exploratorios**: En los estudios exploratorios se comparan las tasas de enfermedad entre muchas regiones durante un mismo periodo, o se compara la frecuencia de la enfermedad a través del tiempo en una misma región. Se podría decir que se buscan patrones regionales o temporales, que pudieran dar origen a alguna hipótesis.
 
-    ➡️ [Ocaña-Riola, R., et al. (2016). Geographical and Temporal Variations in Female Breast Cancer Mortality in the Municipalities of Andalusia (Southern Spain). International journal of environmental research and public health, 13(11), 1162.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5129372/)
+  ➡️ [Ocaña-Riola, R., et al. (2016). Geographical and Temporal Variations in Female Breast Cancer Mortality in the Municipalities of Andalusia (Southern Spain). International journal of environmental research and public health, 13(11), 1162.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5129372/)
 
--   **Estudios de grupos múltiples**: Este es el tipo de estudio ecológico más común. Se evalúa la asociación entre los niveles de exposición promedio y la frecuencia de la enfermedad entre varios grupos. La fuente de datos suele ser las estadísticas de morbilidad y mortalidad rutinarias.
+- **Estudios de grupos múltiples**: Este es el tipo de estudio ecológico más común. Se evalúa la asociación entre los niveles de exposición promedio y la frecuencia de la enfermedad entre varios grupos. La fuente de datos suele ser las estadísticas de morbilidad y mortalidad rutinarias.
 
-    ➡️ [Vinikoor-Imler, L. C., et al. (2011). An ecologic analysis of county-level PM2.5 concentrations and lung cancer incidence and mortality. International journal of environmental research and public health, 8(6), 1865–1871.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3138001/)
+  ➡️ [Vinikoor-Imler, L. C., et al. (2011). An ecologic analysis of county-level PM2.5 concentrations and lung cancer incidence and mortality. International journal of environmental research and public health, 8(6), 1865–1871.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3138001/)
 
--   **Estudios de series temporales**: Se comparan las variaciones temporales de los niveles de exposición con otra serie de tiempo que refleja los cambios en la frecuencia de la enfermedad en la población de un área geográfica determinada.
+- **Estudios de series temporales**: Se comparan las variaciones temporales de los niveles de exposición con otra serie de tiempo que refleja los cambios en la frecuencia de la enfermedad en la población de un área geográfica determinada.
 
-    ➡️ [Ballester, F., et al. (2001). Air pollution and emergency hospital admissions for cardiovascular diseases in Valencia, Spain.Journal of Epidemiology & Community Health, 55, 57-65.](https://jech.bmj.com/content/55/1/57.long)
+  ➡️ [Ballester, F., et al. (2001). Air pollution and emergency hospital admissions for cardiovascular diseases in Valencia, Spain.Journal of Epidemiology & Community Health, 55, 57-65.](https://jech.bmj.com/content/55/1/57.long)
 
--   **Estudios mixtos**: En esta categoría se incluyen los estudios de series de tiempo combinadas con la evaluación de grupos múltiples.
+- **Estudios mixtos**: En esta categoría se incluyen los estudios de series de tiempo combinadas con la evaluación de grupos múltiples.
 
-    ➡️ [Schneider, M. C., et al. (2017). Leptospirosis in Latin America: Exploring the first set of regional data. Revista Panamericana de Salud Pública, 41, 1.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6645204/)
+  ➡️ [Schneider, M. C., et al. (2017). Leptospirosis in Latin America: Exploring the first set of regional data. Revista Panamericana de Salud Pública, 41, 1.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6645204/)
 
 Algunos autores presentan la perspectiva que mostramos en la siguiente tabla, para una comprensión más rápida de las distintas posibilidades de los diseños ecológicos:
 
 ```{r}
 #| echo: false
+#| id: eco-2
 # Datos
 tibble(
   Tipo = c("Transversal", "Series temporales", "Descriptivo"),
@@ -109,12 +112,10 @@ Como podemos apreciar, tenemos muchas posibilidades para contemplar. En este cap
 
 La manera usual de evaluación de la asociación en estudios de grupos múltiples es mediante modelos lineales de regresión, de hecho algunos autores se refieren a estos estudios como "Estudios de correlación". Dependiendo del diseño y la distribución de los datos se pueden emplear otros modelos no lineales o no aditivos. Como las tasas de morbilidad y mortalidad en las regiones geográficas que se comparan comúnmente son eventos raros o que ocurren a bajas frecuencias, éstos semejan una distribución Poisson; así que la regresión de Poisson también puede ser usada.
 
-En este capítulo abordaremos a modo de introducción el [**modelo lineal general**](02_mod_estadistico.qmd), la [**covarian**](03_covarianza_correlacion.qmd)[**z**](03_covarianza_correlacion.qmd)[**a y correlación,**](covarianza_correlacion.qmd) para luego entender los modelos de [**regresión lineal simple**](04_reg_lineal.qmd)**, [análisis de la varianza](05_anova.qmd)** y [**regresión lineal múltiple**](07_reg_lineal_multiple.qmd), ampliamente usados en el análisis de los estudios ecológicos, aunque no exclusivos de ellos.
+En este capítulo abordaremos a modo de introducción el [**modelo lineal general**](02_mod_estadistico.qmd), la [**covarianza y correlación**](03_covarianza_correlacion.qmd)(03_covarianza_correlacion.qmd) para luego entender los modelos de [**regresión lineal simple**](04_reg_lineal.qmd)**, [análisis de la varianza](05_anova.qmd)** y [**regresión lineal múltiple**](07_reg_lineal_multiple.qmd), ampliamente usados en el análisis de los estudios ecológicos, aunque no exclusivos de ellos.
 
 ::: hidden
 @ballesterdíez2003
-
-@escuelasanidad
 
 @daniel2002
 
@@ -123,4 +124,8 @@ En este capítulo abordaremos a modo de introducción el [**modelo lineal genera
 @triola2018
 
 @weisberg2005
+
+@royo-bordonada2009
 :::
+
+## Referencias {.unnumbered}

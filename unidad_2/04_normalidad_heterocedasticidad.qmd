@@ -12,7 +12,7 @@ source("files/setup.R")
 
 ## Introducción
 
-Este material es una continuación del capítulo sobre [**Análisis exploratorio de datos**](../unidad_1/04_analisis_exploratorio.qmd) de la **Unidad 1**. Recordemos que uno de los objetivos del EDA es conocer cómo se distribuyen los valores de las variables de interés.
+Este material es una continuación del capítulo sobre **Análisis exploratorio de datos** de la **Unidad 1**. Recordemos que uno de los objetivos del EDA es conocer cómo se distribuyen los valores de las variables de interés.
 
 Las características fundamentales a la hora de decidir si utilizaremos métodos paramétricos o no paramétricos para la inferencia estadística, es que los datos se ajusten a una distribución normal y conocer si tienen una dispersión homogénea o heterogénea. Ahora que conocemos el funcionamiento interno de los test de hipótesis, podemos usar **pruebas de bondad de ajuste** para evaluar los supuestos de normalidad y homocedasticidad.
 
@@ -75,7 +75,7 @@ datos$peso |>
   ggqqplot()
 ```
 
-Un ejemplo donde la variable parece no cumplir con el suspuesto de normalidad en estos datos de prueba es `edad`:
+Un ejemplo donde la variable parece no cumplir con el supuesto de normalidad en estos datos de prueba es `edad`:
 
 ```{r}
 datos$edad |>
@@ -93,9 +93,9 @@ Existen dos medidas de forma útiles que podemos calcular mediante funciones de 
 
 La curtosis mide el grado de agudeza o achatamiento de una distribución con relación a la distribución normal.
 
-- \< 0 Distribución platicúrtica (apuntamiento negativo): baja concentración de valores
-- \> 0 Distribución leptocúrtica (apuntamiento positivo): gran concentración de valores
-- = 0 Distribución mesocúrtica (apuntamiento normal): concentración como en la distribución normal.
+- $< 0$ Distribución platicúrtica (apuntamiento negativo): baja concentración de valores
+- $> 0$ Distribución leptocúrtica (apuntamiento positivo): gran concentración de valores
+- $= 0$ Distribución mesocúrtica (apuntamiento normal): concentración como en la distribución normal.
 
 El paquete `moments` [@moments:2005] posee algunas funciones interesantes para analizar medidas de forma, como el estimador de Pearson para curtosis:
 
@@ -109,7 +109,7 @@ datos |>
 
 En los dos casos estamos frente a una *distribución leptocúrtica* pero de magnitudes bien diferentes. Muy alta en el caso de la variable `edad` (8,0) y mucho menor para la variable `peso` (2,7).
 
-El índice de asimetría es un indicador que permite establecer el *grado de asimetría* que presenta una distribución. Los valores menores que 0 indican distribución asimétrica negativa; los mayores a 0: distribución asimetrica positiva y cuando sea 0, o muy próximo a 0, distribución simétrica:
+El índice de asimetría es un indicador que permite establecer el *grado de asimetría* que presenta una distribución. Los valores menores que 0 indican distribución asimétrica negativa; los mayores a 0: distribución asimétrica positiva y cuando sea 0, o muy próximo a 0, distribución simétrica:
 
 ```{r}
 datos |>
@@ -143,7 +143,7 @@ A continuación, presentaremos los test de hipótesis más utilizados para anali
 
 #### Test de Shapiro-Wilk
 
-Lleva el nombre de sus [autores](https://es.wikipedia.org/wiki/Test_de_Shapiro%E2%80%93Wilk) (Samuel Shapiro y Martin Wilk) y es usado preferentemente para muestras de hasta 50 observaciones.
+Lleva el nombre de sus autores (Samuel Shapiro y Martin Wilk) y es usado preferentemente para muestras de hasta 50 observaciones.
 
 La función se encuentra desarrollada en el paquete `stats` y se llama `shapiro.test()`:
 
@@ -159,13 +159,13 @@ En función de esta interpretación (que es común a todos los test de hipótesi
 
 #### Test de Kolmogorov-Smirnov
 
-El test de [**Kolmogorov-Smirnov**](https://es.wikipedia.org/wiki/Prueba_de_Kolmogorov-Smirnov) permite estudiar si una muestra procede de una población con una determinada distribución que no está limitado únicamente a la distribución normal.
+El test de **Kolmogorov-Smirnov** permite estudiar si una muestra procede de una población con una determinada distribución que no está limitado únicamente a la distribución normal.
 
 El test asume que se conoce la media y varianza poblacional, lo que en la mayoría de los casos no es posible. Para resolver este problema, se realizó una modificación conocida como test Lilliefors.
 
 #### Test de Lilliefors
 
-El test de [**Lilliefors**](https://es.wikipedia.org/wiki/Prueba_de_Lilliefors) asume que la media y varianza son desconocidas y está especialmente desarrollado para contrastar la normalidad.
+El test de **Lilliefors** asume que la media y varianza son desconocidas y está especialmente desarrollado para contrastar la normalidad.
 
 Es la alternativa al test de Shapiro-Wilk cuando el número de observaciones es mayor de 50.
 
@@ -267,7 +267,8 @@ Los resultados son diferentes. Mientras con el centrado en la media nos da un *p
 Observamos aquí las distorsiones sobre la media y las formas paramétricas que devienen de distribuciones asimétricas y alejadas de la curva normal. El código correcto para este caso (variable `edad`) es usar el centrado en la mediana (`center = "median"`).
 
 ## Ejemplo práctico en R
-La contaminación por plásticos ha alcanzado incluso las zonas más remotas del océano, fragmentándose en partículas microscópicas conocidas como microplásticos ($< 5 mm$). Debido a su capacidad para filtrar grandes volúmenes de agua, los bivalvos como el mejillón (*Mytilus edulis*) actúan como bioindicadores de la salud ambiental y, al mismo tiempo, como una vía directa de transferencia de contaminantes hacia los seres humanos.
+
+La contaminación por plásticos ha alcanzado incluso las zonas más remotas del océano, fragmentándose en partículas microscópicas conocidas como microplásticos (\< 5 mm). Debido a su capacidad para filtrar grandes volúmenes de agua, los bivalvos como el mejillón (*Mytilus edulis*) actúan como bioindicadores de la salud ambiental y, al mismo tiempo, como una vía directa de transferencia de contaminantes hacia los seres humanos.
 
 En este ejercicio, analizaremos datos basados en la investigación pionera de @vancauwenberghe2014. Evaluaremos la carga promedio de microplásticos en muestras destinadas al consumo y estimaremos la magnitud de la proporción de bivalvos que superan los límites de seguridad.
 
@@ -282,7 +283,7 @@ f.  ¿Cuál es el intervalo de confianza del 95% de la proporcion de bivalvos co
 
 Veamos como llevamos adelante estos pasos mediante el lenguaje R:
 
-###  Lectura y exploración inicial
+### Lectura y exploración inicial
 
 ```{r, message=F, warning=F}
 # Activamos paquetes necesarios y conocidos
@@ -303,7 +304,7 @@ glimpse(bivalvos)
 
 Tenemos una tabla con 50 observaciones (mediciones en bivalvos) y la variable de interés se llama concentracion (nos informan que está expresada como partículas/g de tejido húmedo)
 
-###  Describa estadísticamente las mediciones
+### Describa estadísticamente las mediciones
 
 Con la función `describe()` de **dlookr** podemos obtener los estadísticos de esta variable cuantitativa continua.
 
@@ -314,7 +315,7 @@ bivalvos |>
 
 La media (0,4556 partículas/g) y la mediana (0,44 partículas/g) son cercanas. El desvío estandar es de 0,138 partículas/g.
 
-###  Test de distribución normal
+### Test de distribución normal
 
 Aplicaremos el test de normalidad de Shapiro-Wilk (forma analítica)
 
@@ -331,9 +332,9 @@ bivalvos |>
   plot_normality(concentracion)
 ```
 
-Los puntos se desarrollan “alrededor” a la recta de normalidad.
+Los puntos se desarrollan "alrededor" a la recta de normalidad.
 
-Con estos dos elementos podemos confirmar que la distribución se aproxima a la “Normal” y por lo tanto es confiable hacer uso de métodos paramétricos.
+Con estos dos elementos podemos confirmar que la distribución se aproxima a la "Normal" y por lo tanto es confiable hacer uso de métodos paramétricos.
 
 Si bien con ayuda del Teorema del Límite Central (TCL) sabemos que si el tamaño de la muestra es suficientemente grande, la distribución de la media muestral (o del estadístico) tiende a una distribución normal, independientemente de la forma que tengan los datos originales. En este caso, la definición de "grande" depende de varios factores, pero generalmente se considera que 30 es un buen umbral.
 
@@ -412,15 +413,15 @@ bivalvos |>
   mutate(porcentaje = n / sum(n) * 100)
 ```
 
-Eso representa el 38 % de las observaciones que tenemos.
+Eso representa el 38% de las observaciones que tenemos.
 
 ### IC 95% de la proporción
 
 En este punto queremos construir el intervalo de confianza del 95% que acompañe a la estimación puntual anterior.
 
-Tenemos dos posibilidades que estan implementadas en R base: la función `prop.test()` o `binom.test()`.
+Tenemos dos posibilidades que están implementadas en R base: la función `prop.test()` o `binom.test()`.
 
-`prop.test()` utiliza la aproximación de la distribución Normal (puntuación $z$) a la distribución Binomial. Podríamos decir que es el análogo categórico del t.test(). Los elementos necesarios son: **x** número de éxitos y **n** que es tamaño de la muestra.
+`prop.test()` utiliza la aproximación de la distribución Normal (puntuación $z$) a la distribución Binomial. Podríamos decir que es el análogo categórico del `t.test(`). Los elementos necesarios son: **x** número de éxitos y **n** que es tamaño de la muestra.
 
 Se usa con muestras "grandes" ($n > 30$). Pero si en cambio el tamaño de la muestra es pequeño, la proporción es muy cercana a 0 o a 1, o quieres una precisión absoluta y no quieres depender de aproximaciones matemáticas ejecutamos `binom.test()`.
 
@@ -449,3 +450,5 @@ Apredimos con este ejercicio que el lenguaje R siempre ofrece múltiples caminos
 :::
 
 ## Referencias
+
+<!--#  -->

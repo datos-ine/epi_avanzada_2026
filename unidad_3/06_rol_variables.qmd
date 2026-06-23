@@ -7,6 +7,7 @@ author:
 
 ```{r}
 #| echo: false
+#| id: setup
 source("files/setup.R")
 ```
 
@@ -20,24 +21,21 @@ En el marco de nuestros estudios, las covariables pueden asumir diversos roles, 
 
 Por ello, la/el epidemióloga/o debe definir un marco teórico previo y conocer qué alcance tiene el tipo de estudio desarrollado.
 
-
 ## Causalidad vs asociación
 
-Un error persistente en la práctica es suponer que los modelos de regresión (lineales, logísticos, etc) poseen la capacidad intrínseca de discernir causalidad. Sin embargo, estos modelos son *"agnósticos"*: procesan datos y devuelven coeficientes basados exclusivamente en correlaciones matemáticas, sin comprender la naturaleza biológica o social de las variables. Por ello, el epidemiólogo debe definir un marco teórico previo y conocer que alcance tiene el tipo de estudio desarrollado. 
+Un error persistente en la práctica es suponer que los modelos de regresión (lineales, logísticos, etc) poseen la capacidad intrínseca de discernir causalidad. Sin embargo, estos modelos son *"agnósticos"*: procesan datos y devuelven coeficientes basados exclusivamente en correlaciones matemáticas, sin comprender la naturaleza biológica o social de las variables. Por ello, el epidemiólogo debe definir un marco teórico previo y conocer que alcance tiene el tipo de estudio desarrollado.
 
 Partiendo de la premisa que asociación no implica causalidad, podemos razonar causalmente para decidir qué variables controlar o que ajustes hacer en el análisis, aun cuando al final concluyamos que los datos no permiten establecer causalidad con certeza. De hecho, si no razonamos causalmente sobre el rol de las variables, no podemos saber si la estimación obtenida del modelo como mera asociación es siquiera válida internamente.
 
-Los estudios observacionales trabajan muchas veces con asociaciones y para aproximarnos a responder las preguntas de investigación que nos hacemos es necesario tener presente algunas cuestiones: criterios de causalidad (temporalidad, plausibilidad biológica, socioeconómica, etc), presencia de variables de confusión,
-sesgos y estructura causal subyacente.
+Los estudios observacionales trabajan muchas veces con asociaciones y para aproximarnos a responder las preguntas de investigación que nos hacemos es necesario tener presente algunas cuestiones: criterios de causalidad (temporalidad, plausibilidad biológica, socioeconómica, etc), presencia de variables de confusión, sesgos y estructura causal subyacente.
 
 Para formalizar estos razonamientos, se suelen utilizar los *Grafos Acíclicos Dirigidos* (DAG, por sus siglas en inglés), herramientas que permiten visualizar supuestos y detectar sesgos estructurales antes de avanzar con la metodología.
 
 ## El rol de las variables
 
-Los roles de confusora, mediadora, colisionadora o modificadora del efecto son propiedades que emergen de la estructura causal del fenómeno que se estudia (representada en el DAG) y no del diseño del estudio. El tabaquismo es un factor de riesgo con efecto causal sobre el cáncer, la edad es causa de tabaquismo y cáncer, la hospitalización es consecuencia de ambos: eso es cierto independientemente de si llegamos a esos datos a  un diseño de cohorte, casos-controles o estudio transversal.
+Los roles de confusora, mediadora, colisionadora o modificadora del efecto son propiedades que emergen de la estructura causal del fenómeno que se estudia (representada en el DAG) y no del diseño del estudio. El tabaquismo es un factor de riesgo con efecto causal sobre el cáncer, la edad es causa de tabaquismo y cáncer, la hospitalización es consecuencia de ambos: eso es cierto independientemente de si llegamos a esos datos a un diseño de cohorte, casos-controles o estudio transversal.
 
 Lo que cambia según el diseño no es la estructura causal subyacente, sino dos cosas:
-
 
 - Lo que podemos estimar (un OR en lugar de RR, prevalencia en lugar de incidencia, etc.)
 - Los riesgos estructurales de sesgo que introduce el propio diseño
@@ -48,9 +46,9 @@ Un *Grafo Acíclico Dirigido* (**DAG**) es un grafo donde los nodos representan 
 
 ### Convenciones básicas
 
--	$X \rightarrow Y$ se lee: *X tiene un efecto causal directo sobre Y*
--	La ausencia de flechas entre dos variables significa que no existe efecto causal directo entre ellas (no implica que la asociación estadística sea cero)
--	Los DAG son cualitativos, representan la presencia o ausencia de efectos, no su magnitud.
+- $X \rightarrow Y$ se lee: *X tiene un efecto causal directo sobre Y*
+- La ausencia de flechas entre dos variables significa que no existe efecto causal directo entre ellas (no implica que la asociación estadística sea cero)
+- Los DAG son cualitativos, representan la presencia o ausencia de efectos, no su magnitud.
 
 ### Caminos en un DAG
 
@@ -58,6 +56,7 @@ Un camino entre dos nodos es cualquier secuencia de flechas que los conecta, ind
 
 ```{r}
 #| echo: false
+#| id: dag
 # Datos
 tibble(
   `Estructura del DAG` = c("X --> M --> Y", "X <-- Z --> Y", "X --> C <-- Y"),
@@ -74,18 +73,17 @@ Usamos los DAG, a *priori*, como una representación gráfica de las suposicione
 
 Una variable de confusión es una variable que distorsiona la medida de asociación entre las variables principales del estudio (exposición-desenlace). En presencia de confusión, pueden observarse los siguientes escenarios:
 
--   **Asociación espuria:** Efecto observado donde en realidad no existe.
+- **Asociación espuria:** Efecto observado donde en realidad no existe.
 
--   **Confusión positiva:** Exageración o atenuación de una asociación real.
+- **Confusión positiva:** Exageración o atenuación de una asociación real.
 
--   **Confusión negativa:** Inversión del sentido de una asociación real.
+- **Confusión negativa:** Inversión del sentido de una asociación real.
 
 Según @gordis2017, en un estudio que evalúa si la exposición ($X$) causa un resultado ($Y$), se dice que un tercer factor ($Z$) es una variable de confusión si cumple con los siguientes criterios:
 
--	$Z$ es una causa (o proxy de una causa) conocido para $Y$.
--	$Z$ está asociado con la exposición $X$, pero no es un resultado de $X$.
--	$Z$ no está en el camino causal entre $X$ e $Y$ (no es mediadora)
-
+- $Z$ es una causa (o proxy de una causa) conocido para $Y$.
+- $Z$ está asociado con la exposición $X$, pero no es un resultado de $X$.
+- $Z$ no está en el camino causal entre $X$ e $Y$ (no es mediadora)
 
 ![](/images/DAG1.svg){fig-align="center" width="70%"}
 
@@ -97,22 +95,22 @@ Para quienes necesiten profundizar, se recomienda leer el artículo:
 
 Dentro de las estrategias para manejar la confusión, podemos pensar en dos momentos:
 
--   A la hora de diseñar y llevar a cabo el estudio:
-    -   Emparejamiento individual.
-    -   Emparejamiento de grupo.
--   Al momento de analizar los datos:
-    -   Estratificación.
-    -   Ajuste estadístico.
+- A la hora de diseñar y llevar a cabo el estudio:
+  - Emparejamiento individual.
+  - Emparejamiento de grupo.
+- Al momento de analizar los datos:
+  - Estratificación.
+  - Ajuste estadístico.
 
 El ajuste estadístico, característico de los análisis multivariados, permite estimar el efecto específico de cada variable independiente sobre la dependiente, controlando por las demás variables.
 
 Un criterio estadístico comúnmente aceptado es que un factor se considera confusor si el ajuste por dicha variable provoca un cambio de al menos el 10% en la magnitud de la asociación. Por ejemplo, edad y sexo son variables frecuentemente confusoras en estudios epidemiológicos y generalmente son pocos los trabajos que no presentan datos ajustados por estas covariables.
 
-
 En este curso utilizaremos la [**regresión lineal múltiple**](07_reg_lineal_multiple.qmd) y los modelos lineales generalizados para manejar la confusión, ajustando por múltiples covariables. A continuación, se ejemplifica el fenómeno gráficamente con un diagrama de dispersión.
 
 ```{r}
 #| echo: false
+#| id: conf-1
 datos_conf <- read_csv2("datos/datos_conf.csv")
 
 datos_conf |>
@@ -132,6 +130,7 @@ La salida en R de este modelo se vería de la siguiente forma:
 
 ```{r}
 #| echo: false
+#| id: conf-2
 modelo <- lm(y ~ x, data = datos_conf)
 
 summary(modelo)
@@ -147,6 +146,7 @@ Ahora incorporemos la covariable $Z$, con categorías **A** y **B**, que sospech
 
 ```{r}
 #| echo: false
+#| id: conf-3
 datos_conf |>
   ggplot(aes(x = x, y = y, color = z)) +
   geom_point(size = 3) +
@@ -166,6 +166,7 @@ Visto en resultados de consola:
 
 ```{r}
 #| echo: false
+#| id: conf-4
 modelo_conf <- lm(y ~ x + z, data = datos_conf)
 
 summary(modelo_conf)
@@ -185,18 +186,19 @@ Una variable $M$ es mediadora si se encuentra en la cadena causal entre $X$ e $Y
 
 El análisis de mediación descompone el efecto total en:
 
--	**Efecto directo (ED)**: efecto de $X$ sobre $Y$ a través de todas las vías que no involucran $M$
--	**Efecto indirecto (EI)**: efecto de $X$ sobre $Y$ que opera a través de $M$
--	**Efecto total** = ED + EI
+- **Efecto directo (ED)**: efecto de $X$ sobre $Y$ a través de todas las vías que no involucran $M$
+- **Efecto indirecto (EI)**: efecto de $X$ sobre $Y$ que opera a través de $M$
+- **Efecto total** = ED + EI
 
-
-Si incluimos $M$ como covariable en un modelo que busca estimar el efecto total de $X$ sobre $Y$, bloquearemos el camino $X \rightarrow M \rightarrow Y$ y subestimaremos el efecto de la exposición. 
+Si incluimos $M$ como covariable en un modelo que busca estimar el efecto total de $X$ sobre $Y$, bloquearemos el camino $X \rightarrow M \rightarrow Y$ y subestimaremos el efecto de la exposición.
 
 Un ejemplo lo podemos observar analizando este estudio ecológico, donde se preguntan por el efecto del porcentaje de hogares con acceso a espacios verdes (por municipio) sobre la tasa de mortalidad por enfermedad cardiovascular (por 100.000 hab.)
 
 Cuentan con otras variables que consideraron, entre las cuales, tienen la proporción de población con actividad física regular.
 
-```{r, echo=F}
+```{r}
+#| echo: false
+#| id: med-1
 set.seed(2024)
 n <- 120
 a_true <- 0.55
@@ -243,17 +245,17 @@ Una variable $C$ es colisionadora (o collider en inglés), si es una consecuenci
 
 ![](/images/dag_col.svg){fig-align="center" width="70%"}
 
-A diferencia del confusor, el camino a través de un colisionador está naturalmente bloqueado. La asociación espuria se crea cuando condicionamos o controlamos por el colisionador: al incluirlo en el modelo, restringir la muestra, o seleccionar participantes basándonos en él, podemos generar una asociación artificial. Esto se llama sesgo de colisionador (usualmente conocido como *collider bias*, en inglés). 
+A diferencia del confusor, el camino a través de un colisionador está naturalmente bloqueado. La asociación espuria se crea cuando condicionamos o controlamos por el colisionador: al incluirlo en el modelo, restringir la muestra, o seleccionar participantes basándonos en él, podemos generar una asociación artificial. Esto se llama sesgo de colisionador (usualmente conocido como *collider bias*, en inglés).
 
-Es consecuencia generalmente de un sesgo de selección y se suele manifestar en estudios de base hospitalaria (sesgo de Berkson), en estudios longitudinales, si el abandono depende de la exposición y de covariables del desenlace (pérdida no aleatoria) y en estudios con sesgo de supervivencia (análisis de los supervivientes). Ver @Holmberg
+Es consecuencia generalmente de un sesgo de selección y se suele manifestar en estudios de base hospitalaria (sesgo de Berkson), en estudios longitudinales, si el abandono depende de la exposición y de covariables del desenlace (pérdida no aleatoria) y en estudios con sesgo de supervivencia (análisis de los supervivientes). Ver @holmberg2022
 
-El ejemplo clásico es el de Berkson: Imaginemos un hospital que atiende pacientes con dos enfermedades,  enfermedad cardiovascular (CV) y diabetes. La hospitalización actúa como colisionador.
-Supongamos que en la población general la enfermedad CV y la diabetes son independientes (no hay relación causal entre ellas). Sin embargo, si restringimos nuestro análisis solo a pacientes hospitalizados, podríamos observar una asociación negativa entre las dos. Quienes tienen enfermedad CV parecen tener menos diabetes que el resto, y viceversa. Esta asociación es completamente artificial (un artefacto del diseño).
-¿Por qué? Porque la hospitalización es consecuencia de tener al menos una de las dos condiciones. Al condicionar sobre "estar hospitalizado", conectamos artificialmente las dos enfermedades.
+El ejemplo clásico es el de Berkson: Imaginemos un hospital que atiende pacientes con dos enfermedades, enfermedad cardiovascular (CV) y diabetes. La hospitalización actúa como colisionador. Supongamos que en la población general la enfermedad CV y la diabetes son independientes (no hay relación causal entre ellas). Sin embargo, si restringimos nuestro análisis solo a pacientes hospitalizados, podríamos observar una asociación negativa entre las dos. Quienes tienen enfermedad CV parecen tener menos diabetes que el resto, y viceversa. Esta asociación es completamente artificial (un artefacto del diseño). ¿Por qué? Porque la hospitalización es consecuencia de tener al menos una de las dos condiciones. Al condicionar sobre "estar hospitalizado", conectamos artificialmente las dos enfermedades.
 
-Otro ejemplo, que podemos ver en los datos, es el de una investigación sobre el efecto del consumo de sodio (exposición) en la presión arterial sistólica (desenlace). La recolección de datos incluye la edad y la proteinuria (presencia de proteína en la orina). 
+Otro ejemplo, que podemos ver en los datos, es el de una investigación sobre el efecto del consumo de sodio (exposición) en la presión arterial sistólica (desenlace). La recolección de datos incluye la edad y la proteinuria (presencia de proteína en la orina).
 
-```{r, echo = F}
+```{r}
+#| echo: false
+#| id: col-1
 generateData <- function(n, seed) {
   set.seed(seed)
 
@@ -295,14 +297,13 @@ Brian @macmahon1972 definió la interacción de la siguiente manera:
 
 Esto puede manifestarse como:
 
--   **Sinergismo (interacción positiva):** El efecto combinado es mayor que la suma de sus efectos individuales.
+- **Sinergismo (interacción positiva):** El efecto combinado es mayor que la suma de sus efectos individuales.
 
--   **Antagonismo (interacción negativa):** El efecto combinado es menor.
+- **Antagonismo (interacción negativa):** El efecto combinado es menor.
 
 La modificación del efecto ocurre cuando la magnitud de la asociación entre la exposición ($X$) y el resultado ($Y$) varía según los niveles de una tercera variable ($I$).
 
 No es un sesgo —es una característica real del fenómeno— y no debe eliminarse sino *describirse* (es decir, incluirla en el modelo e informar en los resultados de forma estratificada)
-
 
 Para quienes tengan interés en profundizar el tema, pueden leer el artículo:
 
@@ -316,6 +317,7 @@ Un ejemplo similar al recién mostrado para la confusión, pero para la interacc
 
 ```{r}
 #| echo: false
+#| id: int-1
 datos_int <- read_csv2("datos/datos_int.csv")
 
 datos_int |>
@@ -325,12 +327,15 @@ datos_int |>
   theme_minimal()
 ```
 
-$$\hat{y} = \beta_0 + \beta_1x_1 + \epsilon$$
+$$
+\hat{y} = \beta_0 + \beta_1x_1 + \epsilon
+$$
 
 Partimos de esta relación entre $X$ e $Y$ representada por la recta de la ecuación con los valores de la siguiente tabla:
 
 ```{r}
 #| echo: false
+#| id: int-2
 modelo2 <- lm(y ~ x, data = datos_int)
 
 summary(modelo2)
@@ -338,12 +343,13 @@ summary(modelo2)
 
 El intercepto ($\beta_0$) es de 4,0 y el coeficiente $\beta_1$ (pendiente) significativo de 0,54.
 
-Ahora incorporemos la covariable $I$, con categorías **A** y **B**, que sospechamos tiene un rol de interacción.
+Ahora incorporemos la covariable $Z$, con categorías **A** y **B**, que sospechamos tiene un rol de interacción.
 
 ```{r}
 #| echo: false
+#| id: int-3
 datos_int |>
-  ggplot(aes(x = x, y = y, color = i)) +
+  ggplot(aes(x = x, y = y, color = z)) +
   geom_point(size = 3, alpha = .8) +
   geom_smooth(method = "lm", se = F) +
   scale_color_manual(values = c(pal[2], pal[6])) +
@@ -351,7 +357,7 @@ datos_int |>
   theme(legend.position = "bottom")
 ```
 
-El gráfico de dispersión muestra que hay una diferencia entre las rectas de regresión que tienen distintas pendientes según el valor de $I$. Esa diferencia no es aditiva y pasa a ser multiplicativa y da lugar a la ecuación:
+El gráfico de dispersión muestra que hay una diferencia entre las rectas de regresión que tienen distintas pendientes según el valor de $Z$. Esa diferencia no es aditiva y pasa a ser multiplicativa y da lugar a la ecuación:
 
 $$
 \hat{y} = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_1x_2 + \epsilon
@@ -361,7 +367,8 @@ Visto en resultados de consola:
 
 ```{r}
 #| echo: false
-modelo_int <- lm(y ~ x * i, data = datos_int)
+#| id: int-4
+modelo_int <- lm(y ~ x * z, data = datos_int)
 
 summary(modelo_int)
 ```
@@ -370,13 +377,13 @@ El término de interacción es significativo, aunque la variable $I$ por sí mis
 
 El modelo ajustado para $Y$ es el siguiente:
 
--   Para $I = A$:
+- Para $I = A$:
 
 $$
 y = 2,77 + 0,23 x
 $$
 
--   Para $I = B$:
+- Para $I = B$:
 
 $$
 y = 2,77 + 0,23x +2,49 + 0,46x 
@@ -388,26 +395,27 @@ Esto muestra una interacción sinérgica entre la categoría B de la variable $I
 
 Aunque el análisis de interacción en modelos lineales generales es una herramienta útil para explorar relaciones complejas entre variables, es importante ser consciente de sus limitaciones y asumirlas en el diseño, análisis e interpretación de los resultados. Entre ellas encontramos:
 
--   **Linealidad y Simplicidad del Modelo:** El modelo lineal general asume relaciones lineales entre las variables, pero las interacciones a veces no muestran linealidad.
+- **Linealidad y Simplicidad del Modelo:** El modelo lineal general asume relaciones lineales entre las variables, pero las interacciones a veces no muestran linealidad.
 
--   **Sobreajuste en Modelos con Múltiples Interacciones:** La inclusión de muchos términos de interacción, puede sobreajustar el modelo y dificultar su interpretación y generalización.
+- **Sobreajuste en Modelos con Múltiples Interacciones:** La inclusión de muchos términos de interacción, puede sobreajustar el modelo y dificultar su interpretación y generalización.
 
--   **Colinealidad:** La colinealidad entre las variables independientes puede ser exacerbada al incluir términos de interacción, lo que dificultaría la identificación de relaciones significativas.
+- **Colinealidad:** La colinealidad entre las variables independientes puede ser exacerbada al incluir términos de interacción, lo que dificultaría la identificación de relaciones significativas.
 
--   **Pérdida de Potencia Estadística:** Al incluir términos de interacción, el número de parámetros a estimar aumenta, reduciendo los grados de libertad y pudiendo disminuir la potencia estadística.
+- **Pérdida de Potencia Estadística:** Al incluir términos de interacción, el número de parámetros a estimar aumenta, reduciendo los grados de libertad y pudiendo disminuir la potencia estadística.
 
--   **Dificultades en la Interpretación:** Los coeficientes de interacción pueden ser difíciles de interpretar, especialmente cuando las variables son continuas.
+- **Dificultades en la Interpretación:** Los coeficientes de interacción pueden ser difíciles de interpretar, especialmente cuando las variables son continuas.
 
--   **Heterogeneidad de Efectos:** Los términos de interacción pueden no capturar variaciones en los efectos entre subgrupos específicos.
+- **Heterogeneidad de Efectos:** Los términos de interacción pueden no capturar variaciones en los efectos entre subgrupos específicos.
 
--   **Errores de Especificación del Modelo:** Si las interacciones relevantes no se incluyen o se modelan incorrectamente, el modelo puede estar mal especificado.
+- **Errores de Especificación del Modelo:** Si las interacciones relevantes no se incluyen o se modelan incorrectamente, el modelo puede estar mal especificado.
 
--   **Sensibilidad a la Codificación de las Variables:** La codificación de variables categóricas puede influir en la interpretación de los coeficientes de interacción.
+- **Sensibilidad a la Codificación de las Variables:** La codificación de variables categóricas puede influir en la interpretación de los coeficientes de interacción.
 
 ## Resumen: ¿Qué ajustar y que no?
 
 ```{r}
 #| echo: false
+#| id: resumen
 # Datos
 tibble(
   Variable = c("Confusora", "Mediadora", "Colisionadora", "Interacción"),
@@ -436,12 +444,12 @@ tibble(
   kbl_format()
 ```
 
-
 ## Teoría vs algoritmo
 
 Muchos algoritmos de selección automática de variables (como *stepwise regression*) incluyen toda variable que mejore *“matemáticamente”* el ajuste de un modelo o tiene un p-valor bajo. No distingue que rol juega esa variable, si se trata de un mediador o de un colisionador, de un confusor o es modificadora de efecto.
 
 Ante las preguntas, ¿Por qué en estos casos el criterio estadístico puede fallar en identificar el modelo correcto? ¿Qué nos dice esto sobre la importancia de construir un DAG antes de tocar los datos?, la respuesta es que el modelo estadístico no sabe de epidemiología.
 
-Según @almeida2011, *"Es verdad que las técnicas utilizadas para la atribución de valores numéricos al grado de certeza de que las variables se encuentran asociadas son eminentemente estadísticas. Sin embargo, en el campo de la Epidemiología, la estadística no habla por sí sola. Le corresponde al epidemiólogo analizar los resultados obtenidos a la luz del conocimiento epidemiológico acumulado, el contexto en el cual el fenómeno analizado es parte y las características propias, cualitativas, asumidas por el fenómeno en su especificidad temporal y espacial. Es decir, más que significancia estadística, la interpretación de los datos debe buscar establecer la "significancia epidemiológica" de los hallazgos. Esa es la esencia del análisis epidemiológico."*
+Según @almeidafilho2011, *"Es verdad que las técnicas utilizadas para la atribución de valores numéricos al grado de certeza de que las variables se encuentran asociadas son eminentemente estadísticas. Sin embargo, en el campo de la Epidemiología, la estadística no habla por sí sola. Le corresponde al epidemiólogo analizar los resultados obtenidos a la luz del conocimiento epidemiológico acumulado, el contexto en el cual el fenómeno analizado es parte y las características propias, cualitativas, asumidas por el fenómeno en su especificidad temporal y espacial. Es decir, más que significancia estadística, la interpretación de los datos debe buscar establecer la "significancia epidemiológica" de los hallazgos. Esa es la esencia del análisis epidemiológico."*
 
+## Referencias
