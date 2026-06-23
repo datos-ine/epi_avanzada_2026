@@ -229,4 +229,4 @@ Los elementos de la lista también pueden llamarse de forma independiente, siend
 @agresti2015
 :::
 
-## Referencias
+## Referencias {.unnumbered}

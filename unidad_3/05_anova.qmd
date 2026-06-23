@@ -437,4 +437,4 @@ Se realizó la prueba post hoc de Tukey HSD y se encontró que media de mortalid
 @emmeans
 :::
 
-## Referencias
+## Referencias {.unnumbered}

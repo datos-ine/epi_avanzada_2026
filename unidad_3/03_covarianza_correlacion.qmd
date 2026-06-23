@@ -681,4 +681,4 @@ Para explicar la forma de esta correlación e incluso predecir los valores que p
 @wickham2019
 :::
 
-## Referencias
+## Referencias {.unnumbered}

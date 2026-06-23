@@ -540,7 +540,7 @@ check_model(
 )
 ```
 
-Para evaluar la linealidad se puede aplicar el test RESET de Ramsey, mediante la función `resettest()` del paquete `lmtest` [@lmtest]:
+Para evaluar la linealidad se puede aplicar el test RESET de Ramsey, mediante la función `resettest()` del paquete `lmtest` [@zeileis2002]:
 
 ```{r}
 #| id: ej-18
@@ -670,7 +670,7 @@ Finalmente, la gráfica de dispersión de los valores pronosticados estandarizad
 
 @daniel2002
 
-@hernández-hernández-ávila2011
+@hernández-ávila2011
 
 @weisberg2005
 
@@ -685,4 +685,4 @@ Finalmente, la gráfica de dispersión de los valores pronosticados estandarizad
 @schloerke2010
 :::
 
-## Referencias
+## Referencias {.unnumbered}
