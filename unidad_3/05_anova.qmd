@@ -339,7 +339,7 @@ r2(modelo)
 
 Los test de potencia permiten determinar la probabilidad de encontrar diferencias significativas entre las medias para un determinado nivel de significancia indicando el tamaño de los grupos.
 
-En base al eta-cuadrado obtenido anteriormente, calculamos el tamaño de efecto convencional mediante la función `cohen.ES()` del paquete `pwr` [@pwr]:
+En base al eta-cuadrado obtenido anteriormente, calculamos el tamaño de efecto convencional mediante la función `cohen.ES()` del paquete `pwr` [@champely2006]:
 
 ```{r}
 #| id: ej-18

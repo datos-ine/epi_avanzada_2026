@@ -1341,7 +1341,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="potencia" class="level3">
 <h3 class="anchored" data-anchor-id="potencia">Potencia</h3>
 <p>Los test de potencia permiten determinar la probabilidad de encontrar diferencias significativas entre las medias para un determinado nivel de significancia indicando el tamaño de los grupos.</p>
-<p>En base al eta-cuadrado obtenido anteriormente, calculamos el tamaño de efecto convencional mediante la función <code>cohen.ES()</code> del paquete <code>pwr</code> <span class="citation" data-cites="pwr">(<a href="#ref-pwr" role="doc-biblioref">Champely 2020</a>)</span>:</p>
+<p>En base al eta-cuadrado obtenido anteriormente, calculamos el tamaño de efecto convencional mediante la función <code>cohen.ES()</code> del paquete <code>pwr</code> <span class="citation" data-cites="champely2006">(<a href="#ref-champely2006" role="doc-biblioref">Champely 2020</a>)</span>:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohen.ES</span>(<span class="at">test =</span> <span class="st">"anov"</span>, <span class="at">size =</span> <span class="st">"small"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1454,7 +1454,7 @@ D = 0.046833, p-value = 0.388</code></pre>
 <div id="ref-agresti2015" class="csl-entry" role="listitem">
 Agresti, Alan. 2015. <em>Foundations of Linear and Generalized Linear Models</em>. Wiley Series En Probability y Statistics. John Wiley &amp; Sons, Inc.
 </div>
-<div id="ref-pwr" class="csl-entry" role="listitem">
+<div id="ref-champely2006" class="csl-entry" role="listitem">
 Champely, Stephane. 2020. <em>pwr: Basic Functions for Power Analysis</em>. <a href="https://doi.org/10.32614/CRAN.package.pwr">https://doi.org/10.32614/CRAN.package.pwr</a>.
 </div>
 <div id="ref-firke2016" class="csl-entry" role="listitem">
