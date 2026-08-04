@@ -923,9 +923,9 @@ mod2    2 228.6598</code></pre>
 <li><strong><em>Likelihood Ratio Test:</em></strong> Este test permite comparar dos modelos evaluando la significancia de la diferencia de devianzas. El estadístico tiene una distribución <span class="math inline">\(\chi^2\)</span> con grados de libertad iguales a la diferencia en el número de parámetros entre los dos modelos comparados.</li>
 </ul>
 <p>La función <code>anova()</code> del paquete <code>stats</code> permite comparar modelos por si diferencia de varianzas:</p>
-<p>::: {.cell layout-align=“center”}</p>
+<div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(modelo, mod2, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>::: {.cell-output .cell-output-stdout}</p>
+<div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Deviance Table
 
 Model 1: y ~ x1 + x2
@@ -933,7 +933,8 @@ Model 2: y ~ x2
   Resid. Df Resid. Dev Df Deviance Pr(&gt;Chi)
 1       196     221.48                     
 2       198     224.66 -2  -3.1811   0.2038</code></pre>
-<p>::: :::</p>
+</div>
+</div>
 <p>También podemos usar la función <code>test_lrt()</code> del paquete <code>performance</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_lrt</span>(modelo, mod2)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -952,7 +953,8 @@ mod2   |   glm |  2 |      -2 |    224.66 | 3.18 | 0.204</code></pre>
 <p>De forma análoga al Coeficiente de Determinación (<span class="math inline">\(R^2\)</span>) utilizado en regresión lineal, se han desarrollado diversos coeficientes para estimar la proporción de variabilidad explicada por las variables independientes en modelos de regresión logística.</p>
 <p>En R, podemos calcular estos coeficientes utilizando el paquete <code>performance</code>:</p>
 <ul>
-<li><p><strong>Coeficiente de McFadden:</strong> Es una de las medidas más utilizadas y se interpreta de manera similar al <span class="math inline">\(R^2\)</span> en regresión lineal:</p>
+<li><strong>Coeficiente de McFadden:</strong> Es una de las medidas más utilizadas y se interpreta de manera similar al <span class="math inline">\(R^2\)</span> en regresión lineal:</li>
+</ul>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2_mcfadden</span>(modelo)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -960,32 +962,40 @@ mod2   |   glm |  2 |      -2 |    224.66 | 3.18 | 0.204</code></pre>
        R2: 0.201
   adj. R2: 0.193</code></pre>
 </div>
-</div></li>
-<li><p><strong>Coeficiente de Cox y Snell:</strong> Se basa en la razón de verosimilitud y es una generalización del <span class="math inline">\(R^2\)</span> en modelos lineales:</p>
+</div>
+<ul>
+<li><strong>Coeficiente de Cox y Snell:</strong> Se basa en la razón de verosimilitud y es una generalización del <span class="math inline">\(R^2\)</span> en modelos lineales:</li>
+</ul>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2_coxsnell</span>(modelo)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cox &amp; Snell's R2 
        0.2427035 </code></pre>
 </div>
-</div></li>
-<li><p><strong>Coeficiente de Nagelkerke:</strong> El coeficiente de Nagelkerke es una versión corregida del coeficiente de Cox y Snell, cuyo valor máximo es menor a 1 incluso para un modelo perfecto, corrigiendo así la tendencia de subestimación del coeficiente <span class="math inline">\(R^2\)</span>.</p>
+</div>
+<ul>
+<li><strong>Coeficiente de Nagelkerke:</strong> El coeficiente de Nagelkerke es una versión corregida del coeficiente de Cox y Snell, cuyo valor máximo es menor a 1 incluso para un modelo perfecto, corrigiendo así la tendencia de subestimación del coeficiente <span class="math inline">\(R^2\)</span>.</li>
+</ul>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2_nagelkerke</span>(modelo)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Nagelkerke's R2 
       0.3237019 </code></pre>
 </div>
-</div></li>
-<li><p><strong>Coeficiente de Tjur:</strong> Calcula el Coeficiente de Discriminación (<span class="math inline">\(D\)</span>) para modelos lineales generalizados con variable respuesta binaria. Es el proporcionado por defecto para modelos de regresión logística en <code>performance</code>:</p>
+</div>
+<ul>
+<li><strong>Coeficiente de Tjur:</strong> Calcula el Coeficiente de Discriminación (<span class="math inline">\(D\)</span>) para modelos lineales generalizados con variable respuesta binaria. Es el proporcionado por defecto para modelos de regresión logística en <code>performance</code>:</li>
+</ul>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(modelo)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># R2 for Logistic Regression
   Tjur's R2: 0.251</code></pre>
 </div>
-</div></li>
-<li><p><strong>Test de Hosmer-Lemeshow</strong>: Ninguno de los coeficientes anteriores mide directamente la calidad del ajuste del modelo. Para evaluar esto, utilizamos el <strong>test de Hosmer-Lemeshow</strong>, que compara las probabilidades predichas con las observadas.</p>
+</div>
+<ul>
+<li><strong>Test de Hosmer-Lemeshow</strong>: Ninguno de los coeficientes anteriores mide directamente la calidad del ajuste del modelo. Para evaluar esto, utilizamos el <strong>test de Hosmer-Lemeshow</strong>, que compara las probabilidades predichas con las observadas.</li>
+</ul>
 <p>Este test calcula un estadístico de distribución <span class="math inline">\(\chi^2\)</span> con <span class="math inline">\(n-2\)</span> grados de libertad, utilizando varios grupos basados en los deciles de las probabilidades predichas. En R:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">performance_hosmer</span>(modelo)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -997,8 +1007,7 @@ mod2   |   glm |  2 |      -2 |    224.66 | 3.18 | 0.204</code></pre>
       p-value:  0.147</code></pre>
 </div>
 </div>
-<p>En un test de bondad de ajuste, la hipótesis nula siempre afirma que el modelo propuesto se ajusta bien a los datos observados. Por lo tanto, un <span class="math inline">\(p&gt;0,05\)</span> implica que lo observado se ajusta suficientemente bien a lo esperado bajo el modelo.</p></li>
-</ul>
+<p>En un test de bondad de ajuste, la hipótesis nula siempre afirma que el modelo propuesto se ajusta bien a los datos observados. Por lo tanto, un <span class="math inline">\(p&gt;0,05\)</span> implica que lo observado se ajusta suficientemente bien a lo esperado bajo el modelo.</p>
 </section>
 <section id="capacidad-predictiva-del-modelo" class="level3">
 <h3 class="anchored" data-anchor-id="capacidad-predictiva-del-modelo">Capacidad predictiva del modelo</h3>
@@ -1006,11 +1015,13 @@ mod2   |   glm |  2 |      -2 |    224.66 | 3.18 | 0.204</code></pre>
 <p>Para evaluar la efectividad del modelo en la clasificación de observaciones, se puede construir una tabla de clasificación que cruza el verdadero valor de la observación (1 o 0) con la predicción del modelo. Como el modelo de RLOG estimará probabilidades en el rango de 0 a 1, tendremos que elegir un punto de corte en forma arbitraria. Por ejemplo, podríamos decidir que probabilidades estimadas mayores a 0.5 sean indicativas de que el evento ha ocurrido, mientras que probabilidades menores o iguales a 0.5 indiquen que el evento no ha ocurrido.</p>
 <p>La capacidad predictiva de un modelo de regresión logística se resume utilizando los conceptos de sensibilidad y especificidad. Quienes trabajen en áreas relacionadas al diagnóstico estarán más familiarizados con estos conceptos.</p>
 <ul>
-<li><p><strong>Sensibilidad:</strong> Probabilidad de que el modelo prediga correctamente que el evento ha ocurrido cuando <em>realmente</em> <em>ha ocurrido</em>.</p>
+<li><strong>Sensibilidad:</strong> Probabilidad de que el modelo prediga correctamente que el evento ha ocurrido cuando <em>realmente</em> <em>ha ocurrido</em>.</li>
+</ul>
 <p><span class="math display">\[
 P(\hat{y} = 1|y = 1)
-\]</span></p></li>
-<li><p><strong>Especificidad:</strong> Probabilidad de que el modelo prediga correctamente que el evento no ha ocurrido cuando <em>realmente no ha ocurrido</em>.</p></li>
+\]</span></p>
+<ul>
+<li><strong>Especificidad:</strong> Probabilidad de que el modelo prediga correctamente que el evento no ha ocurrido cuando <em>realmente no ha ocurrido</em>.</li>
 </ul>
 <p><span class="math display">\[
 P(\hat{y}=0|y=0)
@@ -1066,7 +1077,7 @@ variable\_dependiente \sim variable\_indep_1 + variable\_indep_2 +\dots+ variabl
 <li><p>Otras familias como <code>Gamma()</code>, <code>inverse.gaussian()</code>, <code>quasi()</code>, <code>quasipoisson()</code>, y <code>quasibinomial()</code> para diferentes distribuciones de errores que no abordaremos en el curso.</p></li>
 </ul>
 <p>Si la función de enlace no se especifica, se utiliza el enlace canónico (predeterminado) para cada familia. Por ejemplo, si omitimos el argumento <code>link = "logit"</code>, de todas maneras quedaría definido ese mismo enlace para la familia <code>binomial</code>.</p></li>
-<li><p><code>data</code><strong>:</strong> Nombre del <em>dataframe</em> que contiene las variables utilizadas en el modelo.</p></li>
+<li><p><code>data</code>: Nombre del <em>dataframe</em> que contiene las variables utilizadas en el modelo.</p></li>
 </ul>
 <section id="gestión-de-variables-dicotómicas" class="level3">
 <h3 class="anchored" data-anchor-id="gestión-de-variables-dicotómicas">Gestión de variables dicotómicas</h3>
