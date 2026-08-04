@@ -8,7 +8,7 @@
 
 <meta name="author" content="Christian Ballejo, Andrea Silva y Tamara Ricardo">
 
-<title>7&nbsp; Hoja de Estilo del lenguaje R – Epidemiología: Nivel Avanzado</title>
+<title>22&nbsp; Estudios de casos y controles – Epidemiología: Nivel Avanzado</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,42 +24,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -68,8 +52,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../unidad_2/01_est_epidemiologicos.html" rel="next">
-<link href="../unidad_1/06_analisis_exploratorio.html" rel="prev">
+<link href="../unidad_4/02_reg_logistica.html" rel="next">
+<link href="../unidad_3/07_reg_lineal_multiple.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -112,6 +96,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -287,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_1/01_intro_R.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../unidad_1/07_hoja_estilo.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_4/01_est_caso_control.html">Unidad 4</a></li><li class="breadcrumb-item"><a href="../unidad_4/01_est_caso_control.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Estudios de casos y controles</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -443,7 +456,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_1/07_hoja_estilo.html" class="sidebar-item-text sidebar-link active">
+  <a href="../unidad_1/07_hoja_estilo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span></a>
   </div>
 </li>
@@ -569,7 +582,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_4/01_est_caso_control.html" class="sidebar-item-text sidebar-link">
+  <a href="../unidad_4/01_est_caso_control.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Estudios de casos y controles</span></span></a>
   </div>
 </li>
@@ -609,15 +622,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#convenciones-de-estilo-r" id="toc-convenciones-de-estilo-r" class="nav-link active" data-scroll-target="#convenciones-de-estilo-r"><span class="header-section-number">7.1</span> Convenciones de estilo R</a></li>
-  <li><a href="#guía-de-estilo-de-tidyverse" id="toc-guía-de-estilo-de-tidyverse" class="nav-link" data-scroll-target="#guía-de-estilo-de-tidyverse"><span class="header-section-number">7.2</span> Guía de estilo de <strong><code>tidyverse</code></strong></a>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">22.1</span> Introducción</a>
   <ul class="collapse">
-  <li><a href="#espaciado" id="toc-espaciado" class="nav-link" data-scroll-target="#espaciado">Espaciado</a></li>
-  <li><a href="#líneas-largas" id="toc-líneas-largas" class="nav-link" data-scroll-target="#líneas-largas">Líneas largas</a></li>
-  <li><a href="#tuberías-y-capas-ggplot2" id="toc-tuberías-y-capas-ggplot2" class="nav-link" data-scroll-target="#tuberías-y-capas-ggplot2">Tuberías y capas <code>ggplot2</code></a></li>
-  <li><a href="#comentarios" id="toc-comentarios" class="nav-link" data-scroll-target="#comentarios">Comentarios</a></li>
-  <li><a href="#nombres-de-columnas" id="toc-nombres-de-columnas" class="nav-link" data-scroll-target="#nombres-de-columnas">Nombres de columnas</a></li>
+  <li><a href="#selección-de-los-controles" id="toc-selección-de-los-controles" class="nav-link" data-scroll-target="#selección-de-los-controles">Selección de los controles</a></li>
   </ul></li>
+  <li><a href="#clasificación-de-los-estudios-de-casos-y-controles" id="toc-clasificación-de-los-estudios-de-casos-y-controles" class="nav-link" data-scroll-target="#clasificación-de-los-estudios-de-casos-y-controles"><span class="header-section-number">22.2</span> Clasificación de los estudios de casos y controles</a></li>
+  <li><a href="#análisis-de-estudios-de-casos-y-controles" id="toc-análisis-de-estudios-de-casos-y-controles" class="nav-link" data-scroll-target="#análisis-de-estudios-de-casos-y-controles"><span class="header-section-number">22.3</span> Análisis de estudios de casos y controles</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
   </ul>
 </nav>
     </div>
@@ -625,9 +636,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_1/01_intro_R.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../unidad_1/07_hoja_estilo.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_4/01_est_caso_control.html">Unidad 4</a></li><li class="breadcrumb-item"><a href="../unidad_4/01_est_caso_control.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Estudios de casos y controles</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></h1>
+<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Estudios de casos y controles</span></h1>
 </div>
 
 
@@ -635,9 +646,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-heading">Autores/as</div>
     <div class="quarto-title-meta-contents">
              <p>Christian Ballejo <a href="https://orcid.org/0000-0002-7346-5701" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+             <p>Andrea Silva <a href="https://orcid.org/0000-0002-4791-9706" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
           </div>
   </div>
     
@@ -650,305 +662,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="convenciones-de-estilo-r" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="convenciones-de-estilo-r"><span class="header-section-number">7.1</span> Convenciones de estilo R</h2>
-<p>R es bastante indulgente con la forma en que escribimos código, a diferencia de otros lenguajes como Python, donde un espacio mal puesto puede arruinar el script. Sin embargo, adoptar una guía de estilo mejora la legibilidad, facilita la colaboración y reduce errores.</p>
-<p>Las siguientes líneas de código producen el mismo resultado, pero no todas son igual de claras:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>, class <span class="sc">==</span> <span class="st">"compact"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 2</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>, class <span class="sc">==</span> <span class="st">"compact"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 3</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>, class <span class="sc">==</span> <span class="st">"compact"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 4</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>, class <span class="sc">==</span> <span class="st">"compact"</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 5</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>, class <span class="sc">==</span> <span class="st">"compact"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 6</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>, class <span class="sc">==</span> <span class="st">"compact"</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 7</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>, class <span class="sc">==</span> <span class="st">"compact"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Las tres primeras versiones son más legibles. El resto, aunque válidas, son difíciles de seguir, especialmente en trabajos colaborativos o materiales docentes.</p>
-</section>
-<section id="guía-de-estilo-de-tidyverse" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="guía-de-estilo-de-tidyverse"><span class="header-section-number">7.2</span> Guía de estilo de <strong><code>tidyverse</code></strong></h2>
-<p>Para ayudar a mejorar la legibilidad y facilitar el compartir código con otros, el equipo de Tidyverse publicó una guía concisa con ejemplos claros de buenas y malas formas de escribir código, nombres de variables, sangría, líneas largas, y más:</p>
-<p>➡️ <a href="https://style.tidyverse.org/" class="uri"><strong>https://style.tidyverse.org/</strong></a></p>
-<p>Además, RStudio incluye herramientas para aplicar estas convenciones automáticamente. Por ejemplo, seleccionando el código y presionando <code>Ctrl + i</code> (Windows) se puede reidentar el texto. No siempre es perfecto, pero es realmente útil para lograr la sangría correcta sin tener que presionar manualmente espacio muchas veces.</p>
-<section id="espaciado" class="level3">
-<h3 class="anchored" data-anchor-id="espaciado">Espaciado</h3>
-<p>Colocar espacios después de las comas:</p>
-<p>✔️ <strong>Correcto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>✖️ <strong>Incorrecto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Colocar espacios después de comas y alrededor de operadores (<code>+</code>, <code>-</code>, <code>&gt;</code>, <code>=</code>, etc.) mejora la legibilidad. También se deben evitar espacios innecesarios dentro de paréntesis:</p>
-<p>✔️ <strong>Correcto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>✖️ <strong>Incorrecto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>No colocar espacios alrededor de paréntesis que sean parte de funciones:</p>
-<p>✔️ <strong>Correcto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>✖️ <strong>Incorrecto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="líneas-largas" class="level3">
-<h3 class="anchored" data-anchor-id="líneas-largas">Líneas largas</h3>
-<p>En general, es una buena práctica no tener líneas de código muy largas. Se recomienda limitar las líneas a <strong>80 caracteres</strong>. Para visualizarlo, en RStudio vamos a <code>Tools &gt; Global Options &gt; Code &gt; Display</code>y seleccionamos la casilla <strong>Show margin.</strong></p>
-<p>Se sugiere agregar saltos de línea dentro de las líneas de código más largas, los mismos deben colocarse luego de las comas y los argumentos se deben alinear dentro de la función:</p>
-<p>✔️ <strong>Correcto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>, class <span class="sc">==</span> <span class="st">"compact"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>, class <span class="sc">==</span> <span class="st">"compact"</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mpg, cty <span class="sc">&gt;</span> <span class="dv">10</span>, class <span class="sc">==</span> <span class="st">"compact"</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  mpg,</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  cty <span class="sc">&gt;</span> <span class="dv">10</span>,</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  class <span class="sc">%in%</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"compact"</span>, <span class="st">"pickup"</span>, <span class="st">"midsize"</span>, <span class="st">"subcompact"</span>, <span class="st">"suv"</span>, <span class="st">"2seater"</span>, <span class="st">"minivan"</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>✖️ <strong>Incorrecto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  mpg,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  cty <span class="sc">&gt;</span> <span class="dv">10</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  class <span class="sc">%in%</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"compact"</span>, <span class="st">"pickup"</span>, <span class="st">"midsize"</span>, <span class="st">"subcompact"</span>, <span class="st">"suv"</span>, <span class="st">"2seater"</span>, <span class="st">"minivan"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="tuberías-y-capas-ggplot2" class="level3">
-<h3 class="anchored" data-anchor-id="tuberías-y-capas-ggplot2">Tuberías y capas <code>ggplot2</code></h3>
-<p>Colocar cada paso de la tubería <code>(%&gt;%</code> ó <code>|&gt;</code>) en una línea separada, con sangría de dos espacios debajo del operador:</p>
-<p>✔️ <strong>Correcto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(class) <span class="sc">|&gt;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_hwy =</span> <span class="fu">mean</span>(hwy))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>✖️ <strong>Incorrecto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mal</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="fu">group_by</span>(class) <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_hwy =</span> <span class="fu">mean</span>(hwy))</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Muy mal</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="fu">group_by</span>(class) <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_hwy =</span> <span class="fu">mean</span>(hwy))</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Tan mal que no funciona</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span> </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">group_by</span>(class)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_hwy =</span> <span class="fu">mean</span>(hwy))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Lo mismo aplica para las capas de gráficos de <code>ggplot2</code>, usando el conector <code>+</code> al final de la línea y debajo sangría de dos espacios:</p>
-<p>✔️ <strong>Correcto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Mal</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Muy mal</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Tan mal que no funciona</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy, <span class="at">color =</span> class))</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">geom_point</span>()</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">geom_smooth</span>()</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>✖️ <strong>Incorrecto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mal</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Muy mal</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tan mal que no funciona</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy, <span class="at">color =</span> class))</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">geom_point</span>()</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">geom_smooth</span>()</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="comentarios" class="level3">
-<h3 class="anchored" data-anchor-id="comentarios">Comentarios</h3>
-<p>Los comentarios deben comenzar con <code>#</code> seguido de un espacio:</p>
-<p>✔️ <strong>Correcto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bien</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>✖️ <strong>Incorrecto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Mal</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Mal</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Si el comentario es corto, se puede incluir en la misma línea, separado por al menos dos espacios para mejorar la legibilidad:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="co"># filtro filas donde cty es 10 o más</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(class) <span class="sc">|&gt;</span> <span class="co"># estratifica por class</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_hwy =</span> <span class="fu">mean</span>(hwy)) <span class="co"># resume la media de hwy por cada grupo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Se puede agregar espacios adicionales para alinear los comentarios en línea, si lo deseamos:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cty <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="co"># filtro filas donde cty es 10 o más</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(class) <span class="sc">|&gt;</span> <span class="co"># estratifica por class</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_hwy =</span> <span class="fu">mean</span>(hwy)) <span class="co"># resume la media de hwy por cada grupo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Si el comentario es muy largo, podemos dividirlo en varias líneas. RStudio incluye una herramienta útil para comentarios largos: <code>Code &gt; Reflow Comment</code> los ajusta automáticamente al ancho deseado.</p>
-</section>
-<section id="nombres-de-columnas" class="level3">
-<h3 class="anchored" data-anchor-id="nombres-de-columnas">Nombres de columnas</h3>
-<p>Se recomienda utilizar nombres de columnas en un formato consistente y compatible con el enfoque del ecosistema <code>tidyverse</code>. Esto facilita la manipulación de datos y reduce errores en el código.</p>
-<p>En particular, se sugiere evitar:</p>
+<section id="introducción" class="level2" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">22.1</span> Introducción</h2>
+<p>Un estudio de casos y controles (CC) es un estudio analítico observacional que comienza con la identificación de dos grupos:</p>
 <ul>
-<li><p>Nombres excesivamente largos</p></li>
-<li><p>Uso de mayúsculas</p></li>
-<li><p>Signos de puntuación, acentos y caracteres especiales</p></li>
-<li><p>Espacios en blanco</p></li>
+<li><p>Casos: individuos que presentan algún evento particular de salud.</p></li>
+<li><p>Controles: individuos que no presentan el evento.</p></li>
 </ul>
-<p>En su lugar, es recomendable utilizar:</p>
+<p>El objetivo es comparar la frecuencia de exposición a un factor de interés entre ambos grupos. La hipótesis subyacente es que si la exposición es más frecuente en los casos que en los controles, podría tratarse de un <strong>factor de riesgo</strong>. En cambio, si la exposición es menos frecuente en los casos, podría actuar como un <strong>factor protector</strong>.</p>
+<p>Los principales aspectos metodológicos a tener en cuenta para llevar adelante un estudio de casos y controles son:</p>
 <ul>
-<li><p>Nombres breves pero descriptivos</p></li>
-<li><p>Letras minúsculas</p></li>
+<li>Definición precisa de la variable dependiente (evento de interés).</li>
+<li>Definición de las variables independientes (factores de exposición).</li>
+<li>Criterios de selección de los casos (fuente y definición).</li>
+<li>Criterios de selección de los controles (fuente y criterios de inclusión/exclusión).</li>
+<li>Análisis estadístico.</li>
 </ul>
-<p>palabras separadas por guiones bajos (<code>_</code>) o puntos (<code>.</code>)</p>
-<p>✔️ <strong>Correcto</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mpg)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "manufacturer" "model"        "displ"        "year"         "cyl"         
- [6] "trans"        "drv"          "cty"          "hwy"          "fl"          
-[11] "class"       </code></pre>
+<p>Es fundamental tener criterios precisos para la definición de caso. Los criterios pueden estar basados en resultados de pruebas de laboratorio o pueden estar basados en la historia clínica o en encuestas.</p>
+<p>Según la definición de casos, se diferencian dos tipos importantes de estudios de casos y controles:</p>
+<ul>
+<li><p><strong>Estudios de casos y controles con casos incidentes</strong>: Incluyen solo casos nuevos de la enfermedad durante el período de estudio.</p></li>
+<li><p><strong>Estudios de casos y controles con casos prevalentes</strong>: Consideran todos los individuos que tienen la enfermedad en un momento determinado.</p></li>
+</ul>
+<p>Algunos autores consideran los estudios de CC como una estrategia alternativa para estudiar una cohorte. Esto permite diferenciar dos enfoques:</p>
+<ul>
+<li><strong>Casos en cohortes de densidad de incidencia</strong>: Los casos se reclutan conforme aparecen (incidentes). Este enfoque es útil cuando la exposición tiene períodos de latencia prolongados.</li>
+<li><strong>Casos en cohortes de incidencia acumulada</strong>: Los casos se seleccionan al final del estudio, con un período de seguimiento previamente definido.</li>
+</ul>
+<section id="selección-de-los-controles" class="level3">
+<h3 class="anchored" data-anchor-id="selección-de-los-controles">Selección de los controles</h3>
+<p>La fuente de los controles quedará definida en la medida en que se definan claramente los criterios de selección de casos, así como la población hipotética de origen. Algunos puntos a considerar son los siguientes:</p>
+<ol type="a">
+<li>Los controles deben seleccionarse de la misma base poblacional (de la cohorte hipotética) de donde se originaron los casos. Si uno de estos controles desarrollara el evento en cuestión, pasaría a formar parte del grupo de los casos. Esto último implica que los controles estuvieron en riesgo de desarrollar el evento en forma simultánea a los casos.</li>
+<li>Los controles deben seleccionarse independientemente de su condición de expuestos o no expuestos.</li>
+<li>La probabilidad de selección para los controles debe ser proporcional al tiempo que el sujeto estuvo en riesgo de desarrollar el evento o enfermedad en estudio.</li>
+<li>Para minimizar confusión, se pueden emparejar controles con casos en función de variables confusoras.</li>
+<li>Los procedimientos para medir la exposición, deben ser los mismos, tanto en casos como en controles.</li>
+</ol>
+<p>Las fuentes de controles pueden incluir población general, hospitales, vecindarios, registros de mortalidad, entre otros.</p>
+</section>
+</section>
+<section id="clasificación-de-los-estudios-de-casos-y-controles" class="level2" data-number="22.2">
+<h2 data-number="22.2" class="anchored" data-anchor-id="clasificación-de-los-estudios-de-casos-y-controles"><span class="header-section-number">22.2</span> Clasificación de los estudios de casos y controles</h2>
+<p>En los últimos tiempos, se ha profundizado en los aspectos metodológicos de los estudios de casos y controles; y también se ha clarificado la estrecha relación que existe con los estudios de cohorte, lo que ha permitido el desarrollo de diferentes variantes. Describiremos brevemente algunas de ellas a continuación:</p>
+<ul>
+<li><p><strong>Estudios caso-cohorte</strong>. En esta variante, la definición de casos y controles se encuentra anidada en una cohorte fija, se utiliza un enfoque de incidencia acumulada.</p></li>
+<li><p><strong>Estudios de casos y controles anidado o de grupo de riesgo</strong>. Es similar al anterior, sólo que se trata de una cohorte dinámica, y un enfoque de densidad de incidencia.</p></li>
+<li><p><strong>Estudios caso-autocontrol</strong>. Esta variante utiliza al mismo sujeto que se consideró como caso, como su propio control. Este tipo de estrategia se suele utilizar para exposiciones que son de corta duración y que cambian en el tiempo y con eventos que son fáciles de detectar.</p></li>
+<li><p><strong>Estudios de mortalidad proporcional</strong>. Tanto los casos como los controles se obtienen de los registros de mortalidad poblacionales. <em>Rothman</em> dice que este tipo de controles son aceptables, sólo si la distribución de la exposición entre los grupos es similar a la que presenta la base poblacional.</p></li>
+<li><p><strong>Estudios de caso-caso</strong>. En esta estrategia se compara la historia de exposición en subgrupos de casos. En el caso de enfermedades infecciosas, es posible conformar diversos subgrupos de enfermedad, partiendo de datos de vigilancia epidemiológica.</p></li>
+</ul>
+<p>Quienes desean profundizar estos tópicos sobre el diseño de los CyC, pueden leer el capítulo correspondiente de <em>“Epidemiología. Diseño y análisis de estudios”</em> de <span class="citation" data-cites="hernández-ávila2011">Hernández-Ávila (<a href="#ref-hernández-ávila2011" role="doc-biblioref">2011</a>)</span> . Comenzaremos ahora con la parte de análisis de estos diseños.</p>
+</section>
+<section id="análisis-de-estudios-de-casos-y-controles" class="level2" data-number="22.3">
+<h2 data-number="22.3" class="anchored" data-anchor-id="análisis-de-estudios-de-casos-y-controles"><span class="header-section-number">22.3</span> Análisis de estudios de casos y controles</h2>
+<p>En estudios de CC, la medida de asociación principal es el <strong>odds ratio (OR)</strong> de la exposición. Este se calcula comparando la frecuencia de exposición entre casos y controles:</p>
+<p><span class="math display">\[
+OR = \frac{Odds~exposición~casos}{Odds~exposición~controles}
+\]</span></p>
+<p>El modelo multivariado a utilizar para estudios de casos y controles no apareados es la <a href="../unidad_4/02_reg_logistica.html"><strong>regresión logística</strong></a>, que desarrollaremos a continuación. Por otro lado, los estudios de casos y controles apareados se analizan mediante modelos de <a href="../unidad_4/04_reg_logistica_cond.html"><strong>regresión logística condicional</strong></a>, los cuales abordaremos brevemente al final de la unidad.</p>
+<div class="hidden">
+<p><span class="citation" data-cites="royo-bordonada2009">Royo-Bordonada et&nbsp;al. (<a href="#ref-royo-bordonada2009" role="doc-biblioref">2009</a>)</span></p>
+<p><span class="citation" data-cites="field2014">Field et&nbsp;al. (<a href="#ref-field2014" role="doc-biblioref">2014</a>)</span></p>
+<p><span class="citation" data-cites="ortega_calvo_2002">Ortega Calvo y Cayuela Domínguez (<a href="#ref-ortega_calvo_2002" role="doc-biblioref">2002</a>)</span></p>
+<p><span class="citation" data-cites="rothman_2012">Rothman (<a href="#ref-rothman_2012" role="doc-biblioref">2012</a>)</span></p>
+<p><span class="citation" data-cites="silva_aycaguer_excursion_1995">Silva Ayçaguer (<a href="#ref-silva_aycaguer_excursion_1995" role="doc-biblioref">1995</a>)</span></p>
+<p><span class="citation" data-cites="thompson_1994">Thompson (<a href="#ref-thompson_1994" role="doc-biblioref">1994</a>)</span></p>
 </div>
-</div>
-<p>✖️ <strong>Incorrecto</strong></p>
-<p>En bases de datos existentes:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iris)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"     </code></pre>
-</div>
-</div>
-<p>Al crear un nuevo dataset:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  Jurisdicción <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Buenos Aires"</span>, <span class="dv">10</span>), <span class="fu">rep</span>(<span class="st">"CABA"</span>, <span class="dv">10</span>)),</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">CasosTotales =</span> <span class="fu">sample</span>(<span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  POBLACIÓN <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">16626374</span>, <span class="dv">10</span>), <span class="fu">rep</span>(<span class="dv">3054237</span>, <span class="dv">10</span>)),</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(datos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Jurisdicción" "CasosTotales" "POBLACIÓN"   </code></pre>
-</div>
-</div>
-<p>Al crear una nueva variable o una tabla resumen:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tan mal que da error</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>datos  <span class="sc">|&gt;</span> </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(tasa<span class="sc">-</span><span class="fu">incidencia</span>(<span class="dv">100</span>k) <span class="ot">=</span> CasosTotales<span class="sc">/</span>POBLACIÓN <span class="sc">*</span> <span class="dv">100000</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in parse(text = input): &lt;text&gt;:3:30: unexpected symbol
-2: datos  |&gt; 
-3: summarise(tasa-incidencia(100k
-                                ^</code></pre>
-</div>
-</div>
-<p>En caso de que nuestros datos tengan nombres de columnas no compatibles con <code>tidyverse</code>, se recomienda usar la función <code>clean_names()</code> del paquete <code>janitor</code> para estandarizarlas:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   sepal_length sepal_width petal_length petal_width species
-1           5.1         3.5          1.4         0.2  setosa
-2           4.9         3.0          1.4         0.2  setosa
-3           4.7         3.2          1.3         0.2  setosa
-4           4.6         3.1          1.5         0.2  setosa
-5           5.0         3.6          1.4         0.2  setosa
-6           5.4         3.9          1.7         0.4  setosa
-7           4.6         3.4          1.4         0.3  setosa
-8           5.0         3.4          1.5         0.2  setosa
-9           4.4         2.9          1.4         0.2  setosa
-10          4.9         3.1          1.5         0.1  setosa</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> datos <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(datos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "jurisdiccion"  "casos_totales" "poblacion"    </code></pre>
-</div>
-</div>
+</section>
+<section id="referencias" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias">Referencias</h2>
 
 
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-field2014" class="csl-entry" role="listitem">
+Field, Andy, Jeremy Miles, y Zoë Field. 2014. <em>Discovering statistics using R</em>. Repr. Sage.
+</div>
+<div id="ref-hernández-ávila2011" class="csl-entry" role="listitem">
+Hernández-Ávila, Mauricio. 2011. <em>Epidemiología: diseño y análisis de estudios</em>. Editorial Médica Panamericana.
+</div>
+<div id="ref-ortega_calvo_2002" class="csl-entry" role="listitem">
+Ortega Calvo, Manuel, y Aurelio Cayuela Domínguez. 2002. <span>«Regresión logística no condicionada y tamaño de muestra: una revisión bibliográfica»</span>. <em>Revista Española de Salud Pública</em> 76: 85-93.
+</div>
+<div id="ref-rothman_2012" class="csl-entry" role="listitem">
+Rothman, Kenneth J. 2012. <em>Epidemiology: an introduction</em>. 2. ed. Oxford Univ. Press.
+</div>
+<div id="ref-royo-bordonada2009" class="csl-entry" role="listitem">
+Royo-Bordonada, Miguel Angel, Javier Damian, Beatriz Perez-Gomez, et&nbsp;al. 2009. <em>Método epidemiológico</em>. Instituto de Salud Carlos III (ISCIII). Escuela Nacional de Sanidad (ENS). <a href="http://hdl.handle.net/20.500.12105/5271">http://hdl.handle.net/20.500.12105/5271</a>.
+</div>
+<div id="ref-silva_aycaguer_excursion_1995" class="csl-entry" role="listitem">
+Silva Ayçaguer, Luis Carlos. 1995. <span>«Excursión a la regresión logística en ciencias de la salud»</span>. <em>Madrid: Díaz de Santos</em>.
+</div>
+<div id="ref-thompson_1994" class="csl-entry" role="listitem">
+Thompson, W. D. 1994. <span>«Statistical analysis of case-control studies»</span>. <em>Epidemiologic Reviews</em> 16 (1): 33-50. <a href="https://doi.org/10.1093/oxfordjournals.epirev.a036143">https://doi.org/10.1093/oxfordjournals.epirev.a036143</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1367,13 +1175,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../unidad_1/06_analisis_exploratorio.html" class="pagination-link" aria-label="Análisis exploratorio de datos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Análisis exploratorio de datos</span></span>
+      <a href="../unidad_3/07_reg_lineal_multiple.html" class="pagination-link" aria-label="Regresión lineal múltiple">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Regresión lineal múltiple</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../unidad_2/01_est_epidemiologicos.html" class="pagination-link" aria-label="Estudios epidemiológicos">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Estudios epidemiológicos</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../unidad_4/02_reg_logistica.html" class="pagination-link" aria-label="Regresión logística">
+        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Regresión logística</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

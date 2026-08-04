@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Christian Ballejo, Andrea Silva y Tamara Ricardo">
 
-<title>14&nbsp; Intervalos de confianza en R – Epidemiología: Nivel Avanzado</title>
+<title>26&nbsp; Validación de modelos predictivos – Epidemiología: Nivel Avanzado</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -87,16 +52,16 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../unidad_2/06_fun_condicionales.html" rel="prev">
+<link href="../unidad_4/04_reg_logistica_cond.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-e27e2a7f1faf7f5f37c7f213f0024cd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -334,7 +299,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_2/01_est_epidemiologicos.html">Unidad 2</a></li><li class="breadcrumb-item"><a href="../unidad_2/Intervalos_confianza.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Intervalos de confianza en R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_4/01_est_caso_control.html">Unidad 4</a></li><li class="breadcrumb-item"><a href="../unidad_4/05_mod_predict.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Validación de modelos predictivos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -544,8 +509,104 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_2/Intervalos_confianza.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Intervalos de confianza en R</span></span></a>
+  <a href="../unidad_2/07_IC_complejos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Intervalos de confianza en muestras complejas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true"><i class="bi bi-file-earmark-bar-graph" role="img">
+</i> 
+ <span class="menu-text">Unidad 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_3/01_est_ecologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Estudios ecológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_3/02_mod_estadistico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Introducción al modelado estadístico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_3/03_covarianza_correlacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Covarianza y correlación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_3/04_reg_lineal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Regresión lineal simple</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_3/05_anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Análisis de la varianza (ANOVA)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_3/06_rol_variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Rol de las variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_3/07_reg_lineal_multiple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Regresión lineal múltiple</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true"><i class="bi bi-file-earmark-bar-graph" role="img">
+</i> 
+ <span class="menu-text">Unidad 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_4/01_est_caso_control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Estudios de casos y controles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_4/02_reg_logistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Regresión logística</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_4/03_sep_datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Separación de datos binomiales</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_4/04_reg_logistica_cond.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Regresión logística condicional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../unidad_4/05_mod_predict.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Validación de modelos predictivos</span></span></a>
   </div>
 </li>
       </ul>
@@ -560,8 +621,18 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">14.1</span> Introducción</a></li>
-  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">14.2</span> Referencias</a></li>
+  <li><a href="#qué-es-un-modelo-predictivo" id="toc-qué-es-un-modelo-predictivo" class="nav-link active" data-scroll-target="#qué-es-un-modelo-predictivo"><span class="header-section-number">26.1</span> ¿Qué es un modelo predictivo?</a></li>
+  <li><a href="#en-qué-consiste-la-validación-de-modelos-predictivos" id="toc-en-qué-consiste-la-validación-de-modelos-predictivos" class="nav-link" data-scroll-target="#en-qué-consiste-la-validación-de-modelos-predictivos"><span class="header-section-number">26.2</span> ¿En qué consiste la validación de modelos predictivos?</a>
+  <ul class="collapse">
+  <li><a href="#declaración-tripod" id="toc-declaración-tripod" class="nav-link" data-scroll-target="#declaración-tripod"><strong>Declaración TRIPOD</strong></a></li>
+  </ul></li>
+  <li><a href="#descripción-de-los-diferentes-métodos-de-validación-interna" id="toc-descripción-de-los-diferentes-métodos-de-validación-interna" class="nav-link" data-scroll-target="#descripción-de-los-diferentes-métodos-de-validación-interna"><span class="header-section-number">26.3</span> Descripción de los diferentes métodos de validación interna</a>
+  <ul class="collapse">
+  <li><a href="#data-splitting" id="toc-data-splitting" class="nav-link" data-scroll-target="#data-splitting">Data splitting</a></li>
+  <li><a href="#cross-validation-o-validación-cruzada" id="toc-cross-validation-o-validación-cruzada" class="nav-link" data-scroll-target="#cross-validation-o-validación-cruzada"><em>Cross-validation</em> o validación cruzada</a></li>
+  <li><a href="#bootstrap" id="toc-bootstrap" class="nav-link" data-scroll-target="#bootstrap">Bootstrap</a></li>
+  </ul></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
   </ul>
 </nav>
     </div>
@@ -569,9 +640,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_2/01_est_epidemiologicos.html">Unidad 2</a></li><li class="breadcrumb-item"><a href="../unidad_2/Intervalos_confianza.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Intervalos de confianza en R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_4/01_est_caso_control.html">Unidad 4</a></li><li class="breadcrumb-item"><a href="../unidad_4/05_mod_predict.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Validación de modelos predictivos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Intervalos de confianza en R</span></h1>
+<h1 class="title"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Validación de modelos predictivos</span></h1>
 </div>
 
 
@@ -581,7 +652,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Autor/a</div>
     <div class="quarto-title-meta-contents">
-             <p>Christian Ballejo <a href="https://orcid.org/0000-0002-7346-5701" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+             <p>Andrea Silva <a href="https://orcid.org/0000-0002-4791-9706" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
           </div>
   </div>
     
@@ -594,249 +665,105 @@ window.Quarto = {
 </header>
 
 
-<section id="introducción" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">14.1</span> Introducción</h2>
-<p>La contaminación por plásticos ha alcanzado incluso las zonas más remotas del océano, fragmentándose en partículas microscópicas conocidas como microplásticos (<span class="math inline">\(&lt; 5 mm\)</span>). Debido a su capacidad para filtrar grandes volúmenes de agua, los bivalvos como el mejillón (<em>Mytilus edulis</em>) actúan como bioindicadores de la salud ambiental y, al mismo tiempo, como una vía directa de transferencia de contaminantes hacia los seres humanos.</p>
-<p>En este ejercicio, analizaremos datos basados en la investigación pionera de <span class="citation" data-cites="vancauwenberghe2014">Van Cauwenberghe y Janssen (<a href="#ref-vancauwenberghe2014" role="doc-biblioref">2014</a>)</span>. Evaluaremos la carga promedio de microplásticos en muestras destinadas al consumo y estimaremos la magnitud de la proporción de bivalvos que superan los límites de seguridad.</p>
-<p>Los valores de concentración de microplásticos (medidos en partículas/g) hallados en estos bivalvos estudiados se encuentran almacenadas en el archivo <strong>bivalvos.txt</strong> y se nos pide realizar los siguientes items:</p>
-<ol type="a">
-<li>Lea el archivo y explore su contenido</li>
-<li>Describa estadísticamente las mediciones</li>
-<li>¿Estos datos parecen tomados de una población de distribución normal?, ¿por qué?</li>
-<li>¿Cuáles son los intervalos de confianza de 90 y 95% para la concentración media de microplasticos por el método frecuentista tradicional (fórmulas)?</li>
-<li>Construya la variable <strong>umbral_excedido</strong> tomando el valor de corte hipotético en 0,5 partículas/g (si concentración es menor o igual a 0,5 el umbral_excedido valdrá “No” y si es mayor valdrá “Si”)</li>
-<li>¿Cuál es el intervalo de confianza del 95% de la proporcion de bivalvos con riesgo potencial para el consumo humano?</li>
-</ol>
-<p>Veamos como llevamos adelante estos pasos mediante el lenguaje R:</p>
-<ol type="a">
-<li>Lectura y exploración inicial</li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Activamos paquetes necesarios y conocidos</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Leemos la tabla de datos</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>bivalvos <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/bivalvos.txt"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Visualizamos la estructura de la tabla de datos</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bivalvos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 50
-Columns: 2
-$ id            &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1…
-$ concentracion &lt;dbl&gt; 0.37, 0.42, 0.68, 0.46, 0.47, 0.71, 0.52, 0.26, 0.35, 0.…</code></pre>
-</div>
-</div>
-<p>Tenemos una tabla con 50 observaciones (mediciones en bivalvos) y la variable de interés se llama concentracion (nos informan que está expresada como partículas/g de tejido húmedo)</p>
-<ol start="2" type="a">
-<li>Describa estadísticamente las mediciones</li>
-</ol>
-<p>Con la función <code>describe()</code> de <strong>dlookr</strong> podemos obtener los estadísticos de esta variable cuantitativa continua.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bivalvos <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe</span>(concentracion)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 26
-  described_variables     n    na  mean    sd se_mean   IQR skewness kurtosis
-  &lt;chr&gt;               &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
-1 concentracion          50     0 0.456 0.138  0.0196 0.188    0.197   -0.299
-# ℹ 17 more variables: p00 &lt;dbl&gt;, p01 &lt;dbl&gt;, p05 &lt;dbl&gt;, p10 &lt;dbl&gt;, p20 &lt;dbl&gt;,
-#   p25 &lt;dbl&gt;, p30 &lt;dbl&gt;, p40 &lt;dbl&gt;, p50 &lt;dbl&gt;, p60 &lt;dbl&gt;, p70 &lt;dbl&gt;,
-#   p75 &lt;dbl&gt;, p80 &lt;dbl&gt;, p90 &lt;dbl&gt;, p95 &lt;dbl&gt;, p99 &lt;dbl&gt;, p100 &lt;dbl&gt;</code></pre>
-</div>
-</div>
-<p>La media (0,4556 partículas/g) y la mediana (0,44 partículas/g) son cercanas. El desvío estandar es de 0,138 partículas/g.</p>
-<ol start="3" type="a">
-<li>A continuación debemos demostrar si los datos se aproximan a una distribución normal.</li>
-</ol>
-<p>Aplicaremos el test de normalidad de Shapiro-Wilk (forma analítica)</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(bivalvos<span class="sc">$</span>concentracion)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  bivalvos$concentracion
-W = 0.989, p-value = 0.92</code></pre>
-</div>
-</div>
-<p>Un p-valor mayor a 0,05 habla de un ajuste a la curva normal (es su hipotesis nula de igualdad).</p>
-<p>Complementamos visualizandolo graficamente con un Q-QPlot.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>bivalvos <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_normality</span>(concentracion)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
+<section id="qué-es-un-modelo-predictivo" class="level2" data-number="26.1">
+<h2 data-number="26.1" class="anchored" data-anchor-id="qué-es-un-modelo-predictivo"><span class="header-section-number">26.1</span> ¿Qué es un modelo predictivo?</h2>
+<p>Un modelo de predicción es una ecuación matemática que combina información de múltiples predictores o variables observadas o medidas en un individuo para predecir la probabilidad de presencia (diagnóstico) o aparición futura (pronóstico) de un resultado específico. Desde una perspectiva de investigación, el diagnóstico y el pronóstico constituyen un desafío similar: el médico dispone de cierta información y desea saber cómo se relaciona con el verdadero estado del paciente, ya sea que este se pueda conocer en el momento actual (diagnóstico) o solo en algún momento futuro (pronóstico). Para muchas de las aplicaciones médicas, el resultado de interés es binario y la información puede expresarse como predicciones probabilísticas. Los modelos predictivos se emplean en dos contextos o entornos distintos:</p>
+<ul>
+<li><strong>Entorno pronóstico:</strong> En el cual se desea determinar la probabilidad de que un evento específico ocurrirá en el futuro. Es decir que, estiman la probabilidad de un resultado o evento particular (por ejemplo, mortalidad, aparición o recurrencia de una enfermedad, complicación) dentro de un período determinado en el futuro (horas, días, semanas o años), por ejemplo, para planificar decisiones terapéuticas o de estilo de vida.</li>
+<li><strong>Entorno diagnóstico:</strong> donde el objetivo se centra en la probabilidad de que cierta condición o enfermedad esté presente o ausente en el momento de la predicción. Como ejemplos podemos considerar un modelo para informar sobre la derivación de pacientes para pruebas adicionales o un modelo para iniciar el tratamiento directamente.</li>
+</ul>
+<p>En la Figura 1, adaptada de <span class="citation" data-cites="collins2015">Collins et&nbsp;al. (<a href="#ref-collins2015" role="doc-biblioref">2015</a>)</span>, se muestra que la principal diferencia entre los modelos predictivos con objetivo pronóstico o diagnóstico es el tiempo para el cual se estiman las probabilidades.</p>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Intervalos_confianza_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="..\images/tripod.png" class="img-fluid figure-img"></p>
+<figcaption>Figura 1. Adaptado de Collins, G.S., Reitsma, J.B., Altman, D.G. et al.&nbsp;Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): the TRIPOD Statement. BMC Med 13, 1 (2015). https://doi.org/10.1186/s12916-014-0241-z</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p>Los puntos se desarrollan “alrededor” a la recta de normalidad.</p>
-<p>Con estos dos elementos podemos confirmar que la distribución se aproxima a la “Normal” y por lo tanto es confiable hacer uso de métodos paramétricos.</p>
-<p>Si bien con ayuda del Teorema del Límite Central (TCL) sabemos que si el tamaño de la muestra es suficientemente grande, la distribución de la media muestral (o del estadístico) tiende a una distribución normal, independientemente de la forma que tengan los datos originales. En este caso, la definición de “grande” depende de varios factores, pero generalmente se considera que 30 es un buen umbral.</p>
-<p>En la práctica, cuando trabajamos con variables continuas:</p>
-<ul>
-<li><p>Muestras pequeñas (<span class="math inline">\(n &lt; 30\)</span>): Si podemos asumir que la población original es aproximadamente normal, utilizamos la distribución <span class="math inline">\(t\)</span> de Student con <span class="math inline">\(n-1\)</span> grados de libertad. Esta distribución es más ‘ancha’ en las colas, lo que penaliza nuestra incertidumbre por tener pocos datos.</p></li>
-<li><p>Muestras grandes (<span class="math inline">\(n \ge 30\)</span>): Por el TLC, la distribución del estadístico tiende a la normalidad (<span class="math inline">\(z\)</span>). Sin embargo, dado que la distribución <span class="math inline">\(t\)</span> converge a la <span class="math inline">\(z\)</span> a medida que el tamaño de muestra aumenta, es una práctica estándar (y simplificadora) utilizar la distribución <span class="math inline">\(t\)</span> en toda la escala.Por eso, funciones en R como <code>t.test()</code> se usan universalmente: para un <span class="math inline">\(n\)</span> pequeño aplican la corrección necesaria, y para un <span class="math inline">\(n\)</span> grande los resultados son virtualmente idénticos a los de una distribución <span class="math inline">\(z\)</span>.</p></li>
-</ul>
-<p>Es una buena oportunidad para mencionar que el número 30 es una convención histórica (una regla empírica). Actualmente, a veces con <span class="math inline">\(n=30\)</span> y datos muy sesgados, el TLC aún no ha “actuado” lo suficiente y hay que recurrir a métodos no paramétricos donde obtenemos IC más robustos y honestos que confiar ciegamente en la distribución <span class="math inline">\(t\)</span>“.</p>
-<ol start="4" type="a">
-<li>Calculo de IC paramétrica</li>
-</ol>
-<p>Estamos frente al calculo de IC de una muestra de n = 50 (mayor a 30 observaciones) y que cumple con el supuesto de normalidad, por lo tanto deciamos que podemos aplicar un método paramétrico basado en la distribución <span class="math inline">\(t\)</span> de Student.</p>
-<p>Podríamos hacer las operaciones y cálculos individuales utilizando las funciones que R tiene sobre esta distribución (familia TDist: <code>qt()</code>, etc), pero la idea de este ejercicio es mostrarles la forma operativa más sencilla de llevarlo a cabo.</p>
-<p><strong>Función t.test()</strong></p>
-<p>La función <code>t.test()</code>, incluída en el paquete stats de R base, sirve apara ejecutar test de hipótesis de medias de una y dos poblaciones (independientes o pareadas) pero además nos calcula automáticamente el intervalo de confianza requerido, basado en la distribución <span class="math inline">\(t\)</span> de Student.</p>
-<p>Para este ejemplo debemos utilizar como argumentos:</p>
-<ul>
-<li>la variable de interés que contiene los valores de la muestra</li>
-<li>el nivel de confianza con el que necesitamos el IC</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> bivalvos<span class="sc">$</span>concentracion, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    One Sample t-test
-
-data:  bivalvos$concentracion
-t = 23.296, df = 49, p-value &lt; 2.2e-16
-alternative hypothesis: true mean is not equal to 0
-95 percent confidence interval:
- 0.4162995 0.4949005
-sample estimates:
-mean of x 
-   0.4556 </code></pre>
-</div>
-</div>
-<p>En la lista de resultados devuelta debemos observar los valores que figuran debajo de “95 percent confidence interval:”. En este caso, el resultado es de una media de 0,4556 IC95%: 0,4163-0,4949 partículas/g</p>
-<p>Si cambiamos el argumento conf.level a 0.90 obtendremos el IC 90%:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> bivalvos<span class="sc">$</span>concentracion, <span class="at">conf.level =</span> <span class="fl">0.90</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    One Sample t-test
-
-data:  bivalvos$concentracion
-t = 23.296, df = 49, p-value &lt; 2.2e-16
-alternative hypothesis: true mean is not equal to 0
-90 percent confidence interval:
- 0.4228123 0.4883877
-sample estimates:
-mean of x 
-   0.4556 </code></pre>
-</div>
-</div>
-<p>Este va de 0,4228 a 0,4884 partículas/g, lógicamente más estrecho que el anterior porque redujimos el intervalo de confianza.</p>
-<p>La redacción correcta sería <em>“con un nivel de confianza del 90%, se estima que el verdadero valor de la media poblacional de la concentración de microplásticos en bivalvos se encuentra entre 0,4228 y 0,4884 partículas/g.”</em></p>
-<p>Técnicamente las funciones estadísticas de R base devuelven generalmente resultados en formato lista y reciben su entrada con formato vector o bien sintaxis fórmula. Ese formato no cumple con ser ordenado como el dataframe. Dado que la filosofía de trabajo del tidyverse (y por lo tanto todos sus paquetes que pertenecen al ecosistema) tienen como premisa recibir y devolver un dataframe, lo que permite usar tambien las características tuberías, <span class="citation" data-cites="rstatix">Kassambara (<a href="#ref-rstatix" role="doc-biblioref">2023</a>)</span> propuso el paquete <strong>rstatix</strong>.</p>
-<p>La idea central del paquete es ofrecer funciones que hacen lo mismo que las de R base pero en lugar de devolver una lista de valores como resultado lo haga mediante un dataframe.</p>
-<p>Veamos su uso:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>bivalvos <span class="sc">|&gt;</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t_test</span>(concentracion <span class="sc">~</span> <span class="dv">1</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">detailed =</span> T) <span class="sc">|&gt;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(estimate, conf.low, conf.high)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 3
-  estimate conf.low conf.high
-     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-1    0.456    0.416     0.495</code></pre>
-</div>
-</div>
-<ol start="5" type="a">
-<li>Construcción de <strong>umbral_excedido</strong></li>
-</ol>
-<p>Debemos proceder ahora a construir la variable categórica <strong>umbral_excedido</strong> con valores Si y No en función del valor de corte hipotético de 0,5.</p>
-<p>Podemos hacerlo simplemente con el condicional <code>if_else()</code>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>bivalvos <span class="ot">&lt;-</span> bivalvos <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">umbral_excedido =</span> <span class="fu">if_else</span>(concentracion <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"Si"</span>, <span class="st">"No"</span>))</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>bivalvos <span class="sc">|&gt;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(umbral_excedido)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  umbral_excedido     n
-  &lt;chr&gt;           &lt;int&gt;
-1 No                 31
-2 Si                 19</code></pre>
-</div>
-</div>
-<p>Observamos que 19 de los 50 bivalvos de nuestra muestra representa un riesgo sanitario para los consumidores.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>bivalvos <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(umbral_excedido) <span class="sc">|&gt;</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">porcentaje =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 3
-  umbral_excedido     n porcentaje
-  &lt;chr&gt;           &lt;int&gt;      &lt;dbl&gt;
-1 No                 31         62
-2 Si                 19         38</code></pre>
-</div>
-</div>
-<p>Eso representa el 38 % de las observaciones que tenemos.</p>
-<ol start="6" type="a">
-<li>IC 95% de la proporción</li>
-</ol>
-<p>En este punto queremos construir el intervalo de confianza del 95% que acompañe a la estimación puntual anterior.</p>
-<p>Tenemos dos posibilidades que estan implementadas en R base: la función <code>prop.test()</code> o <code>binom.test()</code>.</p>
-<p><code>prop.test()</code> utiliza la aproximación de la distribución Normal (puntuación <span class="math inline">\(z\)</span>) a la distribución Binomial. Podríamos decir que es el análogo categórico del t.test(). Los elementos necesarios son: <strong>x</strong> número de éxitos y <strong>n</strong> que es tamaño de la muestra.</p>
-<p>Se usa con muestras “grandes” (<span class="math inline">\(n &gt; 30\)</span>). Pero si en cambio el tamaño de la muestra es pequeño, la proporción es muy cercana a 0 o a 1, o quieres una precisión absoluta y no quieres depender de aproximaciones matemáticas ejecutamos <code>binom.test()</code>.</p>
-<p>La función aplica la prueba exacta de Clopper-Pearson, donde en <strong>x</strong> definimos cuántos bivalvos superaron el umbral y en <strong>n</strong> el tamaño total de la muestra.</p>
-<p>Ejecutamos las dos posibilidades:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">19</span>, <span class="at">n =</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    1-sample proportions test with continuity correction
-
-data:  19 out of 50, null probability 0.5
-X-squared = 2.42, df = 1, p-value = 0.1198
-alternative hypothesis: true p is not equal to 0.5
-95 percent confidence interval:
- 0.2499804 0.5283672
-sample estimates:
-   p 
-0.38 </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">19</span>, <span class="at">n =</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Exact binomial test
-
-data:  19 and 50
-number of successes = 19, number of trials = 50, p-value = 0.1189
-alternative hypothesis: true probability of success is not equal to 0.5
-95 percent confidence interval:
- 0.2465011 0.5282508
-sample estimates:
-probability of success 
-                  0.38 </code></pre>
-</div>
-</div>
-<p>Los resultados son muy similares, dado que cumplimos con los supuestos necesarios para usar la aproximación del test de proporciones.</p>
-<p>Entonces podemos decir con un nivel de confianza del 95%, que estimamos que la proporción poblacional de bivalvos que exceden el límite de seguridad sanitaria se encuentra entre 0,25 y 0,53.</p>
-<p>Las dos funciones estan representadas en <strong>rstatix</strong>, con <code>prop_test()</code> y <code>binom_test()</code> respectivamente.</p>
-<p>Apredimos con este ejercicio que el lenguaje R siempre ofrece múltiples caminos, pero nuestro criterio es el que decide cuál usar y reportar.</p>
+<p>En esta unidad del curso hemos aprendido a construir un modelo de regresión logística. Aprendimos también a evaluar la calidad de dicho modelo. Pero si reflexionamos acerca de la finalidad de un modelo predictivo, podemos pensar que consiste en predecir la variable respuesta en observaciones futuras o en observaciones que el modelo no ha “visto” antes. Consideraremos modelos de predicción que proporcionan predicciones para un resultado dicotómico, ya que son los más relevantes en aplicaciones médicas, por eso desarrollamos este tema en el contexto de la regresión logística. Con estos modelos, buscamos obtener al menos predicciones internamente válidas, es decir, predicciones válidas para sujetos de la población subyacente. Preferiblemente, las predicciones también deben ser generalizables a poblaciones plausiblemente relacionadas. En una estrategia de modelado para datos empíricos, es necesario considerar diversas cuestiones, tanto epidemiológicas como estadísticas. Es por eso que los modelos necesitan ser validados.</p>
 </section>
-<section id="referencias" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="referencias"><span class="header-section-number">14.2</span> Referencias</h2>
+<section id="en-qué-consiste-la-validación-de-modelos-predictivos" class="level2" data-number="26.2">
+<h2 data-number="26.2" class="anchored" data-anchor-id="en-qué-consiste-la-validación-de-modelos-predictivos"><span class="header-section-number">26.2</span> ¿En qué consiste la validación de modelos predictivos?</h2>
+<p>Cuando hacemos un análisis de residuos, estamos evaluando el error que comete el modelo en predecir observaciones que ya ha “visto”. Pero ¿cómo funcionará con observaciones que nunca “vio”? La validación de un modelo predictivo es el proceso mediante el cual se evalúa qué tan bien funcionará el modelo cuando se aplique a nuevos individuos o nuevas observaciones, distintos de aquellos utilizados para desarrollarlo. Su objetivo principal es responder la pregunta: ¿El modelo mantiene su capacidad predictiva fuera de la muestra con la que fue construido? La validación permite determinar si el modelo es generalizable o si, por el contrario, está sobreajustado (<em>overfitting</em>). Cuando hablamos de validación, debemos considerar dos instancias:</p>
+<ul>
+<li><strong>Validación externa</strong>: es la validación más estricta, consiste en emplear el modelo predictivo desarrollado en otra muestra de pacientes.</li>
+<li><strong>Validación interna</strong>: es menos estricta pues usa los datos de los sujetos a partir de los cuales se ha desarrollado el modelo predictivo, pero no necesita del esfuerzo añadido de reclutar nuevos individuos y, por tanto, está al alcance del propio investigador en el momento que desarrolla el modelo.</li>
+</ul>
+<p>Para garantizar que los estudios sobre modelos de predicción sean claros, completos y replicables, y que, a su vez, se permita a los lectores evaluar su validez y aplicabilidad clínica, se elaboró la Guía TRIPOD.</p>
+<section id="declaración-tripod" class="level3">
+<h3 class="anchored" data-anchor-id="declaración-tripod"><strong>Declaración TRIPOD</strong></h3>
+<p>La declaración TRIPOD <strong>(</strong>Transparent Reporting of multivariable prediction model for Individual Prognosis or Diagnosis) se publicó en 2015 para proporcionar las recomendaciones mínimas de presentación de informes para estudios que desarrollan o evalúan el rendimiento de un modelo de predicción en ciencias biomédicas. Entre otras cosas, contenía dos listas de chequeo, una para el desarrollo de modelos predictivos y otra para validación.</p>
+<p>Desde entonces, los avances metodológicos en el campo de la predicción han incluido el uso generalizado de la inteligencia artificial (IA) mediante métodos de aprendizaje automático para desarrollar modelos de predicción.</p>
+<p>Por lo tanto, fue necesaria una actualización de la declaración TRIPOD. TRIPOD+IA proporciona una guía armonizada para la presentación de informes sobre estudios de modelos de predicción, independientemente de su naturaleza. En la página web <a href="https://www.tripod-statement.org/" class="uri">https://www.tripod-statement.org/</a> podrán encontrar información y guías para profundizar la temática.</p>
+<p>Validar un modelo predictivo desarrollado implica evaluar su rendimiento. Para evaluar el rendimiento de un modelo de regresión logística, concretamente, son dos los aspectos principales que se deben valorar: la discriminación y la calibración. Como ya hemos visto, la discriminación de un modelo de regresión logística puede ser evaluada mediante el área bajo la curva ROC (AUC), ya que refleja la probabilidad de que, seleccionados al azar un par de individuos, uno con el evento y otro sin el evento, el modelo asigne la probabilidad más alta al individuo con el evento. Recordamos también que la prueba estadística que evalúa la calibración del modelo es el test de Hosmer-Lemeshow. Tiene el inconveniente, como todos los test frecuentistas, que ante tamaños muestrales grandes por pequeñas diferencias que aparezcan estas resultan estadísticamente significativas.</p>
+<p>Al desarrollar un modelo, es evidente que se requiere cuantificar su rendimiento para poder determinar si es adecuado para su propósito o si es mejor que un modelo existente. El rendimiento aparente del modelo en este conjunto de entrenamiento será mejor que el rendimiento en otro conjunto de datos, incluso si el último conjunto de prueba consta de pacientes de la misma población. El optimismo de un modelo es la diferencia entre el desempeño que un modelo muestra en los datos con los que fue desarrollado y el desempeño que realmente tendrá cuando se aplique a datos nuevos de la misma población.</p>
+<p>Lo podríamos expresar como:</p>
+<p><span class="math display">\[Optimismo = Desempeño - Desempeño~con~nuevos~datos\]</span></p>
+<p>Supongamos un modelo de regresión logística para predecir mortalidad. En la muestra de desarrollo obtiene: <span class="math inline">\(AUC = 0,91\)</span></p>
+<p>Al realizar la validación se obtiene: <span class="math inline">\(AUC = 0,84\)</span></p>
+<p>Entonces: <span class="math inline">\(Optimismo=0.91−0.84=0.07\)</span></p>
+<p>Es decir, el modelo había sobreestimado su capacidad discriminativa en 0,07 unidades de AUC.</p>
+<p>Validación y optimismo son conceptos que están estrechamente relacionados: el optimismo es la diferencia entre el rendimiento aparente y el esperado en datos nuevos. La validación busca estimar ese rendimiento esperado.</p>
+</section>
+</section>
+<section id="descripción-de-los-diferentes-métodos-de-validación-interna" class="level2" data-number="26.3">
+<h2 data-number="26.3" class="anchored" data-anchor-id="descripción-de-los-diferentes-métodos-de-validación-interna"><span class="header-section-number">26.3</span> Descripción de los diferentes métodos de validación interna</h2>
+<p>Como se exponía anteriormente la validación interna es menos estricta, pues usa los datos de los sujetos a partir de los cuales se ha desarrollado el modelo predictivo. Las técnicas más usadas son:</p>
+<ul>
+<li><p><em>Data splitting</em> o división de los datos</p></li>
+<li><p><em>Cross-validation</em> o validación cruzada. Una extensión de las técnicas de <em>splitting</em> que reduce el sesgo y la variabilidad de la estimación del rendimiento.</p></li>
+<li><p><em>Bootstrap validation</em>. Este método, como la validación cruzada, utiliza todos los datos empleados en el desarrollo del modelo. Además, nos permite cuantificar el “optimismo” del modelo de predicción final.</p></li>
+</ul>
+<section id="data-splitting" class="level3">
+<h3 class="anchored" data-anchor-id="data-splitting">Data splitting</h3>
+<p>El método más simple de validación consiste en dividir de forma aleatoria la muestra original en dos submuestras, una donde se desarrolla el modelo (<em>training</em>) y otra donde se valida (<em>test</em>). El objetivo es estimar el desempeño predictivo sobre datos no utilizados durante el ajuste, reduciendo el riesgo de sobreajuste (<em>overfitting</em>).</p>
+<p>La base de datos se divide aleatoriamente en dos subconjuntos independientes: un conjunto de entrenamiento (<em>training set</em>), utilizado para desarrollar y ajustar el modelo de regresión logística, y un conjunto de validación o prueba (<em>test set</em>), empleado exclusivamente para evaluar su capacidad predictiva. Habitualmente, entre el 70% y el 80% de las observaciones se destinan al entrenamiento y el 20%–30% restante a la validación, procurando mantener una proporción similar del desenlace en ambos conjuntos mediante un muestreo estratificado cuando la frecuencia del evento es baja. El desempeño del modelo en el conjunto de validación se evalúa mediante medidas de discriminación, calibración y medidas globales de desempeño.</p>
+<p>Actualmente, las guías metodológicas para modelos predictivos (como TRIPOD y las recomendaciones de Harrell y Steyerberg) consideran que el <em>data splitting</em> es una estrategia menos eficiente que otros métodos de validación interna porque: reduce el tamaño efectivo de la muestra disponible para desarrollar el modelo; aumenta la variabilidad de las estimaciones, especialmente en muestras pequeñas o moderadas; los resultados dependen de una única partición aleatoria de los datos.</p>
+<p>Por ello, cuando el tamaño muestral lo permite, suele recomendarse utilizar métodos de remuestreo, como la validación cruzada (<em>k-fold cross-validation</em>) o el <em>bootstrap</em>, que aprovechan toda la información disponible y proporcionan estimaciones más estables del desempeño del modelo.</p>
+<p>En general para muestras grandes (&gt;500–1000 eventos), el método de <em>data splitting</em> puede ser adecuado. En muestras pequeñas o moderadas se recomienda preferentemente <em>bootstrap</em> o validación cruzada, ya que ofrecen estimaciones más precisas y con menor sesgo del desempeño del modelo.</p>
+</section>
+<section id="cross-validation-o-validación-cruzada" class="level3">
+<h3 class="anchored" data-anchor-id="cross-validation-o-validación-cruzada"><em>Cross-validation</em> o validación cruzada</h3>
+<p>Es una extensión de las técnicas de <em>splitting</em> que reduce el sesgo y la variabilidad de la estimación del rendimiento.</p>
+<p>Se desarrolla el modelo empleando todos los datos disponibles, posteriormente, se segmenta el conjunto de datos en dos grupos de igual tamaño. Se plantea el modelo en uno de ellos (<em>training</em>) y se evalúa el rendimiento en el restante (<em>test</em>). A continuación, se repite el proceso intercambiando la función de los subconjuntos. El rendimiento del modelo se obtiene como el promedio del rendimiento en cada subconjunto de validación. Este método de validación cruzada tiene su extensión en el <strong>k-folds cross validation</strong>. Consiste en dividir o segmentar el conjunto de datos en k grupos de igual (o similar) tamaño. Y se sigue la misma metodología que se ha explicado en el método de <em>cross-validation</em> básico. Se utilizan k-1 subconjuntos para el desarrollo del modelo y el subconjunto restante se utiliza como grupo de validación. Se repite este procedimiento k veces, hasta que cada uno de los subconjuntos ha sido utilizado una vez como grupo de validación. Finalmente, obtenemos la medida de rendimiento como el promedio de las k medidas calculadas.</p>
+</section>
+<section id="bootstrap" class="level3">
+<h3 class="anchored" data-anchor-id="bootstrap">Bootstrap</h3>
+<p>Las técnicas de validación <em>bootstrap</em> incluyen los siguientes pasos:</p>
+<ol type="1">
+<li>Desarrollar el modelo predictivo usando todos los datos disponibles y calcular el rendimiento aparente.</li>
+<li>Generar n muestras bootstrap con reemplazo desde la muestra original y del mismo tamaño que esta.</li>
+<li>Desarrollar un modelo predictivo en la primera muestra <em>bootstrap</em> aplicando las mismas estrategias empleadas en el desarrollo del modelo original.</li>
+<li>Determinar el rendimiento aparente del modelo en la muestra <em>bootstrap</em>, lo que se conoce con el nombre de rendimiento <em>bootstrap</em>.</li>
+<li>Determinar el rendimiento del modelo <em>bootstrap</em> en la muestra original, llamado test de rendimiento.</li>
+<li>Calcular el optimismo como la diferencia entre el rendimiento <em>bootstrap</em> (paso 4) y el test de rendimiento (paso 5).</li>
+<li>Repetir los pasos 4, 5 y 6 en cada una de las n muestras <em>bootstrap</em>, al menos 100 muestras.</li>
+<li>Obtener la estimación del rendimiento ajustada por el optimismo restando al rendimiento aparente (calculado en el paso 1) la media del optimismo obtenido en las n muestras <em>bootstrap</em>.</li>
+</ol>
+<p>La parte práctica la encontrarán en la video clase correspondiente a validación: allí realizaremos la validación del modelo que obtuvimos para el dataset de Titanic, usando un set de datos de testeo.</p>
+<div class="hidden">
+<p><span class="citation" data-cites="steyerberg2001">Steyerberg et&nbsp;al. (<a href="#ref-steyerberg2001" role="doc-biblioref">2001</a>)</span></p>
+<p><span class="citation" data-cites="collins2015">Collins et&nbsp;al. (<a href="#ref-collins2015" role="doc-biblioref">2015</a>)</span></p>
+<p><span class="citation" data-cites="fernandez2018">Fernández Félix (<a href="#ref-fernandez2018" role="doc-biblioref">2018</a>)</span></p>
+<p><span class="citation" data-cites="harrell2001"><span class="nocase">Harrell et&nbsp;al.</span> (<a href="#ref-harrell2001" role="doc-biblioref">2001</a>)</span></p>
+</div>
+</section>
+</section>
+<section id="referencias" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias">Referencias</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-rstatix" class="csl-entry" role="listitem">
-Kassambara, Alboukadel. 2023. <em>rstatix: Pipe-Friendly Framework for Basic Statistical Tests</em>. <a href="https://rpkgs.datanovia.com/rstatix/">https://rpkgs.datanovia.com/rstatix/</a>.
+<div id="ref-collins2015" class="csl-entry" role="listitem">
+Collins, G. S., J. B. Reitsma, D. G. Altman, y K. G. M. Moons. 2015. <span>«Transparent Reporting of a Multivariable Prediction Model for Individual Prognosis or Diagnosis (TRIPOD): The TRIPOD Statement»</span>. <em>BMJ</em> 350 (jan07 4): g7594-94. <a href="https://doi.org/10.1136/bmj.g7594">https://doi.org/10.1136/bmj.g7594</a>.
 </div>
-<div id="ref-vancauwenberghe2014" class="csl-entry" role="listitem">
-Van Cauwenberghe, Lisbeth, y Colin R. Janssen. 2014. <span>«Microplastics in Bivalves Cultured for Human Consumption»</span>. <em>Environmental Pollution</em> 193 (octubre): 65-70. <a href="https://doi.org/10.1016/j.envpol.2014.06.010">https://doi.org/10.1016/j.envpol.2014.06.010</a>.
+<div id="ref-fernandez2018" class="csl-entry" role="listitem">
+Fernández Félix, Borja Manuel. 2018. <em>Validaci<span>ó</span>n interna de modelos predictivos de regresi<span>ó</span>n log<span>ı́</span>stica. Comando Validation (Stata)</em>.
+</div>
+<div id="ref-harrell2001" class="csl-entry" role="listitem">
+<span class="nocase">Harrell, Frank E et&nbsp;al.</span> 2001. <em>Regression modeling strategies: with applications to linear models, logistic regression, and survival analysis</em>. Vol. 608. Springer.
+</div>
+<div id="ref-steyerberg2001" class="csl-entry" role="listitem">
+Steyerberg, Ewout W, Frank E Harrell, Gerard J. J. M Borsboom, M. J. C Eijkemans, Yvonne Vergouwe, y J.Dik F Habbema. 2001. <span>«Internal Validation of Predictive Models»</span>. <em>Journal of Clinical Epidemiology</em> 54 (8): 774-81. <a href="https://doi.org/10.1016/s0895-4356(01)00341-9">https://doi.org/10.1016/s0895-4356(01)00341-9</a>.
 </div>
 </div>
 </section>
@@ -1257,8 +1184,8 @@ Van Cauwenberghe, Lisbeth, y Colin R. Janssen. 2014. <span>«Microplastics in Bi
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../unidad_2/06_fun_condicionales.html" class="pagination-link" aria-label="Funciones condicionales en R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Funciones condicionales en R</span></span>
+      <a href="../unidad_4/04_reg_logistica_cond.html" class="pagination-link" aria-label="Regresión logística condicional">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Regresión logística condicional</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

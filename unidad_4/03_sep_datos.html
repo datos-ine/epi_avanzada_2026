@@ -8,7 +8,7 @@
 
 <meta name="author" content="Christian Ballejo, Andrea Silva y Tamara Ricardo">
 
-<title>12&nbsp; Selección de la muestra – Epidemiología: Nivel Avanzado</title>
+<title>24&nbsp; Separación de datos binomiales – Epidemiología: Nivel Avanzado</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,8 +87,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../unidad_2/06_fun_condicionales.html" rel="next">
-<link href="../unidad_2/04_normalidad_heterocedasticidad.html" rel="prev">
+<link href="../unidad_4/04_reg_logistica_cond.html" rel="next">
+<link href="../unidad_4/02_reg_logistica.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -335,7 +335,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_2/01_est_epidemiologicos.html">Unidad 2</a></li><li class="breadcrumb-item"><a href="../unidad_2/05_muestreo.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Selección de la muestra</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_4/01_est_caso_control.html">Unidad 4</a></li><li class="breadcrumb-item"><a href="../unidad_4/03_sep_datos.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Separación de datos binomiales</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -533,7 +533,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_2/05_muestreo.html" class="sidebar-item-text sidebar-link active">
+  <a href="../unidad_2/05_muestreo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Selección de la muestra</span></span></a>
   </div>
 </li>
@@ -629,7 +629,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_4/03_sep_datos.html" class="sidebar-item-text sidebar-link">
+  <a href="../unidad_4/03_sep_datos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Separación de datos binomiales</span></span></a>
   </div>
 </li>
@@ -657,22 +657,19 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">12.1</span> Introducción</a></li>
-  <li><a href="#cálculo-del-tamaño-muestral" id="toc-cálculo-del-tamaño-muestral" class="nav-link" data-scroll-target="#cálculo-del-tamaño-muestral"><span class="header-section-number">12.2</span> Cálculo del tamaño muestral</a></li>
-  <li><a href="#conceptos-generales-sobre-muestreo" id="toc-conceptos-generales-sobre-muestreo" class="nav-link" data-scroll-target="#conceptos-generales-sobre-muestreo"><span class="header-section-number">12.3</span> Conceptos generales sobre muestreo</a>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">24.1</span> Introducción</a></li>
+  <li><a href="#tipos-de-separación-de-datos" id="toc-tipos-de-separación-de-datos" class="nav-link" data-scroll-target="#tipos-de-separación-de-datos"><span class="header-section-number">24.2</span> Tipos de separación de datos</a>
   <ul class="collapse">
-  <li><a href="#muestreo-aleatorio-simple-mas" id="toc-muestreo-aleatorio-simple-mas" class="nav-link" data-scroll-target="#muestreo-aleatorio-simple-mas">Muestreo aleatorio simple (MAS)</a></li>
-  <li><a href="#muestreo-sistemático-ms" id="toc-muestreo-sistemático-ms" class="nav-link" data-scroll-target="#muestreo-sistemático-ms">Muestreo sistemático (MS)</a></li>
-  <li><a href="#muestreo-aleatorio-estratificado-mae" id="toc-muestreo-aleatorio-estratificado-mae" class="nav-link" data-scroll-target="#muestreo-aleatorio-estratificado-mae">Muestreo aleatorio estratificado (MAE)</a></li>
-  <li><a href="#muestreo-por-conglomerados-monoetápico" id="toc-muestreo-por-conglomerados-monoetápico" class="nav-link" data-scroll-target="#muestreo-por-conglomerados-monoetápico">Muestreo por conglomerados monoetápico</a></li>
-  <li><a href="#muestreo-por-conglomerados-bietápico" id="toc-muestreo-por-conglomerados-bietápico" class="nav-link" data-scroll-target="#muestreo-por-conglomerados-bietápico">Muestreo por conglomerados bietápico</a></li>
-  <li><a href="#implicaciones-en-la-estimación-y-ponderación" id="toc-implicaciones-en-la-estimación-y-ponderación" class="nav-link" data-scroll-target="#implicaciones-en-la-estimación-y-ponderación">Implicaciones en la Estimación y Ponderación</a></li>
+  <li><a href="#separación-total" id="toc-separación-total" class="nav-link" data-scroll-target="#separación-total">Separación total</a></li>
+  <li><a href="#separación-parcial" id="toc-separación-parcial" class="nav-link" data-scroll-target="#separación-parcial">Separación parcial</a></li>
   </ul></li>
-  <li><a href="#ejemplo-práctico" id="toc-ejemplo-práctico" class="nav-link" data-scroll-target="#ejemplo-práctico"><span class="header-section-number">12.4</span> Ejemplo práctico</a>
+  <li><a href="#soluciones-a-la-separación-de-datos" id="toc-soluciones-a-la-separación-de-datos" class="nav-link" data-scroll-target="#soluciones-a-la-separación-de-datos"><span class="header-section-number">24.3</span> Soluciones a la separación de datos</a>
   <ul class="collapse">
-  <li><a href="#cálculo-de-las-probabilidades-de-selección-y-ponderaciones" id="toc-cálculo-de-las-probabilidades-de-selección-y-ponderaciones" class="nav-link" data-scroll-target="#cálculo-de-las-probabilidades-de-selección-y-ponderaciones">Cálculo de las Probabilidades de Selección y Ponderaciones</a></li>
+  <li><a href="#remuestreo-recolección-o-submuestreo" id="toc-remuestreo-recolección-o-submuestreo" class="nav-link" data-scroll-target="#remuestreo-recolección-o-submuestreo">Remuestreo, recolección o submuestreo</a></li>
+  <li><a href="#eliminación-o-recategorización-de-variables" id="toc-eliminación-o-recategorización-de-variables" class="nav-link" data-scroll-target="#eliminación-o-recategorización-de-variables">Eliminación o recategorización de variables</a></li>
+  <li><a href="#uso-de-modelos-alternativos-a-la-regresión-logística" id="toc-uso-de-modelos-alternativos-a-la-regresión-logística" class="nav-link" data-scroll-target="#uso-de-modelos-alternativos-a-la-regresión-logística">Uso de modelos alternativos a la regresión logística</a></li>
   </ul></li>
-  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">12.5</span> Referencias</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
   </ul>
 </nav>
     </div>
@@ -680,9 +677,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_2/01_est_epidemiologicos.html">Unidad 2</a></li><li class="breadcrumb-item"><a href="../unidad_2/05_muestreo.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Selección de la muestra</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_4/01_est_caso_control.html">Unidad 4</a></li><li class="breadcrumb-item"><a href="../unidad_4/03_sep_datos.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Separación de datos binomiales</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Selección de la muestra</span></h1>
+<h1 class="title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Separación de datos binomiales</span></h1>
 </div>
 
 
@@ -692,7 +689,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Autor/a</div>
     <div class="quarto-title-meta-contents">
-             <p>Andrea Silva <a href="https://orcid.org/0000-0002-4791-9706" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+             <p>Tamara Ricardo <a href="https://orcid.org/0000-0002-0921-2611" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
           </div>
   </div>
     
@@ -705,188 +702,96 @@ window.Quarto = {
 </header>
 
 
-<section id="introducción" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">12.1</span> Introducción</h2>
-<p>Toda investigación epidemiológica requiere, en principio, la selección de una muestra representativa de la población objeto de estudio. Esto implica:</p>
-<ul>
-<li><p>Determinar el tamaño de la muestra.</p></li>
-<li><p>Definir cómo se seleccionarán los sujetos (es decir, las unidades de análisis).</p></li>
-<li><p>Calcular la incertidumbre que introduce este proceso de muestreo en nuestras estimaciones.</p></li>
-</ul>
-<p>El tamaño de la muestra se establece en la fase de diseño del estudio, habitualmente cuando se redacta el protocolo de investigación. Es importante considerar que este tamaño es, en cierto sentido, orientador, ya que su cálculo depende de factores que en ocasiones pueden ser subjetivos o estar limitados por la información previa disponible. Además, las exigencias varían según el objetivo del estudio. Por ejemplo:</p>
-<ul>
-<li><p>En un estudio transversal, donde se estima una prevalencia, se puede aceptar una precisión menor.</p></li>
-<li><p>En un estudio experimental, donde se compara la eficacia de un fármaco frente a un placebo, el tamaño de la muestra debe ser suficiente para detectar una “diferencia significativa” entre los grupos.</p></li>
-</ul>
-<p>Cuando el objetivo de la investigación incluye la estimación de un intervalo de confianza (IC) para alguna variable, se busca que dicho IC tenga alta confiabilidad y sea lo más estrecho posible.</p>
-<p>En el caso de los estudios de corte transversal, que se orientan a estimar una proporción, se formulan preguntas como:<br>
-— ¿Cuál es la prevalencia, proporción o porcentaje del fenómeno en estudio?</p>
-<p>Al tomar una muestra para estimar lo que sucede en la realidad, debemos aceptar que la medición obtenida reflejará la situación poblacional, pero siempre con cierto grado de variabilidad (o error). La <strong>precisión</strong> es ese grado de variabilidad aceptable y se expresa a través de los intervalos de confianza, que definen los límites inferior y superior dentro de los cuales se espera encontrar el verdadero valor del parámetro.</p>
+<section id="introducción" class="level2" data-number="24.1">
+<h2 data-number="24.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">24.1</span> Introducción</h2>
+<p>En los modelos de regresión logística, se analizan las relaciones entre una variable dependiente de tipo binaria y una o más variables independientes que pueden ser de distintos tipos (numéricas continuas, numéricas discretas, categóricas, binarias, etc.). Sin embargo, en algunas situaciones, la relación entre las variables independientes y la variable respuesta puede derivar en problemas de separación de datos, afectando las estimaciones del modelo.</p>
 </section>
-<section id="cálculo-del-tamaño-muestral" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="cálculo-del-tamaño-muestral"><span class="header-section-number">12.2</span> Cálculo del tamaño muestral</h2>
-<p>Como se mencionó anteriormente, se requiere conocer algunos datos para el cálculo del tamaño de muestra requerido, entre los que destacan:</p>
-<ul>
-<li><p><strong>La proporción esperada del evento:</strong> Aunque resulte paradójico, ya que es el parámetro que se desea estimar, el investigador suele contar con información previa que permite delimitar sus posibles valores. Si no fuera el caso, se utiliza el peor escenario, es decir, una proporción del 50%, ya que este valor maximiza el producto <span class="math inline">\(p(1-p)\)</span> y, por ende, exige el mayor tamaño muestral. De esta forma, muchas veces se recurre a esto para tener al menos una idea del “límite superior” que estaríamos manejando.</p></li>
-<li><p><strong>El nivel de confianza deseado:</strong> Habitualmente se emplea un 95% (lo que equivale a un <span class="math inline">\(\alpha\)</span> de 0.05). Este valor indica la probabilidad de que el intervalo calculado contenga el parámetro poblacional verdadero. A mayor nivel de confianza (es decir, menor <span class="math inline">\(\alpha\)</span>), mayor es el coeficiente de confiabilidad y, por ende, mayor el tamaño muestral requerido.</p></li>
-<li><p><strong>La precisión (</strong><span class="math inline">\(\delta\)</span><strong>) deseada:</strong> Se refiere a la amplitud aceptable del intervalo de confianza. Cuanta más precisión se exija (es decir, un intervalo más estrecho), mayor será el tamaño de la muestra necesario.</p></li>
-</ul>
-<p>La fórmula para el cálculo es la siguiente:</p>
-<p><span class="math display">\[N = \frac{p.q.(Z\alpha)^2}{\delta^2}\]</span> Donde:</p>
-<ul>
-<li><span class="math inline">\(N\)</span> es el tamaño muestra requerido.</li>
-<li><span class="math inline">\(p\)</span> es la proporción esperada de sujetos portadores del evento.</li>
-<li><span class="math inline">\(q = 1 – p\)</span> es la proporción complementaria (sujetos que no tienen la variable en estudio).</li>
-<li><span class="math inline">\(\delta\)</span> es la precisión o magnitud de error aceptable.</li>
-<li><span class="math inline">\(Z\alpha\)</span> es el valor crítico de la distribución normal asociado al nivel de significancia. Se obtiene de tablas de distribución normal de probabilidades y habitualmente se utiliza un valor <span class="math inline">\(\alpha\)</span> de 0.05, al que le corresponde un valor <span class="math inline">\(Z\)</span> de 1.96</li>
-</ul>
-<p>Cuando se conoce el tamaño de la población, es necesario aplicar una corrección por población finita:</p>
-<p><span class="math display">\[N =\frac{n^1}{1+\frac{n^1}{Población}}\]</span> donde <span class="math inline">\(n^1\)</span> es el <span class="math inline">\(N\)</span> calculado con la ecuación anterior.</p>
-<p>Es fundamental entender que el tamaño de la muestra dependerá de <span class="math inline">\(p\)</span> de <span class="math inline">\(\alpha\)</span> y de la precisión deseada, más que de la complejidad de la fórmula en sí. Existen numerosos softwares que calculan tamaños de muestra. Algunos están especializados en esta tarea (por ejemplo, <strong>EpiDat</strong>, <strong>EpiInfo</strong>, <strong>OpenEp</strong>i), mientras que otros lo incluyen como una opción dentro de un paquete más amplio de análisis. En el lenguaje R, funciones como <code>power.prop.test()</code> (para comparación de proporciones) y <code>power.t.test()</code> (para pruebas de medias basadas en la distribución <span class="math inline">\(t\)</span> de Student) están incluidas en el paquete <code>stats</code>. Otros paquetes útiles incluyen <code>samplingbook</code> <span class="citation" data-cites="sampling2010">(<a href="#ref-sampling2010" role="doc-biblioref"><em>samplingbook</em> 2010</a>)</span>, <code>samplesize</code> , <code>pwr</code> <span class="citation" data-cites="champely2006">(<a href="#ref-champely2006" role="doc-biblioref">Champely 2020</a>)</span> y <code>epiR</code> <span class="citation" data-cites="stevenson2025">(<a href="#ref-stevenson2025" role="doc-biblioref">Stevenson y Sergeant 2025</a>)</span>.</p>
-<p>A continuación, se presenta un ejemplo práctico utilizando la función <code>sample.size.prop()</code> del paquete <code>samplingbook</code>. Supongamos que queremos estimar la prevalencia de diabetes en una ciudad de 600,000 habitantes, donde estudios previos sugieren una prevalencia cercana al 10.2%. El objetivo es determinar el tamaño de la muestra en un muestreo aleatorio simple.</p>
-<p>Comenzamos cargando el paquete requerido:</p>
+<section id="tipos-de-separación-de-datos" class="level2" data-number="24.2">
+<h2 data-number="24.2" class="anchored" data-anchor-id="tipos-de-separación-de-datos"><span class="header-section-number">24.2</span> Tipos de separación de datos</h2>
+<section id="separación-total" class="level3">
+<h3 class="anchored" data-anchor-id="separación-total">Separación total</h3>
+<p>También conocida como separación perfecta o completa, ocurre cuando un predictor o combinación lineal de predictores clasifica perfectamente las observaciones en una de las dos categorías de la variable respuesta. En estos casos, las probabilidades predichas para una de las categorías son 0 o 1, y los coeficientes de regresión para las variables involucradas se vuelven indefinidos. Esto provoca un fallo en la convergencia del modelo, ya que no se pueden calcular los logaritmos para odds ratios (OR) iguales a 0 o a infinito (<span class="math inline">\(\infty\)</span>), generando un mensaje de error.</p>
+</section>
+<section id="separación-parcial" class="level3">
+<h3 class="anchored" data-anchor-id="separación-parcial">Separación parcial</h3>
+<p>La separación parcial se presenta cuando un predictor o combinación lineal de predictores predice perfectamente la variable respuesta solo en algunos niveles de las variables independientes. Es decir, separa en gran medida las categorías de la variable respuesta. Esto puede llevar a la estimación de coeficientes y errores estándar extremadamente grandes, con intervalos de confianza muy amplios, lo que hace que las inferencias realizadas sean poco fiables.</p>
+<p>Tomemos como ejemplo la base “<code>covid_cancer.txt</code>”, que contiene datos de un estudio de casos y controles realizado en la ciudad de Santa Fe, Argentina en pacientes con cáncer hospitalizados por formas severas de COVID-19<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Cargamos paquetes necesarios:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(samplingbook)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Calculamos el tamaño muestral en base a los siguientes argumentos:</p>
-<ul>
-<li><code>e</code>: número positivo que especifica la precisión que es la mitad del ancho del intervalo de confianza</li>
-<li><code>p:</code> proporción esperada de eventos con dominio entre los valores 0 y 1.</li>
-<li><code>N</code>: número entero positivo para el tamaño de la población. El valor predeterminado es <code>Inf</code>, lo que significa que los cálculos se realizan sin <em>corrección de población finita</em>.</li>
-<li><code>level</code>: nivel de confianza para los intervalos de confianza. El valor predeterminado es 95%.</li>
-</ul>
+<p>Cargamos datos:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample.size.prop</span>(<span class="at">e =</span> <span class="fl">0.02</span>, <span class="at">P =</span> <span class="fl">0.102</span>, <span class="at">N =</span> <span class="dv">600000</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga datos</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datos/covid_cancer.txt"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Explora datos</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(datos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-sample.size.prop object: Sample size for proportion estimate
-With finite population correction: N=6e+05, precision e=0.02 and expected proportion P=0.102
-
-Sample size needed: 879</code></pre>
+<pre><code>Rows: 79
+Columns: 13
+$ fallecido         &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0…
+$ sexo              &lt;chr&gt; "M", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M…
+$ edad              &lt;dbl&gt; 60, 65, 70, 73, 60, 67, 81, 35, 79, 47, 58, 70, 57, …
+$ comorbilidades    &lt;chr&gt; "Sí", "Sí", "Sí", "Sí", "No", "Sí", "Sí", "No", "Sí"…
+$ disnea            &lt;chr&gt; NA, "Sí", "Sí", "No", "No", NA, "No", NA, "Sí", NA, …
+$ neumonia_severa   &lt;chr&gt; "Sí", "Sí", "Sí", "No", "No", "No", "No", "No", "No"…
+$ inf_secundaria    &lt;chr&gt; "Sí", NA, "Sí", "No", "No", "No", "Sí", "No", "No", …
+$ complicaciones    &lt;chr&gt; "Sí", NA, "Sí", "No", "No", "No", "Sí", "No", "Sí", …
+$ infil_bilateral   &lt;chr&gt; "Sí", "Sí", "Sí", "No", "No", "No", "No", "No", "No"…
+$ asist_resp        &lt;chr&gt; "Sí", "Sí", "Sí", "No", "No", "No", "No", "No", "No"…
+$ cancer_tipo       &lt;chr&gt; "Sólido", "Sólido", "Sólido", "Sólido", "Sólido", "S…
+$ tr_quimioterapia  &lt;chr&gt; "Sí", "Sí", "Sí", "Sí", "Sí", "Sí", "Sí", "Sí", "Sí"…
+$ tr4_quimioterapia &lt;chr&gt; "Sí", "Sí", "Sí", "Sí", "Sí", "Sí", "No", "No", "No"…</code></pre>
 </div>
 </div>
-<p>El resultado, tras aplicar la corrección por población finita, indica que se requieren 879 sujetos en la muestra. Por simplicidad, es habitual considerar infinita a la población objetivo, ya que hacerlo así minimiza los riesgos estadísticos:</p>
+<p>Las variables de interés incluyen:</p>
+<ul>
+<li><p><code>fallecido</code>: fallecimiento por COVID-19 (No: 0, Sí: 1)</p></li>
+<li><p><code>sexo</code>: sexo biológico del/a paciente (M: masculino, F: femenino)</p></li>
+<li><p><code>edad</code>: edad en años al momento de la hospitalización</p></li>
+<li><p><code>comorbilidades</code>: presencia de comorbilidades (Sí, No)</p></li>
+<li><p><code>disnea</code>: dificultad para respirar (Sí, No)</p></li>
+<li><p><code>neumonia_severa</code>: paciente con neumonía severa (Sí, No)</p></li>
+<li><p><code>inf_secundaria</code>: presencia de infección secundaria (Sí, No)</p></li>
+<li><p><code>complicaciones</code>: complicaciones del COVID-19 (Sí, No)</p></li>
+<li><p><code>infil_bilateral</code>: infiltración bilateral en radiografía (Sí, No)</p></li>
+<li><p><code>asist_resp</code>: paciente que recibió asistencia respiratoria (Sí, No)</p></li>
+<li><p><code>cancer_tipo</code>: tipo de cáncer (Sólido, Hematológico)</p></li>
+<li><p><code>tr_quimioterapia</code>: paciente que recibió quimioterapia (Sí, No)</p></li>
+<li><p><code>tr4_quimioterapia</code>: paciente que recibió quimioterapia en el último mes (Sí, No)</p></li>
+</ul>
+<p>Nuestra variable dependiente es si el/la paciente falleció a causa del COVID-19. Comenzaremos por ajustar modelos de regresión logística univariados para evaluar qué variables explicativas están asociadas significativamente a la variable dependiente:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample.size.prop</span>(<span class="at">e =</span> <span class="fl">0.02</span>, <span class="at">P =</span> <span class="fl">0.102</span>, <span class="at">N =</span> <span class="cn">Inf</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-sample.size.prop object: Sample size for proportion estimate
-Without finite population correction: N=Inf, precision e=0.02 and expected proportion P=0.102
-
-Sample size needed: 880</code></pre>
-</div>
-</div>
-<p>Si se considera una población infinita, el tamaño muestral calculado es de 880 personas, apenas una unidad más, lo que demuestra que el ajuste por población finita en este caso es mínimo. En cambio, si no se conoce o no se confía en el valor de prevalencia y se opta por el peor escenario (<span class="math inline">\(p = 0.5\)</span>):</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample.size.prop</span>(<span class="at">e =</span> <span class="fl">0.02</span>, <span class="at">P =</span> <span class="fl">0.5</span>, <span class="at">N =</span> <span class="dv">600000</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-sample.size.prop object: Sample size for proportion estimate
-With finite population correction: N=6e+05, precision e=0.02 and expected proportion P=0.5
-
-Sample size needed: 2392</code></pre>
-</div>
-</div>
-<p>En este caso, el tamaño muestral aumenta considerablemente hasta 2392 unidades, lo que refleja un enfoque más conservador.</p>
-<p>Además del cálculo del tamaño muestral, es esencial planificar la forma en que se seleccionarán los individuos. En estudios de corte transversal se debe realizar un muestreo probabilístico, ya que la técnica de muestreo influirá en los factores de expansión necesarios para generalizar los resultados a la población. Aunque el proceso de muestreo no se detalla en este curso, es vital considerarlo para garantizar la validez externa de la investigación.</p>
-</section>
-<section id="conceptos-generales-sobre-muestreo" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="conceptos-generales-sobre-muestreo"><span class="header-section-number">12.3</span> Conceptos generales sobre muestreo</h2>
-<p>Un muestreo se considera <strong>probabilístico</strong> cuando se cumplen dos condiciones fundamentales:</p>
-<ul>
-<li><p>Es posible conocer de antemano la probabilidad de selección que tiene cada elemento de la población.</p></li>
-<li><p>Esta probabilidad es mayor que cero para todos los elementos.</p></li>
-</ul>
-<p>Solo con un muestreo probabilístico se puede medir el grado de precisión de las estimaciones realizadas, ya que se conocen las probabilidades de inclusión. Algunos de los métodos más usados son: Muestreo aleatorio simple, muestreo sistemático en fases, Muestreo aleatorio estratificado, muestreo por conglomerados, etc.</p>
-<section id="muestreo-aleatorio-simple-mas" class="level3">
-<h3 class="anchored" data-anchor-id="muestreo-aleatorio-simple-mas">Muestreo aleatorio simple (MAS)</h3>
-<p>En el MAS, cada elemento de la población tiene la misma probabilidad de ser seleccionado (es decir, es un método <strong>equiprobabilístico</strong>). La probabilidad de inclusión se expresa como:</p>
-<p><span class="math display">\[P = \frac{n}{N} \]</span></p>
-<p>donde:</p>
-<ul>
-<li><p><span class="math inline">\(n\)</span> es el tamaño de la muestra,</p></li>
-<li><p><span class="math inline">\(N\)</span> es el tamaño de la población.</p></li>
-</ul>
-<p>Este método requiere contar con un listado completo de la población y se utiliza principalmente en poblaciones cerradas (por ejemplo, escuelas, cárceles, hospitales o muestras de laboratorio), donde los elementos pueden identificarse y numerarse fácilmente.</p>
-</section>
-<section id="muestreo-sistemático-ms" class="level3">
-<h3 class="anchored" data-anchor-id="muestreo-sistemático-ms">Muestreo sistemático (MS)</h3>
-<p>El muestreo sistemático es un procedimiento alternativo al MAS, adecuado para la selección de muestras equiprobabilísticas de poblaciones organizadas según algún orden conocido. Sus ventajas incluyen no requerir necesariamente un listado completo de todas las unidades, lo que resulta útil, por ejemplo, para seleccionar a los usuarios que llegan a un servicio hospitalario durante un período determinado.</p>
-<p>El procedimiento consiste en:</p>
-<ol type="1">
-<li><p>Asignar a cada elemento de la población un número del 1 a <span class="math inline">\(N\)</span>.</p></li>
-<li><p>Calcular el intervalo de selección:</p>
-<p><span class="math display">\[k = \frac{N}{n}\]</span></p></li>
-<li><p>Seleccionar aleatoriamente un número <span class="math inline">\(r\)</span> entre 1 y <span class="math inline">\(k\)</span>.</p></li>
-<li><p>Elegir los elementos que ocupan las posiciones: <span class="math inline">\(r, r+k, r + 2k,...\)</span>, es decir, la secuencia <span class="math inline">\(r, r+jk\)</span> con <span class="math inline">\(j = 0, 1, 2, \dots\)</span>.</p></li>
-</ol>
-<p>La probabilidad de ser seleccionado es igual que en el MAS</p>
-<p><span class="math display">\[P = \frac{n}{N} \]</span></p>
-</section>
-<section id="muestreo-aleatorio-estratificado-mae" class="level3">
-<h3 class="anchored" data-anchor-id="muestreo-aleatorio-estratificado-mae">Muestreo aleatorio estratificado (MAE)</h3>
-<p>Este método se emplea cuando la población puede dividirse en subgrupos o <strong>estratos</strong> que difieren en las características de interés (por ejemplo, edad, sexo o nivel socioeconómico). La idea es asegurar que cada estrato esté representado en la muestra. El proceso habitual consiste en:</p>
-<ul>
-<li><p>Elaborar listas separadas para cada estrato.</p></li>
-<li><p>Seleccionar una submuestra de cada uno de ellos.</p></li>
-</ul>
-<p>La probabilidad de selección en cada estrato es:</p>
-<p><span class="math display">\[P \ estrato = \frac{n \ estrato}{N \ estrato} \]</span></p>
-<p>Si se aplica un muestreo proporcional, el tamaño de la muestra en cada estrato se calcula como:</p>
-<p><span class="math display">\[n \ estrato = n\frac{N \ estrato}{N} \]</span></p>
-<p>El objetivo es obtener una muestra cuya variabilidad interna se asemeje a la de la población, logrando que los estratos sean internamente homogéneos y heterogéneos entre sí.</p>
-</section>
-<section id="muestreo-por-conglomerados-monoetápico" class="level3">
-<h3 class="anchored" data-anchor-id="muestreo-por-conglomerados-monoetápico">Muestreo por conglomerados monoetápico</h3>
-<p>El muestreo por conglomerados es ideal cuando la población es difícil de delimitar o está muy dispersa. Se divide la población en <strong>conglomerados</strong> (o grupos) que actúan como unidades de primera etapa (UPE) y no deben solaparse.</p>
-<p>La población se divide en grupos (por ejemplo, áreas geográficas, instituciones o servicios). Se selecciona una muestra de <span class="math inline">\(n\)</span> conglomerados y se incluyen <strong>todos</strong> las unidades de análisis de los conglomerados seleccionados. El tamaño del conglomerado se refiere al número de unidades elementales que contiene, pudiendo ser de igual o distinto tamaño. Los conglomerados deberían ser lo más heterogéneos dentro de ellos y lo más homogéneos entre ellos.</p>
-</section>
-<section id="muestreo-por-conglomerados-bietápico" class="level3">
-<h3 class="anchored" data-anchor-id="muestreo-por-conglomerados-bietápico">Muestreo por conglomerados bietápico</h3>
-<p>Se utiliza cuando existe gran variabilidad en el tamaño de los conglomerados o la población es muy grande. En este caso, después de dividir la población en conglomerados y seleccionar algunos de ellos como UPE, se realiza una subselección (muestreo secundario) de los elementos dentro de los conglomerados elegidos.</p>
-<p>Existen más posibilidades, que no abordaremos aquí, pero sí nos detendremos en discutir qué implicaciones tiene el muestreo en el proceso de estimación.</p>
-</section>
-<section id="implicaciones-en-la-estimación-y-ponderación" class="level3">
-<h3 class="anchored" data-anchor-id="implicaciones-en-la-estimación-y-ponderación">Implicaciones en la Estimación y Ponderación</h3>
-<p>En métodos equiprobabilísticos (como el MAS o el MS), cada elemento tiene la misma probabilidad de selección. Sin embargo, en diseños muestrales más complejos (como el muestreo estratificado o por conglomerados), las probabilidades de selección pueden variar entre individuos.</p>
-<p>En estos casos, la probabilidad total de selección de un individuo es el producto de las probabilidades de selección en cada etapa del muestreo. Una vez conocida esta probabilidad, se calcula el peso (o <strong>factor de expansión</strong>) como su inverso. Este peso se interpreta como el número de individuos en la población que representa cada individuo de la muestra.</p>
-<blockquote class="blockquote">
-<p>El factor de expansión se interpreta como <em>la cantidad de personas en la población, que representa una persona en la muestra</em>.</p>
-</blockquote>
-<p>El factor de expansión se utiliza para extrapolar los resultados obtenidos en la muestra a la población total. Por ejemplo, para estimar un total poblacional para una variable, se pondera el valor medido en cada individuo por su factor de expansión y se suman dichos valores.</p>
-</section>
-</section>
-<section id="ejemplo-práctico" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="ejemplo-práctico"><span class="header-section-number">12.4</span> Ejemplo práctico</h2>
-<p>Supongamos que queremos estimar la prevalencia de sobrepeso/obesidad en estudiantes de enseñanza media de una localidad. Se tiene la siguiente información:</p>
-<ul>
-<li><p><strong>Población total de alumnos:</strong> 966</p></li>
-<li><p><strong>Número de escuelas (conglomerados):</strong> 21</p></li>
-<li><p><strong>Tamaño de la muestra global (ya calculado):</strong> 120 alumnos</p></li>
-</ul>
-<p>Si se realizara un <strong>muestreo aleatorio simple (MAS)</strong>, se necesitaría disponer del listado completo de los 966 alumnos y, mediante un sorteo, seleccionar 120 individuos. En ese caso, la probabilidad de selección para cada alumno sería:</p>
-<p><span class="math display">\[P = \frac{n}{N} = \frac{120}{966}=0,124\]</span></p>
-<p>Supongamos ahora que decide realizar un muestreo por conglomerados biétapico. Cada escuela se considera un conglomerado; se seleccionan 10 de las 21 escuelas por MAS y, dentro de cada escuela seleccionada, se elige una submuestra de estudiantes también mediante MAS. Se decide que el número de estudiantes elegidos en cada conglomerado sea igual para todos.</p>
-<p>Los datos globales quedan de la siguiente forma:</p>
-<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regresiones logísticas simples</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_uvregression</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> fallecido,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> glm,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> binomial),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">exponentiate =</span> T</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_p</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="lnhzznbihd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lnhzznbihd table {
+<div id="lmshblkbtb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lmshblkbtb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lnhzznbihd thead, #lnhzznbihd tbody, #lnhzznbihd tfoot, #lnhzznbihd tr, #lnhzznbihd td, #lnhzznbihd th {
+#lmshblkbtb thead, #lmshblkbtb tbody, #lmshblkbtb tfoot, #lmshblkbtb tr, #lmshblkbtb td, #lmshblkbtb th {
   border-style: none;
 }
 
-#lnhzznbihd p {
+#lmshblkbtb p {
   margin: 0;
   padding: 0;
 }
 
-#lnhzznbihd .gt_table {
+#lmshblkbtb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -912,12 +817,12 @@ Sample size needed: 2392</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_caption {
+#lmshblkbtb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lnhzznbihd .gt_title {
+#lmshblkbtb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -929,7 +834,7 @@ Sample size needed: 2392</code></pre>
   border-bottom-width: 0;
 }
 
-#lnhzznbihd .gt_subtitle {
+#lmshblkbtb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -941,7 +846,7 @@ Sample size needed: 2392</code></pre>
   border-top-width: 0;
 }
 
-#lnhzznbihd .gt_heading {
+#lmshblkbtb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -953,13 +858,13 @@ Sample size needed: 2392</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_bottom_border {
+#lmshblkbtb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_col_headings {
+#lmshblkbtb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -974,7 +879,7 @@ Sample size needed: 2392</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_col_heading {
+#lmshblkbtb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -994,7 +899,7 @@ Sample size needed: 2392</code></pre>
   overflow-x: hidden;
 }
 
-#lnhzznbihd .gt_column_spanner_outer {
+#lmshblkbtb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1006,15 +911,15 @@ Sample size needed: 2392</code></pre>
   padding-right: 4px;
 }
 
-#lnhzznbihd .gt_column_spanner_outer:first-child {
+#lmshblkbtb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lnhzznbihd .gt_column_spanner_outer:last-child {
+#lmshblkbtb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lnhzznbihd .gt_column_spanner {
+#lmshblkbtb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1026,11 +931,11 @@ Sample size needed: 2392</code></pre>
   width: 100%;
 }
 
-#lnhzznbihd .gt_spanner_row {
+#lmshblkbtb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lnhzznbihd .gt_group_heading {
+#lmshblkbtb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1056,7 +961,7 @@ Sample size needed: 2392</code></pre>
   text-align: left;
 }
 
-#lnhzznbihd .gt_empty_group_heading {
+#lmshblkbtb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1071,15 +976,15 @@ Sample size needed: 2392</code></pre>
   vertical-align: middle;
 }
 
-#lnhzznbihd .gt_from_md > :first-child {
+#lmshblkbtb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lnhzznbihd .gt_from_md > :last-child {
+#lmshblkbtb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lnhzznbihd .gt_row {
+#lmshblkbtb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1098,7 +1003,7 @@ Sample size needed: 2392</code></pre>
   overflow-x: hidden;
 }
 
-#lnhzznbihd .gt_stub {
+#lmshblkbtb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1111,7 +1016,7 @@ Sample size needed: 2392</code></pre>
   padding-right: 5px;
 }
 
-#lnhzznbihd .gt_stub_row_group {
+#lmshblkbtb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1125,15 +1030,15 @@ Sample size needed: 2392</code></pre>
   vertical-align: top;
 }
 
-#lnhzznbihd .gt_row_group_first td {
+#lmshblkbtb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lnhzznbihd .gt_row_group_first th {
+#lmshblkbtb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lnhzznbihd .gt_summary_row {
+#lmshblkbtb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1143,16 +1048,16 @@ Sample size needed: 2392</code></pre>
   padding-right: 5px;
 }
 
-#lnhzznbihd .gt_first_summary_row {
+#lmshblkbtb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_first_summary_row.thick {
+#lmshblkbtb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lnhzznbihd .gt_last_summary_row {
+#lmshblkbtb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1162,7 +1067,7 @@ Sample size needed: 2392</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_grand_summary_row {
+#lmshblkbtb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1172,7 +1077,7 @@ Sample size needed: 2392</code></pre>
   padding-right: 5px;
 }
 
-#lnhzznbihd .gt_first_grand_summary_row {
+#lmshblkbtb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1182,7 +1087,7 @@ Sample size needed: 2392</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_last_grand_summary_row_top {
+#lmshblkbtb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1192,11 +1097,11 @@ Sample size needed: 2392</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_striped {
+#lmshblkbtb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lnhzznbihd .gt_table_body {
+#lmshblkbtb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1205,7 +1110,7 @@ Sample size needed: 2392</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_footnotes {
+#lmshblkbtb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1219,7 +1124,7 @@ Sample size needed: 2392</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_footnote {
+#lmshblkbtb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1228,7 +1133,7 @@ Sample size needed: 2392</code></pre>
   padding-right: 5px;
 }
 
-#lnhzznbihd .gt_sourcenotes {
+#lmshblkbtb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1242,7 +1147,7 @@ Sample size needed: 2392</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lnhzznbihd .gt_sourcenote {
+#lmshblkbtb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1250,122 +1155,548 @@ Sample size needed: 2392</code></pre>
   padding-right: 5px;
 }
 
-#lnhzznbihd .gt_left {
+#lmshblkbtb .gt_left {
   text-align: left;
 }
 
-#lnhzznbihd .gt_center {
+#lmshblkbtb .gt_center {
   text-align: center;
 }
 
-#lnhzznbihd .gt_right {
+#lmshblkbtb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lnhzznbihd .gt_font_normal {
+#lmshblkbtb .gt_font_normal {
   font-weight: normal;
 }
 
-#lnhzznbihd .gt_font_bold {
+#lmshblkbtb .gt_font_bold {
   font-weight: bold;
 }
 
-#lnhzznbihd .gt_font_italic {
+#lmshblkbtb .gt_font_italic {
   font-style: italic;
 }
 
-#lnhzznbihd .gt_super {
+#lmshblkbtb .gt_super {
   font-size: 65%;
 }
 
-#lnhzznbihd .gt_footnote_marks {
+#lmshblkbtb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lnhzznbihd .gt_asterisk {
+#lmshblkbtb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lnhzznbihd .gt_indent_1 {
+#lmshblkbtb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lnhzznbihd .gt_indent_2 {
+#lmshblkbtb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lnhzznbihd .gt_indent_3 {
+#lmshblkbtb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lnhzznbihd .gt_indent_4 {
+#lmshblkbtb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lnhzznbihd .gt_indent_5 {
+#lmshblkbtb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lnhzznbihd .katex-display {
+#lmshblkbtb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lnhzznbihd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lmshblkbtb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="gt_col_headings header">
-<th id="a-" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
-<th id="Población" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Población</th>
-<th id="Muestra" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Muestra</th>
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N</strong></th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>OR</strong></th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>95% CI</strong></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers=" ">Tamaño total</td>
-<td class="gt_row gt_right" headers="Población">966</td>
-<td class="gt_row gt_right" headers="Muestra">120</td>
+<td class="gt_row gt_left" headers="label">sexo</td>
+<td class="gt_row gt_center" headers="stat_n">78</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers=" ">Número de conglomerados</td>
-<td class="gt_row gt_right" headers="Población">21</td>
-<td class="gt_row gt_right" headers="Muestra">10</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;F</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
-</tbody>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;M</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.95</td>
+<td class="gt_row gt_center" headers="conf.low">0.61, 6.56</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">edad</td>
+<td class="gt_row gt_center" headers="stat_n">74</td>
+<td class="gt_row gt_center" headers="estimate">1.04</td>
+<td class="gt_row gt_center" headers="conf.low">0.99, 1.10</td>
+<td class="gt_row gt_center" headers="p.value">0.12</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">comorbilidades</td>
+<td class="gt_row gt_center" headers="stat_n">53</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.93</td>
+<td class="gt_row gt_center" headers="conf.low">0.27, 3.30</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">disnea</td>
+<td class="gt_row gt_center" headers="stat_n">51</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">9.19</td>
+<td class="gt_row gt_center" headers="conf.low">2.18, 49.2</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.004</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">neumonia_severa</td>
+<td class="gt_row gt_center" headers="stat_n">79</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">8.30</td>
+<td class="gt_row gt_center" headers="conf.low">2.37, 31.2</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">inf_secundaria</td>
+<td class="gt_row gt_center" headers="stat_n">36</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">8.33</td>
+<td class="gt_row gt_center" headers="conf.low">1.38, 59.1</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.023</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">complicaciones</td>
+<td class="gt_row gt_center" headers="stat_n">36</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1,139,380,581</td>
+<td class="gt_row gt_center" headers="conf.low">0.00,<br>
+</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">infil_bilateral</td>
+<td class="gt_row gt_center" headers="stat_n">40</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.56</td>
+<td class="gt_row gt_center" headers="conf.low">0.42, 5.98</td>
+<td class="gt_row gt_center" headers="p.value">0.5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">asist_resp</td>
+<td class="gt_row gt_center" headers="stat_n">39</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">6.00</td>
+<td class="gt_row gt_center" headers="conf.low">1.26, 44.4</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.039</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">cancer_tipo</td>
+<td class="gt_row gt_center" headers="stat_n">74</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Hematológico</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sólido</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">3,844,194</td>
+<td class="gt_row gt_center" headers="conf.low">0.00,<br>
+</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">tr_quimioterapia</td>
+<td class="gt_row gt_center" headers="stat_n">49</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">5.20</td>
+<td class="gt_row gt_center" headers="conf.low">0.85, 101</td>
+<td class="gt_row gt_center" headers="p.value">0.14</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">tr4_quimioterapia</td>
+<td class="gt_row gt_center" headers="stat_n">39</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.40</td>
+<td class="gt_row gt_center" headers="conf.low">0.33, 6.48</td>
+<td class="gt_row gt_center" headers="p.value">0.7</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="5" class="gt_sourcenote">Abbreviations: CI = Confidence Interval, OR = Odds Ratio</td>
+</tr>
+</tfoot>
+
 </table>
 
 </div>
 </div>
 </div>
-<p>La decisión de cuántos conglomerados forman parte de la muestra, es una decisión del investigador: a veces puede ser necesario fijar un número, a veces puede ser más conveniente fijar el tamaño de la muestra en cada conglomerado. Por otra parte, puede que decidamos que el número de sujetos seleccionados en cada conglomerado sea igual para todos; que sea una fracción fija o algo a definir.</p>
-<p>Dentro de los conglomerados seleccionados, se obtiene la siguiente distribución (en este ejemplo, la suma de los tamaños de los conglomerados seleccionados es 480 y en cada uno se eligen 12 alumnos):</p>
+<p>Al ejecutar este código aparecerá el siguiente mensaje de advertencia: <code>Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code>. Esto indica que todas o alguna de las variables explicativas provoca separación parcial de los datos.</p>
+<p>Al observar la tabla generada, notamos que las variables <code>disnea</code>, <code>neumonia_severa</code>, <code>inf_secundaria</code>, <code>asist_resp</code> y <code>tr_quimioterapia</code> presentan intervalos de confianza excesivamente amplios, lo que sugiere la presencia de separación parcial. Si generamos tablas de 2x2 de cada variable explicativa en función de la variable <code>fallecido</code>, podemos visualizar este fenómeno:</p>
 <div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># disnea</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(disnea, fallecido, <span class="at">show_na =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> disnea     0     1
+     No 91.2%  8.8%
+     Sí 52.9% 47.1%</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># neumonía severa</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(neumonia_severa, fallecido, <span class="at">show_na =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> neumonia_severa     0     1
+              No 90.3%  9.7%
+              Sí 52.9% 47.1%</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># infección secundaria</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(inf_secundaria, fallecido, <span class="at">show_na =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> inf_secundaria     0     1
+             No 86.2% 13.8%
+             Sí 42.9% 57.1%</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># asistencia respiratoria</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(asist_resp, fallecido, <span class="at">show_na =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> asist_resp     0     1
+         No 88.9% 11.1%
+         Sí 57.1% 42.9%</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quimioterapia</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(tr_quimioterapia, fallecido, <span class="at">show_na =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> tr_quimioterapia     0     1
+               No 92.9%  7.1%
+               Sí 71.4% 28.6%</code></pre>
+</div>
+</div>
+<p>Estos análisis muestran que variables como <code>disnea</code>, <code>neumonia_severa</code>, <code>inf_secundaria</code>, <code>asist_resp</code> y <code>tr_quimioterapia</code> explican casi completamente la mortalidad por COVID-19 severo.</p>
+<p>Si evaluamos las variables <code>complicaciones</code> y <code>cancer_tipo</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># complicaciones</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(complicaciones, fallecido, <span class="at">show_na =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> complicaciones      0     1
+             No 100.0%  0.0%
+             Sí  42.9% 57.1%</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tipo de cáncer</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(cancer_tipo, fallecido, <span class="at">show_na =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>() <span class="sc">|&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  cancer_tipo      0     1
+ Hematológico 100.0%  0.0%
+       Sólido  80.3% 19.7%</code></pre>
+</div>
+</div>
+<p>Observamos que todos los pacientes sin complicaciones o con cáncer hematológico sobrevivieron, lo cual también indica separación parcial de los datos.</p>
+<p>Ahora, ajustemos un modelo para evaluar el efecto de la interacción entre el tipo de cáncer y haber recibido quimioterapia en los 30 días previos, controlando por la presencia de neumonía severa y asistencia respiratoria:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  fallecido <span class="sc">~</span> cancer_tipo <span class="sc">*</span> tr4_quimioterapia <span class="sc">+</span> neumonia_severa <span class="sc">+</span> asist_resp,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> binomial</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = fallecido ~ cancer_tipo * tr4_quimioterapia + neumonia_severa + 
+    asist_resp, family = binomial, data = datos)
+
+Coefficients: (1 not defined because of singularities)
+                                       Estimate Std. Error z value Pr(&gt;|z|)  
+(Intercept)                            -19.4976  2399.5450  -0.008   0.9935  
+cancer_tipoSólido                       16.7936  2399.5448   0.007   0.9944  
+tr4_quimioterapiaSí                      0.8431     1.0135   0.832   0.4055  
+neumonia_severaSí                        2.6769     1.3791   1.941   0.0522 .
+asist_respSí                             0.2547     1.3683   0.186   0.8523  
+cancer_tipoSólido:tr4_quimioterapiaSí        NA         NA      NA       NA  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 38.024  on 31  degrees of freedom
+Residual deviance: 26.599  on 27  degrees of freedom
+  (47 observations deleted due to missingness)
+AIC: 36.599
+
+Number of Fisher Scoring iterations: 15</code></pre>
+</div>
+</div>
+<p>El resumen del modelo muestra el mensaje: <code>Coefficients: (1 not defined because of singularities)</code>, indicando que los errores estándar para el intercepto y <code>cancer_tipo</code> son muy grandes. Además, no se muestran los coeficientes ni el <em>p</em>-valor para la interacción. Esto se puede visualizar tabulando los coeficientes:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl_regression</span>(fit1, <span class="at">exponentiate =</span> T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="evtbvfcyps" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#evtbvfcyps table {
+<div id="qaonsdelao" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qaonsdelao table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#evtbvfcyps thead, #evtbvfcyps tbody, #evtbvfcyps tfoot, #evtbvfcyps tr, #evtbvfcyps td, #evtbvfcyps th {
+#qaonsdelao thead, #qaonsdelao tbody, #qaonsdelao tfoot, #qaonsdelao tr, #qaonsdelao td, #qaonsdelao th {
   border-style: none;
 }
 
-#evtbvfcyps p {
+#qaonsdelao p {
   margin: 0;
   padding: 0;
 }
 
-#evtbvfcyps .gt_table {
+#qaonsdelao .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1391,12 +1722,12 @@ Sample size needed: 2392</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_caption {
+#qaonsdelao .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#evtbvfcyps .gt_title {
+#qaonsdelao .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1408,7 +1739,7 @@ Sample size needed: 2392</code></pre>
   border-bottom-width: 0;
 }
 
-#evtbvfcyps .gt_subtitle {
+#qaonsdelao .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1420,7 +1751,7 @@ Sample size needed: 2392</code></pre>
   border-top-width: 0;
 }
 
-#evtbvfcyps .gt_heading {
+#qaonsdelao .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1432,13 +1763,13 @@ Sample size needed: 2392</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_bottom_border {
+#qaonsdelao .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_col_headings {
+#qaonsdelao .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1453,7 +1784,7 @@ Sample size needed: 2392</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_col_heading {
+#qaonsdelao .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1473,7 +1804,7 @@ Sample size needed: 2392</code></pre>
   overflow-x: hidden;
 }
 
-#evtbvfcyps .gt_column_spanner_outer {
+#qaonsdelao .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1485,15 +1816,15 @@ Sample size needed: 2392</code></pre>
   padding-right: 4px;
 }
 
-#evtbvfcyps .gt_column_spanner_outer:first-child {
+#qaonsdelao .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#evtbvfcyps .gt_column_spanner_outer:last-child {
+#qaonsdelao .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#evtbvfcyps .gt_column_spanner {
+#qaonsdelao .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1505,11 +1836,11 @@ Sample size needed: 2392</code></pre>
   width: 100%;
 }
 
-#evtbvfcyps .gt_spanner_row {
+#qaonsdelao .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#evtbvfcyps .gt_group_heading {
+#qaonsdelao .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1535,7 +1866,7 @@ Sample size needed: 2392</code></pre>
   text-align: left;
 }
 
-#evtbvfcyps .gt_empty_group_heading {
+#qaonsdelao .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1550,15 +1881,15 @@ Sample size needed: 2392</code></pre>
   vertical-align: middle;
 }
 
-#evtbvfcyps .gt_from_md > :first-child {
+#qaonsdelao .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#evtbvfcyps .gt_from_md > :last-child {
+#qaonsdelao .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#evtbvfcyps .gt_row {
+#qaonsdelao .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1577,7 +1908,7 @@ Sample size needed: 2392</code></pre>
   overflow-x: hidden;
 }
 
-#evtbvfcyps .gt_stub {
+#qaonsdelao .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1590,7 +1921,7 @@ Sample size needed: 2392</code></pre>
   padding-right: 5px;
 }
 
-#evtbvfcyps .gt_stub_row_group {
+#qaonsdelao .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1604,15 +1935,15 @@ Sample size needed: 2392</code></pre>
   vertical-align: top;
 }
 
-#evtbvfcyps .gt_row_group_first td {
+#qaonsdelao .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#evtbvfcyps .gt_row_group_first th {
+#qaonsdelao .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#evtbvfcyps .gt_summary_row {
+#qaonsdelao .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1622,16 +1953,16 @@ Sample size needed: 2392</code></pre>
   padding-right: 5px;
 }
 
-#evtbvfcyps .gt_first_summary_row {
+#qaonsdelao .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_first_summary_row.thick {
+#qaonsdelao .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#evtbvfcyps .gt_last_summary_row {
+#qaonsdelao .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1641,7 +1972,7 @@ Sample size needed: 2392</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_grand_summary_row {
+#qaonsdelao .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1651,7 +1982,7 @@ Sample size needed: 2392</code></pre>
   padding-right: 5px;
 }
 
-#evtbvfcyps .gt_first_grand_summary_row {
+#qaonsdelao .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1661,7 +1992,7 @@ Sample size needed: 2392</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_last_grand_summary_row_top {
+#qaonsdelao .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1671,11 +2002,11 @@ Sample size needed: 2392</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_striped {
+#qaonsdelao .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#evtbvfcyps .gt_table_body {
+#qaonsdelao .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1684,7 +2015,7 @@ Sample size needed: 2392</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_footnotes {
+#qaonsdelao .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1698,7 +2029,7 @@ Sample size needed: 2392</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_footnote {
+#qaonsdelao .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1707,7 +2038,7 @@ Sample size needed: 2392</code></pre>
   padding-right: 5px;
 }
 
-#evtbvfcyps .gt_sourcenotes {
+#qaonsdelao .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1721,7 +2052,7 @@ Sample size needed: 2392</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#evtbvfcyps .gt_sourcenote {
+#qaonsdelao .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1729,758 +2060,331 @@ Sample size needed: 2392</code></pre>
   padding-right: 5px;
 }
 
-#evtbvfcyps .gt_left {
+#qaonsdelao .gt_left {
   text-align: left;
 }
 
-#evtbvfcyps .gt_center {
+#qaonsdelao .gt_center {
   text-align: center;
 }
 
-#evtbvfcyps .gt_right {
+#qaonsdelao .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#evtbvfcyps .gt_font_normal {
+#qaonsdelao .gt_font_normal {
   font-weight: normal;
 }
 
-#evtbvfcyps .gt_font_bold {
+#qaonsdelao .gt_font_bold {
   font-weight: bold;
 }
 
-#evtbvfcyps .gt_font_italic {
+#qaonsdelao .gt_font_italic {
   font-style: italic;
 }
 
-#evtbvfcyps .gt_super {
+#qaonsdelao .gt_super {
   font-size: 65%;
 }
 
-#evtbvfcyps .gt_footnote_marks {
+#qaonsdelao .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#evtbvfcyps .gt_asterisk {
+#qaonsdelao .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#evtbvfcyps .gt_indent_1 {
+#qaonsdelao .gt_indent_1 {
   text-indent: 5px;
 }
 
-#evtbvfcyps .gt_indent_2 {
+#qaonsdelao .gt_indent_2 {
   text-indent: 10px;
 }
 
-#evtbvfcyps .gt_indent_3 {
+#qaonsdelao .gt_indent_3 {
   text-indent: 15px;
 }
 
-#evtbvfcyps .gt_indent_4 {
+#qaonsdelao .gt_indent_4 {
   text-indent: 20px;
 }
 
-#evtbvfcyps .gt_indent_5 {
+#qaonsdelao .gt_indent_5 {
   text-indent: 25px;
 }
 
-#evtbvfcyps .katex-display {
+#qaonsdelao .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#evtbvfcyps div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qaonsdelao div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="gt_col_headings header">
-<th id="Conglomerado" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Conglomerado</th>
-<th id="Tamaño" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Tamaño</th>
-<th id="Muestra" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Muestra</th>
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>OR</strong></th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>95% CI</strong></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Conglomerado">5.1</td>
-<td class="gt_row gt_right" headers="Tamaño">48</td>
-<td class="gt_row gt_right" headers="Muestra">12</td>
+<td class="gt_row gt_left" headers="label">cancer_tipo</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Conglomerado">1.3</td>
-<td class="gt_row gt_right" headers="Tamaño">28</td>
-<td class="gt_row gt_right" headers="Muestra">12</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Hematológico</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Conglomerado">2.3</td>
-<td class="gt_row gt_right" headers="Tamaño">64</td>
-<td class="gt_row gt_right" headers="Muestra">12</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sólido</td>
+<td class="gt_row gt_center" headers="estimate">19,650,260</td>
+<td class="gt_row gt_center" headers="conf.low">0.00,<br>
+</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Conglomerado">2.2</td>
-<td class="gt_row gt_right" headers="Tamaño">43</td>
-<td class="gt_row gt_right" headers="Muestra">12</td>
+<td class="gt_row gt_left" headers="label">tr4_quimioterapia</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Conglomerado">3.1</td>
-<td class="gt_row gt_right" headers="Tamaño">37</td>
-<td class="gt_row gt_right" headers="Muestra">12</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Conglomerado">5.3</td>
-<td class="gt_row gt_right" headers="Tamaño">86</td>
-<td class="gt_row gt_right" headers="Muestra">12</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="estimate">2.32</td>
+<td class="gt_row gt_center" headers="conf.low">0.33, 21.1</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Conglomerado">1.4</td>
-<td class="gt_row gt_right" headers="Tamaño">37</td>
-<td class="gt_row gt_right" headers="Muestra">12</td>
+<td class="gt_row gt_left" headers="label">neumonia_severa</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Conglomerado">3.3</td>
-<td class="gt_row gt_right" headers="Tamaño">56</td>
-<td class="gt_row gt_right" headers="Muestra">12</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Conglomerado">2.4</td>
-<td class="gt_row gt_right" headers="Tamaño">48</td>
-<td class="gt_row gt_right" headers="Muestra">12</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="estimate">14.5</td>
+<td class="gt_row gt_center" headers="conf.low">1.30, 416</td>
+<td class="gt_row gt_center" headers="p.value">0.052</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Conglomerado">1.5</td>
-<td class="gt_row gt_right" headers="Tamaño">33</td>
-<td class="gt_row gt_right" headers="Muestra">12</td>
+<td class="gt_row gt_left" headers="label">asist_resp</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Conglomerado">Total</td>
-<td class="gt_row gt_right" headers="Tamaño">480</td>
-<td class="gt_row gt_right" headers="Muestra">120</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
-</tbody>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sí</td>
+<td class="gt_row gt_center" headers="estimate">1.29</td>
+<td class="gt_row gt_center" headers="conf.low">0.05, 17.7</td>
+<td class="gt_row gt_center" headers="p.value">0.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">cancer_tipo * tr4_quimioterapia</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Sólido * Sí</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+</tbody><tfoot>
+<tr class="gt_sourcenotes odd">
+<td colspan="4" class="gt_sourcenote">Abbreviations: CI = Confidence Interval, OR = Odds Ratio</td>
+</tr>
+</tfoot>
+
 </table>
 
 </div>
 </div>
 </div>
-<section id="cálculo-de-las-probabilidades-de-selección-y-ponderaciones" class="level3">
-<h3 class="anchored" data-anchor-id="cálculo-de-las-probabilidades-de-selección-y-ponderaciones">Cálculo de las Probabilidades de Selección y Ponderaciones</h3>
-<p>Para que un individuo sea seleccionado en este diseño, debe ocurrir primero que su conglomerado sea escogido y, posteriormente, que él sea seleccionado dentro de ese conglomerado. Si asumimos que:</p>
-<blockquote class="blockquote">
-<p><em>“Dos sucesos son independientes si la probabilidad de que ocurran ambos simultáneamente es igual al producto de las probabilidades de que ocurra cada uno de ellos”</em>.</p>
-</blockquote>
-<p>La probabilidad total de selección es el producto de:</p>
-<ol type="1">
-<li><p>La probabilidad de que el conglomerado sea seleccionado:</p>
-<p><span class="math display">\[P_{conglomerado} = \frac{10}{21}\]</span></p></li>
-<li><p>La probabilidad de que un individuo sea seleccionado dentro de su conglomerado:</p>
-<p><span class="math display">\[P_{dentro} = \frac{N°~alumnos~en~la~muestra~del~conglomerado}{Tamaño~del~conglomerado}\]</span></p></li>
-</ol>
-<p>Para los individuos del conglomerado 5.1; la probabilidad de selección será:</p>
-<p><span class="math display">\[P_{5.1} = \frac{10}{21}*\frac{12}{48} \approx 0,1190 \quad (11.9\%)\]</span></p>
-<p>La ponderación o <strong>factor de expansión</strong> se obtiene como el inverso de la probabilidad de selección:</p>
-<p><span class="math display">\[w = \frac{1}{P}\]</span></p>
-<p>Es decir:</p>
-<p><span class="math display">\[w_{5.1} = \frac{1}{1.190} \approx 8.4\]</span></p>
-<p>Esto significa que cada alumno seleccionado del conglomerado 5.1 representa aproximadamente a 8 alumnos de la población.</p>
-<p>Si se realizan los cálculos para cada uno de los conglomerados, se obtiene la siguiente tabla:</p>
+<p>Recibirás advertencias como: <code>Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code> y <code>Warning in regularize.values(x, y, ties, missing(ties), na.rm = na.rm) : collapsing to unique 'x' values</code>, lo que sugiere separación parcial de los datos.</p>
+<p>Para evaluar separación de estos datos, podemos crear una nueva variable que represente el cruce entre tipo de cáncer y quimioterapia usando la función <code>fct_cross()</code> de <code>tidyverse</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="hreqmevwlr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hreqmevwlr table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#hreqmevwlr thead, #hreqmevwlr tbody, #hreqmevwlr tfoot, #hreqmevwlr tr, #hreqmevwlr td, #hreqmevwlr th {
-  border-style: none;
-}
-
-#hreqmevwlr p {
-  margin: 0;
-  padding: 0;
-}
-
-#hreqmevwlr .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#hreqmevwlr .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#hreqmevwlr .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#hreqmevwlr .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#hreqmevwlr .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#hreqmevwlr .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#hreqmevwlr .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#hreqmevwlr .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#hreqmevwlr .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#hreqmevwlr .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#hreqmevwlr .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#hreqmevwlr .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#hreqmevwlr .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#hreqmevwlr .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#hreqmevwlr .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hreqmevwlr .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#hreqmevwlr .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#hreqmevwlr .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#hreqmevwlr .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hreqmevwlr .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#hreqmevwlr .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hreqmevwlr .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#hreqmevwlr .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hreqmevwlr .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hreqmevwlr .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hreqmevwlr .gt_left {
-  text-align: left;
-}
-
-#hreqmevwlr .gt_center {
-  text-align: center;
-}
-
-#hreqmevwlr .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#hreqmevwlr .gt_font_normal {
-  font-weight: normal;
-}
-
-#hreqmevwlr .gt_font_bold {
-  font-weight: bold;
-}
-
-#hreqmevwlr .gt_font_italic {
-  font-style: italic;
-}
-
-#hreqmevwlr .gt_super {
-  font-size: 65%;
-}
-
-#hreqmevwlr .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#hreqmevwlr .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#hreqmevwlr .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#hreqmevwlr .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#hreqmevwlr .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#hreqmevwlr .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#hreqmevwlr .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#hreqmevwlr .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#hreqmevwlr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="Conglomerado" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Conglomerado</th>
-<th id="Probabilidad" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Probabilidad</th>
-<th id="Ponderación" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Ponderación</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_right" headers="Conglomerado">5.1</td>
-<td class="gt_row gt_right" headers="Probabilidad">11.90</td>
-<td class="gt_row gt_right" headers="Ponderación">8.40</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Conglomerado">1.3</td>
-<td class="gt_row gt_right" headers="Probabilidad">20.41</td>
-<td class="gt_row gt_right" headers="Ponderación">4.90</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Conglomerado">2.3</td>
-<td class="gt_row gt_right" headers="Probabilidad">8.93</td>
-<td class="gt_row gt_right" headers="Ponderación">11.20</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Conglomerado">2.2</td>
-<td class="gt_row gt_right" headers="Probabilidad">13.29</td>
-<td class="gt_row gt_right" headers="Ponderación">7.53</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Conglomerado">3.1</td>
-<td class="gt_row gt_right" headers="Probabilidad">15.44</td>
-<td class="gt_row gt_right" headers="Ponderación">6.48</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Conglomerado">5.3</td>
-<td class="gt_row gt_right" headers="Probabilidad">6.65</td>
-<td class="gt_row gt_right" headers="Ponderación">15.05</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Conglomerado">1.4</td>
-<td class="gt_row gt_right" headers="Probabilidad">15.44</td>
-<td class="gt_row gt_right" headers="Ponderación">6.48</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Conglomerado">3.3</td>
-<td class="gt_row gt_right" headers="Probabilidad">10.20</td>
-<td class="gt_row gt_right" headers="Ponderación">9.80</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Conglomerado">2.4</td>
-<td class="gt_row gt_right" headers="Probabilidad">11.90</td>
-<td class="gt_row gt_right" headers="Ponderación">8.40</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Conglomerado">1.5</td>
-<td class="gt_row gt_right" headers="Probabilidad">17.32</td>
-<td class="gt_row gt_right" headers="Ponderación">5.78</td>
-</tr>
-</tbody>
-</table>
-
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tipo_ca_quim =</span> <span class="fu">fct_cross</span>(cancer_tipo, tr4_quimioterapia)) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(tipo_ca_quim, fallecido, <span class="at">show_na =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    tipo_ca_quim      0     1
+ Hematológico:No 100.0%  0.0%
+       Sólido:No  76.5% 23.5%
+       Sólido:Sí  71.4% 28.6%</code></pre>
 </div>
 </div>
+<p>Este análisis muestra que ninguno de los pacientes con cáncer hematológico recibió quimioterapia en los últimos 30 días, lo que también contribuye a la separación parcial.</p>
+<p>Finalmente, para evaluar la separación de datos de manera más formal, utilizamos el paquete <code>detectseparation</code> <span class="citation" data-cites="detectseparation">(<a href="#ref-detectseparation" role="doc-biblioref">Kosmidis et&nbsp;al. 2026</a>)</span>. Ajustamos nuevamente el modelo con el argumento <code>method = "detect_separation"</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(detectseparation)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tipo de cáncer</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  fallecido <span class="sc">~</span> cancer_tipo,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> binomial,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"detect_separation"</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Implementation: ROI | Solver: lpsolve 
+Separation: TRUE 
+Existence of maximum likelihood estimates
+      (Intercept) cancer_tipoSólido 
+             -Inf               Inf 
+0: finite value, Inf: infinity, -Inf: -infinity</code></pre>
 </div>
-<p>Cada individuo seleccionado en el estudio tiene una probabilidad de inclusión que depende tanto de la probabilidad de que su escuela (conglomerado) sea seleccionada como de la probabilidad de que él sea elegido dentro de su escuela. La ponderación resultante (el inverso de esta probabilidad) se utiliza para “expandir” el resultado del estudio, de manera que cada alumno en la muestra represente a un número determinado de alumnos en la población total.</p>
-<p>Por ejemplo, en el conglomerado 5.1, cada alumno seleccionado representa aproximadamente a 8 alumnos de la población. De este modo, al calcular la prevalencia de sobrepeso/obesidad en la muestra, se aplican estos factores de expansión para obtener estimaciones que sean representativas de los 966 alumnos de la localidad.</p>
-<p>Este proceso es fundamental en estudios basados en muestreos complejos, ya que permite corregir posibles diferencias en las probabilidades de selección y garantizar que las estimaciones sean válidas y precisas para toda la población.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Neumonía severa</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  fallecido <span class="sc">~</span> neumonia_severa,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> binomial,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"detect_separation"</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Implementation: ROI | Solver: lpsolve 
+Separation: FALSE 
+Existence of maximum likelihood estimates
+      (Intercept) neumonia_severaSí 
+                0                 0 
+0: finite value, Inf: infinity, -Inf: -infinity</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo con interacción</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  fallecido <span class="sc">~</span> cancer_tipo <span class="sc">*</span> tr4_quimioterapia <span class="sc">+</span> neumonia_severa <span class="sc">+</span> asist_resp,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> binomial,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"detect_separation"</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Implementation: ROI | Solver: lpsolve 
+Separation: TRUE 
+Existence of maximum likelihood estimates
+                          (Intercept)                     cancer_tipoSólido 
+                                 -Inf                                   Inf 
+                  tr4_quimioterapiaSí                     neumonia_severaSí 
+                                    0                                     0 
+                         asist_respSí cancer_tipoSólido:tr4_quimioterapiaSí 
+                                    0                                    NA 
+0: finite value, Inf: infinity, -Inf: -infinity</code></pre>
+</div>
+</div>
+<p>En el caso de separación completa, un nivel de la variable explicativa debería modelar perfectamente los “Sí” y el otro los “No”, y al intentar correr el modelo nos encontraríamos con un error de convergencia que impediría continuar con el análisis.</p>
+</section>
+</section>
+<section id="soluciones-a-la-separación-de-datos" class="level2" data-number="24.3">
+<h2 data-number="24.3" class="anchored" data-anchor-id="soluciones-a-la-separación-de-datos"><span class="header-section-number">24.3</span> Soluciones a la separación de datos</h2>
+<section id="remuestreo-recolección-o-submuestreo" class="level3">
+<h3 class="anchored" data-anchor-id="remuestreo-recolección-o-submuestreo">Remuestreo, recolección o submuestreo</h3>
+<p>Siempre que fuera posible, recolectar más datos puede mitigar la separación total al introducir más variabilidad en los datos. En su defecto, se puede considerar el submuestreo o el sobremuestreo para balancear las clases. Sin embargo, estas técnicas deben aplicarse con cuidado para evitar sesgos.</p>
+</section>
+<section id="eliminación-o-recategorización-de-variables" class="level3">
+<h3 class="anchored" data-anchor-id="eliminación-o-recategorización-de-variables">Eliminación o recategorización de variables</h3>
+<p>En casos de separación parcial, una opción es simplificar el modelo eliminando las variables causantes de la separación. Si esas variables son esenciales, otra alternativa es agrupar niveles de las variables categóricas para reducir la separación. Esto puede hacer que el modelo sea más robusto al reducir la complejidad y mejorar la estabilidad de las estimaciones.</p>
+</section>
+<section id="uso-de-modelos-alternativos-a-la-regresión-logística" class="level3">
+<h3 class="anchored" data-anchor-id="uso-de-modelos-alternativos-a-la-regresión-logística">Uso de modelos alternativos a la regresión logística</h3>
+<p>Los <strong>modelos de</strong> <strong><em>pseudo-likelihood</em></strong>, como la regresión logística condicional y la máxima verosimilitud penalizada, permiten ajustar el modelo incluso cuando la separación de datos impide la convergencia con métodos tradicionales. Los <strong>modelos penalizados</strong>, que incluyen las regresiones Ridge, Lasso y Elastic Net, añaden un término de penalización que controla el crecimiento excesivo de los coeficientes en casos de separación parcial, facilitando la convergencia y mejorando la estabilidad del modelo. Por otro lado, los <strong>modelos bayesianos</strong> introducen distribuciones previas sobre los coeficientes, permitiendo una mayor flexibilidad para manejar la separación de datos y ofreciendo estimaciones más estables y confiables. Sin embargo, el ajuste e interpretación de estos modelos es complejo y escapa al alcance de este curso, por lo que no serán abordados en detalle.</p>
 <div class="hidden">
-<p><span class="citation" data-cites="hernández-ávila2011">Hernández-Ávila (<a href="#ref-hernández-ávila2011" role="doc-biblioref">2011</a>)</span></p>
-<p><span class="citation" data-cites="daniel2002">Daniel (<a href="#ref-daniel2002" role="doc-biblioref">2002</a>)</span></p>
-<p><span class="citation" data-cites="rodríguez2018">Rodríguez y Mendivelso (<a href="#ref-rodríguez2018" role="doc-biblioref">2018</a>)</span></p>
-<p><span class="citation" data-cites="ríusdíaz2012">Ríus Díaz et&nbsp;al. (<a href="#ref-ríusdíaz2012" role="doc-biblioref">2012</a>)</span></p>
-<p><span class="citation" data-cites="triola2018">Triola (<a href="#ref-triola2018" role="doc-biblioref">2018</a>)</span></p>
-<p><span class="citation" data-cites="alvarezcaceres2007">Álvarez Cáceres (<a href="#ref-alvarezcaceres2007" role="doc-biblioref">2007</a>)</span></p>
-<p><span class="citation" data-cites="norman1996"><em>Bioestadística</em> (<a href="#ref-norman1996" role="doc-biblioref">1996</a>)</span></p>
-<p><span class="citation" data-cites="bioestad2006a"><em>Bioestadística</em> (<a href="#ref-bioestad2006a" role="doc-biblioref">2006</a>)</span></p>
-<p><span class="citation" data-cites="vonelm2008">Elm et&nbsp;al. (<a href="#ref-vonelm2008" role="doc-biblioref">2008</a>)</span></p>
-<p><span class="citation" data-cites="schulz2010">Schulz et&nbsp;al. (<a href="#ref-schulz2010" role="doc-biblioref">2010</a>)</span></p>
-<p><span class="citation" data-cites="field2014">Field et&nbsp;al. (<a href="#ref-field2014" role="doc-biblioref">2014</a>)</span></p>
-<p><span class="citation" data-cites="rodríguez2003">Rodríguez et&nbsp;al. (<a href="#ref-rodríguez2003" role="doc-biblioref">2003</a>)</span></p>
-<p><span class="citation" data-cites="epidat4"><em>EPIDAT 4.2 - Consellería de Sanidade - Servizo Galego de Saúde</em> (<a href="#ref-epidat4" role="doc-biblioref">s.&nbsp;f.</a>)</span></p>
+<p><span class="citation" data-cites="agresti2015">Agresti (<a href="#ref-agresti2015" role="doc-biblioref">2015</a>)</span></p>
+<p><span class="citation" data-cites="base">R Core Team (<a href="#ref-base" role="doc-biblioref">2026</a>)</span></p>
+<p><span class="citation" data-cites="wickham2019">Wickham et&nbsp;al. (<a href="#ref-wickham2019" role="doc-biblioref">2019</a>)</span></p>
+<p><span class="citation" data-cites="firke2016">Firke (<a href="#ref-firke2016" role="doc-biblioref">2016</a>)</span></p>
 </div>
 </section>
 </section>
-<section id="referencias" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="referencias"><span class="header-section-number">12.5</span> Referencias</h2>
+<section id="referencias" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias">Referencias</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-alvarezcaceres2007" class="csl-entry" role="listitem">
-Álvarez Cáceres, Rafael. 2007. <em>Estadística aplicada a las ciencias de la salud</em>. Ediciones Díaz de Santos.
+<div id="ref-agresti2015" class="csl-entry" role="listitem">
+Agresti, Alan. 2015. <em>Foundations of Linear and Generalized Linear Models</em>. Wiley Series En Probability y Statistics. John Wiley &amp; Sons, Inc.
 </div>
-<div id="ref-norman1996" class="csl-entry" role="listitem">
-<em>Bioestadística</em>. 1996. Mosby/Doyma Libros.
+<div id="ref-firke2016" class="csl-entry" role="listitem">
+Firke, Sam. 2016. <em>janitor: Simple Tools for Examining and Cleaning Dirty Data</em>. The R Foundation. <a href="https://doi.org/10.32614/cran.package.janitor">https://doi.org/10.32614/cran.package.janitor</a>.
 </div>
-<div id="ref-bioestad2006a" class="csl-entry" role="listitem">
-<em>Bioestadística</em>. 2006. 6.ª ed. McGraw Hill.
+<div id="ref-detectseparation" class="csl-entry" role="listitem">
+Kosmidis, Ioannis, Dirk Schumacher, y Florian Schwendinger. 2026. <em>detectseparation: Detect and Check for Separation and Infinite Maximum Likelihood Estimates</em>. <a href="https://doi.org/10.32614/CRAN.package.detectseparation">https://doi.org/10.32614/CRAN.package.detectseparation</a>.
 </div>
-<div id="ref-champely2006" class="csl-entry" role="listitem">
-Champely, Stephane. 2020. <em>pwr: Basic Functions for Power Analysis</em>. <a href="https://doi.org/10.32614/CRAN.package.pwr">https://doi.org/10.32614/CRAN.package.pwr</a>.
+<div id="ref-base" class="csl-entry" role="listitem">
+R Core Team. 2026. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
-<div id="ref-daniel2002" class="csl-entry" role="listitem">
-Daniel, Wayne W. 2002. <em>Bioestadística: Base para el análisis de las ciencias de la salud</em>. 4.ª ed. Limusa Wiley.
-</div>
-<div id="ref-vonelm2008" class="csl-entry" role="listitem">
-Elm, Erik von, Douglas G. Altman, Matthias Egger, Stuart J. Pocock, Peter C. Gøtzsche, y Jan P. Vandenbroucke. 2008. <span>«The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies»</span>. <em>Journal of Clinical Epidemiology</em> 61 (4): 344-49. <a href="https://doi.org/10.1016/j.jclinepi.2007.11.008">https://doi.org/10.1016/j.jclinepi.2007.11.008</a>.
-</div>
-<div id="ref-epidat4" class="csl-entry" role="listitem">
-<em>EPIDAT 4.2 - Consellería de Sanidade - Servizo Galego de Saúde</em>. s.&nbsp;f. <a href="https://www.sergas.es/Saude-publica/EPIDAT-4-2">https://www.sergas.es/Saude-publica/EPIDAT-4-2</a>.
-</div>
-<div id="ref-field2014" class="csl-entry" role="listitem">
-Field, Andy, Jeremy Miles, y Zoë Field. 2014. <em>Discovering statistics using R</em>. Repr. Sage.
-</div>
-<div id="ref-hernández-ávila2011" class="csl-entry" role="listitem">
-Hernández-Ávila, Mauricio. 2011. <em>Epidemiología: diseño y análisis de estudios</em>. Editorial Médica Panamericana.
-</div>
-<div id="ref-ríusdíaz2012" class="csl-entry" role="listitem">
-Ríus Díaz, Francisca, Francisco Javier Barón Lopez, Elisa Sánchez Font, y Luis Parras Guijosa. 2012. <em>Bioestadística: Métodos y Aplicaciones</em>. <a href="http://virtual.uptc.edu.co/ova/estadistica/docs/libros/ftp.bioestadistica.uma.es/libro/">http://virtual.uptc.edu.co/ova/estadistica/docs/libros/ftp.bioestadistica.uma.es/libro/</a>.
-</div>
-<div id="ref-rodríguez2018" class="csl-entry" role="listitem">
-Rodríguez, Milena, y Fredy Mendivelso. 2018. <span>«Diseño de investigación de corte transversal»</span>. <em>Revista Médica Sanitas</em> 21 (3): 141-47. <a href="https:////revistas.unisanitas.edu.co/index.php/rms/article/view/368">//revistas.unisanitas.edu.co/index.php/rms/article/view/368</a>.
-</div>
-<div id="ref-rodríguez2003" class="csl-entry" role="listitem">
-Rodríguez, VM, Verónica A Martínez Ordaz, José Roiz Hernández, Francisco Huazano García, y Armando Nieves Rentería. 2003. <span>«Muestreo y tamaño de la muestra»</span>. <em>Una guía práctica. Coahuila, México: El Cid Editor</em>.
-</div>
-<div id="ref-sampling2010" class="csl-entry" role="listitem">
-<em>samplingbook: Survey Sampling Procedures</em>. 2010. The R Foundation. <a href="https://doi.org/10.32614/cran.package.samplingbook">https://doi.org/10.32614/cran.package.samplingbook</a>.
-</div>
-<div id="ref-schulz2010" class="csl-entry" role="listitem">
-Schulz, K. F, D. G Altman, y D. Moher. 2010. <span>«CONSORT 2010 Statement: Updated Guidelines for Reporting Parallel Group Randomised Trials»</span>. <em>BMJ</em> 340 (mar23 1): c332-32. <a href="https://doi.org/10.1136/bmj.c332">https://doi.org/10.1136/bmj.c332</a>.
-</div>
-<div id="ref-stevenson2025" class="csl-entry" role="listitem">
-Stevenson, Mark, y Evan Sergeant. 2025. <em>epiR: Tools for the Analysis of Epidemiological Data</em>. <a href="https://doi.org/10.32614/CRAN.package.epiR">https://doi.org/10.32614/CRAN.package.epiR</a>.
-</div>
-<div id="ref-triola2018" class="csl-entry" role="listitem">
-Triola, Mario F. 2018. <em>ESTADÍSTICA Decimosegunda Edicion</em>. Pearson Educación de México, SA de CV.
+<div id="ref-wickham2019" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, et&nbsp;al. 2019. <span>«Welcome to the Tidyverse»</span>. <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Gastiazoro MP, Cardozo MA, Ricardo T, Ramos JG, Ballina A, Maillo M, et al.&nbsp;Clinical features in cancer patients with COVID-19 in Santa Fe and Buenos Aires, Argentina. J Clin Images Med Case Rep [Internet]. el 14 de febrero de 2023 [citado el 9 de agosto de 2024];4(2). Disponible en: <a href="https://jcimcr.org/articles/JCIMCR-v4-2285.html" class="uri">https://jcimcr.org/articles/JCIMCR-v4-2285.html</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -2899,13 +2803,13 @@ Triola, Mario F. 2018. <em>ESTADÍSTICA Decimosegunda Edicion</em>. Pearson Educ
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../unidad_2/04_normalidad_heterocedasticidad.html" class="pagination-link" aria-label="Análisis de normalidad y homocedasticidad">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Análisis de normalidad y homocedasticidad</span></span>
+      <a href="../unidad_4/02_reg_logistica.html" class="pagination-link" aria-label="Regresión logística">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Regresión logística</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../unidad_2/06_fun_condicionales.html" class="pagination-link" aria-label="Funciones condicionales en R">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Funciones condicionales en R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../unidad_4/04_reg_logistica_cond.html" class="pagination-link" aria-label="Regresión logística condicional">
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Regresión logística condicional</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
