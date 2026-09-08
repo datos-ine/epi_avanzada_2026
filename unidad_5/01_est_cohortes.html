@@ -8,7 +8,7 @@
 
 <meta name="author" content="Christian Ballejo, Andrea Silva y Tamara Ricardo">
 
-<title>8&nbsp; Estudios epidemiológicos – Epidemiología: Nivel Avanzado</title>
+<title>27&nbsp; Estudios de cohortes – Epidemiología: Nivel Avanzado</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -55,8 +55,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../unidad_2/02_est_transversales.html" rel="next">
-<link href="../unidad_1/07_hoja_estilo.html" rel="prev">
+<link href="../unidad_5/02_reg_poisson.html" rel="next">
+<link href="../unidad_4/05_mod_predict.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -278,7 +278,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_2/01_est_epidemiologicos.html">Unidad 2</a></li><li class="breadcrumb-item"><a href="../unidad_2/01_est_epidemiologicos.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Estudios epidemiológicos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_5/01_est_cohortes.html">Unidad 5</a></li><li class="breadcrumb-item"><a href="../unidad_5/01_est_cohortes.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estudios de cohortes</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -452,7 +452,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_2/01_est_epidemiologicos.html" class="sidebar-item-text sidebar-link active">
+  <a href="../unidad_2/01_est_epidemiologicos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Estudios epidemiológicos</span></span></a>
   </div>
 </li>
@@ -602,7 +602,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_5/01_est_cohortes.html" class="sidebar-item-text sidebar-link">
+  <a href="../unidad_5/01_est_cohortes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estudios de cohortes</span></span></a>
   </div>
 </li>
@@ -630,16 +630,10 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#clasificación-de-estudios-epidemiológicos" id="toc-clasificación-de-estudios-epidemiológicos" class="nav-link active" data-scroll-target="#clasificación-de-estudios-epidemiológicos"><span class="header-section-number">8.1</span> Clasificación de estudios epidemiológicos</a>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">27.1</span> Introducción</a>
   <ul class="collapse">
-  <li><a href="#clasificación-grade" id="toc-clasificación-grade" class="nav-link" data-scroll-target="#clasificación-grade">Clasificación GRADE</a></li>
+  <li><a href="#cómo-analizar-un-estudio-de-cohortes" id="toc-cómo-analizar-un-estudio-de-cohortes" class="nav-link" data-scroll-target="#cómo-analizar-un-estudio-de-cohortes">¿Cómo analizar un estudio de cohortes?</a></li>
   </ul></li>
-  <li><a href="#planificación-y-análisis-de-los-estudios-epidemiológicos" id="toc-planificación-y-análisis-de-los-estudios-epidemiológicos" class="nav-link" data-scroll-target="#planificación-y-análisis-de-los-estudios-epidemiológicos"><span class="header-section-number">8.2</span> Planificación y análisis de los estudios epidemiológicos</a>
-  <ul class="collapse">
-  <li><a href="#declaración-strobe" id="toc-declaración-strobe" class="nav-link" data-scroll-target="#declaración-strobe">Declaración STROBE</a></li>
-  <li><a href="#declaración-consort" id="toc-declaración-consort" class="nav-link" data-scroll-target="#declaración-consort">Declaración CONSORT</a></li>
-  </ul></li>
-  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">8.3</span> Referencias</a></li>
   </ul>
 </nav>
     </div>
@@ -647,9 +641,9 @@ div.csl-indent {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_2/01_est_epidemiologicos.html">Unidad 2</a></li><li class="breadcrumb-item"><a href="../unidad_2/01_est_epidemiologicos.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Estudios epidemiológicos</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_5/01_est_cohortes.html">Unidad 5</a></li><li class="breadcrumb-item"><a href="../unidad_5/01_est_cohortes.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estudios de cohortes</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Estudios epidemiológicos</span></h1>
+<h1 class="title"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estudios de cohortes</span></h1>
 </div>
 
 
@@ -659,8 +653,8 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Autores/as</div>
     <div class="quarto-title-meta-contents">
+             <p>Christian Ballejo <a href="https://orcid.org/0000-0002-7346-5701" class="quarto-title-author-orcid" aria-label="ORCID profile for Christian Ballejo"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
              <p>Andrea Silva <a href="https://orcid.org/0000-0002-4791-9706" class="quarto-title-author-orcid" aria-label="ORCID profile for Andrea Silva"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-             <p>Tamara Ricardo <a href="https://orcid.org/0000-0002-0921-2611" class="quarto-title-author-orcid" aria-label="ORCID profile for Tamara Ricardo"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
           </div>
   </div>
     
@@ -673,209 +667,145 @@ div.csl-indent {
 </header>
 
 
-<p>Un estudio epidemiológico es un proceso que se desarrolla en varias fases: desde la definición del <strong>problema de investigación</strong>, la selección de la estrategia o <strong>diseño del estudio</strong>, hasta la planificación de las <strong>actividades</strong>. En esencia, el diseño constituye la estrategia metodológica elegida para alcanzar los objetivos planteados.</p>
-<section id="clasificación-de-estudios-epidemiológicos" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="clasificación-de-estudios-epidemiológicos"><span class="header-section-number">8.1</span> Clasificación de estudios epidemiológicos</h2>
-<p>Existen distintos criterios para clasificar los estudios epidemiológicos. La siguiente tabla (<a href="#tbl-tab1" class="quarto-xref">Tabla&nbsp;<span>8.1</span></a>) resume esta clasificación, que probablemente ya hayan abordado en cursos previos:</p>
-<div class="cell" data-layout-align="center">
-<div id="tbl-tab1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tab1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;8.1: Clasificación de estudios epidemiológicos.
-</figcaption>
-<div aria-describedby="tbl-tab1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="table table-condensed table-hover cell caption-top table-sm table-striped small">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Poblacionales</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Individuales</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Observacionales</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Experimentales</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Análisis de situación</td>
-<td style="text-align: left;">Serie de casos</td>
-<td style="text-align: left;">Estudios de casos y controles</td>
-<td style="text-align: left;">Ensayos clínicos</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Estudios Ecológicos</td>
-<td style="text-align: left;">Reporte de casos</td>
-<td style="text-align: left;">Estudios de cohortes</td>
-<td style="text-align: left;">Ensayos comunitarios y/o de campo</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Estudios transversales</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<p>Toda investigación debe partir de una revisión actualizada del conocimiento sobre el tema a abordar. Esto implica delimitar el problema de investigación de forma precisa, definiendo objetivos, propósito, justificación e hipótesis. Para ello, es fundamental conocer las características y ventajas de cada tipo de estudio epidemiológico, evaluar su adecuación a los objetivos planteados y considerar los recursos disponibles en términos de tiempo, personal y presupuesto.</p>
-<section id="clasificación-grade" class="level3">
-<h3 class="anchored" data-anchor-id="clasificación-grade">Clasificación GRADE</h3>
-<p>Existen propuestas que jerarquizan la calidad de la evidencia según el tipo de diseño, bajo el supuesto de que algunos están más expuestos a sesgos que otros. Esta jerarquización permite orientar la toma de decisiones clínicas y de salud pública.</p>
-<p>El análisis riguroso de la evidencia facilita establecer grados de recomendación para intervenciones diagnósticas, terapéuticas o preventivas. Uno de los sistemas más utilizados para clasificar la calidad de la evidencia y la fuerza de las recomendaciones es <a href="https://www.gradeworkinggroup.org/"><strong>GRADE</strong></a> (<em>Grading of Recommendations Assessment, Development and Evaluation</em>), que permite sintetizar la calidad de la evidencia según el tipo de diseño:</p>
+<section id="introducción" class="level2" data-number="27.1">
+<h2 data-number="27.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">27.1</span> Introducción</h2>
+<p>En su forma más básica, un diseño de cohorte implica la selección de un grupo de personas expuestas al factor de estudio y un grupo similar pero no expuesto, considerado como el grupo de referencia. Ambos grupos serán seguidos durante un período determinado y se evaluará si durante el mismo se produjo o no el evento de interés. Al final del seguimiento, se realiza la comparación de ambos grupos para analizar los resultados.</p>
+<p>La esencia de los estudios de cohortes radica en el seguimiento de los participantes a lo largo del tiempo. Por tratarse de estudios longitudinales, los mismos podrán ser prospectivos, retrospectivos o mixtos. Además, las cohortes podrán ser fijas o dinámicas. En una cohorte fija, se establece un período de reclutamiento y, una vez finalizado, no se admiten más participantes. En una cohorte dinámica (también llamada cohorte abierta), se permite la entrada y salida de sujetos a lo largo de todo el estudio.</p>
+<p>Como recordarán, la selección de los participantes se basa en la exposición, por lo cual la misma debe estar claramente definida. Como dijimos anteriormente, la idea clásica de un estudio de cohorte es comparar dos grupos, expuestos y no expuestos. Sin embargo, existen otras comparaciones posibles:</p>
 <ul>
-<li><p><strong>Ensayos clínicos aleatorizados (EC):</strong> calidad alta</p></li>
-<li><p><strong>Estudios observacionales:</strong> calidad baja</p></li>
-<li><p><strong>Otras fuentes:</strong> calidad muy baja</p></li>
+<li><p><strong>Estudios de comparación con la población general:</strong> El estudio identifica y sigue a una cohorte expuesta, comparando la frecuencia del evento de salud en esta cohorte con la observada en la población general. Para ello, es esencial disponer de registros poblacionales que proporcionen esta información.</p></li>
+<li><p><strong>Comparaciones internas:</strong> La cohorte estudiada incluye tanto personas expuestas como no expuestas, y las comparaciones se realizan dentro de la propia cohorte.</p></li>
 </ul>
-<p>La siguiente tabla (<a href="#tbl-tab2" class="quarto-xref">Tabla&nbsp;<span>8.2</span></a>) muestra la clasificación de GRADE, que combina calidad metodológica, balance entre beneficios y riesgos, y las implicancias de cada recomendación:</p>
+<p>Por otra parte, el evento a observar puede tomar distintas formas: puede tratarse de un evento fijo, eventos múltiples, cambio en una medida de función (la cual se evalúa mediante tasa de cambio) o marcadores intermedios del evento. Estas variaciones también influyen en el abordaje analítico.</p>
+<p>Al diseñar un estudio de cohortes, es fundamental definir claramente los siguientes aspectos:</p>
+<ul>
+<li>Criterios de inclusión</li>
+<li>Fechas de entrada y de salida de los participantes</li>
+<li>Estrategia de seguimiento</li>
+<li>Eventos finales de interés</li>
+<li>Definición de la exposición</li>
+<li>Identificación de factores de confusión</li>
+<li>Consideraciones éticas</li>
+<li>Estrategias de análisis</li>
+<li>Potencia estadística</li>
+</ul>
+<p>En la siguiente tabla se remarcan ventajas y desventajas de estos estudios:</p>
 <div class="cell" data-layout-align="center">
-<div id="tbl-tab2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tab2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;8.2: Clasificación GRADE de estudios epidemiológicos.
-</figcaption>
-<div aria-describedby="tbl-tab2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table-condensed table-hover cell caption-top table-sm table-striped small">
+<table class="table table-condensed table-hover caption-top table-sm table-striped small">
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Grado</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Recomendación</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Calidad</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Beneficio vs. Riesgo y cargas</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Calidad metodológica que apoya la evidencia</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Implicancias</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Ventajas</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Desventajas</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">1.A</td>
-<td style="text-align: left;">Fuerte</td>
-<td style="text-align: left;">Alta</td>
-<td style="text-align: left;">Superan ampliamente los riesgos y cargas (o viceversa)</td>
-<td style="text-align: left;">EC sin importantes limitaciones o evidencia abrumadora de estudios observacionales.</td>
-<td style="text-align: left;">Puede aplicarse a la mayoría de los pacientes, en la mayoría de las circunstancias sin reservas.</td>
+<td style="text-align: left;">Más cercanos a un experimento</td>
+<td style="text-align: left;">Alto costo y duración del estudio</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">1.B</td>
-<td style="text-align: left;">Fuerte</td>
-<td style="text-align: left;">Moderada</td>
-<td style="text-align: left;">Superan ampliamente los riesgos y cargas (o viceversa)</td>
-<td style="text-align: left;">EC con importantes limitaciones (resultados inconsistentes, defectos metodológicos indirectos o imprecisos) o pruebas excepcionalmente fuertes a partir de estudios observacionales.</td>
-<td style="text-align: left;">Puede aplicarse a la mayoría de los pacientes, en la mayoría de las circunstancias sin reservas.</td>
+<td style="text-align: left;">Claridad temporal entre exposición y evento</td>
+<td style="text-align: left;">Riesgo de pérdida de participantes</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">1.C</td>
-<td style="text-align: left;">Fuerte</td>
-<td style="text-align: left;">Baja o muy baja</td>
-<td style="text-align: left;">Superan ampliamente los riesgos y cargas (o viceversa)</td>
-<td style="text-align: left;">Estudios observacionales o series de casos.</td>
-<td style="text-align: left;">Puede cambiar cuando se disponga de mayor evidencia de calidad.</td>
+<td style="text-align: left;">Permiten estudiar varios eventos asociados a la exposición</td>
+<td style="text-align: left;">Necesidad de cohortes grandes</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2.A</td>
-<td style="text-align: left;">Débil</td>
-<td style="text-align: left;">Alta</td>
-<td style="text-align: left;">Estrechamente equilibrados</td>
-<td style="text-align: left;">EC sin importantes limitaciones o evidencia abrumadora de estudios observacionales.</td>
-<td style="text-align: left;">La mejor acción puede variar dependiendo de las circunstancias de los pacientes o de los valores de la sociedad.</td>
+<td style="text-align: left;">Estimación directa de la incidencia</td>
+<td style="text-align: left;">Dificultad para controlar confusores</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2.B</td>
-<td style="text-align: left;">Débil</td>
-<td style="text-align: left;">Moderada</td>
-<td style="text-align: left;">Estrechamente equilibrados</td>
-<td style="text-align: left;">EC con importantes limitaciones (resultados inconsistentes, defectos metodológicos indirectos o imprecisos) o pruebas excepcionalmente fuertes a partir de estudios observacionales.</td>
-<td style="text-align: left;">La mejor acción puede variar dependiendo de las circunstancias de los pacientes o de los valores de la sociedad.</td>
+<td style="text-align: left;">Reducción de sesgos de selección y de memoria</td>
+<td style="text-align: left;">Cambios en la exposición durante el estudio</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2.C</td>
-<td style="text-align: left;">Débil</td>
-<td style="text-align: left;">Baja o muy baja</td>
-<td style="text-align: left;">Incertidumbre en las estimaciones de beneficios, riesgos y carga</td>
-<td style="text-align: left;">Estudios observacionales o series de casos.</td>
-<td style="text-align: left;">Otras alternativas pueden ser igual de razonables.</td>
+<td style="text-align: left;">Eficientes para evaluar exposiciones poco frecuentes</td>
+<td style="text-align: left;">No adecuados para enfermedades raras</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Permiten fijar criterios de calidad en la medición del evento</td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</figure>
-</div>
-</div>
-</section>
-</section>
-<section id="planificación-y-análisis-de-los-estudios-epidemiológicos" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="planificación-y-análisis-de-los-estudios-epidemiológicos"><span class="header-section-number">8.2</span> Planificación y análisis de los estudios epidemiológicos</h2>
-<p>Una vez definidos los objetivos y el diseño, es fundamental planificar detalladamente el estudio: seleccionar la población, estimar el tamaño muestral, establecer criterios de inclusión y exclusión, definir las variables, las fuentes de datos y los métodos de recolección, procesamiento y análisis.</p>
-<p>Mientras que la definición del problema y la elección del diseño ya han sido abordadas en instancias previas, en este curso nos centraremos en la <strong>fase analítica</strong>, haciendo especial énfasis en el tratamiento de los datos derivados de distintos tipos de estudios.</p>
-<p>Dado que una gran proporción de la investigación en salud es observacional, comenzaremos por los análisis correspondientes a estudios transversales, de casos y controles, y de cohortes. En todos los casos, la comunicación de los resultados debe ser clara y estructurada, para facilitar la comprensión del proceso, desde la planificación hasta las conclusiones.</p>
-<p>La formulación de recomendaciones en torno a la comunicación de la investigación puede contribuir a mejorar su calidad.</p>
-<section id="declaración-strobe" class="level3">
-<h3 class="anchored" data-anchor-id="declaración-strobe">Declaración STROBE</h3>
-<p>La <strong>Declaración STROBE</strong> (<em>Strengthening the Reporting of Observational Studies in Epidemiology</em>) <span class="citation" data-cites="vonelm2008">(<a href="#ref-vonelm2008" role="doc-biblioref">Elm et&nbsp;al. 2008</a>)</span> es una guía internacional destinada a estandarizar y mejorar la calidad del reporte de estudios observacionales, incluyendo estudios transversales, de casos y controles, y de cohortes.</p>
-<p>Se trata de una iniciativa colaborativa que reúne a epidemiólogos, metodólogos, estadísticos, investigadores y editores de revistas científicas, comprometidos con la realización y difusión de investigaciones observacionales rigurosas.</p>
-<p>STROBE incluye una lista de <strong>22 ítems</strong>, organizados en secciones del manuscrito (título, resumen, introducción, métodos, resultados, discusión y otra información relevante), que especifican lo que debe informarse para asegurar la <strong>transparencia</strong> y <strong>reproducibilidad</strong> de los hallazgos. Esta guía también es una herramienta útil para investigadores, ya que indica claramente los elementos esenciales que deben estar presentes en un artículo científico basado en estudios observacionales. El respaldo de STROBE en revistas biomédicas es creciente, siendo requisito editorial en gran parte de ellas.</p>
-<p>Puede descargarse desde el sitio oficial de STROBE:</p>
-<p>➡<strong>️<a href="https://www.strobe-statement.org/strobe-publications/">Guía completa y <em>checklist</em></a></strong></p>
-<p>➡️ <a href="https://www.strobe-statement.org/download/spanish-translation-of-strobe-statement"><strong>Versión en español</strong></a></p>
-<p>La declaración STROBE ha sido adaptada para contextos específicos mediante extensiones temáticas:</p>
-<section id="strome-id" class="level4">
-<h4 class="anchored" data-anchor-id="strome-id">STROME-ID</h4>
-<p>STROME-ID (<em>Strengthening the Reporting of Molecular Epidemiology for Infectious Diseases</em>), tiene como objetivo establecer recomendaciones que respalden un adecuado informe científico de estudios en epidemiología molecular de enfermedades infecciosas. Incentiva un reporte adecuado que considere amenazas específicas a la validez, como errores de clasificación, contaminación cruzada, o sesgos derivados de los métodos de laboratorio y análisis genético.</p>
-<p>➡<strong>️<a href="https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(13)70324-4/fulltext">Descargar STROME-ID</a></strong></p>
-</section>
-<section id="strobe-vet" class="level4">
-<h4 class="anchored" data-anchor-id="strobe-vet">STROBE-VET</h4>
-<p>STROBE-VET (<em>STROBE - Veterinary Extension</em>), orienta el reporte de estudios observacionales en medicina veterinaria, salud pública, zoonosis y seguridad alimentaria. Facilita la evaluación crítica y reproducibilidad en investigaciones con poblaciones animales.</p>
-<p>➡<strong>️ <a href="https://strobevetstatement.wordpress.com/strobe-vet-statement/">Descargar STROBE-VET</a></strong></p>
-</section>
-<section id="record" class="level4">
-<h4 class="anchored" data-anchor-id="record">RECORD</h4>
-<p>RECORD (<em>Reporting of studies Conducted using Observational Routinely-collected health Data</em>) fue creada para estudios que utilizan datos rutinarios, como registros electrónicos de salud, bases de datos administrativas o registros poblacionales.</p>
-<p>➡️ <a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1001885"><strong>Descargar RECORD</strong></a></p>
-</section>
-</section>
-<section id="declaración-consort" class="level3">
-<h3 class="anchored" data-anchor-id="declaración-consort">Declaración CONSORT</h3>
-<p>En cuanto a estudios experimentales, la <strong>Declaración CONSORT</strong> (<em>Consolidated Standards of Reporting Trials</em>) <span class="citation" data-cites="schulz2010">(<a href="#ref-schulz2010" role="doc-biblioref">Schulz et&nbsp;al. 2010</a>)</span> es una guía internacional destinada a mejorar la calidad del reporte de los ensayos clínicos aleatorizados (ECA). Fue desarrollada en 1996 y revisada por primera vez en 2001, con actualizaciones posteriores (la última versión es de 2010).</p>
-<p>Muchas revistas biomédicas la han adoptado como requisito editorial, lo que ha contribuido significativamente a la mejora en la calidad, transparencia y reproducibilidad de los informes sobre ECA.</p>
-<p>CONSORT establece un conjunto mínimo de 25 ítems organizados en secciones del artículo científico (título, resumen, introducción, métodos, resultados, discusión y otros), complementados por un diagrama de flujo que muestra el número de participantes en cada fase del estudio (asignación, intervención, seguimiento y análisis). Esta herramienta ofrece un formato estándar para que los autores preparen informes completos y transparentes de los resultados de los ensayos, facilitando su evaluación e interpretación crítica.</p>
-<p>Puede descargarse desde el sitio oficial de CONSORT:</p>
-<p>➡️ <a href="https://www.consort-spirit.org/" class="uri"><strong>https://www.consort-spirit.org/</strong></a></p>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>En este curso nos centraremos en los aspectos metodológicos y en el análisis de datos según el diseño del estudio. Para ello, utilizaremos el <a href="../unidad_1/01_intro_R.html"><strong>lenguaje R</strong></a>, un entorno especializado en análisis estadístico que permitirá explorar diferentes enfoques adaptados a cada tipo de diseño epidemiológico. Partiremos de cada diseño y discutiremos posibles caminos de análisis, reconociendo que dichos caminos no siempre son únicos y que ciertos elementos del análisis pueden ser comunes a varios diseños.</p>
-</div>
+<section id="cómo-analizar-un-estudio-de-cohortes" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-analizar-un-estudio-de-cohortes">¿Cómo analizar un estudio de cohortes?</h3>
+<p>Como recordarán de los cursos de epidemiología previos, una de las formas más simples de análisis en un estudio de cohortes es el cálculo del Riesgo Relativo (RR). Sin embargo, hay aspectos adicionales de este diseño que son importantes de considerar.</p>
+<p>El análisis de los estudios de cohortes debe tener en cuenta la variable tiempo. La pérdida de participantes por diversas razones y la diferente duración del seguimiento entre los miembros de la cohorte requieren el uso de técnicas analíticas especiales que permitan aprovechar toda la información disponible. Existen dos estrategias de análisis principales para el estudio de cohortes: el análisis <strong>persona-tiempo</strong>, que desarrollaremos en esta unidad y el <strong>análisis de supervivencia</strong>, que retomaremos en la Unidad 6 cuando veamos estudios experimentales. Ambos métodos requieren información precisa sobre el inicio y final del seguimiento de cada participante, así como su estado al momento de finalizar o salir del estudio (desarrollo o no el evento de interés). Además, es necesario definir una escala temporal adecuada para el análisis.</p>
+<p>Las técnicas de análisis <strong>persona-tiempo</strong> utilizan como unidad de análisis estratos o grupos homogéneos en los que se asume una tasa de incidencia uniforme. Las técnicas clásicas de análisis incluyen la comparación de tasas, la estandarización directa y las razones estandarizadas de incidencia o mortalidad (denominadas RIE o SIR, para la incidencia y RME o SMR para la mortalidad). El RIE y RME comparan el número de casos observados con el número esperado, teniendo en cuenta la frecuencia del evento en la población de referencia. La técnica multivariada por excelencia para la modelización de las tasas es la <a href="../unidad_5/02_reg_poisson.html"><strong>regresión de Poisson</strong></a>, que utiliza la distribución de Poisson para modelizar la variabilidad aleatoria del numerador de las tasas.</p>
+<p>A modo de resumen, compartimos esta tabla, extraída del libro de <span class="citation" data-cites="hernández-ávila2011">Hernández-Ávila (<a href="#ref-hernández-ávila2011" role="doc-biblioref">2011</a>)</span>:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="table table-condensed table-hover caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Aspecto</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Análisis de supervivencia</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF; color: white !important; background-color: rgba(47, 46, 78, 1) !important;">Análisis tiempo-persona</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tamaño de la muestra</td>
+<td style="text-align: left;">Relativamente pequeño</td>
+<td style="text-align: left;">Relativamente grande</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tipo de eventos</td>
+<td style="text-align: left;">Frecuentes</td>
+<td style="text-align: left;">Raros</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Escala temporal</td>
+<td style="text-align: left;">Única</td>
+<td style="text-align: left;">Única o múltiple</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tipos de medida</td>
+<td style="text-align: left;">Probabilidad (condicional y acumulada)</td>
+<td style="text-align: left;">Tasa (densidad)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Análisis bivariado</td>
+<td style="text-align: left;">Comparación de curvas de supervivencia</td>
+<td style="text-align: left;">Comparación de tasas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Log-rank test</td>
+<td style="text-align: left;">Razón de tasas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Razón de riesgos</td>
+<td style="text-align: left;">REM</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Análisis multivariado</td>
+<td style="text-align: left;">Regresión de Cox</td>
+<td style="text-align: left;">Regresión de Poisson</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="hidden">
-<p><span class="citation" data-cites="hernández-ávila2011">Hernández-Ávila (<a href="#ref-hernández-ávila2011" role="doc-biblioref">2011</a>)</span></p>
+<p><span class="citation" data-cites="nolasco2016">(<a href="#ref-nolasco2016" role="doc-biblioref"><strong>nolasco2016?</strong></a>)</span></p>
+<p><span class="citation" data-cites="pérezhoyos2001">(<a href="#ref-pérezhoyos2001" role="doc-biblioref"><strong>pérezhoyos2001?</strong></a>)</span></p>
+<p><span class="citation" data-cites="salinas-salinas-rodríguez2009">(<a href="#ref-salinas-salinas-rodríguez2009" role="doc-biblioref"><strong>salinas-salinas-rodríguez2009?</strong></a>)</span></p>
 </div>
-</section>
-</section>
-<section id="referencias" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="referencias"><span class="header-section-number">8.3</span> Referencias</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-vonelm2008" class="csl-entry" role="listitem">
-Elm, Erik von, Douglas G. Altman, Matthias Egger, Stuart J. Pocock, Peter C. Gøtzsche, y Jan P. Vandenbroucke. 2008. <span>«The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies»</span>. <em>Journal of Clinical Epidemiology</em> 61 (4): 344-49. <a href="https://doi.org/10.1016/j.jclinepi.2007.11.008">https://doi.org/10.1016/j.jclinepi.2007.11.008</a>.
-</div>
 <div id="ref-hernández-ávila2011" class="csl-entry" role="listitem">
 Hernández-Ávila, Mauricio. 2011. <em>Epidemiología: diseño y análisis de estudios</em>. Editorial Médica Panamericana.
 </div>
-<div id="ref-schulz2010" class="csl-entry" role="listitem">
-Schulz, K. F, D. G Altman, y D. Moher. 2010. <span>«CONSORT 2010 Statement: Updated Guidelines for Reporting Parallel Group Randomised Trials»</span>. <em>BMJ</em> 340 (mar23 1): c332-32. <a href="https://doi.org/10.1136/bmj.c332">https://doi.org/10.1136/bmj.c332</a>.
 </div>
-</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1294,13 +1224,13 @@ Schulz, K. F, D. G Altman, y D. Moher. 2010. <span>«CONSORT 2010 Statement: Upd
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../unidad_1/07_hoja_estilo.html" class="pagination-link" aria-label="Hoja de Estilo del lenguaje R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hoja de Estilo del lenguaje R</span></span>
+      <a href="../unidad_4/05_mod_predict.html" class="pagination-link" aria-label="Validación de modelos predictivos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Validación de modelos predictivos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../unidad_2/02_est_transversales.html" class="pagination-link" aria-label="Estudios de corte transversal">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Estudios de corte transversal</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../unidad_5/02_reg_poisson.html" class="pagination-link" aria-label="Regresión de Poisson">
+        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Regresión de Poisson</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

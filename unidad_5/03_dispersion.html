@@ -8,7 +8,7 @@
 
 <meta name="author" content="Christian Ballejo, Andrea Silva y Tamara Ricardo">
 
-<title>25&nbsp; Regresión logística condicional – Epidemiología: Nivel Avanzado</title>
+<title>29&nbsp; Dispersión de datos – Epidemiología: Nivel Avanzado</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -90,8 +90,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../unidad_4/05_mod_predict.html" rel="next">
-<link href="../unidad_4/03_sep_datos.html" rel="prev">
+<link href="../unidad_5/02_reg_poisson.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -338,7 +337,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_4/01_est_caso_control.html">Unidad 4</a></li><li class="breadcrumb-item"><a href="../unidad_4/04_reg_logistica_cond.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Regresión logística condicional</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_5/01_est_cohortes.html">Unidad 5</a></li><li class="breadcrumb-item"><a href="../unidad_5/03_dispersion.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Dispersión de datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -638,7 +637,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_4/04_reg_logistica_cond.html" class="sidebar-item-text sidebar-link active">
+  <a href="../unidad_4/04_reg_logistica_cond.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Regresión logística condicional</span></span></a>
   </div>
 </li>
@@ -674,7 +673,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../unidad_5/03_dispersion.html" class="sidebar-item-text sidebar-link">
+  <a href="../unidad_5/03_dispersion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Dispersión de datos</span></span></a>
   </div>
 </li>
@@ -690,13 +689,16 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">25.1</span> Introducción</a></li>
-  <li><a href="#modelo-logístico-condicional" id="toc-modelo-logístico-condicional" class="nav-link" data-scroll-target="#modelo-logístico-condicional"><span class="header-section-number">25.2</span> Modelo logístico condicional</a>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">29.1</span> Introducción</a></li>
+  <li><a href="#sobredispersión" id="toc-sobredispersión" class="nav-link" data-scroll-target="#sobredispersión"><span class="header-section-number">29.2</span> Sobredispersión</a></li>
+  <li><a href="#subdispersión" id="toc-subdispersión" class="nav-link" data-scroll-target="#subdispersión"><span class="header-section-number">29.3</span> Subdispersión</a></li>
+  <li><a href="#control-de-la-sobredispersión-y-subdispersión" id="toc-control-de-la-sobredispersión-y-subdispersión" class="nav-link" data-scroll-target="#control-de-la-sobredispersión-y-subdispersión"><span class="header-section-number">29.4</span> Control de la sobredispersión y subdispersión</a>
   <ul class="collapse">
-  <li><a href="#supuestos-de-la-regresión-logística-condicional" id="toc-supuestos-de-la-regresión-logística-condicional" class="nav-link" data-scroll-target="#supuestos-de-la-regresión-logística-condicional">Supuestos de la regresión logística condicional</a></li>
+  <li><a href="#modelos-quasi-poisson" id="toc-modelos-quasi-poisson" class="nav-link" data-scroll-target="#modelos-quasi-poisson">Modelos <em>quasi</em>-Poisson</a></li>
+  <li><a href="#distribución-binomial-negativa" id="toc-distribución-binomial-negativa" class="nav-link" data-scroll-target="#distribución-binomial-negativa">Distribución binomial negativa</a></li>
+  <li><a href="#distribución-conway-maxwell-poisson" id="toc-distribución-conway-maxwell-poisson" class="nav-link" data-scroll-target="#distribución-conway-maxwell-poisson">Distribución Conway-Maxwell Poisson</a></li>
   </ul></li>
-  <li><a href="#ejemplo-práctico-en-r" id="toc-ejemplo-práctico-en-r" class="nav-link" data-scroll-target="#ejemplo-práctico-en-r"><span class="header-section-number">25.3</span> Ejemplo práctico en R</a></li>
-  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  <li><a href="#exceso-de-ceros-zero-inflation" id="toc-exceso-de-ceros-zero-inflation" class="nav-link" data-scroll-target="#exceso-de-ceros-zero-inflation"><span class="header-section-number">29.5</span> Exceso de ceros (<em>zero-inflation)</em></a></li>
   </ul>
 </nav>
     </div>
@@ -704,9 +706,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_4/01_est_caso_control.html">Unidad 4</a></li><li class="breadcrumb-item"><a href="../unidad_4/04_reg_logistica_cond.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Regresión logística condicional</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../unidad_5/01_est_cohortes.html">Unidad 5</a></li><li class="breadcrumb-item"><a href="../unidad_5/03_dispersion.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Dispersión de datos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Regresión logística condicional</span></h1>
+<h1 class="title"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Dispersión de datos</span></h1>
 </div>
 
 
@@ -729,617 +731,215 @@ window.Quarto = {
 </header>
 
 
-<section id="introducción" class="level2" data-number="25.1">
-<h2 data-number="25.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">25.1</span> Introducción</h2>
-<p>En algunos estudios de casos y controles, se utiliza un diseño apareado para controlar la influencia de factores de confusión como la edad, el sexo o el lugar de residencia. La regresión logística condicional (RLC) es una extensión de la regresión logística clásica que incorpora el apareamiento de los datos, estratificando el análisis por grupos definidos por las variables de emparejamiento (<strong>estratos</strong>).</p>
-<p>Este modelo permite estimar el efecto de las covariables sobre una variable dependiente binaria mientras controla de manera efectiva los efectos de las variables de emparejamiento o agrupamiento. Es especialmente útil en estudios de casos y controles apareados, investigaciones multicéntricas y estudios observacionales que abarcan múltiples ubicaciones geográficas, proporcionando un enfoque robusto para manejar la heterogeneidad dentro de los datos.</p>
-</section>
-<section id="modelo-logístico-condicional" class="level2" data-number="25.2">
-<h2 data-number="25.2" class="anchored" data-anchor-id="modelo-logístico-condicional"><span class="header-section-number">25.2</span> Modelo logístico condicional</h2>
-<p>El modelo logístico condicional utiliza una función de verosimilitud condicional que elimina la necesidad de estimar los efectos de los factores de emparejamiento como interceptos adicionales. Este enfoque resulta especialmente útil cuando hay un gran número de grupos o estratos, ya que permite concentrarse exclusivamente en los coeficientes de las covariables de interés.</p>
-<p>Se modela la probabilidad de que un evento ocurra en función de las covariables dentro de cada estrato, definido por las variables de emparejamiento. La función de verosimilitud condicional se puede expresar matemáticamente como:</p>
-<p><span class="math display">\[
-logit(p) = \alpha_1 + \alpha_2 z_2 + ... + \alpha_s z_s + \beta_1 x_1 + ... + \beta_p x_p
+<section id="introducción" class="level2" data-number="29.1">
+<h2 data-number="29.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">29.1</span> Introducción</h2>
+<p>En modelos de regresión Poisson se asume <strong>equidispersión</strong>, es decir que la varianza de la variable dependiente es igual a su media: <span class="math display">\[
+var(Y) =  \mu
 \]</span></p>
-<p>donde:</p>
-<ul>
-<li><p><span class="math inline">\(\alpha_1 + \alpha_2 z_2 + ... + \alpha_s z_s\)</span>: Coeficientes asociados a las variables de estratificación <span class="math inline">\(z_s\)</span>, que identifican los estratos.</p></li>
-<li><p><span class="math inline">\(z_1, z_2, ..., z_s\)</span>: Variables de emparejamiento o estratos.</p></li>
-<li><p><span class="math inline">\(\beta_1, ..., \beta_p\)</span>: Efectos de las variables independientes ajustadas por los estratos.</p></li>
-<li><p><span class="math inline">\(x_1, ... x_p\)</span>: Variables independientes incluídas en el modelo.</p></li>
-</ul>
-<p>El uso de la verosimilitud condicional simplifica el modelo al evitar la estimación de un gran número de interceptos y reduce el sesgo en situaciones con pocos datos por estrato.</p>
-<section id="supuestos-de-la-regresión-logística-condicional" class="level3">
-<h3 class="anchored" data-anchor-id="supuestos-de-la-regresión-logística-condicional">Supuestos de la regresión logística condicional</h3>
-<ul>
-<li><p><strong>Independencia dentro de los estratos:</strong> Las observaciones son independientes entre los diferentes estratos o grupos definidos por el emparejamiento, pero pueden estar correlacionadas dentro de los mismos.</p></li>
-<li><p><strong>Relación logit-lineal:</strong> Existe una relación lineal entre el logit de la probabilidad del evento y las covariables explicativas.</p></li>
-<li><p><strong>No existencia de confusión residual:</strong> Las variables de emparejamiento deben ser suficientes para controlar por los factores de confusión.</p></li>
-<li><p><strong>Tamaño adecuado del estrato:</strong> Cada estrato debe tener al menos un caso y un control.</p></li>
-</ul>
+<p>Sin embargo, en la práctica, esta suposición frecuentemente no se cumple y la varianza puede ser mayor que la media (<strong>sobredispersión</strong>) o menor que la media (<strong>subdispersión</strong>). Además, en algunos casos, los datos pueden contener un <strong>exceso de ceros</strong> que el modelo Poisson no ajusta adecuadamente. Estos fenómenos pueden llevar a que las inferencias que hagamos sean incorrectas, por lo que deben controlarse al ajustar los modelos.</p>
 </section>
-</section>
-<section id="ejemplo-práctico-en-r" class="level2" data-number="25.3">
-<h2 data-number="25.3" class="anchored" data-anchor-id="ejemplo-práctico-en-r"><span class="header-section-number">25.3</span> Ejemplo práctico en R</h2>
-<p>En R podemos ajustar modelos de regresión logística condicional usando la función <code>clogit()</code> del paquete <code>survival</code> <span class="citation" data-cites="survival">(<a href="#ref-survival" role="doc-biblioref">Terry M. Therneau y Patricia M. Grambsch 2000</a>)</span>.</p>
-<p>Cargamos los paquetes necesarios:</p>
+<section id="sobredispersión" class="level2" data-number="29.2">
+<h2 data-number="29.2" class="anchored" data-anchor-id="sobredispersión"><span class="header-section-number">29.2</span> Sobredispersión</h2>
+<p>La sobredispersión es común en datos de conteo y puede ser causada por varios factores, como la heterogeneidad no observada, correlación entre observaciones o una alta incidencia de valores extremos. La sobredispersión puede inflar los errores estándar, lo que lleva a una subestimación de la significancia estadística. Matemáticamente, se expresa como:</p>
+<p><span class="math display">\[
+Var(Y) &gt; \mu
+\]</span></p>
+<p>Para detectar si un modelo tiene sobredispersión, se puede calcular el <strong>ratio de dispersión</strong>, que es el cociente entre la devianza del modelo y los grados de libertad. Un ratio significativamente mayor que 1 indica sobredispersión.</p>
+<p>En R, la función <code>check_overdispersion()</code> del paquete <code>performance</code> evalúa el ratio de dispersión en un modelo. En el <a href="../unidad_5/02_reg_poisson.html"><strong>ejemplo de regresión Poisson</strong></a> el cociente del modelo final era cercano a 1, lo cual indicaba que no existía evidencia de sobredispersión y la distribución seleccionada ajustaba bien los datos.</p>
+<p>Veamos ahora un ejemplo de datos con sobredispersión a partir de los casos de dengue reportados en los departamentos de la Costa Atlántica de la provincia de Buenos Aires (PBA)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> entre las semanas epidemiológicas 1 y 20 de 2024<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Los mismos se encuentran en el archivo “<code>dengue_costa.txt</code>”.</p>
+<p>Comenzaremos por cargar los paquetes necesarios para el análisis:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis estadístico</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Chequeo de supuestos</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Apareamiento de datos</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MatchIt)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Manejo y exploración de datos</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste de modelos</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmmTMB)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Chequeo de supuestos</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficientes</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Manejo de datos</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Usaremos la base “<code>higado_graso.txt</code>” que contiene datos de un estudio de casos y controles apareados por sexo y edad para muertes por hígado graso no alcohólico:</p>
+<p>Ahora cargamos los datos y exploramos su estructura:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga datos</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datos/higado_graso.txt"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datos/dengue_costa.txt"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cambia nivel de referencia de fib4</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fib4_cat =</span> <span class="fu">fct_rev</span>(fib4_cat))</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Explora datos</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(datos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Explora datos</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(datos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 2,467
-Columns: 11
-$ id           &lt;dbl&gt; 19, 25, 26, 32, 56, 57, 68, 77, 78, 99, 100, 120, 126, 13…
-$ tipo         &lt;dbl&gt; 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, …
-$ edad         &lt;dbl&gt; 35, 39, 55, 45, 51, 81, 51, 55, 32, 33, 50, 82, 56, 69, 7…
-$ sexo         &lt;dbl&gt; 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, …
-$ bmi          &lt;dbl&gt; 30.49939, 24.26164, 30.59225, 22.11900, 36.42498, 26.3815…
-$ hdl          &lt;dbl&gt; 50.09091, 52.50000, 49.13043, 70.55556, 45.10526, 67.7500…
-$ p_sistolica  &lt;dbl&gt; NA, NA, 134.2500, NA, 164.0000, 148.0833, 124.5000, NA, N…
-$ p_diastolica &lt;dbl&gt; NA, NA, 134.2500, NA, 164.0000, 148.0833, 124.5000, NA, N…
-$ fib4_cat     &lt;fct&gt; bajo riesgo, bajo riesgo, bajo riesgo, bajo riesgo, bajo …
-$ fuma         &lt;dbl&gt; 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, …
-$ status       &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, …</code></pre>
+<pre><code>Rows: 1,047
+Columns: 6
+$ provincia      &lt;chr&gt; "Buenos Aires", "Buenos Aires", "Buenos Aires", "Buenos…
+$ departamento   &lt;chr&gt; "BAHIA BLANCA", "BAHIA BLANCA", "BAHIA BLANCA", "BAHIA …
+$ periodo        &lt;dbl&gt; 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2024, 2…
+$ semana_epi     &lt;dbl&gt; 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4…
+$ grupo_edad_cat &lt;chr&gt; "0-9 años", "10-19 años", "20-34 años", "35-65 años", "…
+$ casos          &lt;dbl&gt; 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0…</code></pre>
 </div>
 </div>
-<p>El dataset tiene 2467 observaciones y 11 columnas. Las variables de interés son las siguientes:</p>
+<p>Las variables de interés para el modelo son:</p>
 <ul>
-<li><p><code>id</code>: identificador único del paciente.</p></li>
-<li><p><code>tipo</code>: Indica si el paciente tiene hígado graso no alcohólico (caso: 1) o no presenta la condición (control: 0).</p></li>
-<li><p><code>edad</code>: Edad del paciente al momento de su ingreso al hospital.</p></li>
-<li><p><code>sexo</code>: Sexo biológico del paciente (1: masculino, 0: femenino).</p></li>
-<li><p><code>bmi</code>: Índice de masa corporal del paciente al momento de la hospitalización.</p></li>
-<li><p><code>hdl</code>: Nivel de lipoproteínas de alta densidad (HDL) en sangre.</p></li>
-<li><p><code>p_sistolica</code>: Presión sistólica en milímetros de mercurio (mmHg).</p></li>
-<li><p><code>p_diastolica</code>: Presión diastólica en milímetros de mercurio (mmHg).</p></li>
-<li><p><code>fib4_cat</code>: Índice de fibrosis hepática categorizado (bajo riesgo, alto riesgo).</p></li>
-<li><p><code>fuma</code>: Tabaquismo (0: no, 1: sí).</p></li>
-<li><p><code>status</code>: Variable dependiente que toma el valor de 0 si la persona sobrevivió y 1 si falleció.</p></li>
+<li><p><code>semana_epi</code>: semana epidemiológica de reporte de los casos.</p></li>
+<li><p><code>grupo_edad_cat</code>: grupo etario.</p></li>
+<li><p><code>casos</code>: número de casos reportados por departamento, semana epidemiológica y grupo etario. Es la variable dependiente.</p></li>
 </ul>
-<p>Exploremos más en profundidad los datos usando la función <code>tabyl()</code> del paquete <code>janitor</code> y la función <code>skim()</code> del paquete <code>skimr</code>:</p>
+<p>Ajustamos un modelo Poisson con todas las variables de interés:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Número de casos y controles</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(datos<span class="sc">$</span>tipo) <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> datos$tipo    n percent
-          0 1685   68.3%
-          1  782   31.7%</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Niveles fib4</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(datos<span class="sc">$</span>fib4_cat)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> datos$fib4_cat    n   percent
-    bajo riesgo 2109 0.8548845
-    alto riesgo  358 0.1451155</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explora valores ausentes</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(datos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Data summary</caption>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Name</td>
-<td style="text-align: left;">datos</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Number of rows</td>
-<td style="text-align: left;">2467</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Number of columns</td>
-<td style="text-align: left;">11</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">_______________________</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Column type frequency:</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">factor</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">numeric</td>
-<td style="text-align: left;">10</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">________________________</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Group variables</td>
-<td style="text-align: left;">None</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Variable type: factor</strong></p>
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 18%">
-<col style="width: 13%">
-<col style="width: 18%">
-<col style="width: 10%">
-<col style="width: 12%">
-<col style="width: 26%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: left;">ordered</th>
-<th style="text-align: right;">n_unique</th>
-<th style="text-align: left;">top_counts</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">fib4_cat</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">baj: 2109, alt: 358</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Variable type: numeric</strong></p>
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 10%">
-<col style="width: 14%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 6%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 9%">
-<col style="width: 8%">
-<col style="width: 6%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">sd</th>
-<th style="text-align: right;">p0</th>
-<th style="text-align: right;">p25</th>
-<th style="text-align: right;">p50</th>
-<th style="text-align: right;">p75</th>
-<th style="text-align: right;">p100</th>
-<th style="text-align: left;">hist</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">id</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">8644.27</td>
-<td style="text-align: right;">4998.09</td>
-<td style="text-align: right;">19.00</td>
-<td style="text-align: right;">4486.00</td>
-<td style="text-align: right;">8507.00</td>
-<td style="text-align: right;">12864.00</td>
-<td style="text-align: right;">17563.0</td>
-<td style="text-align: left;">▇▇▇▇▇</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tipo</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.32</td>
-<td style="text-align: right;">0.47</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">1.0</td>
-<td style="text-align: left;">▇▁▁▁▃</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">edad</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">53.60</td>
-<td style="text-align: right;">14.73</td>
-<td style="text-align: right;">18.00</td>
-<td style="text-align: right;">44.00</td>
-<td style="text-align: right;">53.00</td>
-<td style="text-align: right;">64.00</td>
-<td style="text-align: right;">98.0</td>
-<td style="text-align: left;">▂▆▇▃▁</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">sexo</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">1.0</td>
-<td style="text-align: left;">▇▁▁▁▇</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">bmi</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">31.22</td>
-<td style="text-align: right;">7.51</td>
-<td style="text-align: right;">9.21</td>
-<td style="text-align: right;">26.02</td>
-<td style="text-align: right;">30.14</td>
-<td style="text-align: right;">35.04</td>
-<td style="text-align: right;">84.4</td>
-<td style="text-align: left;">▂▇▁▁▁</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">hdl</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">50.92</td>
-<td style="text-align: right;">14.94</td>
-<td style="text-align: right;">19.83</td>
-<td style="text-align: right;">40.00</td>
-<td style="text-align: right;">48.53</td>
-<td style="text-align: right;">58.50</td>
-<td style="text-align: right;">134.0</td>
-<td style="text-align: left;">▅▇▂▁▁</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">p_sistolica</td>
-<td style="text-align: right;">928</td>
-<td style="text-align: right;">0.62</td>
-<td style="text-align: right;">131.41</td>
-<td style="text-align: right;">17.11</td>
-<td style="text-align: right;">40.00</td>
-<td style="text-align: right;">121.53</td>
-<td style="text-align: right;">132.50</td>
-<td style="text-align: right;">142.67</td>
-<td style="text-align: right;">211.0</td>
-<td style="text-align: left;">▁▁▇▃▁</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">p_diastolica</td>
-<td style="text-align: right;">928</td>
-<td style="text-align: right;">0.62</td>
-<td style="text-align: right;">131.41</td>
-<td style="text-align: right;">17.11</td>
-<td style="text-align: right;">40.00</td>
-<td style="text-align: right;">121.53</td>
-<td style="text-align: right;">132.50</td>
-<td style="text-align: right;">142.67</td>
-<td style="text-align: right;">211.0</td>
-<td style="text-align: left;">▁▁▇▃▁</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">fuma</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.64</td>
-<td style="text-align: right;">0.48</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">1.0</td>
-<td style="text-align: left;">▅▁▁▁▇</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">status</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.12</td>
-<td style="text-align: right;">0.32</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">1.0</td>
-<td style="text-align: left;">▇▁▁▁▁</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Las variables <code>p_sistolica</code> y <code>p_diastolica</code> tienen gran cantidad de valores ausentes, por lo que no serán consideradas para el análisis.</p>
-<p>Como no tenemos definido a que caso corresponde cada control, vamos a aparear casos y controles usando la función <code>matchit()</code> del paquete <code>MatchIt</code> <span class="citation" data-cites="MatchIt">(<a href="#ref-MatchIt" role="doc-biblioref">Ho et&nbsp;al. 2011</a>)</span>, especificando que queremos dos controles por caso con el argumento <code>ratio = 2</code>:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aparea casos y controles por sexo y edad</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>match <span class="ot">&lt;-</span> <span class="fu">matchit</span>(tipo <span class="sc">~</span> edad <span class="sc">+</span> sexo, <span class="at">data =</span> datos, <span class="at">exact =</span> <span class="st">"sexo"</span>, <span class="at">ratio =</span> <span class="dv">2</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen del apareamiento</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(match)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fit_pois <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  casos <span class="sc">~</span> semana_epi <span class="sc">+</span> grupo_edad_cat,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> poisson</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Salida del modelo</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_pois)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-matchit(formula = tipo ~ edad + sexo, data = datos, exact = "sexo", 
-    ratio = 2)
+glm(formula = casos ~ semana_epi + grupo_edad_cat, family = poisson, 
+    data = datos)
 
-Summary of Balance for All Data:
-         Means Treated Means Control Std. Mean Diff. Var. Ratio eCDF Mean
-distance        0.3268        0.3124          0.2552     1.0589    0.0507
-edad           51.0243       54.7923         -0.2550     1.0302    0.0486
-sexo            0.4962        0.5003         -0.0083          .    0.0041
-         eCDF Max
-distance   0.1284
-edad       0.1274
-sexo       0.0041
-
-Summary of Balance for Matched Data:
-         Means Treated Means Control Std. Mean Diff. Var. Ratio eCDF Mean
-distance        0.3268        0.3181          0.1549     1.1495    0.0301
-edad           51.0243       53.2270         -0.1490     1.1373    0.0288
-sexo            0.4962        0.4962          0.0000          .    0.0000
-         eCDF Max Std. Pair Dist.
-distance   0.0882          0.1578
-edad       0.0838          0.1528
-sexo       0.0000          0.0000
-
-Sample Sizes:
-          Control Treated
-All          1685     782
-Matched      1564     782
-Unmatched     121       0
-Discarded       0       0</code></pre>
-</div>
-</div>
-<p>Obtenemos los datos apareados:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">match.data</span>(match, <span class="at">drop.unmatched =</span> T)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(datos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "id"           "tipo"         "edad"         "sexo"         "bmi"         
- [6] "hdl"          "p_sistolica"  "p_diastolica" "fib4_cat"     "fuma"        
-[11] "status"       "distance"     "weights"      "subclass"    </code></pre>
-</div>
-</div>
-<p>Ajustamos el modelo de regresión logística condicional, usando la variable <code>subclass</code> como variable de estratificación:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mod_cond <span class="ot">&lt;-</span> <span class="fu">clogit</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  status <span class="sc">~</span> bmi <span class="sc">+</span> hdl <span class="sc">+</span> fuma <span class="sc">+</span> fib4_cat <span class="sc">+</span> <span class="fu">strata</span>(subclass),</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Revisemos la salida del modelo:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_cond)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Call:
-coxph(formula = Surv(rep(1, 2346L), status) ~ bmi + hdl + fuma + 
-    fib4_cat + strata(subclass), data = datos, method = "exact")
-
-  n= 2346, number of events= 251 
-
-                         coef exp(coef)  se(coef)      z Pr(&gt;|z|)    
-bmi                  0.005507  1.005522  0.012814  0.430    0.667    
-hdl                 -0.006502  0.993519  0.006980 -0.931    0.352    
-fuma                -0.237017  0.788978  0.186629 -1.270    0.204    
-fib4_catalto riesgo  1.072163  2.921692  0.224099  4.784 1.72e-06 ***
+Coefficients:
+                          Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)              -3.092154   0.279663 -11.057  &lt; 2e-16 ***
+semana_epi                0.044249   0.008993   4.920 8.65e-07 ***
+grupo_edad_cat10-19 años  1.172838   0.294392   3.984 6.78e-05 ***
+grupo_edad_cat20-34 años  2.195273   0.271054   8.099 5.54e-16 ***
+grupo_edad_cat35-65 años  2.312218   0.269545   8.578  &lt; 2e-16 ***
+grupo_edad_cat65+ años    0.730874   0.314523   2.324   0.0201 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-                    exp(coef) exp(-coef) lower .95 upper .95
-bmi                    1.0055     0.9945    0.9806     1.031
-hdl                    0.9935     1.0065    0.9800     1.007
-fuma                   0.7890     1.2675    0.5473     1.137
-fib4_catalto riesgo    2.9217     0.3423    1.8831     4.533
+(Dispersion parameter for poisson family taken to be 1)
 
-Concordance= 0.625  (se = 0.039 )
-Likelihood ratio test= 27.94  on 4 df,   p=1e-05
-Wald test            = 25.92  on 4 df,   p=3e-05
-Score (logrank) test = 28.23  on 4 df,   p=1e-05</code></pre>
+    Null deviance: 1436.5  on 1046  degrees of freedom
+Residual deviance: 1187.9  on 1041  degrees of freedom
+AIC: 1735.1
+
+Number of Fisher Scoring iterations: 6</code></pre>
 </div>
 </div>
-<p>Probemos eliminar una de las variables explicativas no significativas a la vez:</p>
+<p>El modelo ajustado no incluye un término <em>offset</em>, ya que este se utiliza cuando es necesario ajustar la tasa de eventos por una variable de tiempo o tamaño poblacional. En este ejemplo, podemos asumir que la población de cada departamento se mantiene constante en el periodo estudiado. Además, dado que una misma persona puede infectarse más de una vez con el virus del dengue, no es necesario incorporar un término de ajuste adicional.</p>
+<p>Chequeamos si existe sobredispersión:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (-) Tabaquismo</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mod_cond1 <span class="ot">&lt;-</span> <span class="fu">clogit</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  status <span class="sc">~</span> bmi <span class="sc">+</span> hdl <span class="sc">+</span> fib4_cat <span class="sc">+</span> <span class="fu">strata</span>(subclass),</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># (-) IMC</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>mod_cond2 <span class="ot">&lt;-</span> <span class="fu">clogit</span>(</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  status <span class="sc">~</span> hdl <span class="sc">+</span> fuma <span class="sc">+</span> fib4_cat <span class="sc">+</span> <span class="fu">strata</span>(sexo, edad),</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># (-) HDL</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>mod_cond3 <span class="ot">&lt;-</span> <span class="fu">clogit</span>(</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  status <span class="sc">~</span> bmi <span class="sc">+</span> fuma <span class="sc">+</span> fib4_cat <span class="sc">+</span> <span class="fu">strata</span>(sexo, edad),</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_overdispersion</span>(fit_pois)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Overdispersion test
+
+       dispersion ratio =    1.955
+  Pearson's Chi-Squared = 2035.204
+                p-value =  &lt; 0.001</code></pre>
 </div>
-<p>Comparamos los modelos</p>
+</div>
+<p>El cociente de dispersión es de 1.96, por lo que el modelo Poisson no es el más adecuado para representar los datos.</p>
+</section>
+<section id="subdispersión" class="level2" data-number="29.3">
+<h2 data-number="29.3" class="anchored" data-anchor-id="subdispersión"><span class="header-section-number">29.3</span> Subdispersión</h2>
+<p>La subdispersión, aunque menos común, puede ocurrir en situaciones donde los conteos están más controlados o restringidos. Este fenómeno puede hacer que los errores estándar se subestimen, resultando en una sobreestimación de la significancia estadística. Matemáticamente se expresa como:</p>
+<p><span class="math display">\[
+Var(Y) &lt; \mu
+\]</span></p>
+<p>Para detectar si un modelo tiene subdispersión también se usa el <strong><em>ratio</em></strong> <strong>de dispersión</strong>. Donde un <em>ratio</em> significativamente menor que 1 indica subdispersión.</p>
+</section>
+<section id="control-de-la-sobredispersión-y-subdispersión" class="level2" data-number="29.4">
+<h2 data-number="29.4" class="anchored" data-anchor-id="control-de-la-sobredispersión-y-subdispersión"><span class="header-section-number">29.4</span> Control de la sobredispersión y subdispersión</h2>
+<section id="modelos-quasi-poisson" class="level3">
+<h3 class="anchored" data-anchor-id="modelos-quasi-poisson">Modelos <em>quasi</em>-Poisson</h3>
+<p>Una forma común de manejar la sobredispersión en los datos es mediante el uso de modelos <em>quasi</em>-Poisson. Estos modelos ajustan los errores estándar sin modificar la media predicha, incorporando un parámetro adicional que permite que la varianza sea distinta a la media. Aunque los modelos quasi-Poisson son útiles para corregir la sobredispersión, no abordan las causas subyacentes de esta ni son adecuados para datos con subdispersión o un exceso de ceros. Además, la estimación de parámetros en estos modelos tiende a ser menos eficiente, ya que asumen que la sobredispersión es constante en todas las observaciones, lo que puede llevar a inferencias menos robustas. Debido a estas limitaciones, no profundizaremos en el uso de los modelos <em>quasi</em>-Poisson.</p>
+</section>
+<section id="distribución-binomial-negativa" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-binomial-negativa">Distribución binomial negativa</h3>
+<p>Dentro de los modelos lineales generalizados (GLM), la distribución binomial negativa es especialmente útil para manejar la sobredispersión en datos discretos. Esta distribución aporta flexibilidad, mejora las inferencias estadísticas con estimaciones más precisas, permite procesar grandes volúmenes de datos y se puede combinar con componentes de inflación de ceros.</p>
+<p>La familia binomial negativa no está integrada en la función <code>glm()</code> del paquete <code>stats</code>. No obstante, existen varios paquetes que permiten su implementación. En el contexto del curso, usaremos el paquete <code>glmmTMB</code> <span class="citation" data-cites="glmmTMB">(<a href="#ref-glmmTMB" role="doc-biblioref"><strong>glmmTMB?</strong></a>)</span> para explorar alternativas a los modelos Poisson, dado su alto grado de versatilidad. La función base <code>glmmTMB()</code> permite ajustar desde regresiones lineales y modelos lineales generalizados (GLMs) hasta modelos mucho más complejos, lo que lo convierte en una herramienta poderosa para manejar una amplia variedad de estructuras de datos.</p>
+<p>A modo de ejemplo, ajustaremos el modelo Poisson anterior con <code>glmmTMB()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compara modelos</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_performance</span>(</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  mod_cond,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  mod_cond1,</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  mod_cond2,</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  mod_cond3,</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="st">"common"</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fit_pois_tmb <span class="ot">&lt;-</span> <span class="fu">glmmTMB</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  casos <span class="sc">~</span> semana_epi <span class="sc">+</span> grupo_edad_cat,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> poisson</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Salida modelo</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_pois_tmb)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># Comparison of Model Performance Indices
+<pre><code> Family: poisson  ( log )
+Formula:          casos ~ semana_epi + grupo_edad_cat
+Data: datos
 
-Name      |  Model | AIC (weights) | BIC (weights) | Nagelkerke's R2 |  RMSE
-----------------------------------------------------------------------------
-mod_cond  | clogit | 393.1 (0.452) | 416.2 (0.044) |           0.073 | 0.230
-mod_cond1 | clogit | 392.8 (0.548) | 410.0 (0.956) |           0.069 | 0.230
-mod_cond2 | clogit | 921.1 (&lt;.001) | 938.3 (&lt;.001) |           0.055 | 0.276
-mod_cond3 | clogit | 923.5 (&lt;.001) | 940.8 (&lt;.001) |           0.052 | 0.276</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compara modelos y ordena según performance</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_performance</span>(</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  mod_cond,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  mod_cond1,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  mod_cond2,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  mod_cond3,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="st">"common"</span>,</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">rank =</span> T</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># Comparison of Model Performance Indices
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1735.1    1764.8    -861.5    1723.1      1041 
 
-Name      |  Model | Nagelkerke's R2 |  RMSE | AIC weights | BIC weights | Performance-Score
---------------------------------------------------------------------------------------------
-mod_cond1 | clogit |           0.069 | 0.230 |       0.548 |       0.956 |            95.02%
-mod_cond  | clogit |           0.073 | 0.230 |       0.452 |       0.044 |            71.65%
-mod_cond2 | clogit |           0.055 | 0.276 |   1.04e-115 |   1.81e-115 |             3.55%
-mod_cond3 | clogit |           0.052 | 0.276 |   3.12e-116 |   5.45e-116 |             0.40%</code></pre>
-</div>
-</div>
-<p>El modelo sin <code>fuma</code> tiene mejor <em>performance</em> que el modelo saturado:</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Salida modelo condicional 1</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_cond1)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Call:
-coxph(formula = Surv(rep(1, 2346L), status) ~ bmi + hdl + fib4_cat + 
-    strata(subclass), data = datos, method = "exact")
 
-  n= 2346, number of events= 251 
-
-                         coef exp(coef)  se(coef)      z Pr(&gt;|z|)    
-bmi                  0.004445  1.004455  0.012740  0.349    0.727    
-hdl                 -0.006922  0.993102  0.006941 -0.997    0.319    
-fib4_catalto riesgo  1.064462  2.899278  0.223595  4.761 1.93e-06 ***
+Conditional model:
+                          Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)              -3.092153   0.279663 -11.057  &lt; 2e-16 ***
+semana_epi                0.044249   0.008993   4.920 8.64e-07 ***
+grupo_edad_cat10-19 años  1.172837   0.294392   3.984 6.78e-05 ***
+grupo_edad_cat20-34 años  2.195272   0.271054   8.099 5.54e-16 ***
+grupo_edad_cat35-65 años  2.312217   0.269545   8.578  &lt; 2e-16 ***
+grupo_edad_cat65+ años    0.730874   0.314523   2.324   0.0201 *  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-                    exp(coef) exp(-coef) lower .95 upper .95
-bmi                    1.0045     0.9956    0.9797     1.030
-hdl                    0.9931     1.0069    0.9797     1.007
-fib4_catalto riesgo    2.8993     0.3449    1.8705     4.494
-
-Concordance= 0.641  (se = 0.038 )
-Likelihood ratio test= 26.33  on 3 df,   p=8e-06
-Wald test            = 24.56  on 3 df,   p=2e-05
-Score (logrank) test = 26.63  on 3 df,   p=7e-06</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (-) BMI</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>mod_cond1a <span class="ot">&lt;-</span> <span class="fu">clogit</span>(status <span class="sc">~</span> hdl <span class="sc">+</span> fib4_cat <span class="sc">+</span> <span class="fu">strata</span>(subclass), <span class="at">data =</span> datos)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (-) HDL</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>mod_cond1b <span class="ot">&lt;-</span> <span class="fu">clogit</span>(status <span class="sc">~</span> bmi <span class="sc">+</span> fib4_cat <span class="sc">+</span> <span class="fu">strata</span>(subclass), <span class="at">data =</span> datos)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compara modelos y ordena según performance</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_performance</span>(</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  mod_cond1,</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  mod_cond1a,</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  mod_cond1b,</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="st">"common"</span>,</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">rank =</span> T</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># Comparison of Model Performance Indices
-
-Name       |  Model | Nagelkerke's R2 |  RMSE | AIC weights | BIC weights | Performance-Score
----------------------------------------------------------------------------------------------
-mod_cond1a | clogit |           0.069 | 0.230 |       0.492 |       0.601 |            72.00%
-mod_cond1  | clogit |           0.069 | 0.230 |       0.192 |       0.013 |            50.00%
-mod_cond1b | clogit |           0.066 | 0.230 |       0.316 |       0.386 |            32.90%</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Salida modelo condicional 1b</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_cond1b)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Call:
-coxph(formula = Surv(rep(1, 2346L), status) ~ bmi + fib4_cat + 
-    strata(subclass), data = datos, method = "exact")
-
-  n= 2346, number of events= 251 
-
-                        coef exp(coef) se(coef)     z Pr(&gt;|z|)    
-bmi                 0.007979  1.008011 0.012127 0.658    0.511    
-fib4_catalto riesgo 1.067510  2.908129 0.223684 4.772 1.82e-06 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-                    exp(coef) exp(-coef) lower .95 upper .95
-bmi                     1.008     0.9921    0.9843     1.032
-fib4_catalto riesgo     2.908     0.3439    1.8759     4.508
-
-Concordance= 0.601  (se = 0.04 )
-Likelihood ratio test= 25.32  on 2 df,   p=3e-06
-Wald test            = 23.74  on 2 df,   p=7e-06
-Score (logrank) test = 25.68  on 2 df,   p=3e-06</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (-) bmi</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>mod_cond1c <span class="ot">&lt;-</span> <span class="fu">clogit</span>(</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  status <span class="sc">~</span> fib4_cat <span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">strata</span>(subclass),</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Compara modelos</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_performance</span>(mod_cond1b, mod_cond1c, <span class="at">metrics =</span> <span class="st">"common"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># Comparison of Model Performance Indices
-
-Name       |  Model | AIC (weights) | BIC (weights) | Nagelkerke's R2 |  RMSE
------------------------------------------------------------------------------
-mod_cond1b | clogit | 391.8 (0.313) | 403.3 (0.025) |           0.066 | 0.230
-mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</code></pre>
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>Nos quedamos con el modelo que tiene solo <code>fib4_cat</code> como variable explicativa:</p>
+<p>Al comparar los resultados del modelo ajustado con <code>glmmTMB</code> y el modelo ajustado con el paquete <code>stats</code>, podemos observar que, aunque no presentan exactamente la misma información, los coeficientes y el AIC son prácticamente idénticos.</p>
+<p>Ahora, ajustaremos el modelo de regresión binomial negativa utilizando el argumento <code>family = nbinom2</code>, que tiene como función de enlace por defecto el logaritmo <code>(link = "log")</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl_regression</span>(mod_cond1c, <span class="at">exponentiate =</span> T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo binomial negativo</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fit_nb <span class="ot">&lt;-</span> <span class="fu">glmmTMB</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  casos <span class="sc">~</span> semana_epi <span class="sc">+</span> grupo_edad_cat,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> nbinom2</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Salida del modelo</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_nb)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: nbinom2  ( log )
+Formula:          casos ~ semana_epi + grupo_edad_cat
+Data: datos
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1538.4    1573.0    -762.2    1524.4      1040 
+
+
+Dispersion parameter for nbinom2 family (): 0.467 
+
+Conditional model:
+                         Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)              -3.27950    0.33522  -9.783  &lt; 2e-16 ***
+semana_epi                0.06159    0.01570   3.923 8.73e-05 ***
+grupo_edad_cat10-19 años  1.16315    0.33067   3.518 0.000435 ***
+grupo_edad_cat20-34 años  2.18318    0.30879   7.070 1.55e-12 ***
+grupo_edad_cat35-65 años  2.30095    0.30722   7.490 6.90e-14 ***
+grupo_edad_cat65+ años    0.71124    0.34949   2.035 0.041842 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Si comparamos los coeficientes de este modelo con el de Poisson, observamos que son similares, pero los intervalos de confianza varían ligeramente debido al ajuste binomial negativo:</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="wcsvzqsemy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wcsvzqsemy table {
+<div id="odumxdogii" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#odumxdogii table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wcsvzqsemy thead, #wcsvzqsemy tbody, #wcsvzqsemy tfoot, #wcsvzqsemy tr, #wcsvzqsemy td, #wcsvzqsemy th {
+#odumxdogii thead, #odumxdogii tbody, #odumxdogii tfoot, #odumxdogii tr, #odumxdogii td, #odumxdogii th {
   border-style: none;
 }
 
-#wcsvzqsemy p {
+#odumxdogii p {
   margin: 0;
   padding: 0;
 }
 
-#wcsvzqsemy .gt_table {
+#odumxdogii .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1365,12 +965,12 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-left-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_caption {
+#odumxdogii .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wcsvzqsemy .gt_title {
+#odumxdogii .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1382,7 +982,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-bottom-width: 0;
 }
 
-#wcsvzqsemy .gt_subtitle {
+#odumxdogii .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1394,7 +994,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-top-width: 0;
 }
 
-#wcsvzqsemy .gt_heading {
+#odumxdogii .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1406,13 +1006,13 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-right-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_bottom_border {
+#odumxdogii .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_col_headings {
+#odumxdogii .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1427,7 +1027,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-right-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_col_heading {
+#odumxdogii .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1447,7 +1047,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   overflow-x: hidden;
 }
 
-#wcsvzqsemy .gt_column_spanner_outer {
+#odumxdogii .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1459,15 +1059,15 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   padding-right: 4px;
 }
 
-#wcsvzqsemy .gt_column_spanner_outer:first-child {
+#odumxdogii .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wcsvzqsemy .gt_column_spanner_outer:last-child {
+#odumxdogii .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wcsvzqsemy .gt_column_spanner {
+#odumxdogii .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1479,11 +1079,11 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   width: 100%;
 }
 
-#wcsvzqsemy .gt_spanner_row {
+#odumxdogii .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wcsvzqsemy .gt_group_heading {
+#odumxdogii .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1509,7 +1109,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   text-align: left;
 }
 
-#wcsvzqsemy .gt_empty_group_heading {
+#odumxdogii .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1524,15 +1124,15 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   vertical-align: middle;
 }
 
-#wcsvzqsemy .gt_from_md > :first-child {
+#odumxdogii .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wcsvzqsemy .gt_from_md > :last-child {
+#odumxdogii .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wcsvzqsemy .gt_row {
+#odumxdogii .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1551,7 +1151,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   overflow-x: hidden;
 }
 
-#wcsvzqsemy .gt_stub {
+#odumxdogii .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1564,7 +1164,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   padding-right: 5px;
 }
 
-#wcsvzqsemy .gt_stub_row_group {
+#odumxdogii .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1578,15 +1178,15 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   vertical-align: top;
 }
 
-#wcsvzqsemy .gt_row_group_first td {
+#odumxdogii .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wcsvzqsemy .gt_row_group_first th {
+#odumxdogii .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wcsvzqsemy .gt_summary_row {
+#odumxdogii .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1596,16 +1196,16 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   padding-right: 5px;
 }
 
-#wcsvzqsemy .gt_first_summary_row {
+#odumxdogii .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_first_summary_row.thick {
+#odumxdogii .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wcsvzqsemy .gt_last_summary_row {
+#odumxdogii .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1615,7 +1215,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-bottom-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_grand_summary_row {
+#odumxdogii .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1625,7 +1225,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   padding-right: 5px;
 }
 
-#wcsvzqsemy .gt_first_grand_summary_row {
+#odumxdogii .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1635,7 +1235,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-top-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_last_grand_summary_row_top {
+#odumxdogii .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1645,11 +1245,11 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-bottom-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_striped {
+#odumxdogii .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wcsvzqsemy .gt_table_body {
+#odumxdogii .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1658,7 +1258,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-bottom-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_footnotes {
+#odumxdogii .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1672,7 +1272,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-right-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_footnote {
+#odumxdogii .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1681,7 +1281,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   padding-right: 5px;
 }
 
-#wcsvzqsemy .gt_sourcenotes {
+#odumxdogii .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1695,7 +1295,7 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   border-right-color: #D3D3D3;
 }
 
-#wcsvzqsemy .gt_sourcenote {
+#odumxdogii .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1703,117 +1303,185 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
   padding-right: 5px;
 }
 
-#wcsvzqsemy .gt_left {
+#odumxdogii .gt_left {
   text-align: left;
 }
 
-#wcsvzqsemy .gt_center {
+#odumxdogii .gt_center {
   text-align: center;
 }
 
-#wcsvzqsemy .gt_right {
+#odumxdogii .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wcsvzqsemy .gt_font_normal {
+#odumxdogii .gt_font_normal {
   font-weight: normal;
 }
 
-#wcsvzqsemy .gt_font_bold {
+#odumxdogii .gt_font_bold {
   font-weight: bold;
 }
 
-#wcsvzqsemy .gt_font_italic {
+#odumxdogii .gt_font_italic {
   font-style: italic;
 }
 
-#wcsvzqsemy .gt_super {
+#odumxdogii .gt_super {
   font-size: 65%;
 }
 
-#wcsvzqsemy .gt_footnote_marks {
+#odumxdogii .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wcsvzqsemy .gt_asterisk {
+#odumxdogii .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wcsvzqsemy .gt_indent_1 {
+#odumxdogii .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wcsvzqsemy .gt_indent_2 {
+#odumxdogii .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wcsvzqsemy .gt_indent_3 {
+#odumxdogii .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wcsvzqsemy .gt_indent_4 {
+#odumxdogii .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wcsvzqsemy .gt_indent_5 {
+#odumxdogii .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wcsvzqsemy .katex-display {
+#odumxdogii .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wcsvzqsemy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#odumxdogii div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
 </colgroup>
 <thead>
-<tr class="gt_col_headings header">
-<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
-<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>OR</strong></th>
-<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>95% CI</strong></th>
-<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
+<tr class="gt_col_headings gt_spanner_row header">
+<th rowspan="2" id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th colspan="4" id="level 1; groupname_col_1" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+Poisson
+</div></th>
+<th colspan="4" id="level 1; groupname_col_2" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+Binomial negativa
+</div></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="groupname_col_1" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Group</strong></th>
+<th id="estimate_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>exp(Beta)</strong></th>
+<th id="conf.low_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>95% CI</strong></th>
+<th id="p.value_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
+<th id="groupname_col_2" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Group</strong></th>
+<th id="estimate_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>exp(Beta)</strong></th>
+<th id="conf.low_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>95% CI</strong></th>
+<th id="p.value_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="label">fib4_cat</td>
-<td class="gt_row gt_center" headers="estimate"><br>
-</td>
-<td class="gt_row gt_center" headers="conf.low"><br>
-</td>
-<td class="gt_row gt_center" headers="p.value"><br>
-</td>
+<td class="gt_row gt_left" headers="label">semana_epi</td>
+<td class="gt_row gt_left" headers="groupname_col_1">cond</td>
+<td class="gt_row gt_center" headers="estimate_1">1.05</td>
+<td class="gt_row gt_center" headers="conf.low_1">1.03, 1.06</td>
+<td class="gt_row gt_center" headers="p.value_1">&lt;0.001</td>
+<td class="gt_row gt_left" headers="groupname_col_2">cond</td>
+<td class="gt_row gt_center" headers="estimate_2">1.06</td>
+<td class="gt_row gt_center" headers="conf.low_2">1.03, 1.10</td>
+<td class="gt_row gt_center" headers="p.value_2">&lt;0.001</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;bajo riesgo</td>
-<td class="gt_row gt_center" headers="estimate">—</td>
-<td class="gt_row gt_center" headers="conf.low">—</td>
-<td class="gt_row gt_center" headers="p.value"><br>
+<td class="gt_row gt_left" headers="label">grupo_edad_cat</td>
+<td class="gt_row gt_left" headers="groupname_col_1">cond</td>
+<td class="gt_row gt_center" headers="estimate_1"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low_1"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value_1"><br>
+</td>
+<td class="gt_row gt_left" headers="groupname_col_2">cond</td>
+<td class="gt_row gt_center" headers="estimate_2"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low_2"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value_2"><br>
 </td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;alto riesgo</td>
-<td class="gt_row gt_center" headers="estimate">2.94</td>
-<td class="gt_row gt_center" headers="conf.low">1.90, 4.55</td>
-<td class="gt_row gt_center" headers="p.value">&lt;0.001</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;grupo_edad_cat10-19 años</td>
+<td class="gt_row gt_left" headers="groupname_col_1">cond</td>
+<td class="gt_row gt_center" headers="estimate_1">3.23</td>
+<td class="gt_row gt_center" headers="conf.low_1">1.81, 5.75</td>
+<td class="gt_row gt_center" headers="p.value_1">&lt;0.001</td>
+<td class="gt_row gt_left" headers="groupname_col_2">cond</td>
+<td class="gt_row gt_center" headers="estimate_2">3.20</td>
+<td class="gt_row gt_center" headers="conf.low_2">1.67, 6.12</td>
+<td class="gt_row gt_center" headers="p.value_2">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;grupo_edad_cat20-34 años</td>
+<td class="gt_row gt_left" headers="groupname_col_1">cond</td>
+<td class="gt_row gt_center" headers="estimate_1">8.98</td>
+<td class="gt_row gt_center" headers="conf.low_1">5.28, 15.3</td>
+<td class="gt_row gt_center" headers="p.value_1">&lt;0.001</td>
+<td class="gt_row gt_left" headers="groupname_col_2">cond</td>
+<td class="gt_row gt_center" headers="estimate_2">8.87</td>
+<td class="gt_row gt_center" headers="conf.low_2">4.85, 16.3</td>
+<td class="gt_row gt_center" headers="p.value_2">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;grupo_edad_cat35-65 años</td>
+<td class="gt_row gt_left" headers="groupname_col_1">cond</td>
+<td class="gt_row gt_center" headers="estimate_1">10.1</td>
+<td class="gt_row gt_center" headers="conf.low_1">5.95, 17.1</td>
+<td class="gt_row gt_center" headers="p.value_1">&lt;0.001</td>
+<td class="gt_row gt_left" headers="groupname_col_2">cond</td>
+<td class="gt_row gt_center" headers="estimate_2">9.98</td>
+<td class="gt_row gt_center" headers="conf.low_2">5.47, 18.2</td>
+<td class="gt_row gt_center" headers="p.value_2">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;grupo_edad_cat65+ años</td>
+<td class="gt_row gt_left" headers="groupname_col_1">cond</td>
+<td class="gt_row gt_center" headers="estimate_1">2.08</td>
+<td class="gt_row gt_center" headers="conf.low_1">1.12, 3.85</td>
+<td class="gt_row gt_center" headers="p.value_1">0.020</td>
+<td class="gt_row gt_left" headers="groupname_col_2">cond</td>
+<td class="gt_row gt_center" headers="estimate_2">2.04</td>
+<td class="gt_row gt_center" headers="conf.low_2">1.03, 4.04</td>
+<td class="gt_row gt_center" headers="p.value_2">0.042</td>
 </tr>
 </tbody><tfoot>
 <tr class="gt_sourcenotes odd">
-<td colspan="4" class="gt_sourcenote">Abbreviations: CI = Confidence Interval, OR = Odds Ratio</td>
+<td colspan="9" class="gt_sourcenote">Abbreviation: CI = Confidence Interval</td>
 </tr>
 </tfoot>
 
@@ -1822,32 +1490,257 @@ mod_cond1c | clogit | 390.2 (0.687) | 396.0 (0.975) |           0.065 | 0.230</c
 </div>
 </div>
 </div>
-<p>En el modelo final, las personas con alto riesgo de fibrosis hepática presentan 3,7 veces más probabilidades de morir (<span class="math inline">\(95% IC: 2,45-5,57\)</span>) que aquellas sin la condición.</p>
-<div class="hidden">
-<p><span class="citation" data-cites="agresti2015">Agresti (<a href="#ref-agresti2015" role="doc-biblioref">2015</a>)</span> <span class="citation" data-cites="wickham2019">Wickham et&nbsp;al. (<a href="#ref-wickham2019" role="doc-biblioref">2019</a>)</span> <span class="citation" data-cites="easystats">Lüdecke et&nbsp;al. (<a href="#ref-easystats" role="doc-biblioref">2022</a>)</span></p>
-</div>
+<p>La regresión binomial negativa tiene como limitación no ser adecuada para datos con subdispersión. Además, son modelos computacionalmente complejos y su ajuste depende de la estructura específica de los datos, lo que puede afectar la estabilidad de las estimaciones.</p>
 </section>
-<section id="referencias" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="referencias">Referencias</h2>
+<section id="distribución-conway-maxwell-poisson" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-conway-maxwell-poisson">Distribución Conway-Maxwell Poisson</h3>
+<p>Otra alternativa a la regresión de Poisson, que permite controlar tanto sobredispersión como subdispersión y exceso de ceros es el modelo Conway-Maxwell Poisson (COM-Poisson). El mismo ofrece una generalización del modelo Poisson estándar, introduciendo un parámetro adicional que permite ajustar de forma independiente la media y la varianza.</p>
+<p>Podemos ajustar estos modelos con la función <code>glmmTMB()</code> especificando el argumento <code>family = compois()</code>, que tiene como función de enlace por defecto el logaritmo <code>(link = "log")</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo COMPOIS</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fit_compois <span class="ot">&lt;-</span> <span class="fu">glmmTMB</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  casos <span class="sc">~</span> semana_epi <span class="sc">+</span> grupo_edad_cat,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> compois</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Salida del modelo</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_compois)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Una desventaja de estos modelos es que son computacionalmente complejos y están implementados en pocos <em>software</em> estadísticos y paquetes de R. Por otro lado, los parámetros son menos intuitivos de interpretar, y puede presentar dificultades en la estimación de parámetros, especialmente en casos de datos limitados o de mala calidad.</p>
+</section>
+</section>
+<section id="exceso-de-ceros-zero-inflation" class="level2" data-number="29.5">
+<h2 data-number="29.5" class="anchored" data-anchor-id="exceso-de-ceros-zero-inflation"><span class="header-section-number">29.5</span> Exceso de ceros (<em>zero-inflation)</em></h2>
+<p>El exceso de ceros ocurre cuando se observan más ceros en los datos de lo que el modelo Poisson predice. Este fenómeno puede ser un indicativo de que el modelo Poisson no es adecuado para los datos.</p>
+<p>Para identificar un exceso de ceros, se puede utilizar la función <code>check_zeroinflation()</code> del paquete <code>performance</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_zeroinflation</span>(fit_pois_tmb)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Check for zero-inflation
+
+   Observed zeros: 821
+  Predicted zeros: 739
+            Ratio: 0.90</code></pre>
+</div>
+</div>
+<p>Los resultados del test indican que los datos presentan un exceso de ceros. Para explorar el origen de este fenómeno, comenzamos tabulando los datos por semana epidemiológica:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(semana_epi) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">casos =</span> <span class="fu">sum</span>(casos))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 2
+   semana_epi casos
+        &lt;dbl&gt; &lt;dbl&gt;
+ 1          1     4
+ 2          2     2
+ 3          3     4
+ 4          4     6
+ 5          5     3
+ 6          6     6
+ 7          7     9
+ 8          8    11
+ 9          9    20
+10         10    48
+11         11    51
+12         12    59
+13         13    63
+14         14    49
+15         15    31
+16         16    11
+17         17    12
+18         18     9
+19         19    11
+20         20     1</code></pre>
+</div>
+</div>
+<p>Observamos que se reportaron casos de dengue en todas las semanas epidemiológicas. Ahora, veamos la distribución de los casos por departamento:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(departamento) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">casos =</span> <span class="fu">sum</span>(casos))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   departamento       casos
+   &lt;chr&gt;              &lt;dbl&gt;
+ 1 BAHIA BLANCA         117
+ 2 CORONEL DORREGO        2
+ 3 GENERAL ALVARADO       6
+ 4 GENERAL PUEYRREDON    75
+ 5 LA COSTA             150
+ 6 LOBERIA                2
+ 7 MAR CHIQUITA           8
+ 8 NECOCHEA              14
+ 9 PINAMAR               28
+10 TRES ARROYOS           8</code></pre>
+</div>
+</div>
+<p>En este caso, todos los departamentos reportaron casos de dengue durante el período de estudio. Procedamos a cruzar los datos por semana epidemiológica y departamento:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(semana_epi, departamento) <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">casos =</span> <span class="fu">sum</span>(casos)) <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">20</span>) <span class="co"># Muestra las primeras 20 observaciones</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 200 × 3
+# Groups:   semana_epi [20]
+   semana_epi departamento       casos
+        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+ 1          1 BAHIA BLANCA           1
+ 2          1 CORONEL DORREGO        0
+ 3          1 GENERAL ALVARADO       0
+ 4          1 GENERAL PUEYRREDON     2
+ 5          1 LA COSTA               1
+ 6          1 LOBERIA                0
+ 7          1 MAR CHIQUITA           0
+ 8          1 NECOCHEA               0
+ 9          1 PINAMAR                0
+10          1 TRES ARROYOS           0
+11          2 BAHIA BLANCA           0
+12          2 CORONEL DORREGO        0
+13          2 GENERAL ALVARADO       0
+14          2 GENERAL PUEYRREDON     1
+15          2 LA COSTA               0
+16          2 LOBERIA                0
+17          2 MAR CHIQUITA           0
+18          2 NECOCHEA               0
+19          2 PINAMAR                1
+20          2 TRES ARROYOS           0
+# ℹ 180 more rows</code></pre>
+</div>
+</div>
+<p>En esta tabla, se observa que no todos los departamentos en La Costa reportaron casos de dengue cada semana epidemiológica. Además, dado que los datos están separados por grupo etario, es razonable suponer que tampoco se reportaron casos para cada grupo en cada departamento y semana epidemiológica.</p>
+<p>Para obtener una visión más detallada, generamos una tabla de frecuencia para los reportes de cero casos:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabyl</span>(datos<span class="sc">$</span>casos) <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> datos$casos   n percent
+           0 821   78.4%
+           1 136   13.0%
+           2  44    4.2%
+           3  23    2.2%
+           4  13    1.2%
+           5   5    0.5%
+           6   2    0.2%
+           7   1    0.1%
+           9   1    0.1%
+          12   1    0.1%</code></pre>
+</div>
+</div>
+<p>La tabla muestra que el 78.4% de los datos corresponden a observaciones con cero reportes de casos de dengue. Esto es esperado en el contexto de datos de vigilancia epidemiológica, donde es común encontrar muchas observaciones sin eventos.</p>
+<p>Este exceso de ceros se puede controlar usando modelos <em>zero-inflated</em>, que tendrán distribución Poisson o binomial negativa según exista o no sobredispersión de los datos.</p>
+<p>Añadiendo el argumento <code>zi = ~ 1</code>, podemos controlar el exceso de ceros en el modelo de regresión binomial negativa ajustada anteriormente. Indicando que la inflación en ceros sigue un modelo de intercepto único (sin predictores adicionales):</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo zero-inflated</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fit_zi_nb <span class="ot">&lt;-</span> <span class="fu">glmmTMB</span>(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  casos <span class="sc">~</span> semana_epi <span class="sc">+</span> grupo_edad_cat,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">zi =</span> <span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> datos,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> nbinom2</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Salida del modelo</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_zi_nb)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: nbinom2  ( log )
+Formula:          casos ~ semana_epi + grupo_edad_cat
+Zero inflation:         ~1
+Data: datos
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1540.4    1580.0    -762.2    1524.4      1039 
+
+
+Dispersion parameter for nbinom2 family (): 0.467 
+
+Conditional model:
+                         Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)              -3.27950    0.33522  -9.783  &lt; 2e-16 ***
+semana_epi                0.06159    0.01570   3.923 8.73e-05 ***
+grupo_edad_cat10-19 años  1.16315    0.33067   3.518 0.000435 ***
+grupo_edad_cat20-34 años  2.18318    0.30879   7.070 1.55e-12 ***
+grupo_edad_cat35-65 años  2.30095    0.30722   7.490 6.90e-14 ***
+grupo_edad_cat65+ años    0.71124    0.34949   2.035 0.041842 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Zero-inflation model:
+            Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept)   -16.69    3025.54  -0.006    0.996</code></pre>
+</div>
+</div>
+<p>La salida de estos modelos se divide en tres partes que incluyen:</p>
+<ul>
+<li><p><code>Conditional model</code>: coeficientes, error estándar, valor z y significancia para el modelo de conteo binomial negativo.</p></li>
+<li><p><code>Zero-inflation model</code>: coeficiente para la probabilidad de observar un cero adicional, con su respectivo error estándar, valor z y significancia. El coeficiente del intercepto no es significativo, lo que indica que la probabilidad de observar un cero adicional no está significativamente influenciada por las variables en el modelo y podría ser necesario incluir un predictor en <code>zi</code> para mejorar el ajuste del modelo.</p></li>
+<li><p>Estadísticas del modelo: AIC, BIC, logLik, devianza y grados de libertad residuales.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-caution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Existen diversas soluciones para tratar la sobredispersión, subdispersión y exceso de ceros en modelos de conteo. En este documento, nos enfocamos en las estrategias más comunes que pueden ser abordadas mediante modelos lineales generalizados utilizando el paquete <code>glmmTMB</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Problema</th>
+<th>Modelo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sobredispersión</td>
+<td><code>glmmTMB(formula, family = nbinom2)</code></td>
+</tr>
+<tr class="even">
+<td>Subdispersión</td>
+<td><code>glmmTMB(formula, family = compois)</code></td>
+</tr>
+<tr class="odd">
+<td>Sobredispersión + Exceso de Ceros</td>
+<td><code>glmmTMB(formula, family = nbinom2, zi = ~1)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="hidden">
+<p><span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref"><strong>tidyverse?</strong></a>)</span></p>
+<p><span class="citation" data-cites="easystats">Lüdecke et&nbsp;al. (<a href="#ref-easystats" role="doc-biblioref">2022</a>)</span></p>
+<p><span class="citation" data-cites="janitor">(<a href="#ref-janitor" role="doc-biblioref"><strong>janitor?</strong></a>)</span></p>
+<p><span class="citation" data-cites="gtsummary">Sjoberg et&nbsp;al. (<a href="#ref-gtsummary" role="doc-biblioref">2021</a>)</span></p>
+<p><span class="citation" data-cites="agresti2015">Agresti (<a href="#ref-agresti2015" role="doc-biblioref">2015</a>)</span></p>
+<p><span class="citation" data-cites="salinas-rodríguez2009">(<a href="#ref-salinas-rodríguez2009" role="doc-biblioref"><strong>salinas-rodríguez2009?</strong></a>)</span></p>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-agresti2015" class="csl-entry" role="listitem">
 Agresti, Alan. 2015. <em>Foundations of Linear and Generalized Linear Models</em>. Wiley Series En Probability y Statistics. John Wiley &amp; Sons, Inc.
 </div>
-<div id="ref-MatchIt" class="csl-entry" role="listitem">
-Ho, Daniel E., Kosuke Imai, Gary King, y Elizabeth A. Stuart. 2011. <span>«<span>MatchIt</span>: Nonparametric Preprocessing for Parametric Causal Inference»</span>. <em>Journal of Statistical Software</em> 42 (8): 1-28. <a href="https://doi.org/10.18637/jss.v042.i08">https://doi.org/10.18637/jss.v042.i08</a>.
-</div>
 <div id="ref-easystats" class="csl-entry" role="listitem">
 Lüdecke, Daniel, Mattan S. Ben-Shachar, Indrajeet Patil, et&nbsp;al. 2022. <span>«easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting»</span>. <em>CRAN</em>, advance online publication. <a href="https://doi.org/10.32614/CRAN.package.easystats">https://doi.org/10.32614/CRAN.package.easystats</a>.
 </div>
-<div id="ref-survival" class="csl-entry" role="listitem">
-Terry M. Therneau, y Patricia M. Grambsch. 2000. <em>Modeling Survival Data: Extending the <span>C</span>ox Model</em>. Springer.
-</div>
-<div id="ref-wickham2019" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, et&nbsp;al. 2019. <span>«Welcome to the Tidyverse»</span>. <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+<div id="ref-gtsummary" class="csl-entry" role="listitem">
+Sjoberg, Daniel D., Karissa Whiting, Michael Curry, Jessica A. Lavery, y Joseph Larmarange. 2021. <span>«Reproducible Summary Tables with the gtsummary Package»</span>. <em><span>The R Journal</span></em> 13: 570-80. <a href="https://doi.org/10.32614/RJ-2021-053">https://doi.org/10.32614/RJ-2021-053</a>.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Fuente: <a href="https://es.wikipedia.org/wiki/Localidades_balnearias_del_mar_Argentino" class="uri">https://es.wikipedia.org/wiki/Localidades_balnearias_del_mar_Argentino</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Fuente: Vigilancia de las enfermedades por virus del Dengue y Zika. Datos Abiertos del Ministerio de Salud. Disponible en: <a href="http://datos.salud.gob.ar/dataset/vigilancia-de-dengue-y-zika" class="uri">http://datos.salud.gob.ar/dataset/vigilancia-de-dengue-y-zika</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -2266,14 +2159,11 @@ Wickham, Hadley, Mara Averick, Jennifer Bryan, et&nbsp;al. 2019. <span>«Welcome
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../unidad_4/03_sep_datos.html" class="pagination-link" aria-label="Separación de datos binomiales">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Separación de datos binomiales</span></span>
+      <a href="../unidad_5/02_reg_poisson.html" class="pagination-link" aria-label="Regresión de Poisson">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Regresión de Poisson</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../unidad_4/05_mod_predict.html" class="pagination-link" aria-label="Validación de modelos predictivos">
-        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Validación de modelos predictivos</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
